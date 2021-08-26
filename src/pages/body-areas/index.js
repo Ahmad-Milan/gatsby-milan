@@ -3,7 +3,7 @@ import React from 'react'
 function index() {
   return (
     <div>
-      FAQs Page
+      Body areas main page
     </div>
   )
 }
