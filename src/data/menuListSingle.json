@@ -1,0 +1,143 @@
+{
+  "title": "Main menu list for single location sites to be used in Navbar and Sidebar",
+  "content" : [
+    {
+      "link": "home",
+      "url": "/"
+    },
+    
+    {
+      "link": "specials",
+      "url": "/specials/",
+      "subMenu":[
+        {
+          "link": "This Month's Special",
+          "url": "/specials/"
+        },
+        {
+          "link": "Payment Plans",
+          "url": "/specials/#financing"
+        }
+      ]
+    },
+
+    {
+      "link": "The Process",
+      "url": "/process/",
+      "subMenu": [
+        {
+          "link": "How it works",
+          "url": "/process/"
+        },
+        {
+          "link": "Befor/After Photos",
+          "url": "/process/beforeafter",
+          "subSubMenu": [
+            {
+              "link": "Face &amp; Lip",
+              "url": "/process/beforeafter_lip"
+            },
+            {
+              "link": "Underarms",
+              "url": "/process/beforeafter_underarm"
+            },
+            {
+              "link": "Bikini",
+              "url": "/process/beforeafter_bikini"
+            },
+            {
+              "link": "Legs",
+              "url": "/process/beforeafter_legs"
+            },
+            {
+              "link": "Men's Area",
+              "url": "/process/beforeafter_men"
+            }
+          ]
+        },
+        {
+          "link": "FAQs",
+          "url": "/process/faqs"
+        },
+        {
+          "link": "Types of Hair Removal",
+          "url": "/process/compare"
+        }
+      ]
+    },
+
+    {
+      "link": "Body Areas",
+      "url": "/areas/",
+      "subMenu": [
+        {
+          "link": "Lip &amp; Chin",
+          "url": "/areas/lipnchin"
+        },
+        {
+          "link": "Legs",
+          "url": "/areas/legs"
+        },
+        {
+          "link": "Underarm",
+          "url": "/areas/underarm"
+        },
+        {
+          "link": "Bikini Area",
+          "url": "/areas/bikini"
+        },
+        {
+          "link": "Brazilian Bikini",
+          "url": "/areas/brazilian"
+        },
+        {
+          "link": "For Men",
+          "url": "/areas/for-men"
+        },
+        {
+          "link": "For Dark Skin",
+          "url": "/areas/darkskin"
+        },
+        {
+          "link": "All Body Areas",
+          "url": "/areas/"
+        }
+      ]
+    },
+
+    {
+      "link": "Contact &amp; About Us",
+      "url": "/contact/",
+      "subMenu": [
+        {
+          "link": "Our Location",
+          "url": "/about-us/"
+        },
+        {
+          "link": "Reviews/Testimonials",
+          "url": "/about-us/reviews"
+        },
+        {
+          "link": "Email or Call Us",
+          "url": "/contact/"
+        },
+        {
+          "link": "Facebook",
+          "url": "https://www.facebook.com/MilanLaserAlbany/"
+        },
+        {
+          "link": "Twitter",
+          "url": "https://twitter.com/milanlaser"
+        },
+        {
+          "link": "About Us",
+          "url": "/about-us/#about-us"
+        },
+        {
+          "link": "Careers",
+          "url": "https://milanlaser.com/careers/"
+        }
+      ]
+    }
+  ]
+}

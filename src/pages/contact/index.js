@@ -2,8 +2,11 @@ import React from 'react'
 
 function index() {
   return (
-    <div>
-      Contact Page
+    <div >
+      <div style={{backgroundColor: 'lightblue', height: '800px'}}>Contact Page</div> 
+
+      <span id="facebook"> Facebook hash</span>
+      <div style={{backgroundColor: 'blue', height: '800px'}}>Contact Page</div> 
     </div>
   )
 }
