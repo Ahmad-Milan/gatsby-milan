@@ -1,0 +1,21 @@
+header{
+  background: var(--main-navy);
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+}
+header nav {
+  position: relative;
+}
+
+header .cta-btns {
+  padding: 22px 0;
+}
+
+header .headerbar-toggler {margin: 16px 0; padding-left: 10px;}
+header .headerbar-toggler:focus {outline-color: var(--main-turquoise);}
+header .cta-btns {padding: 22px 0;}
+header .header-tel a {color: #fff; transition: all .2s ease-in-out;}
+header .header-tel a:hover {color: var(--main-turquoise);}
+header .header-tel a i{color: var(--main-turquoise);}

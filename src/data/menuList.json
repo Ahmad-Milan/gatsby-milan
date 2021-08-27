@@ -2,12 +2,12 @@
   "title": "Main menu list for multiple locations sites to be used in Navbar and Sidebar",
   "content" : [
     {
-      "link": "home",
+      "link": "Home",
       "url": "/"
     },
     
     {
-      "link": "specials",
+      "link": "Specials",
       "url": "/specials/",
       "subMenu":[
         {
@@ -34,7 +34,7 @@
           "url": "/process/beforeafter",
           "subSubMenu": [
             {
-              "link": "Face &amp; Lip",
+              "link": "Face & Lip",
               "url": "/process/beforeafter_lip"
             },
             {
@@ -71,7 +71,7 @@
       "url": "/areas/",
       "subMenu": [
         {
-          "link": "Lip &amp; Chin",
+          "link": "Lip & Chin",
           "url": "/areas/lipnchin"
         },
         {
@@ -106,7 +106,7 @@
     },
 
     {
-      "link": "Contact &amp; About Us",
+      "link": "Contact & About Us",
       "url": "/contact/",
       "subMenu": [
         {
@@ -151,7 +151,7 @@
         },
         {
           "link": "About Us",
-          "url": "https://milanlaser.com/about-us/"
+          "url": "/about-us/"
         },
         {
           "link": "Careers",

@@ -1,3 +1,4 @@
+@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 :root {
   --main-red: #f93500;
   --main-turquoise: #3BD0EA;
@@ -11,14 +12,54 @@
   --light-bg: rgba(207,246,255,1.00);
 }
 
-/* * {
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-} */
+  text-decoration: none;
+}
 
 body {
   font-family: 'Open Sans',sans-serif;
   font-size: 16px;
   color: var(--main-navy);
 }
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+
+
+
+
+
+@media(min-width: 576px) and (max-width: 768px) {}
+
+@media(min-width: 768px) and (max-width: 991px) {}
+
+@media(min-width: 992px) {}
+
+@media(min-width: 1200px) {}
+
+@media(max-width: 1600px) {}
+
+@media(min-width: 992px) and (max-width: 1200px) {}
+
+@media(max-width: 991px) {}
+
+@media (max-width: 576px) {}
+
+@media (max-width: 360px) {}
+
+@media (min-width: 1600px) {}
+
+@media (min-width: 401px) {
+  .footer-links {font-size: 1em;}
+}
+
+@media (min-width: 576px) {}
+

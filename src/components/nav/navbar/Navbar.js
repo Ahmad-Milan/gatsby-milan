@@ -4,15 +4,9 @@ import Menu from '../menu/Menu'
 
 const Navbar = ({ toggleSidebar }) => {
   return (
-    <nav className="navbar">
-      <div className="nav-center">
-        <div className="nav-header">
-
-        </div>
-        {/* This 👇 returns an <ul>  */}
-        <Menu />
-      </div>
-    </nav>
+    <>
+      <Menu />
+    </>
   )
 }
 
