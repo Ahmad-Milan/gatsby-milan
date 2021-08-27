@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from "gatsby"
-// import Navbar from "../nav/navbar/Navbar"
-// import Sidebar from "../nav/sidebar/Sidebar"
+
 import Menu from '../nav/menu/Menu'
 
 import Container from 'react-bootstrap/Container'
@@ -20,8 +19,8 @@ function Header() {
         <Row>
           <nav className="w-100">
             <button id="menu-btn" className="d-inline-block d-lg-none" type="button">MENU</button>
+            {/* Main menu list */}
             <Menu />
-            {/* <Sidebar /> */}
 
             <div className="float-end cta-btns">
               <div className="mr-3 header-tel d-none d-sm-inline-block">
