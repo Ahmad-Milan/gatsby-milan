@@ -5,13 +5,13 @@ import SubMenu from './sub-menu/SubMenu'
 import MenuList from '../../../data/menuList.json'
 import './Menu.css'
 
-function Menu() {
+function Menu({ passedClass }) {
   const menu = MenuList.content
 
   return (
-    <ul className="menu">
+    <ul className={`navbar__menu ${passedClass}`}>
       {menu.map((item, i) =>  (
-        <li key={i} className="menu__item">
+        <li key={i} className="menu__item position-relative">
 
           <div className="menu__item__link__wrapper">
             {/*👇 Main menu links go here */}

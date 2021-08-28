@@ -3,9 +3,6 @@ import { Link } from "gatsby"
 
 import Menu from '../nav/menu/Menu'
 
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-
 import { FaPhoneAlt } from 'react-icons/fa';
 
 import './Header.css'
@@ -15,12 +12,13 @@ import './Header.css'
 function Header() {
   return (
     <header className="shadow-sm">
-      <Container>
-        <Row>
+      <div className="container-xl">
+        <div className="row">
           <nav className="w-100">
             <button id="menu-btn" className="d-inline-block d-lg-none" type="button">MENU</button>
             {/* Main menu list */}
-            <Menu />
+            <Menu passedClass="navbar__menu--lg" /> {/* for larger screens */}
+            <Menu passedClass="sidebar__menu" /> {/* for smaller screens */}
 
             <div className="float-end cta-btns">
               <div className="mr-3 header-tel d-none d-sm-inline-block">
@@ -33,8 +31,8 @@ function Header() {
               </div>
 					  </div>
           </nav>
-        </Row>
-      </Container>
+        </div>
+      </div>
     </header>
   )
 }
