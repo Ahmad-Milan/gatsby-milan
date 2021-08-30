@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from "gatsby"
 
 import Menu from '../nav/menu/Menu'
@@ -10,9 +10,24 @@ import './Header.css'
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
+  const [windowWidth, setWindowWidth] = useState(0)
+
+  const handleClick = () => setIsOpen(!isOpen)
+
+  // Check if window is defined (so if in the browser or in node.js).
+  const isBrowser = typeof window !== "undefined"
+
+  useEffect(() => {
+    if(isBrowser) {
+      setWindowWidth(window.innerWidth)
+      window.addEventListener("resize", handleResize)
+    }else return
+  }, [])
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth)
   }
+
 
   return (
     <header className="shadow-sm">
@@ -22,9 +37,8 @@ function Header() {
             <button id="menu-btn" className="d-inline-block d-lg-none" type="button"
               onClick={handleClick}>MENU</button>
             {/* Main menu list */}
-            <Menu passedClass="navbar__menu--lg" /> {/* for larger screens */}
-            
-            <Menu passedClass={`navbar__menu--sm ${isOpen ? 'isOpen' : '' }`} /> {/* for smaller screens */}
+            <Menu navbarSize={`${windowWidth > 991 ? 'navbar__menu--lg' : 'navbar__menu--sm'}`} isOpen={isOpen ? 'isOpen' : ''}/>
+            {/* ${isOpen ? 'isOpen' : '' } */}
 
             <div className="float-end cta-btns">
               <div className="mr-3 header-tel d-none d-sm-inline-block">

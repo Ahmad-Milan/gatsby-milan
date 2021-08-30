@@ -13,14 +13,12 @@ header .navbar__menu .menu__item__link__wrapper a {
 header .subMenu__wrapper {
   display: block;
   top: 67px;
-  left: 0;
   transition: all 0.4s ease-in-out;
   transform-origin: top center;
   border: none !important;
   background-color: transparent;
   padding: 0;
   margin: 0;
-  width: 100%;
 }
 header .menu__item:hover .subMenu__wrapper {
   height: auto;
@@ -132,6 +130,7 @@ header .navbar__menu--sm .menu__item {
   padding: 0;
   border-bottom: 1px solid rgba(120, 120, 120, 0.2);
   background: var(--main-navy);
+  position: relative;
 }
 header .navbar__menu--sm .menu__item:last-child {
   padding-bottom: 5px;
@@ -142,6 +141,8 @@ header .navbar__menu--sm .menu__item__link__wrapper a {
 }
 header .navbar__menu--sm .subMenu__wrapper {
   overflow: hidden;
+  left: 0;
+  width: 100%;
 }
 header .navbar__menu--sm .subMenu {
   background: var(--main-navy);
@@ -205,7 +206,9 @@ header .navbar__menu .subMenu .caret-icon.fa-caret-right {position: absolute; ri
 /* ---------------------------------------------------- */
 
 
-
+.hello {
+  color: red;
+}
 
 
 /* 

@@ -1,8 +1,10 @@
 import React from 'react'
 import Link  from "../../../../templates/linkTesting"
 import { FaCaretRight } from 'react-icons/fa';
+import { FaCaretDown } from 'react-icons/fa';
 
-function SubMenu({subMenuItem}) {
+function SubMenu({subMenuItem, navbarSize}) {
+  console.log(navbarSize)
   return (
     <li>
       <Link to={subMenuItem.url}>{subMenuItem.link} </Link>
@@ -10,7 +12,9 @@ function SubMenu({subMenuItem}) {
       { /* subSubMenu list goes here 👇 if any */
         subMenuItem.subSubMenu && 
         <>
-          <span className="caret__icon caret__icon--right"><FaCaretRight /></span>
+          <span className="caret__icon caret__icon--right">
+            {navbarSize === 'navbar__menu--lg' ? <FaCaretRight /> : <FaCaretDown />}
+          </span>
           <div className="subSubMenu__wrapper">
             <ul className="subSubMenu pl-0 mt-lg-2 mx-2 mx-lg-0">
               { 

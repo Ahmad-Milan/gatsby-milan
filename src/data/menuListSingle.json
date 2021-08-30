@@ -2,6 +2,11 @@
   "title": "Main menu list for single location sites to be used in the navbar",
   "content" : [
     {
+      "link": "Home",
+      "url": "/"
+    },
+
+    {
       "link": "Specials",
       "url": "/specials/",
       "subMenu":[
