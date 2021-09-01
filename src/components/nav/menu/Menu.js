@@ -27,6 +27,24 @@ function Menu({ navbarSize, isOpen }) {
     }
   }
 
+  const [update, setUpdate] = useState(false)
+
+
+  const closeAllExpandedLists = (i) => {
+    menu[i].subMenu.map(item => {
+      if(item.subSubMenu) item.expanded = false
+    })
+    console.log(menu[i].subMenu)
+    setUpdate(!update)
+  }
+
+  // const [subSubMenuExpanded, setSubSubMenuExpanded] = useState(null)
+
+  // const parentHandleClick = (boolean) => {
+  //   setSubSubMenuExpanded(boolean)
+  // }
+  // console.log(subSubMenuExpanded)
+
   return (
     <ul className={`navbar__menu ${navbarSize} ${isOpen}`}>
 
@@ -48,10 +66,13 @@ function Menu({ navbarSize, isOpen }) {
             item?.subMenu && 
             <ul className={`subMenu shadow ${ (i + 1) === currentExpandedId && isExpanded ? 'expanded' : '' }`}>
               {
-                item.subMenu.map((subMenuItem, index) => (
-                  <SubMenu key={index} subMenuItem={subMenuItem} navbarSize={navbarSize}/>
-                ))
+                item.subMenu.map((subMenuItem, x) => {
+                  if(subMenuItem.subSubMenu) subMenuItem.expanded = false
+                  return (
+                  <SubMenu key={x} subMenuItem={subMenuItem} navbarSize={navbarSize} closeAllExpandedLists={() => closeAllExpandedLists(i)} />
+                )})
               }
+              {/* {console.log('Menu Rendered')} */}
             </ul> 
           }
         </div>
@@ -64,3 +85,8 @@ function Menu({ navbarSize, isOpen }) {
 }
 
 export default Menu
+
+
+// closeAllExpandedLists={() => closeAllExpandedLists(i)}
+
+// parentHandleClick={(b) => parentHandleClick(b)}
