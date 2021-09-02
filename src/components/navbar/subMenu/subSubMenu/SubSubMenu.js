@@ -2,7 +2,6 @@ import React from 'react'
 import Link  from "../../../../templates/linkTesting"
 
 function SubSubMenu({subMenuItem, expanded}) {
-  console.log('SubSubMenu Rendered')
   return (
     <div className="subSubMenu__wrapper">
       <ul className={`subSubMenu pl-0 mt-lg-2 mx-2 mx-lg-0  ${expanded ? 'subSubMenu-slidedown' : ''}`}>

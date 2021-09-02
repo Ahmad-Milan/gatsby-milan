@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, isValidElement} from 'react'
 import { Link } from "gatsby"
 import MenuList from '../../data/menuList.json'
 
@@ -8,8 +8,7 @@ import { FaPhoneAlt } from 'react-icons/fa';
 
 import './Header.css'
 
-function Header() {
-
+function Header({location}) {
   const menu = MenuList.content
 
   function updateMenu() {
@@ -34,10 +33,8 @@ function Header() {
   const isBrowser = typeof window !== "undefined"
 
   useEffect(() => {
-    if(isBrowser) {
-      setWindowWidth(window.innerWidth)
-      window.addEventListener("resize", handleResize)
-    }else return
+    setWindowWidth(window.innerWidth)
+    window.addEventListener("resize", handleResize)
   }, [isBrowser])
 
   const handleResize = () => {
@@ -45,7 +42,6 @@ function Header() {
   }
   
   console.log('Header Rendered')
-  console.log(menu.open)
 
   return (
     <header className="shadow-sm">
@@ -57,7 +53,9 @@ function Header() {
               style={isOpen ? {color: 'var(--main-turquoise)'} : {color: '#fff'}}
               onClick={handleClick}>MENU</button>
             {/* Main menu list */}
-            <Navbar menu={menu} navbarSize={`${windowWidth > 991 ? 'navbar__menu--lg' : 'navbar__menu--sm'}`} isOpen={isOpen ? 'isOpen' : ''}/>
+            <Navbar menu={menu} location={location}
+              navbarSize={`${windowWidth > 991 ? 'navbar__menu--lg' : 'navbar__menu--sm'}`}
+              isOpen={isOpen ? 'isOpen' : ''}/>
 
             <div className="float-end cta-btns">
               <div className="me-3 header-tel d-none d-sm-inline-block">

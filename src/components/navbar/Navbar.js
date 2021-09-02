@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
-import Navlink from './Navlink';
+import Link  from "../../templates/linkTesting"
 import SubMenu from './subMenu/SubMenu'
-import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 
 
+function Navbar({ menu, navbarSize, isOpen, location }) {
 
-function Navbar({ menu, navbarSize, isOpen }) {
-console.log('Navbar Rendered')
   const [clicked, setClicked] = useState(false)
 
   const handleClick = (menuItem) => {
@@ -21,6 +20,15 @@ console.log('Navbar Rendered')
     setClicked(!clicked)
   }
 
+
+  // Check if window is defined (so if in the browser or in node.js).
+  const isBrowser = typeof window !== "undefined"
+
+  const currentPath = location.pathname
+  if(isBrowser && currentPath === location.state.prevPath) {
+    console.log('same path')
+  }
+
   return (
     <ul className={`navbar__menu ${navbarSize} ${isOpen}`}>
 
@@ -29,7 +37,14 @@ console.log('Navbar Rendered')
         <div className="menu__item__link__wrapper">
           {/*👇 Main menu links go here */}
           {/* Home / Specials / The Process / Areas / Contact & About Us  */}
-          <Navlink to={menuItem.url} className="text-uppercase">{menuItem.link}</Navlink>
+          <Link
+            to={menuItem.url} 
+            activeClassName="active-link" 
+            className="text-uppercase"
+            state={{prevPath: currentPath}}
+            >
+              {menuItem.link}
+          </Link>
           { menuItem?.subMenu && 
           <>
             {

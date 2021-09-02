@@ -5,7 +5,7 @@ import SubSubMenu from './subSubMenu/SubSubMenu'
 import { FaCaretRight, FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
 function SubMenu({menu, menuItem, navbarSize, expanded, index}) {
-  console.log('SubMenu Rendered')
+
   const [clicked, setClicked] = useState(false)
 
   const handleClick = (subMenuItem) => {
@@ -29,7 +29,7 @@ function SubMenu({menu, menuItem, navbarSize, expanded, index}) {
         menuItem.subMenu.map((subMenuItem, x) => {
           return (
           <li key={x}> {/* Ex: <li>Our Locations</li> */}
-            <Link to={subMenuItem.url}>{subMenuItem.link} </Link>
+            <Link activeClassName="active-link" to={subMenuItem.url}>{subMenuItem.link} </Link>
             {
               subMenuItem?.subSubMenu &&
               <>

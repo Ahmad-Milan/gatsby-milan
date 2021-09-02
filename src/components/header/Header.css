@@ -148,7 +148,9 @@ header .navbar__menu--lg .subSubMenu__wrapper {
 header .navbar__menu--lg .subSubMenu {
   transform: translateX(-100%);
 }
-
+header .active-link {
+  color: var(--main-turquoise) !important;
+}
 
 /* Navbar for smaller screens */
 header .navbar__menu--sm {
