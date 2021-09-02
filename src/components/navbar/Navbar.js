@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
-import { Link } from "gatsby"
+import Navlink from './Navlink';
 import SubMenu from './subMenu/SubMenu'
-import { FaCaretDown } from 'react-icons/fa';
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
+
+
 
 function Navbar({ menu, navbarSize, isOpen }) {
 console.log('Navbar Rendered')
@@ -27,18 +29,27 @@ console.log('Navbar Rendered')
         <div className="menu__item__link__wrapper">
           {/*👇 Main menu links go here */}
           {/* Home / Specials / The Process / Areas / Contact & About Us  */}
-          <Link to={menuItem.url} className="text-uppercase">{menuItem.link}</Link>
+          <Navlink to={menuItem.url} className="text-uppercase">{menuItem.link}</Navlink>
           { menuItem?.subMenu && 
-          <span className="caret__icon caret__icon--down" onClick={() => handleClick(menuItem)}>
-            <FaCaretDown />
-          </span> 
+          <>
+            {
+              navbarSize === 'navbar__menu--lg' && 
+              <span className="caret__icon caret__icon--down"><FaCaretDown /></span>
+            }
+            {
+              navbarSize === 'navbar__menu--sm' && 
+              <span className="caret__icon" onClick={() => handleClick(menuItem)}>
+                { menuItem.expanded ? <FaCaretUp /> : <FaCaretDown /> }
+              </span> 
+            }
+          </>
           }
         </div>
         {
           menuItem?.subMenu && 
           <>
-            {/* menuItem ex: Sepcials -> subMenuItems : {This Month's Specials, Payment Plan} */}
-            <SubMenu menu={menu} menuItem={menuItem} navbarSize={navbarSize} expanded={menuItem.expanded} index={i}/> {/* Returns <ul></ul> */}
+            {/* menuItem ex: Sepcials -> subMenuItems : {This Month's Specials, Payment Plan} */} {/* Returns <ul></ul> */}
+            <SubMenu menu={menu} menuItem={menuItem} navbarSize={navbarSize} expanded={menuItem.expanded} index={i}/>
           </>
         }
       </li>

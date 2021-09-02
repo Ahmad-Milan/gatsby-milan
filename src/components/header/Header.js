@@ -10,6 +10,22 @@ import './Header.css'
 
 function Header() {
 
+  const menu = MenuList.content
+
+  function updateMenu() {
+    menu.forEach(item => {
+      if(item.subMenu) {
+        item.expanded = false
+        item.subMenu.forEach(item => {
+          if(item.subSubMenu) {
+            item.expanded = false
+          }
+        })
+      }
+    })
+  }
+  updateMenu()
+
   const [isOpen, setIsOpen] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
   const handleClick = () => setIsOpen(!isOpen)
@@ -27,31 +43,18 @@ function Header() {
   const handleResize = () => {
     setWindowWidth(window.innerWidth)
   }
-
-  const menu = MenuList.content
-
-  function updateMenu() {
-    menu.forEach(item => {
-      if(item.subMenu) {
-        item.expanded = false
-        item.subMenu.forEach(item => {
-          if(item.subSubMenu) {
-            item.expanded = false
-          }
-        })
-      }
-    })
-  }
-  updateMenu()
   
   console.log('Header Rendered')
+  console.log(menu.open)
 
   return (
     <header className="shadow-sm">
-      <div className="container-xl">
+      <div className="container">
         <div className="row">
           <nav className="w-100 p-0">
-            <button id="menu-btn" className="d-inline-block d-lg-none navbar-toggler text-white" type="button"
+            <button id="menu-btn" type="button" 
+              className="d-inline-block d-lg-none navbar-toggler" 
+              style={isOpen ? {color: 'var(--main-turquoise)'} : {color: '#fff'}}
               onClick={handleClick}>MENU</button>
             {/* Main menu list */}
             <Navbar menu={menu} navbarSize={`${windowWidth > 991 ? 'navbar__menu--lg' : 'navbar__menu--sm'}`} isOpen={isOpen ? 'isOpen' : ''}/>

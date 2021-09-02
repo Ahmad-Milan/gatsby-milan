@@ -12,7 +12,6 @@ header nav {
 header .cta-btns {
   padding: 22px 0;
 }
-
 header .navbar-toggler {
   padding: 10px 7px;
   margin-top: 10px;
@@ -27,8 +26,6 @@ header .header-tel a:hover {
 header .header-tel a span{
   color: var(--main-turquoise);
 }
-
-
 header .navbar__menu {
   display: none;
   margin-bottom: 0;
@@ -70,7 +67,6 @@ header .subMenu li > a {
   display: block;
   padding: 12px 15px;
 }
-
 header .subMenu li > .subSubMenu__wrapper {
   overflow: hidden;
 }
@@ -86,15 +82,22 @@ header .navbar__menu .caret__icon {
   color: #fff;
   cursor: pointer;
 }
-header .navbar__menu .caret__icon--right,
-header .navbar__menu--sm .caret__icon--down {
+header .navbar__menu .caret__icon--right {
   position: absolute;
   padding: 8px;
   top: 0;
   right: 0;
 }
+header .navbar__menu--sm .caret__icon {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  padding: 1px 12px;
+  background-color: var(--main-turquoise);
+  border-radius: 2px;
+}
 header .navbar__menu .menu__item:hover .menu__item__link__wrapper > a,
-header .navbar__menu .menu__item:hover .menu__item__link__wrapper > .caret__icon {
+header .navbar__menu--lg .menu__item:hover .menu__item__link__wrapper > .caret__icon {
   color: var(--main-turquoise);
 }
 header .navbar__menu .subMenu li > a:hover {
@@ -205,7 +208,13 @@ header .navbar__menu--sm .subSubMenu {
   border-left: 1px solid #fff;
 }
 
-@media screen and (min-width: 992px) {}
+/********** Media Queries *************/
+
+@media(min-width: 992px) and (max-width: 1200px) {
+  header .cta-btns .header-tel {
+    display: none !important;
+  }
+}
 
 @media screen and (max-width: 991px) {
   header .navbar__menu--lg {
@@ -227,6 +236,9 @@ header .navbar__menu--sm .subSubMenu {
 }
 
 @media screen and (max-width: 576px) {
+  header .cta-btns {
+    margin-right: 15px;
+  }
   header .navbar__menu--sm .menu__item__link__wrapper a {
     padding: 8px 12px;
   }

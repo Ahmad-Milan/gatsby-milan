@@ -2,8 +2,7 @@ import React, {useState} from 'react'
 import Link  from "../../../templates/linkTesting"
 import SubSubMenu from './subSubMenu/SubSubMenu'
 
-import { FaCaretDown } from 'react-icons/fa';
-import { FaCaretRight } from 'react-icons/fa';
+import { FaCaretRight, FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
 function SubMenu({menu, menuItem, navbarSize, expanded, index}) {
   console.log('SubMenu Rendered')
@@ -34,9 +33,16 @@ function SubMenu({menu, menuItem, navbarSize, expanded, index}) {
             {
               subMenuItem?.subSubMenu &&
               <>
-              <span className="caret__icon caret__icon--right" onClick={() => handleClick(subMenuItem)}>
-                {navbarSize === 'navbar__menu--lg' ? <FaCaretRight /> : <FaCaretDown />}
-              </span>
+              {
+                navbarSize === 'navbar__menu--lg' && 
+                <span className="caret__icon caret__icon--right"><FaCaretRight /></span>
+              }
+              {
+                navbarSize === 'navbar__menu--sm' &&
+                <span className="caret__icon" onClick={() => handleClick(subMenuItem)}>
+                  { subMenuItem.expanded ? <FaCaretUp />  : <FaCaretDown />  }
+                </span>
+              }
 
               {/* Ex: <li>Omaha Central</li> - <li>Omaha West</li>  */}
               <SubSubMenu subMenuItem={subMenuItem} expanded={subMenuItem.expanded} />
