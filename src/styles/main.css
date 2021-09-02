@@ -31,8 +31,18 @@ ul {
   list-style: none;
   padding-left: 0;
 }
-
-
+.red-bg-btn {
+  background: var(--main-red);
+  color: #fff;
+}
+.red-bg-btn:hover {
+  color: #fff;
+  background: var(--main-turquoise);
+}
+.cta-btn {
+  border: none;
+  transition: all 150ms ease-in-out;
+}
 
 
 
@@ -49,7 +59,12 @@ ul {
 
 @media(min-width: 992px) and (max-width: 1200px) {}
 
-@media(max-width: 991px) {}
+@media(max-width: 991px) {
+  header nav .cta-btns {
+    padding: 19px 0;
+    margin-right: 15px;
+  }
+}
 
 @media (max-width: 576px) {}
 

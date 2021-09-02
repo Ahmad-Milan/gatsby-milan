@@ -50,16 +50,16 @@ function Header() {
     <header className="shadow-sm">
       <div className="container-xl">
         <div className="row">
-          <nav className="w-100">
-            <button id="menu-btn" className="d-inline-block d-lg-none" type="button"
+          <nav className="w-100 p-0">
+            <button id="menu-btn" className="d-inline-block d-lg-none navbar-toggler text-white" type="button"
               onClick={handleClick}>MENU</button>
             {/* Main menu list */}
             <Navbar menu={menu} navbarSize={`${windowWidth > 991 ? 'navbar__menu--lg' : 'navbar__menu--sm'}`} isOpen={isOpen ? 'isOpen' : ''}/>
 
             <div className="float-end cta-btns">
-              <div className="mr-3 header-tel d-none d-sm-inline-block">
+              <div className="me-3 header-tel d-none d-sm-inline-block">
                 <a href="tel:833-667-2967" className="d-nline-block">
-                  <span style={{color: 'var(--main-turquoise)'}}><FaPhoneAlt /></span>&nbsp; 1-833-NO-RAZOR
+                  <span><FaPhoneAlt /></span>&nbsp; 1-833-NO-RAZOR
                 </a>
               </div>
               <div className="d-inline-block">

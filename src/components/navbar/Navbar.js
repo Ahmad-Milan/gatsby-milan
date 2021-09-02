@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 import SubMenu from './subMenu/SubMenu'
 import { FaCaretDown } from 'react-icons/fa';
 
-import './Navbar.css'
-
 function Navbar({ menu, navbarSize, isOpen }) {
 console.log('Navbar Rendered')
   const [clicked, setClicked] = useState(false)
