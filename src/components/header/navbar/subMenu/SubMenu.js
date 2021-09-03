@@ -1,25 +1,19 @@
 import React, {useState} from 'react'
-import Link  from "../../../templates/linkTesting"
+import Link  from "../../../../templates/linkTesting"
 import SubSubMenu from './subSubMenu/SubSubMenu'
 
 import { FaCaretRight, FaCaretDown, FaCaretUp } from 'react-icons/fa';
+import isExpanded from './isExpanded';
 
 function SubMenu({menu, menuItem, navbarSize, expanded, index, closeMenu}) {
 
   const [clicked, setClicked] = useState(false)
 
   const handleClick = (subMenuItem) => {
-    if(subMenuItem.expanded === true) {
-      subMenuItem.expanded = false
-    }else {
-      menu[index].subMenu.forEach(item => {
-        item.expanded = false
-      })
-      subMenuItem.expanded = true
-    }
+    isExpanded(menu, subMenuItem, index)
     setClicked(!clicked)
   }
-  
+
   return (
     <div className="subMenu__wrapper">
     { /* menuItem ex: Contact & About Us -> subMenuItems : {Our Locations, Facebook, ...etc} */
@@ -29,7 +23,7 @@ function SubMenu({menu, menuItem, navbarSize, expanded, index, closeMenu}) {
         menuItem.subMenu.map((subMenuItem, x) => {
           return (
           <li key={x}> {/* Ex: <li>Our Locations</li> */}
-            <Link activeClassName="active-link" to={subMenuItem.url} onClick={closeMenu}>{subMenuItem.link} </Link>
+            <Link to={subMenuItem.url} onClick={closeMenu}>{subMenuItem.link} </Link>
             {
               subMenuItem?.subSubMenu &&
               <>

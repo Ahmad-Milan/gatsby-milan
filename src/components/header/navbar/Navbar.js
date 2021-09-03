@@ -1,25 +1,16 @@
 import React, {useState} from 'react'
-import Link  from "../../templates/linkTesting"
+import Link  from "../../../templates/linkTesting"
 import SubMenu from './subMenu/SubMenu'
-import { FaCaretDown, FaCaretUp, FaTimes, FaFacebookF } from 'react-icons/fa'
-
+import { FaCaretDown, FaCaretUp, FaTimes } from 'react-icons/fa'
+import isExpanded from './isExpanded'
 
 function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
 
   const [clicked, setClicked] = useState(false)
 
   const handleClick = (menuItem) => {
-    if(navbarSize === 'navbar__menu--sm') {
-      if(menuItem.expanded === true) {
-        menuItem.expanded = false
-      }else {
-        menu.forEach(item => {
-          item.expanded = false
-        })
-        menuItem.expanded = true
-      }
-      setClicked(!clicked)
-    }
+    isExpanded(menu, menuItem)
+    setClicked(!clicked)
   }
 
   return (
@@ -65,7 +56,11 @@ function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
           menuItem?.subMenu && 
           <>
             {/* menuItem ex: Sepcials -> subMenuItems : {This Month's Specials, Payment Plan} */} {/* Returns <ul></ul> */}
-            <SubMenu menu={menu} menuItem={menuItem} navbarSize={navbarSize} expanded={menuItem.expanded} index={i} closeMenu={closeMenu}/>
+            <SubMenu 
+              menu={menu} menuItem={menuItem}
+              navbarSize={navbarSize} index={i}
+              expanded={menuItem.expanded} 
+              closeMenu={closeMenu}/>
           </>
         }
       </li>
