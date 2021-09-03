@@ -4,29 +4,22 @@ import SubMenu from './subMenu/SubMenu'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 
 
-function Navbar({ menu, navbarSize, isOpen, location }) {
+function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
 
   const [clicked, setClicked] = useState(false)
 
   const handleClick = (menuItem) => {
-    if(menuItem.expanded === true) {
-      menuItem.expanded = false
-    }else {
-      menu.forEach(item => {
-        item.expanded = false
-      })
-      menuItem.expanded = true
+    if(navbarSize === 'navbar__menu--sm') {
+      if(menuItem.expanded === true) {
+        menuItem.expanded = false
+      }else {
+        menu.forEach(item => {
+          item.expanded = false
+        })
+        menuItem.expanded = true
+      }
+      setClicked(!clicked)
     }
-    setClicked(!clicked)
-  }
-
-
-  // Check if window is defined (so if in the browser or in node.js).
-  const isBrowser = typeof window !== "undefined"
-
-  const currentPath = location.pathname
-  if(isBrowser && currentPath === location.state.prevPath) {
-    console.log('same path')
   }
 
   return (
@@ -41,7 +34,7 @@ function Navbar({ menu, navbarSize, isOpen, location }) {
             to={menuItem.url} 
             activeClassName="active-link" 
             className="text-uppercase"
-            state={{prevPath: currentPath}}
+            onClick={closeMenu}
             >
               {menuItem.link}
           </Link>
@@ -64,7 +57,7 @@ function Navbar({ menu, navbarSize, isOpen, location }) {
           menuItem?.subMenu && 
           <>
             {/* menuItem ex: Sepcials -> subMenuItems : {This Month's Specials, Payment Plan} */} {/* Returns <ul></ul> */}
-            <SubMenu menu={menu} menuItem={menuItem} navbarSize={navbarSize} expanded={menuItem.expanded} index={i}/>
+            <SubMenu menu={menu} menuItem={menuItem} navbarSize={navbarSize} expanded={menuItem.expanded} index={i} closeMenu={closeMenu}/>
           </>
         }
       </li>
