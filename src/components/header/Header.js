@@ -35,7 +35,7 @@ function Header() {
   // See note below **
   useEffect(() => {
     let mounted = true
-    if(isBrowser) {
+    if(isBrowser && mounted) {
       window.addEventListener("resize", handleResize)
       setWindowWidth(window.innerWidth)
     }
