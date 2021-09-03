@@ -45,10 +45,6 @@ function Header() {
   const handleResize = () => {
     setWindowWidth(window.innerWidth)
   }
-
-  const closeMenu = () => {
-    setIsOpen(false)
-  }
   
   console.log('Header Rendered')
 
@@ -62,7 +58,7 @@ function Header() {
               style={isOpen ? {color: 'var(--main-turquoise)'} : {color: '#fff'}}
               onClick={handleClick}>MENU</button>
             {/* Main menu list */}
-            <Navbar menu={menu} closeMenu={closeMenu}
+            <Navbar menu={menu} closeMenu={handleClick}
               navbarSize={`${windowWidth > 991 ? 'navbar__menu--lg' : 'navbar__menu--sm'}`}
               isOpen={isOpen ? 'isOpen' : ''}/>
 

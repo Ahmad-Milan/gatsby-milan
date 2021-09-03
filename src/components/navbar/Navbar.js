@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Link  from "../../templates/linkTesting"
 import SubMenu from './subMenu/SubMenu'
-import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
+import { FaCaretDown, FaCaretUp, FaTimes, FaFacebookF } from 'react-icons/fa'
 
 
 function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
@@ -24,6 +24,14 @@ function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
 
   return (
     <ul className={`navbar__menu ${navbarSize} ${isOpen}`}>
+      {
+        navbarSize === 'navbar__menu--sm' && 
+        <li className="menu__item" onClick={closeMenu}>
+          <div className="pb-1 pe-4 text-end close_menu_icon">
+            <span><FaTimes /></span>
+          </div>
+        </li>
+      }
 
     {menu.map((menuItem, i) =>  (
       <li key={i} className="menu__item">
