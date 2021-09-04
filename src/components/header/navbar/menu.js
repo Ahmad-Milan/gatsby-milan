@@ -1,4 +1,3 @@
-import React from 'react'
 import MenuList from '../../../data/menuList.json'
 
 function getMenu() {

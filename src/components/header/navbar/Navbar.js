@@ -2,14 +2,15 @@ import React, {useState} from 'react'
 import Link  from "../../../templates/linkTesting"
 import SubMenu from './subMenu/SubMenu'
 import { FaCaretDown, FaCaretUp, FaTimes } from 'react-icons/fa'
-import isExpanded from './isExpanded'
+import updateMenuExpansion from './updateMenuExpansion'
 
 function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
 
   const [clicked, setClicked] = useState(false)
 
   const handleClick = (menuItem) => {
-    isExpanded(menu, menuItem)
+    updateMenuExpansion(menu, menuItem)
+    // this will trigger this component to rerender
     setClicked(!clicked)
   }
 

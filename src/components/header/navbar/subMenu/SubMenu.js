@@ -3,14 +3,15 @@ import Link  from "../../../../templates/linkTesting"
 import SubSubMenu from './subSubMenu/SubSubMenu'
 
 import { FaCaretRight, FaCaretDown, FaCaretUp } from 'react-icons/fa';
-import isExpanded from './isExpanded';
+import updateSubMenuExpansion from './updateSubMenuExpansion';
 
 function SubMenu({menu, menuItem, navbarSize, expanded, index, closeMenu}) {
 
   const [clicked, setClicked] = useState(false)
 
   const handleClick = (subMenuItem) => {
-    isExpanded(menu, subMenuItem, index)
+    updateSubMenuExpansion(menu, subMenuItem, index)
+    // this will trigger this component to rerender
     setClicked(!clicked)
   }
 

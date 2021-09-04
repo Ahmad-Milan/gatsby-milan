@@ -10,12 +10,10 @@ import './Header.css'
 function Header({windowWidth}) {
   const menu = getMenu()
   const [isOpen, setIsOpen] = useState(false)
-
+  // Close/Open the main menu
   const handleClick = () => setIsOpen(!isOpen)
-
-  const domNode = useClickOutside(() => {
-    setIsOpen(false)
-  })
+  // Close main menu when click outside the Header component
+  const domNode = useClickOutside(() => setIsOpen(false))
 
   return (
     <header ref={domNode} className="shadow-sm">
@@ -27,11 +25,11 @@ function Header({windowWidth}) {
               style={isOpen ? {color: 'var(--main-turquoise)'} : {color: '#fff'}}
               onClick={handleClick}>MENU</button>
             {/* Main menu list */}
-            <Navbar menu={menu} closeMenu={handleClick}
+            <Navbar menu={menu} closeMenu={() => setIsOpen(false)}
               navbarSize={`${windowWidth > 991 ? 'navbar__menu--lg' : 'navbar__menu--sm'}`}
               isOpen={isOpen ? 'isOpen' : ''}/>
 
-            <div className="float-end cta-btns" onClick={handleClick}>
+            <div className="float-end cta-btns" onClick={() => setIsOpen(false)}>
               <div className="me-3 header-tel d-none d-sm-inline-block">
                 <a href="tel:833-667-2967" className="d-nline-block">
                   <span><FaPhoneAlt /></span>&nbsp; 1-833-NO-RAZOR
