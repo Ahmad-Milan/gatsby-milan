@@ -6,6 +6,8 @@ function updateMenuExpansion(menu, menuItem) {
       if(item.expanded === true) item.expanded = false
     })
   }else {
+    // if it's not expanded
+    // Close all other menu items if any is expanded and their subMenu items if any is expanded as well
     menu.forEach(menuItem => {
       if(menuItem.expanded === true) {
         menuItem.expanded = false
@@ -15,8 +17,8 @@ function updateMenuExpansion(menu, menuItem) {
         })
       } 
     })
+    // Finally expand this very menuItem
     menuItem.expanded = true
-    console.log(menu)
   }
 }
 
