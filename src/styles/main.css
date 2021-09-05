@@ -31,6 +31,18 @@ ul {
   list-style: none;
   padding-left: 0;
 }
+h2 {
+  font-weight: 300 !important;
+}
+.full-section {
+  width: 100% !important;
+  padding: 50px 0;
+  line-height: 1.7rem;
+}
+
+.light-blue {
+  color: var(--light-blue) !important;
+}
 .red-bg-btn {
   background: var(--main-red);
   color: #fff;
@@ -39,6 +51,16 @@ ul {
   color: #fff;
   background: var(--main-turquoise);
 }
+.light-btn {
+  background: var(--main-turquoise);
+  color: #fff;
+}
+.light-btn:hover {
+  background: var(--main-red);
+  color: #fff;
+}
+.navy-bg-btn{background: var(--main-navy);}
+.navy-bg-btn:hover{background: var(--main-blue);}
 .cta-btn {
   border: none;
   transition: all 150ms ease-in-out;

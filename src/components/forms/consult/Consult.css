@@ -1,0 +1,34 @@
+#consult-form {
+  background-color: var(--main-blue);
+}
+#consult-form form {
+  background: #F5FAFD;
+}
+#consult-form > div p.light-blue {
+  font-size: .9rem; line-height: 1.3rem;
+}
+#consult-form > div p.light-blue a{
+  text-decoration: underline;
+}
+#consult-form label {
+  color: var(--main-blue);
+}
+#consult-form label sup {
+  color: var(--main-red);
+  font-size: .5rem;
+  top: -.53rem;
+}
+#consult-form hr {
+  border-top: 2px solid var(--main-turquoise);
+}
+#consult-form #submit-btns button {
+  max-width: 320px;
+}
+#consult-form #msg_area {
+  margin-top: -200px; opacity: .5;
+  transition: all .6s ease-in-out 150ms;
+}
+#consult-form #msg_area.slide-down {
+  margin-top: 0px;
+  opacity: 1;
+}
