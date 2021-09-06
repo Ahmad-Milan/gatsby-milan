@@ -32,3 +32,17 @@
   margin-top: 0px;
   opacity: 1;
 }
+#consult-form .card {
+  margin-right: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+#consult-form .card.selected {
+  border-color: var(--main-navy);
+}
+#consult-form .selected-location-wrapper p {
+  font-size: 14px;
+}
+#consult-form .consult-type-wrapper span {
+  font-size: 4rem;
+}
