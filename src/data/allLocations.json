@@ -1,0 +1,82 @@
+{
+  "locations": [
+    {
+      "state": "Arizona",
+      "stores": [
+        {
+          "salesforceValue": "Phoenix (Chandler)",
+          "zipcode": "85226",
+          "open": true
+        },
+        {
+          "salesforceValue": "Phoenix (Peoria)",
+          "zipcode": "85382",
+          "open": true
+        },
+        {
+          "salesforceValue": "Phoenix (Scottsdale North)",
+          "zipcode": "85254",
+          "open": true
+        },
+        {
+          "salesforceValue": "Phoenix (Scottsdale South)",
+          "zipcode": "85251",
+          "open": false
+        },
+        {
+          "salesforceValue": "Tucson",
+          "zipcode": "85705",
+          "open": true
+        }
+      ]
+    },
+
+    {
+      "state": "Texas",
+      "stores": [
+        {
+          "salesforceValue": "Austin",
+          "zipcode": "78759",
+          "open": true
+        },
+        {
+          "salesforceValue": "College Station",
+          "zipcode": "77840",
+          "open": true
+        },
+        {
+          "salesforceValue": "Dallas (Addison)",
+          "zipcode": "75254",
+          "open": true
+        },
+        {
+          "salesforceValue": "Dallas (Allen)",
+          "zipcode": "75002",
+          "open": true
+        },
+        {
+          "salesforceValue": "Dallas (Cedar Hill)",
+          "zipcode": "75104",
+          "open": true
+        },
+        {
+          "salesforceValue": "Dallas (Denton)",
+          "zipcode": "76205",
+          "open": true
+        },
+        {
+          "salesforceValue": "Dallas (Irving)",
+          "zipcode": "75063",
+          "open": false
+        },
+        {
+          "salesforceValue": "Houston (Richmond)",
+          "zipcode": "75214",
+          "open": false
+        }
+      ]
+    }
+
+    
+  ]
+}

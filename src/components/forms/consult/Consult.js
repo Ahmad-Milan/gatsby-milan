@@ -4,17 +4,20 @@ import { FaAsterisk, FaQuestionCircle, FaRegCalendarAlt, FaArrowCircleLeft, FaPa
 import { BiWebcam } from 'react-icons/bi'
 import stores from '../../../data/stores.json'
 import formData from '../../../data/formData.json'
+import allLocations from '../../../data/allLocations.json'
 
 import './Consult.css'
 
 function Consult() {
   const [askQuestionClicked, setAskQuestionClicked] = useState(false)
   const [nearbySelectedLocation, setNearbySelectedLocation] = useState(formData.nearbySelectedLocation)
+  const [dropDownSelectedLocation, setDropDownSelectedLocation] = useState('')
   const [consultType, setConsultType] = useState(formData.selectedConsultType)
 
-  const handleNearbyLocationSelected = (store) => {
+  const nearbySelectedHandler = (store) => {
     formData.nearbySelectedLocation = store
     setNearbySelectedLocation(store)
+    setDropDownSelectedLocation(store.salesforceValue)
     stores.stores.map(store => store.selected = false)
     store.selected = true
   }
@@ -22,6 +25,18 @@ function Consult() {
   const handleConsultTypeClick = (type) => {
     formData.selectedConsultType = type
     setConsultType(type)
+  }
+
+  const dropDownSelectHandler = (event) => {
+    setDropDownSelectedLocation(event.target.value)
+    const dropDownSelect = stores.stores.filter(item => (
+      item.salesforceValue === event.target.value
+    ))
+    if(dropDownSelect.length === 1) {
+      nearbySelectedHandler(dropDownSelect[0])
+    }else {
+      stores.stores.map(store => store.selected = false)
+    }
   }
 
   return (
@@ -98,7 +113,7 @@ function Consult() {
                         <div key={x} className="mb-2 col-6 col-md-4 col-lg-3">
                           <div 
                             className={`card p-2 text-center ${store.selected === true ? 'selected' : 'shadow-sm'}`} 
-                            onClick={() => handleNearbyLocationSelected(store)}>{store.location}
+                            onClick={() => nearbySelectedHandler(store)}>{store.location}
                           </div>
                         </div>
                       ))
@@ -108,7 +123,36 @@ function Consult() {
               </div>
             </div>
 
-            <div className="selected-location-wrapper pt-1">
+            <div className="all-locations-wrapper mb-3">
+              <div className="row justify-content-center mx-auto mb-md-3">
+                <div className=" col-10 col-sm-8 col-md-6 col-lg-4">
+                  <h4 className="h6 text-center">Or select a location from the list</h4>
+                  <select
+                    value={dropDownSelectedLocation} onChange={(event) => dropDownSelectHandler(event)}
+                    className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
+                    <optgroup>
+                      <option value="">Select a location</option>
+                    </optgroup>
+                    {
+                      allLocations.locations.map((item, i) => (
+                        <optgroup key={i} label={item.state}>
+                          {
+                            item.stores.map((store, x) => (
+                              <option key={x} value={store.salesforceValue} zip={store.zipcode}>
+                                {store.salesforceValue} {store.open === false ? '/ Coming Soon' : ''}
+                              </option>
+                            ))
+                          }
+                        </optgroup>
+                      ))
+                    }
+
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div className="selected-location-wrapper">
               <div className="row justify-content-center mx-auto mb-md-3">
                 <div className="col-md-10">
                   <p className="mb-0 text-center">
@@ -117,11 +161,11 @@ function Consult() {
                     nearbySelectedLocation && 
                     <>
                     <strong>Selected Location:</strong>&nbsp;
-                      <span className="d-block d-md-inline">
-                        {nearbySelectedLocation.address}, <br className="d-sm-none" />
-                        {nearbySelectedLocation.locationOnAddress === "same" ? nearbySelectedLocation.location : nearbySelectedLocation.locationOnAddress},&nbsp;
-                        {nearbySelectedLocation.state}&nbsp;{nearbySelectedLocation.zipcode}
-                      </span>
+                    <span className="d-block d-md-inline">
+                      {nearbySelectedLocation.address}, <br className="d-sm-none" />
+                      {nearbySelectedLocation.locationOnAddress === "same" ? nearbySelectedLocation.location : nearbySelectedLocation.locationOnAddress},&nbsp;
+                      {nearbySelectedLocation.state}&nbsp;{nearbySelectedLocation.zipcode}
+                    </span>
                     </>
                     }
                   </p>
@@ -129,7 +173,13 @@ function Consult() {
               </div>
             </div>
 
-            <div className="consult-type-wrapper step-03">
+            <div className="row justify-content-center mx-auto">
+              <div className="col-md-10 p-md-0">
+                <hr className="w-100 mb-0"/>
+              </div>
+            </div>
+
+            <div className="consult-type-wrapper mt-3 step-03">
               <div className="row justify-content-center mx-auto mb-md-3">
                 <div className="col-md-10">
                   <h3 className="h5 mb-4 text-center">Select Consultation Type</h3>

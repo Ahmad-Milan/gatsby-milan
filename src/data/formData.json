@@ -1,4 +1,7 @@
 {
   "selectedConsultType": null,
-  "nearbySelectedLocation": null
+  "nearbySelectedLocation": {
+    "location": "",
+    "salesforceValue": ""
+  }
 }

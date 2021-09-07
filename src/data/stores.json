@@ -7,6 +7,7 @@
     {
       "location": "Richmond",
       "locationOnAddress": "same",
+      "salesforceValue": "Houston (Richmond)",
       "state": "TX",
       "address": "4818 Waterview Town Center Dr",
       "zipcode": "77406",
@@ -19,6 +20,7 @@
     {
       "location": "Spring",
       "locationOnAddress": "same",
+      "salesforceValue": "Houston (Spring)",
       "state": "TX",
       "address": "525 Sawdust Rd",
       "zipcode": "77380",
@@ -31,6 +33,7 @@
     {
       "location": "Webster",
       "locationOnAddress": "same",
+      "salesforceValue": "Houston (Webster)",
       "state": "TX",
       "address": "1501 Bay Area Blvd",
       "zipcode": "77598",
@@ -43,6 +46,7 @@
     {
       "location": "Humble",
       "locationOnAddress": "same",
+      "salesforceValue": "Houston (Humble)",
       "state": "TX",
       "address": "19211 West Lake Houston Parkway",
       "zipcode": "77346",
@@ -55,6 +59,7 @@
     {
       "location": "Galleria",
       "locationOnAddress": "Houston",
+      "salesforceValue": "Houston (Galleria)",
       "state": "TX",
       "address": "5785 San Felipe St",
       "zipcode": "77057",
@@ -67,6 +72,7 @@
     {
       "location": "Pearland",
       "locationOnAddress": "same",
+      "salesforceValue": "Houston (Pearland)",
       "state": "TX",
       "address": "2750 Smith Ranch Rd",
       "zipcode": "77584",
@@ -79,6 +85,7 @@
     {
       "location": "Cypress",
       "locationOnAddress": "same",
+      "salesforceValue": "Houston (Cypress)",
       "state": "TX",
       "address": "17445 Spring Cypress Rd",
       "zipcode": "77429",
