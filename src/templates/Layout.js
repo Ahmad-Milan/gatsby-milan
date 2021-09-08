@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import Header from "../components/header/Header"
 import Footer from "../components/footer/Footer"
-import Consult from "../components/forms/consult/Consult"
+import Consult2 from "../components/forms/consult/Consult2"
 
 import "../styles/main.css";
 
@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
     <>
       <Header windowWidth={windowWidth}/>
       {children}
-      <Consult />
+      <Consult2 />
       <Footer />
     </>
   )

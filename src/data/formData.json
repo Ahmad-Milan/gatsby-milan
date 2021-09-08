@@ -1,7 +1,15 @@
 {
-  "selectedConsultType": null,
-  "nearbySelectedLocation": {
-    "location": "",
-    "salesforceValue": ""
-  }
+  "user": {
+    "firstname": "",
+    "lastname": "",
+    "phone": "",
+    "email": ""
+  },
+  "consultType": "Consult",
+  "store": {
+    "salesforceValue": "",
+    "zipcode": ""
+  },
+  "campaignId": "",
+  "leadsource": ""
 }

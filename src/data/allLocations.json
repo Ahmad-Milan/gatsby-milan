@@ -70,9 +70,39 @@
           "open": false
         },
         {
-          "salesforceValue": "Houston (Richmond)",
-          "zipcode": "75214",
+          "salesforceValue": "Houston (Cypress)",
+          "zipcode": "77429",
           "open": false
+        },
+        {
+          "salesforceValue": "Houston (Galleria)",
+          "zipcode": "77057",
+          "open": false
+        },
+        {
+          "salesforceValue": "Houston (Humble)",
+          "zipcode": "77346",
+          "open": false
+        },
+        {
+          "salesforceValue": "Houston (Pearland)",
+          "zipcode": "77584",
+          "open": false
+        },
+        {
+          "salesforceValue": "Houston (Richmond)",
+          "zipcode": "77407",
+          "open": true
+        },
+        {
+          "salesforceValue": "Houston (Spring)",
+          "zipcode": "77380",
+          "open": true
+        },
+        {
+          "salesforceValue": "Houston (Webster)",
+          "zipcode": "77598",
+          "open": true
         }
       ]
     }

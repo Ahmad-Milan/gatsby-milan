@@ -1,73 +1,70 @@
 import React, {useState} from 'react'
 import { Link } from 'gatsby'
-import { FaAsterisk, FaQuestionCircle, FaRegCalendarAlt, FaArrowCircleLeft, FaPaperPlane, FaStoreAlt } from 'react-icons/fa'
+import { FaAsterisk, FaQuestionCircle, FaRegCalendarAlt, FaArrowCircleLeft, FaPaperPlane, FaStoreAlt, FaCity } from 'react-icons/fa'
 import { BiWebcam } from 'react-icons/bi'
 import stores from '../../../data/stores.json'
 import formData from '../../../data/formData.json'
 import allLocations from '../../../data/allLocations.json'
+import allLocations2 from '../../../data/allLocations2.json'
 
 import './Consult.css'
 
 function Consult() {
-  //  ***** {For websites with multiple locations nearby} ***** //
-  // For the nearby locations list
-  const [selectedStore, setSelectedStore] = useState(formData.selectedStore) // object / see notes bellow
-  // For all Milan locations dropdown list
-  const [dropdownValue, setDropdownValue] = useState(formData.selectedStore.salesforceValue) // string
-
   // Ask Question Button on Click
   const [askQuestionClicked, setAskQuestionClicked] = useState(false)
+  const [formState, setFormState] = useState(formData)
+
+  const selfScheduleHandler = () => {}
+  
+  // ---------------------------------------------------------
+  // Form Control Inputs
+  const updateFormControl = (event) => {
+    const { id, value } = event.target
+    // the id is the input id which should match the user obj props 
+    const updatedFormState = { ...formState } // Shallow clone from original 
+    updatedFormState.user[id] = value
+    setFormState(updatedFormState)
+  }
 
   // ---------------------------------------------------------
   // This is the list of nearby locations (NOT the Dropdown) / click handler
   const nearbySelectedHandler = (store) => {
-    // 1. Update the formData object
-    // Assign the selected store to selectedStore prop in formData
-    formData.selectedStore = store
-    // 2. Update selectedStore state / This will trigger the component to rerender
-    setSelectedStore(store)
-    // 3. Update the dropdown value
-    setDropdownValue(store.salesforceValue)
-    // 4. Unselect other nearby locations if any
+    const updatedFormState = { ...formState }
+    updatedFormState.store.salesforceValue = store.salesforceValue
+    updatedFormState.store.zipcode = store.zipcode
+
+    setFormState(updatedFormState)
+
     stores.stores.map(store => store.selected = false)
-    // 5. Set this clicked store to be selected
     store.selected = true
+    // setShowAddress(true)
   }
+
   // ---------------------------------------------------------
   // This is the Dropdown all locations list onChange handler
   const dropdownHandler = (event) => {
-    // Upate dropdown value state
-    setDropdownValue(event.target.value)
-    // In case the selected location from the dropdown list already exists in the nearyby stores list
-    // Filter out the nearby stores and return the identical nearby store if any
-    // This will return either an empty array or an array with one element which is the identical nearby store
-    const dropdownSelect = stores.stores.filter(item => (
-      item.salesforceValue === event.target.value
-    ))
-    //  If an identical nearby store is found
-    if(dropdownSelect.length === 1) {
-      // Mrk that store as selected
-      // basically, mimic the action of nearbySelectedHandler
-      nearbySelectedHandler(dropdownSelect[0])
-    }
-    // if the dropdown value is not a nearby store
-    else {
-      // Basically return selectedStore to its default initial value
-      // setSelectedStore({salesforceValue: ""})
+    const filteredStore = allLocations.locations.filter(element => (
+      element.stores.some(store => store.salesforceValue === event.target.value)
+    ))[0].stores.filter(store => store.salesforceValue === event.target.value)[0]
+  
+    const updatedFormState = { ...formState }
+    updatedFormState.store.salesforceValue = filteredStore.salesforceValue
+    updatedFormState.store.zipcode = filteredStore.zipcode
+    setFormState(updatedFormState)
+    // setShowAddress(false)
 
-      // formData.selectedStore.salesforceValue = event.target.value
-      stores.stores.forEach(store => store.selected = false)
+    stores.stores.map(store => store.selected = false)
+    const nearbyStore = stores.stores.filter(store => (
+      store.salesforceValue === filteredStore.salesforceValue
+    ))
+    if(nearbyStore.length === 1) {
+      nearbyStore[0].selected = true
+      // setShowAddress(true)
     }
   }
-  // ---------------------------------------------------------
-  const [consultType, setConsultType] = useState(formData.selectedConsultType) // null initially
-  const handleConsultTypeClick = (type) => {
-    // Update formData object
-    formData.selectedConsultType = type
-    // Update consult type state
-    setConsultType(type)
-  }
-  // ---------------------------------------------------------
+
+  console.log(allLocations2.locations)
+  // console.log(allLocations)
 
   return (
     <div id="consult-form" className="full-section">
@@ -76,7 +73,7 @@ function Consult() {
           <h2 className="text-center text-white subhead-sm consult-h2">Book Your Free Consult</h2>
           <p className="text-center light-blue">Not ready for a consultation? <Link to="/contact/" className="ask_q light-blue">Feel free to ask a question.</Link></p>
         </div>
-        <form className="needs-validation w-100 py-4 rounded shadow" action="" method="POST" noValidate>
+        <form className="w-100 py-4 rounded shadow" action="" method="POST" >
           <input type="hidden" name="oid" value="00D410000014bPe" />
           <input id="success" type="hidden" name="retURL" value="" />
           <input className="lead_source" type="hidden" name="lead_source"  id="lead_source" value="" />
@@ -88,12 +85,16 @@ function Consult() {
               <div className="row justify-content-center mx-auto pt-4 mb-md-3">
                 <div className="col-md-5">
                   <label htmlFor="first_name">First Name <sup><FaAsterisk /></sup></label>
-                  <input className="form-control" type="text" placeholder="First Name" id="first_name" name="first_name" autoComplete="name" required minLength="2" />
+                  <input 
+                    className="form-control" type="text" placeholder="First Name" id="firstname" name="first_name" autoComplete="name" required minLength="2" 
+                    value={formState.user.firstname} onChange={updateFormControl} />
                   <div className="invalid-feedback">Enter a valid first name!</div>
                 </div>
                 <div className="col-md-5 mt-3 mt-sm-0">
                   <label htmlFor="last_name">Last Name <sup><FaAsterisk /></sup></label>
-                  <input className="form-control" type="text" placeholder="Last Name" id="last_name" name="last_name" autoComplete="name" required minLength="2" />
+                  <input 
+                    className="form-control" type="text" placeholder="Last Name" id="lastname" name="last_name" autoComplete="name" required minLength="2" 
+                    value={formState.user.lastname} onChange={updateFormControl} />
                   <div className="invalid-feedback">Enter a valid last name!</div>
                 </div>
               </div>
@@ -101,13 +102,17 @@ function Consult() {
               <div className="row justify-content-center mx-auto pt-md-4 mb-md-3">
                 <div className="col-md-5 mt-3 mt-sm-0">
                   <label htmlFor="phone">Phone Number <sup><FaAsterisk /></sup></label>
-                  <input className="form-control phone_input" type="tel"  placeholder="(555) 555-5555" id="phone" name="phone" autoComplete="home tel"  required minLength="17" />
+                  <input 
+                    className="form-control phone_input" type="tel"  placeholder="(555) 555-5555" id="phone" name="phone" autoComplete="home tel"  required minLength="17" 
+                    value={formState.user.phone} onChange={updateFormControl} />
                   <div className="invalid-feedback">Enter a valid phone number!</div>
                 </div>
             
                 <div className="col-md-5 my-3 my-sm-0">
                   <label htmlFor="email">Your Email <sup><FaAsterisk /></sup></label>
-                  <input className="form-control emailConsult" type="email" placeholder="youremail@mailbox.com" id="email" name="email" autoComplete="home email" required minLength="6" />
+                  <input 
+                    className="form-control emailConsult" type="email" placeholder="youremail@mailbox.com" id="email" name="email" autoComplete="home email" required minLength="6" 
+                    value={formState.user.email} onChange={updateFormControl} />
                   <div className="invalid-feedback">Enter a valid email!</div>
                 </div>
               </div>
@@ -158,12 +163,12 @@ function Consult() {
                 <div className=" col-10 col-sm-8 col-md-6 col-lg-4">
                   <h4 className="h6 text-center">Or select a location from the list</h4>
                   <select
-                    value={dropdownValue} onChange={(event) => dropdownHandler(event)}
+                    value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event)}
                     className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
                     <optgroup>
                       <option value="">Select a location</option>
                     </optgroup>
-                    {
+                    {/* {
                       allLocations.locations.map((item, i) => (
                         <optgroup key={i} label={item.state}>
                           {
@@ -175,67 +180,60 @@ function Consult() {
                           }
                         </optgroup>
                       ))
+                    } */}
+                    {
+                      allLocations2.locations.map((item, i) => (
+                        <optgroup key={i} label={item.state}>
+                          {
+                            item.stores.map((elem, x) => {
+                              if(elem.city) {
+                                let option = elem.locations.map((store, i) => {
+                                  return (
+                                    <option key={i} value={store.salesforceValue} zip={store.zipcode}>
+                                      {store.salesforceValue} {store.open === false ? '/ Coming Soon' : ''}
+                                    </option>
+                                  )})
+                                return option
+                              } else {
+                                return (
+                                  <option key={x} value={elem.salesforceValue} zip={elem.zipcode}>
+                                    {elem.salesforceValue} {elem.open === false ? '/ Coming Soon' : ''}
+                                  </option>
+                                )}
+                            })
+                          }
+                        </optgroup>
+                      ))
                     }
+
+
                   </select>
                 </div>
               </div>
             </div>
-            
+
             <div className="selected-location-wrapper">
               <div className="row justify-content-center mx-auto mb-md-3">
                 <div className="col-md-10">
                   <p className="mb-0 text-center">
-                    {
-                    selectedStore.location && 
+                    {/* {
+                    showAddress() !== 'undefinded' && 
                     <>
-                    <strong>Selected Location:</strong>&nbsp;
+                    <strong>Selected location address:</strong>&nbsp;
                     <span className="d-block d-md-inline">
-                      {selectedStore.address}, <br className="d-sm-none" />
-                      {selectedStore.locationOnAddress === "same" ? selectedStore.location : selectedStore.locationOnAddress},&nbsp;
-                      {selectedStore.state}&nbsp;{selectedStore.zipcode}
+                      {showAddres().address}, <br className="d-sm-none" />
+                      {showAddres().locationOnAddress === "same" ? showAddres().location : showAddres().locationOnAddress},&nbsp;
+                      {showAddres().state}&nbsp;{showAddres().zipcode}
                     </span>
                     </>
-                    }
+                    } */}
                   </p>
-                </div>
-              </div>
-            </div>
-            {console.log(formData.selectedStore)}
-            {console.log(selectedStore)}
-            
-            <div className="row justify-content-center mx-auto">
-              <div className="col-md-10 p-md-0">
-                <hr className="w-100 mb-0"/>
-              </div>
-            </div>
-
-            <div className="consult-type-wrapper mt-3 step-03">
-              <div className="row justify-content-center mx-auto mb-md-3">
-                <div className="col-md-10">
-                  <h3 className="h5 mb-4 text-center">Select Consultation Type</h3>
-                  <div className="d-flex justify-content-center">
-                    <div className="col-5 col-md-4 col-lg-3">
-                      <div 
-                        className={`card p-3 text-center ${ consultType === 'Consult' ? 'selected' : 'shadow-sm'}`} 
-                        onClick={() => handleConsultTypeClick('Consult')}>
-                        <span><FaStoreAlt /></span>
-                        <p className="mt-2 mb-0">In-Store</p>
-                      </div>
-                    </div>
-                    <div className="col-5 col-md-4 col-lg-3">
-                      <div 
-                        className={`card p-3 text-center ${ consultType === 'Virtual' ? 'selected' : 'shadow-sm'}`}
-                        onClick={() => handleConsultTypeClick('Virtual')}>
-                        <span><BiWebcam /></span>
-                        <p className="mt-2 mb-0">Virtual</p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
 
           </div>
+            
 
 
           <div id="submit-btns" className="row justify-content-center my-3 col-lg-10 m-auto">
@@ -259,7 +257,7 @@ function Consult() {
             <div className="col-lg-4 text-center">
             {
               !askQuestionClicked && 
-              <button id="self_schedule" className="w-100 cta-btn red-bg-btn py-2 shadow-sm">
+              <button id="self_schedule" className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit">
               <i className="d-inline-flex"><FaRegCalendarAlt /></i> &nbsp;SEE AVAILABLE TIMES
               </button>
             }
@@ -279,12 +277,3 @@ function Consult() {
 }
 
 export default Consult
-
-
-  // initially formData looks like this:
-  // {
-  //   "selectedConsultType": null,
-  //   "selectedStore": {
-  //     "salesforceValue": ""
-  //   }
-  // }
