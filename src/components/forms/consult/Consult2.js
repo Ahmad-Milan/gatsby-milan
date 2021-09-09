@@ -6,10 +6,21 @@ import stores from '../../../data/stores.json'
 import formData from '../../../data/formData.json'
 import allLocations from '../../../data/allLocations.json'
 import allLocations2 from '../../../data/allLocations2.json'
+import siteData from '../../../data/siteData.json'
 
 import './Consult.css'
 
 function Consult() {
+  // Get nearby locations if any
+  let nearbyLocations;
+  if(siteData.branches > 1) {
+    nearbyLocations = allLocations2.locations.filter(elem => (
+      elem.state === siteData.state
+    ))[0].stores.filter(item => (
+      item.city === siteData.city
+    ))[0].locations
+  }
+
   // Ask Question Button on Click
   const [askQuestionClicked, setAskQuestionClicked] = useState(false)
   const [formState, setFormState] = useState(formData)
@@ -32,39 +43,74 @@ function Consult() {
     const updatedFormState = { ...formState }
     updatedFormState.store.salesforceValue = store.salesforceValue
     updatedFormState.store.zipcode = store.zipcode
+    updatedFormState.store.address = store.address
+    updatedFormState.store.location = store.location
+    updatedFormState.store.locationOnAddress = store.locationOnAddress
+    updatedFormState.store.stateShort = store.stateShort
 
     setFormState(updatedFormState)
 
-    stores.stores.map(store => store.selected = false)
+    nearbyLocations.map(store => store.selected = false)
     store.selected = true
-    // setShowAddress(true)
   }
 
   // ---------------------------------------------------------
   // This is the Dropdown all locations list onChange handler
   const dropdownHandler = (event) => {
-    const filteredStore = allLocations.locations.filter(element => (
-      element.stores.some(store => store.salesforceValue === event.target.value)
-    ))[0].stores.filter(store => store.salesforceValue === event.target.value)[0]
+    // const filteredStore = allLocations.locations.filter(element => (
+    //   element.stores.some(store => store.salesforceValue === event.target.value)
+    // ))[0].stores.filter(store => store.salesforceValue === event.target.value)[0]
+    let filteredStore
+    filteredStore = allLocations2.locations.filter(element => {
+      return element.stores.some(item => {
+        if (item.salesforceValue && item.salesforceValue === event.target.value) return true
+        else if(item.locations) {
+          return item.locations.some(location => location.salesforceValue === event.target.value)
+        }
+      })
+    })[0].stores.filter(item => {
+      if (item.salesforceValue && item.salesforceValue === event.target.value) return true
+      else if(item.locations) {
+        return item.locations.some(location => location.salesforceValue === event.target.value)
+      }
+    })[0]
+  
+    if(filteredStore.locations) {
+      filteredStore = filteredStore.locations.filter(location => location.salesforceValue === event.target.value)[0]
+    }
+    console.log(filteredStore)
   
     const updatedFormState = { ...formState }
     updatedFormState.store.salesforceValue = filteredStore.salesforceValue
     updatedFormState.store.zipcode = filteredStore.zipcode
+    updatedFormState.store.address = filteredStore.address
+    updatedFormState.store.location = filteredStore.location
+    updatedFormState.store.locationOnAddress = filteredStore.locationOnAddress
+    updatedFormState.store.stateShort = filteredStore.stateShort
     setFormState(updatedFormState)
-    // setShowAddress(false)
 
-    stores.stores.map(store => store.selected = false)
-    const nearbyStore = stores.stores.filter(store => (
+    nearbyLocations.map(store => store.selected = false)
+    const nearbyStore = nearbyLocations.filter(store => (
       store.salesforceValue === filteredStore.salesforceValue
     ))
     if(nearbyStore.length === 1) {
       nearbyStore[0].selected = true
-      // setShowAddress(true)
     }
   }
 
-  console.log(allLocations2.locations)
-  // console.log(allLocations)
+  // console.log(allLocations2.locations)
+  // console.log(formState)
+
+  // const filteredStore = allLocations2.locations.filter(element => {
+  //   return element.stores.some(item => {
+  //     if (item.salesforceValue && item.salesforceValue === 'Tucson') return true
+  //     else if(item.locations) {
+  //       return item.locations.some(location => location.salesforceValue === 'Tucson')
+  //     }
+  //   })
+  // })[0]
+
+  // console.log(filteredStore)
 
   return (
     <div id="consult-form" className="full-section">
@@ -144,7 +190,7 @@ function Consult() {
                   <h3 className="h5 mb-4 text-center">Select a Location Near You</h3>
                   <div className="d-flex justify-content-center flex-wrap">
                     {
-                      stores.stores.map((store, x) => (
+                      nearbyLocations.map((store, x) => (
                         <div key={x} className="mb-2 col-6 col-md-4 col-lg-3">
                           <div 
                             className={`card p-2 text-center ${store.selected === true ? 'selected' : 'shadow-sm'}`} 
@@ -216,17 +262,17 @@ function Consult() {
               <div className="row justify-content-center mx-auto mb-md-3">
                 <div className="col-md-10">
                   <p className="mb-0 text-center">
-                    {/* {
-                    showAddress() !== 'undefinded' && 
+                    {
+                    formData.store.salesforceValue !== '' && 
                     <>
                     <strong>Selected location address:</strong>&nbsp;
                     <span className="d-block d-md-inline">
-                      {showAddres().address}, <br className="d-sm-none" />
-                      {showAddres().locationOnAddress === "same" ? showAddres().location : showAddres().locationOnAddress},&nbsp;
-                      {showAddres().state}&nbsp;{showAddres().zipcode}
+                      {formData.store.address}, <br className="d-sm-none" />
+                      {formData.store.locationOnAddress === "same" ? formData.store.location : formData.store.locationOnAddress},&nbsp;
+                      {formData.store.stateShort}&nbsp;{formData.store.zipcode}
                     </span>
                     </>
-                    } */}
+                    }
                   </p>
                 </div>
               </div>

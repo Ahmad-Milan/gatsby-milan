@@ -7,8 +7,12 @@
   },
   "consultType": "Consult",
   "store": {
+    "address": "",
+    "location": "",
+    "locationOnAddress": "",
     "salesforceValue": "",
-    "zipcode": ""
+    "zipcode": "",
+    "stateShort": ""
   },
   "campaignId": "",
   "leadsource": ""
