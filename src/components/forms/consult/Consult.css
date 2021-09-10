@@ -21,9 +21,6 @@
 #consult-form hr {
   border-top: 2px solid var(--main-turquoise);
 }
-#consult-form #submit-btns button {
-  max-width: 320px;
-}
 #consult-form #msg_area {
   margin-top: -200px; opacity: .5;
   transition: all .6s ease-in-out 150ms;
@@ -45,4 +42,19 @@
 }
 #consult-form .consult-type-wrapper span {
   font-size: 4rem;
+}
+#consult-form #actions-btns button {
+  max-width: 320px;
+}
+#consult-form #actions-btns button svg {
+  vertical-align: text-top;
+}
+#consult-form #actions-btns .red-bg-btn:disabled {
+  background-color: var(--red-disabled);
+}
+#consult-form #actions-btns .navy-bg-btn:disabled {
+  background-color: var(--navy-disabled);
+}
+#consult-form .hide {
+  display: none;
 }

@@ -1,11 +1,12 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 :root {
   --main-red: #f93500;
+  --red-disabled: rgba(255, 54, 0, .5);
   --main-turquoise: #3BD0EA;
   --main-blue: #01718f;
   --light-blue: #8cdfe6;
   --main-navy: #003a44;
-  --transparent-navy: rgba(0, 58, 68, .5);
+  --navy-disabled: rgba(0, 58, 68, .5);
   --light-shadow: 0 9px 6px -7px #777;
   --heavy-shadow: 0px 9px 16px -2px #777;
   --inset-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;

@@ -3,17 +3,23 @@
     "firstname": "",
     "lastname": "",
     "phone": "",
-    "email": ""
+    "email": "",
+    "description": ""
   },
-  "consultType": "Consult",
   "store": {
     "address": "",
     "location": "",
     "locationOnAddress": "",
     "salesforceValue": "",
     "zipcode": "",
-    "stateShort": ""
+    "stateShort": "",
+    "virtualZip": ""
   },
-  "campaignId": "",
-  "leadsource": ""
+  "include": {
+    "action": "",
+    "consultType": "",
+    "campaignId": "",
+    "leadsource": "",
+    "mailchimp": true
+  }
 }
