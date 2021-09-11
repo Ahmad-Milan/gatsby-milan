@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import Header from "../components/header/Header"
 import Footer from "../components/footer/Footer"
 import Consult from "../components/forms/consult/Consult"
+import siteData from "../data/siteData.json"
 
 import "../styles/main.css";
 
@@ -30,7 +31,11 @@ const Layout = ({ children }) => {
     <>
       <Header windowWidth={windowWidth}/>
       {children}
-      <Consult />
+      {
+        siteData.branches === 'multiple' && <Consult />
+      }
+      <div className="p-5 m-5"></div>
+      <div className="p-5 m-5"></div>
       <Footer />
     </>
   )

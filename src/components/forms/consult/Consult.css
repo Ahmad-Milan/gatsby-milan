@@ -2,7 +2,7 @@
   background-color: var(--main-blue);
 }
 #consult-form form {
-  background: #F5FAFD;
+  background: var(--form-bg)
 }
 #consult-form > div p.light-blue {
   font-size: .9rem; line-height: 1.3rem;
@@ -37,7 +37,26 @@
 #consult-form .card.selected {
   border-color: var(--main-navy);
 }
-#consult-form .selected-location-wrapper p {
+#consult-form .locations-container,
+#consult-form .consult-type-container,
+#consult-form .selected-location-container {
+  overflow: hidden;
+}
+#consult-form .locations-wrapper,
+#consult-form .consult-type-wrapper{
+  margin-top: -700px;
+  transition: all .6s ease-in-out 50ms;
+}
+#consult-form .selected-location-wrapper {
+  margin-top: -100px;
+  transition: all .2s ease-in-out;
+}
+#consult-form .locations-wrapper.toggle,
+#consult-form .consult-type-wrapper.toggle,
+#consult-form .selected-location-wrapper.toggle {
+  margin-top: 0;
+}
+#consult-form .selected-location-container p {
   font-size: 14px;
 }
 #consult-form .consult-type-wrapper span {

@@ -52,9 +52,9 @@ function Consult() {
           <input className="lead_source" type="hidden" name="lead_source"  id="lead_source" value={formState.include.leadsource} />
           <input type="hidden" name="Campaign_ID" id="campaign" value={formState.include.campaignId} />
 
-          <div className="form-steps-container">
+          <div className="form-steps-container position-relative overflow-hidden">
 
-            <div className="form-inputs-wrapper step-01">
+            <div className="form-inputs-wrapper">
               <div className="row justify-content-center mx-auto pt-4 mb-md-3">
                 <div className="col-md-5">
                   <label htmlFor="first_name">First Name <sup><FaAsterisk /></sup></label>
@@ -115,132 +115,126 @@ function Consult() {
               </div>
             </div>
 
-          {
-            formState.include.action !== '' &&
-            <div className="locations-wrapper step-02">
-
-              <div className="row justify-content-center mx-auto pt-4 mb-3">
-                <div className="col-md-10">
-                  <h3 className="h5 mb-4 text-center">Select a Location Near You</h3>
-                  <div className="d-flex justify-content-center flex-wrap">
-                    {
-                      getNearbyLocations().map((store, x) => (
-                        <div key={x} className="mb-2 col-6 col-md-4 col-lg-3">
-                          <div 
-                            className={`card p-2 text-center ${store.selected === true ? 'selected' : 'shadow-sm'}`} 
-                            onClick={() => nearbySelectedHandler(store)}>{store.location}
+            <div className="locations-container">
+              <div className={`locations-wrapper mx-2 ${formState.include.action !== '' ? 'toggle' : ''}`}>
+                <div className="row justify-content-center mx-auto pt-4">
+                  <div className="col-md-10">
+                    <h3 className="h5 mb-4 text-center">Select a Location Near You</h3>
+                    <div className="d-flex justify-content-center flex-wrap">
+                      {
+                        getNearbyLocations().map((store, x) => (
+                          <div key={x} className="mb-2 col-6 col-md-4 col-lg-3">
+                            <div 
+                              className={`card p-2 text-center ${store.selected === true ? 'selected' : 'shadow-sm'}`} 
+                              onClick={() => nearbySelectedHandler(store)}>{store.location}
+                            </div>
                           </div>
-                        </div>
-                      ))
-                    }
+                        ))
+                      }
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="row justify-content-center mx-auto mb-3">
-                <div className="col-10 col-sm-8 col-md-6 col-lg-4">
-                  <h4 className="h6 text-center">Or select a location from the list</h4>
-                  <select
-                    value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event)}
-                    className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
-                    <optgroup>
-                      <option value="">Select a location</option>
-                    </optgroup>
-                    {
-                      allLocations.locations.map((item, i) => (
-                        <optgroup key={i} label={item.state}>
-                          {
-                            item.stores.map((elem, x) => {
-                              if(elem.city) {
-                                let option = elem.locations.map((store, i) => {
+                <div className="row justify-content-center mx-auto mb-3">
+                  <div className="col-10 col-sm-8 col-md-6 col-lg-4">
+                    <h4 className="h6 text-center">Or select a location from the list</h4>
+                    <select
+                      value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event)}
+                      className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
+                      <optgroup>
+                        <option value="">Select a location</option>
+                      </optgroup>
+                      {
+                        allLocations.locations.map((item, i) => (
+                          <optgroup key={i} label={item.state}>
+                            {
+                              item.stores.map((elem, x) => {
+                                if(elem.city) {
+                                  let option = elem.locations.map((store, i) => {
+                                    return (
+                                      <option key={i} value={store.salesforceValue} zip={store.zipcode}>
+                                        {store.salesforceValue} {store.open === false ? '/ Coming Soon' : ''}
+                                      </option>
+                                    )})
+                                  return option
+                                } else {
                                   return (
-                                    <option key={i} value={store.salesforceValue} zip={store.zipcode}>
-                                      {store.salesforceValue} {store.open === false ? '/ Coming Soon' : ''}
+                                    <option key={x} value={elem.salesforceValue} zip={elem.zipcode}>
+                                      {elem.salesforceValue} {elem.open === false ? '/ Coming Soon' : ''}
                                     </option>
-                                  )})
-                                return option
-                              } else {
-                                return (
-                                  <option key={x} value={elem.salesforceValue} zip={elem.zipcode}>
-                                    {elem.salesforceValue} {elem.open === false ? '/ Coming Soon' : ''}
-                                  </option>
-                                )}
-                            })
-                          }
-                        </optgroup>
-                      ))
-                    }
-                  </select>
+                                  )}
+                              })
+                            }
+                          </optgroup>
+                        ))
+                      }
+                    </select>
+                  </div>
+                </div>
+
+                <div className="row justify-content-center mx-auto selected-location-container">
+                  <div className={`col-md-10 selected-location-wrapper ${formState.store.salesforceValue !== '' ? 'toggle' : ''}`}>
+                    <p className="mb-0 text-center">
+                      {
+                      formState.store.salesforceValue !== '' && 
+                      <>
+                      <strong>Selected location address:</strong>&nbsp;<br className="d-lg-none" />
+                      <span className="d-block d-md-inline">
+                        {formState.store.address}, <br className="d-sm-none" />
+                        {formState.store.locationOnAddress === "same" ? formState.store.location : formState.store.locationOnAddress},&nbsp;
+                        {formState.store.stateShort}&nbsp;{formState.store.zipcode}
+                      </span>
+                      </>
+                      }
+                    </p>
+                  </div>
                 </div>
               </div>
-
-              <div className="row justify-content-center mx-auto">
-                <div className="col-md-10">
-                  <p className="mb-0 text-center">
-                    {
-                    formState.store.salesforceValue !== '' && 
-                    <>
-                    <strong>Selected location address:</strong>&nbsp;<br className="d-lg-none" />
-                    <span className="d-block d-md-inline">
-                      {formState.store.address}, <br className="d-sm-none" />
-                      {formState.store.locationOnAddress === "same" ? formState.store.location : formState.store.locationOnAddress},&nbsp;
-                      {formState.store.stateShort}&nbsp;{formState.store.zipcode}
-                    </span>
-                    </>
-                    }
-                  </p>
-                </div>
-              </div>
-
             </div>
-          }
 
-
-          {
-            formState.include.action === 'self_schedule' && formState.store.salesforceValue !== '' &&
-            <div className="consult-type-wrapper">
-              <div className="row justify-content-center mx-auto">
-                <div className="col-md-10 p-md-0">
-                  <hr className="w-100 mb-0"/>
+            <div className="consult-type-container">
+              <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.salesforceValue !== '' ? 'toggle' : ''}`}>
+                <div className="row justify-content-center mx-auto">
+                  <div className="col-md-10 p-md-0">
+                    <hr className="w-100 mb-0"/>
+                  </div>
                 </div>
-              </div>
 
-              <div className="row justify-content-center mx-auto mb-md-3 py-4">
-                <div className="col-md-10">
-                  <h3 className="h5 text-center">Select Consultation Type</h3>
-                  {
-                    !formState.store.virtual &&
-                    <div className="d-flex justify-content-center pt-2">
-                      <div className="alert alert-danger col col-sm-10 col-md-8 col-lg-6 text-center p-2 mb-0" role="alert">
-                        Virtual consult is not available for this location
+                <div className="row justify-content-center mx-auto py-4">
+                  <div className="col-md-10">
+                    <h3 className="h5 text-center">Select Consultation Type</h3>
+                    {
+                      !formState.store.virtual &&
+                      <div className="d-flex justify-content-center pt-2">
+                        <div className="alert alert-danger col col-sm-10 col-md-8 col-lg-6 text-center p-2 mb-0" role="alert">
+                          Virtual consult is not available for this location
+                        </div>
                       </div>
-                    </div>
-                  }
-                  <div className="d-flex justify-content-center mt-4">
-                    <div className="col-5 col-md-4 col-lg-3">
-                      <div 
-                        className={`card p-3 text-center ${ formState.include.consultType === 'Consult' ? 'selected' : 'shadow-sm'}`} 
-                        onClick={() => handleConsultTypeClick('Consult')}>
-                        <span><FaStoreAlt /></span>
-                        <p className="mt-2 mb-0">In-Store</p>
+                    }
+                    <div className="d-flex justify-content-center mt-4">
+                      <div className="col-5 col-md-4 col-lg-3">
+                        <div 
+                          className={`card p-3 text-center ${ formState.include.consultType === 'Consult' ? 'selected' : 'shadow-sm'}`} 
+                          onClick={() => handleConsultTypeClick('Consult')}>
+                          <span><FaStoreAlt /></span>
+                          <p className="mt-2 mb-0">In-Store</p>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="col-5 col-md-4 col-lg-3">
-                      <div 
-                        className={`card p-3 text-center ${ formState.include.consultType === 'Virtual' ? 'selected' : 'shadow-sm'}`}
-                        style={!formState.store.virtual ? {color: 'lightgrey'} : {} }
-                        onClick={() => handleConsultTypeClick('Virtual')}>
-                        <span><BiWebcam /></span>
-                        <p className="mt-2 mb-0">Virtual</p>
+                      <div className="col-5 col-md-4 col-lg-3">
+                        <div 
+                          className={`card p-3 text-center ${ formState.include.consultType === 'Virtual' ? 'selected' : 'shadow-sm'}`}
+                          style={!formState.store.virtual ? {color: 'lightgrey'} : {} }
+                          onClick={() => handleConsultTypeClick('Virtual')}>
+                          <span><BiWebcam /></span>
+                          <p className="mt-2 mb-0">Virtual</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          }
-
           </div>
             
 
