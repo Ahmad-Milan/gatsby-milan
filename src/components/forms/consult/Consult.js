@@ -4,141 +4,38 @@ import { FaAsterisk, FaQuestionCircle, FaRegCalendarAlt, FaArrowLeft, FaPaperPla
 import { BiWebcam } from 'react-icons/bi'
 import formData from '../../../data/formData.json'
 import allLocations from '../../../data/allLocations.json'
-import siteData from '../../../data/siteData.json'
+import getNearbyLocations from '../../../data/getNearbyLocations'
+import updateNearbySelection  from '../functions/updateNearbySelection'
+import updateUserInputs from '../functions/updateUserInputs'
+import updateDropdown from '../functions/updateDropdown'
+import updateConsultType from '../functions/updateConsultType'
+import goBackBtn from '../functions/goBackBtn'
+import updateFormAction from '../functions/updateFormAction'
 
 import './Consult.css'
 
 function Consult() {
-  // Get nearby locations if any
-  let nearbyLocations;
-  if(siteData.branches > 1) {
-    nearbyLocations = allLocations.locations.filter(elem => (
-      elem.state === siteData.state
-    ))[0].stores.filter(item => (
-      item.city === siteData.city
-    ))[0].locations
-  }
-
-  // Ask Question Button on Click
-  const [askQuestionClicked, setAskQuestionClicked] = useState(false)
+  // **** This Form Works For Sites With Multiple Locations Only ***** //
   const [formState, setFormState] = useState(formData)
+  const [askQuestionClicked, setAskQuestionClicked] = useState(true ? formState.include.action === 'question' : false)
 
-  const selfScheduleHandler = () => {}
-  
-  // ---------------------------------------------------------
   // Form Control Inputs
-  const updateFormControl = (event) => {
-    const { id, value } = event.target
-    // the id is the input id which should match the user obj props 
-    const updatedFormState = { ...formState } // Shallow clone from original 
-    updatedFormState.user[id] = value
-    setFormState(updatedFormState)
-  }
+  const updateFormControl = (event) => setFormState(updateUserInputs(event, formState))
 
-  // ---------------------------------------------------------
   // This is the list of nearby locations (NOT the Dropdown) / click handler
-  const nearbySelectedHandler = (store) => {
-    const updatedFormState = { ...formState }
-    updatedFormState.store.salesforceValue = store.salesforceValue
-    updatedFormState.store.zipcode = store.zipcode
-    updatedFormState.store.address = store.address
-    updatedFormState.store.location = store.location
-    updatedFormState.store.locationOnAddress = store.locationOnAddress
-    updatedFormState.store.stateShort = store.stateShort
-    updatedFormState.store.virtual = store.virtual
-    updatedFormState.store.open = store.open
-    updatedFormState.store.virtualZip = store.virtualZip
+  const nearbySelectedHandler = (store) => setFormState(updateNearbySelection(store, formState))
 
-    if(!store.virtual) updatedFormState.include.consultType = 'Consult'
-    if(store.virtual) updatedFormState.include.consultType = ''
-
-    setFormState(updatedFormState)
-
-    nearbyLocations.map(store => store.selected = false)
-    store.selected = true
-  }
-
-  // ---------------------------------------------------------
   // This is the Dropdown all locations list onChange handler
-  const dropdownHandler = (event) => {
-    let filteredStore
-    filteredStore = allLocations.locations.filter(element => {
-      return element.stores.some(item => {
-        if (item.salesforceValue && item.salesforceValue === event.target.value) return true
-        else if(item.locations) {
-          return item.locations.some(location => location.salesforceValue === event.target.value)
-        }
-      })
-    })[0].stores.filter(item => {
-      if (item.salesforceValue && item.salesforceValue === event.target.value) return true
-      else if(item.locations) {
-        return item.locations.some(location => location.salesforceValue === event.target.value)
-      }
-    })[0]
-  
-    if(filteredStore.locations) {
-      filteredStore = filteredStore.locations.filter(location => location.salesforceValue === event.target.value)[0]
-    }
-      
-    const updatedFormState = { ...formState }
-    updatedFormState.store.salesforceValue = filteredStore.salesforceValue
-    updatedFormState.store.zipcode = filteredStore.zipcode
-    updatedFormState.store.address = filteredStore.address
-    updatedFormState.store.location = filteredStore.location
-    updatedFormState.store.locationOnAddress = filteredStore.locationOnAddress
-    updatedFormState.store.stateShort = filteredStore.stateShort
-    updatedFormState.store.virtual = filteredStore.virtual
-    updatedFormState.store.open = filteredStore.open
-    updatedFormState.store.virtualZip = "ghglkjljkg"
-    setFormState(updatedFormState)
+  const dropdownHandler = (event) => setFormState(updateDropdown(event, formState))
 
-    nearbyLocations.map(store => store.selected = false)
-    const nearbyStore = nearbyLocations.filter(store => (
-      store.salesforceValue === filteredStore.salesforceValue
-    ))
-    if(nearbyStore.length === 1) {
-      nearbyStore[0].selected = true
-    }
-  }
+  // Consult Type: 'Virtual' OR 'Consult'
+  const handleConsultTypeClick = (type) => setFormState(updateConsultType(type, formState))
 
-  const handleConsultTypeClick = (type) => {
-    if(!formState.store.virtual) return
-    const updatedFormState = { ...formState }
-    if(type === 'Virtual') {
-      updatedFormState.include.consultType = 'Virtual'
-      updatedFormState.include.campaignId = 'virtual_campaign_id'
-    }
-    if(type === 'Consult') {
-      updatedFormState.include.consultType = 'Consult'
-      updatedFormState.include.campaignId = '7011L000001K6qrQAC'
-    }
-    setFormState(updatedFormState)
-  }
+  // Go Back Button
+  const handleGoBack = () => setFormState(goBackBtn(formState))
 
-  const actionHandler = (action) => {
-    const updatedFormState = { ...formState }
-    updatedFormState.include.action = action
-    if(action === 'question') {
-      updatedFormState.include.leadsource = 'Website'
-      updatedFormState.include.campaignId = ''
-      updatedFormState.include.consultType = ''
-    }
-    if(action === 'self_schedule') {
-      updatedFormState.include.leadsource = 'Self-Schedule Site'
-    }
-    setFormState(updatedFormState)
-  }
-
-  const handleGoBack = () => {
-    const updatedFormState = { ...formState }
-    updatedFormState.include.action = ''
-    if(!formState.store.virtual) {
-      updatedFormState.include.consultType = 'Consult'
-      updatedFormState.include.leadsource = 'Website'
-      updatedFormState.include.leadsource = 'Self-Schedule Site'
-    }
-    setFormState(updatedFormState)
-  }
+  // Action: 'question' OR 'self_schedule'
+  const actionHandler = (action) => setFormState(updateFormAction(action, formState))
 
   console.log(formState)
 
@@ -210,8 +107,10 @@ function Consult() {
 
               <div className="row justify-content-center mx-auto">
                 <div className="col-md-10 custom-checkbox">
-                  <input className="me-2 form-check-input" type="checkbox" id="gridCheck"  name="updates" />
-                  <label className="main-blue mailchimp" htmlFor="gridCheck"><small>Get updates on laser hair removal deals. (no spam)</small></label>
+                  <input 
+                    className="me-2 form-check-input" type="checkbox" id="mailchimp"  name="updates" 
+                    checked={formState.user.mailchimp} onChange={updateFormControl}/>
+                  <label className="main-blue mailchimp" htmlFor="mailchimp"><small>Get updates on laser hair removal deals. (no spam)</small></label>
                 </div>
               </div>
             </div>
@@ -225,7 +124,7 @@ function Consult() {
                   <h3 className="h5 mb-4 text-center">Select a Location Near You</h3>
                   <div className="d-flex justify-content-center flex-wrap">
                     {
-                      nearbyLocations.map((store, x) => (
+                      getNearbyLocations().map((store, x) => (
                         <div key={x} className="mb-2 col-6 col-md-4 col-lg-3">
                           <div 
                             className={`card p-2 text-center ${store.selected === true ? 'selected' : 'shadow-sm'}`} 

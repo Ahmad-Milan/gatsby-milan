@@ -4,7 +4,8 @@
     "lastname": "",
     "phone": "",
     "email": "",
-    "description": ""
+    "description": "",
+    "mailchimp": true
   },
   "store": {
     "address": "",
@@ -19,7 +20,6 @@
     "action": "",
     "consultType": "",
     "campaignId": "",
-    "leadsource": "",
-    "mailchimp": true
+    "leadsource": ""
   }
 }
