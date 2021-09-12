@@ -38,7 +38,7 @@ function Consult() {
   // Action: 'question' OR 'self_schedule'
   const actionHandler = (action) => setFormState(updateFormAction(action, formState))
 
-  console.log(formState)
+  // console.log(formState)
 
   return (
     <div id="consult-form" className="full-section">
@@ -151,6 +151,7 @@ function Consult() {
                             {
                               item.stores.map((elem, x) => {
                                 if(elem.city) {
+                                  // if a city has multiple locations, loop through its locations
                                   let option = elem.locations.map((store, i) => {
                                     return (
                                       <option key={i} value={store.salesforceValue} zip={store.zipcode}>

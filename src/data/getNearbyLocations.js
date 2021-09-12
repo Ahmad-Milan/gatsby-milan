@@ -1,4 +1,3 @@
-import React from 'react'
 import allLocations from './allLocations.json'
 import siteData from './siteData.json'
 

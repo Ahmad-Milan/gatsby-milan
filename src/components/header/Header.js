@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Link } from "gatsby"
 import getMenu from './navbar/menu'
 import Navbar from './navbar/Navbar'
 import useClickOutside from '../../hooks/clickOutside'
