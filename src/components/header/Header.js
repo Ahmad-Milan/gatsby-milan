@@ -5,7 +5,7 @@ import Navbar from './navbar/Navbar'
 import useClickOutside from '../../hooks/clickOutside'
 import { FaPhoneAlt } from 'react-icons/fa';
 import './Header.css'
-
+import scrollTo from 'gatsby-plugin-smoothscroll'
 
 function Header({windowWidth}) {
   const menu = getMenu()
@@ -36,7 +36,7 @@ function Header({windowWidth}) {
                 </a>
               </div>
               <div className="d-inline-block">
-                <Link className="cta-btn red-bg-btn py-2 px-3 smooth" to="#consult">FREE CONSULT</Link>
+                <button className="cta-btn red-bg-btn py-1 px-3" onClick={() => scrollTo('#scrollToConsult')}>FREE CONSULT</button>
               </div>
 					  </div>
           </nav>

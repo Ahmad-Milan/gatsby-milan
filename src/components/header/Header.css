@@ -10,7 +10,7 @@ header nav {
   background-color: var(--main-navy);
 }
 header .cta-btns {
-  padding: 22px 0;
+  padding: 18px 0;
 }
 header .navbar-toggler {
   padding: 10px 7px;
@@ -243,7 +243,7 @@ header .navbar__menu--sm .subSubMenu {
     margin-top: 5px !important;
   }
   header .cta-btns {
-    padding: 19px 0;
+    padding: 15px 0;
   }
 }
 
