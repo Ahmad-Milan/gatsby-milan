@@ -1,3 +1,5 @@
+import scrollTo from 'gatsby-plugin-smoothscroll'
+
 function updateFormAction(action, formState) {
   const updatedFormState = { ...formState }
   updatedFormState.include.action = action
@@ -5,6 +7,8 @@ function updateFormAction(action, formState) {
     updatedFormState.include.leadsource = 'Website'
     updatedFormState.include.campaignId = ''
     updatedFormState.include.consultType = ''
+
+    scrollTo('#scrollToMessage')
   }
   if(action === 'self_schedule') {
     updatedFormState.include.leadsource = 'Self-Schedule Site'

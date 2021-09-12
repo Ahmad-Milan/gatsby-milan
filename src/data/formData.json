@@ -14,7 +14,9 @@
     "salesforceValue": "",
     "zipcode": "",
     "stateShort": "",
-    "virtualZip": ""
+    "virtualZip": "",
+    "virtual": false,
+    "open": false
   },
   "include": {
     "action": "",

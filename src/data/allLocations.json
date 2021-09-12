@@ -154,7 +154,7 @@
               "googleMap": "",
               "appleMap": "",
               "open": true,
-              "virtual": true,
+              "virtual": false,
               "virtualZip": "00000"
             },
             {

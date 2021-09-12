@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'gatsby'
+import scrollTo from 'gatsby-plugin-smoothscroll'
 import { FaAsterisk, FaQuestionCircle, FaRegCalendarAlt, FaArrowLeft, FaPaperPlane, FaStoreAlt, FaArrowRight } from 'react-icons/fa'
 import { BiWebcam } from 'react-icons/bi'
 import formData from '../../../data/formData.json'
@@ -72,7 +73,7 @@ function Consult() {
                 </div>
               </div>
               
-              <div className="row justify-content-center mx-auto pt-md-4 mb-md-3">
+              <div id="scrollToMessage" className="row justify-content-center mx-auto pt-md-4 mb-md-3">
                 <div className="col-md-5 mt-3 mt-sm-0">
                   <label htmlFor="phone">Phone Number <sup><FaAsterisk /></sup></label>
                   <input 
@@ -120,22 +121,22 @@ function Consult() {
                 <div className="row justify-content-center mx-auto pt-4">
                   <div className="col-md-10">
                     <h3 className="h5 mb-4 text-center">Select a Location Near You</h3>
-                    <div className="d-flex justify-content-center flex-wrap">
+                    <ul className="d-flex justify-content-center flex-wrap">
                       {
                         getNearbyLocations().map((store, x) => (
-                          <div key={x} className="mb-2 col-6 col-md-4 col-lg-3">
-                            <div 
+                          <li key={x} className="mb-2 col-6 col-md-4 col-lg-3">
+                            <div
                               className={`card p-2 text-center ${store.selected === true ? 'selected' : 'shadow-sm'}`} 
                               onClick={() => nearbySelectedHandler(store)}>{store.location}
                             </div>
-                          </div>
+                          </li>
                         ))
                       }
-                    </div>
+                    </ul>
                   </div>
                 </div>
 
-                <div className="row justify-content-center mx-auto mb-3">
+                <div id="locations-dropdown" className="row justify-content-center mx-auto my-3">
                   <div className="col-10 col-sm-8 col-md-6 col-lg-4">
                     <h4 className="h6 text-center">Or select a location from the list</h4>
                     <select
@@ -174,9 +175,9 @@ function Consult() {
 
                 <div className="row justify-content-center mx-auto selected-location-container">
                   <div className={`col-md-10 selected-location-wrapper ${formState.store.salesforceValue !== '' ? 'toggle' : ''}`}>
-                    <p className="mb-0 text-center">
+                    <div className="mb-0 text-center">
                       {
-                      formState.store.salesforceValue !== '' && 
+                      formState.store.open && 
                       <>
                       <strong>Selected location address:</strong>&nbsp;<br className="d-lg-none" />
                       <span className="d-block d-md-inline">
@@ -186,14 +187,24 @@ function Consult() {
                       </span>
                       </>
                       }
-                    </p>
+                      {
+                      !formState.store.open &&
+                      <div className="d-flex justify-content-center mb-3">
+                        <div className="alert alert-warning col text-center p-2 mb-0" role="alert">
+                          Selected location is not open yet, but you can still 
+                          <span  onClick={() => {setAskQuestionClicked(true); actionHandler('question')}}> submit a question</span>! 
+                          Or select a different location.
+                        </div>
+                      </div>
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="consult-type-container">
-              <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.salesforceValue !== '' ? 'toggle' : ''}`}>
+              <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.open ? 'toggle' : ''}`}>
                 <div className="row justify-content-center mx-auto">
                   <div className="col-md-10 p-md-0">
                     <hr className="w-100 mb-0"/>
@@ -206,7 +217,7 @@ function Consult() {
                     {
                       !formState.store.virtual &&
                       <div className="d-flex justify-content-center pt-2">
-                        <div className="alert alert-danger col col-sm-10 col-md-8 col-lg-6 text-center p-2 mb-0" role="alert">
+                        <div className="alert alert-warning col col-sm-10 col-md-8 col-lg-6 text-center p-2 mb-0" role="alert">
                           Virtual consult is not available for this location
                         </div>
                       </div>
@@ -243,7 +254,7 @@ function Consult() {
             <div className="col-lg-4 text-center">
             {
               !askQuestionClicked && formState.include.action !== 'self_schedule' &&
-              <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => setAskQuestionClicked(true)}>
+              <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => {setAskQuestionClicked(true); scrollTo('#scrollToMessage')}}>
                 <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
               </button>
             }
@@ -284,7 +295,7 @@ function Consult() {
               !askQuestionClicked && formState.include.action === 'self_schedule' &&
               <button 
                 className="w-100 cta-btn red-bg-btn py-2 shadow-sm" 
-                disabled={true ? formState.include.consultType === '' : false}>
+                disabled={formState.include.consultType === '' || !formState.store.open ? true : false}>
               <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
               </button>
             }

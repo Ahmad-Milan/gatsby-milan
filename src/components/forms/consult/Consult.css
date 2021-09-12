@@ -56,9 +56,14 @@
 #consult-form .selected-location-wrapper.toggle {
   margin-top: 0;
 }
-#consult-form .selected-location-container p {
+#consult-form .selected-location-container div {
   font-size: 14px;
+  line-height: 1.2rem;
 }
+#consult-form .selected-location-container .alert span {
+  text-decoration: underline;
+  cursor: pointer;
+} 
 #consult-form .consult-type-wrapper span {
   font-size: 4rem;
 }

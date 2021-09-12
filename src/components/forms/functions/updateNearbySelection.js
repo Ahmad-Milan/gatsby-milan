@@ -1,4 +1,5 @@
 import getNearbyLocations from '../../../data/getNearbyLocations'
+import scrollTo from 'gatsby-plugin-smoothscroll'
 
 function updateNearbySelection(store, formState) {
   const updatedFormState = { ...formState }
@@ -17,6 +18,8 @@ function updateNearbySelection(store, formState) {
 
   getNearbyLocations().map(store => store.selected = false)
   store.selected = true
+
+  scrollTo('#locations-dropdown')
 
   return updatedFormState
 }
