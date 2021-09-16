@@ -16,7 +16,7 @@ import validateEmail from '../validation/validateEmail'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import InputMask from 'react-input-mask'
 import updateSubscription from '../functions/updateSubscription'
-import askQuestionBtn from '../functions/askQuestionBtn'
+import askQuestion from '../functions/askQuestion'
 import onSubmit from '../functions/onSubmit'
 import './Consult.css'
 
@@ -30,7 +30,10 @@ function VirtualMultiple() {
   // This is usefull when navigating between site's pages
   const isQuestion = formState.include.action === 'question' // Boolean
   const [askQuestionClicked, setAskQuestionClicked] = useState(isQuestion)
-  const askQuestion = formikProps => setAskQuestionClicked(askQuestionBtn(formikProps))
+  const onAskQuestionClick = formikProps => {
+    askQuestion(formikProps, formState)
+    setAskQuestionClicked(true)
+  }
 
   // Mailchimp checkbox 
   const handleSubscription = event => setFormState(updateSubscription(event, formState))
@@ -120,7 +123,7 @@ function VirtualMultiple() {
     
                     <div className="row justify-content-center mx-auto mt-3 overflow-hidden">
                       <div id="msg_area" className={`col-md-10 mx-auto mb-2 ${askQuestionClicked ? 'slide-down' : ''}`}>
-                        <label htmlFor="description">Message <small>(optional)</small></label>
+                        <label htmlFor="description">Message</label>
                         <Field as="textarea" className="form-control" placeholder="Hello…" id="description" name="description" rows="3"/>
                       </div>
                     </div>
@@ -274,7 +277,7 @@ function VirtualMultiple() {
                   <div className="col-lg-4 text-center">
                   {
                     !askQuestionClicked && formState.include.action !== 'self_schedule' &&
-                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => askQuestion(formik)}>
+                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => onAskQuestionClick(formik)}>
                       <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
                     </button>
                   }
@@ -334,7 +337,7 @@ function VirtualMultiple() {
                       <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
                     </button>
                   }
-                  </div>{console.log(formState)}
+                  </div>
                 </div>
               </Form>
             )

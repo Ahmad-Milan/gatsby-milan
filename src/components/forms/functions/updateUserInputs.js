@@ -1,15 +1,12 @@
-// ****************************************************************//
-//  This function is NOT used in the new VirtualMultiple Component //
-// ****************************************************************//
-function updateUserInputs(event, formState) {
-  const { id, value } = event.target
-  // the id is the input id which should match the user obj props 
-  const updatedFormState = { ...formState } // Shallow clone from original 
-  if(id === 'mailchimp') {
-    updatedFormState.user[id] = !updatedFormState.user[id]
-  } else {
-    updatedFormState.user[id] = value
-  }
+function updateUserInputs(action, formState, formikProps) {
+  const updatedFormState = { ...formState } // Shallow clone of formState
+  updatedFormState.include.action = action
+
+  // Update formState user values: get the values from formikProps.values
+  updatedFormState.user.first_name = formikProps.values.first_name
+  updatedFormState.user.last_name = formikProps.values.last_name
+  updatedFormState.user.email = formikProps.values.email
+  updatedFormState.user.phone = formikProps.values.phone
 
   return updatedFormState
 }

@@ -1,5 +1,6 @@
 import actionInit from './actionInit'
 import checkTouched from './checkTouched'
+import updateUserInputs from './updateUserInputs'
 
 // The action is either 'question' OR 'self_schedule'
 function updateFormAction(action, formikProps, formState) {
@@ -8,14 +9,8 @@ function updateFormAction(action, formikProps, formState) {
   // Also they will get validated
   actionInit(formikProps)
 
-  const updatedFormState = { ...formState } // Shallow clone of formState
-  updatedFormState.include.action = action
-
-  // Update formState user values: get the values from formikProps.values
-  updatedFormState.user.first_name = formikProps.values.first_name
-  updatedFormState.user.last_name = formikProps.values.last_name
-  updatedFormState.user.email = formikProps.values.email
-  updatedFormState.user.phone = formikProps.values.phone
+  // Update formState's user inputs
+  const updatedFormState = updateUserInputs(action, formState, formikProps)
 
   if(action === 'question') {
     updatedFormState.include.leadsource = 'Website'
