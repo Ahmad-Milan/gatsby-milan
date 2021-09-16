@@ -30,10 +30,6 @@ function VirtualMultiple() {
   // This is usefull when navigating between site's pages
   const isQuestion = formState.include.action === 'question' // Boolean
   const [askQuestionClicked, setAskQuestionClicked] = useState(isQuestion)
-  const onAskQuestionClick = formikProps => {
-    askQuestion(formikProps, formState)
-    setAskQuestionClicked(true)
-  }
 
   // Mailchimp checkbox 
   const handleSubscription = event => setFormState(updateSubscription(event, formState))
@@ -64,7 +60,7 @@ function VirtualMultiple() {
           initialValues={formState.user}
           validationSchema={validationSchema}
           onSubmit={() => onSubmit(formState)}>
-          {// This way we can get an access to all formik props
+          {// This way we can get access to all formik props
           formik => {
             return (
               <Form className="w-100 py-4 rounded shadow" action="" method="POST" >
@@ -96,13 +92,11 @@ function VirtualMultiple() {
                           { // These props are coming from the Formik Field compoenent and it contains: field, form, meta
                             props => {
                               const { field, meta } = props
-                              return (
-                                <>
+                              return <>
                                   <InputMask mask="+1\ 999-999-9999" maskChar={null} className="form-control phone_input" id="phone" 
                                     {...field} placeholder="+1 999-999-9999" /> 
                                     {meta.touched && meta.error ? <ErrorMessage name="phone" component={TextError} /> : null}
                                 </>
-                              )
                             }
                           }
                         </Field>
@@ -216,8 +210,13 @@ function VirtualMultiple() {
                             <div className="d-flex justify-content-center mb-3">
                               <div className="alert alert-warning col text-center p-2 mb-0" role="alert">
                                 Selected location is not open yet, but you can still 
-                                <span  onClick={() => {setAskQuestionClicked(true); actionHandler('question', formik)}}> submit a question</span>! 
-                                Or select a different location.
+                                <span onClick={
+                                    () => {
+                                      askQuestion(formik, formState)
+                                      setAskQuestionClicked(true)
+                                      actionHandler('question', formik)
+                                    }
+                                }>&nbsp;submit a question</span>! Or select a different location.
                               </div>
                             </div>
                             }
@@ -277,7 +276,9 @@ function VirtualMultiple() {
                   <div className="col-lg-4 text-center">
                   {
                     !askQuestionClicked && formState.include.action !== 'self_schedule' &&
-                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => onAskQuestionClick(formik)}>
+                    <button 
+                      className="w-100 cta-btn light-btn py-2 shadow-sm" 
+                      onClick={() => {askQuestion(formik, formState); setAskQuestionClicked(true)}}>
                       <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
                     </button>
                   }
