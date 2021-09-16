@@ -1,3 +1,6 @@
+// ****************************************************************//
+//  This function is NOT used in the new VirtualMultiple Component //
+// ****************************************************************//
 function updateUserInputs(event, formState) {
   const { id, value } = event.target
   // the id is the input id which should match the user obj props 

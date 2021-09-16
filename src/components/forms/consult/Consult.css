@@ -82,3 +82,6 @@
 #consult-form .hide {
   display: none;
 }
+#consult-form .alert-danger {
+  font-size: 14px;
+}

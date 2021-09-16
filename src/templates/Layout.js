@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import Header from "../components/header/Header"
 import Footer from "../components/footer/Footer"
-import Consult from "../components/forms/consult/Consult"
+import VirtualMultiple from "../components/forms/consult/VirtualMultiple"
 import siteData from "../data/siteData.json"
 
 import "../styles/main.css";
@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
       {children}
       <span id="scrollToConsult"></span>
       {
-        siteData.branches === 'multiple' && <Consult />
+        siteData.branches === 'multiple' && <VirtualMultiple />
       }
       <div className="p-5 m-5"></div>
       <div className="p-5 m-5"></div>

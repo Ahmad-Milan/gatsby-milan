@@ -23,7 +23,8 @@ function updateDropdown(event, formState) {
     filteredStore = filteredStore.locations.filter(location => location.salesforceValue === event.target.value)[0]
   }
     
-  const updatedFormState = { ...formState }
+  const updatedFormState = { ...formState } // Shallow clone of formState
+  // Update the values of formState.store porps
   updatedFormState.store.salesforceValue = filteredStore.salesforceValue
   updatedFormState.store.zipcode = filteredStore.zipcode
   updatedFormState.store.address = filteredStore.address
@@ -34,13 +35,25 @@ function updateDropdown(event, formState) {
   updatedFormState.store.open = filteredStore.open
   updatedFormState.store.virtualZip = "010101"
 
+  // if store does NOT support Virtual Consult -> Set consultType to 'Consult'
   if(!filteredStore.virtual) updatedFormState.include.consultType = 'Consult'
+
+  // if store supports Virtual Consult -> Reset consultType and let the user chooses between the 2 types
   if(filteredStore.virtual) updatedFormState.include.consultType = ''
 
+  // Unclick all nearby locations if any
   getNearbyLocations().map(store => store.selected = false)
+
+  // When the user selects a location from the dropdown,
+  // there's a chance the selected location happens to be a nearby locaiton, so..
+  // Check if the selected location is a nearby location
   const nearbyStore = getNearbyLocations().filter(store => (
     store.salesforceValue === filteredStore.salesforceValue
   ))
+  // if the selected location happens to be a nearby locaitona,
+  // nearbyStore will return an array of one element only
+  // This one element represents the nearyby location
+  // This will make that nearby location to appear as clicked
   if(nearbyStore.length === 1) {
     nearbyStore[0].selected = true
   }
