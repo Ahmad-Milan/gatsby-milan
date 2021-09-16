@@ -1,4 +1,4 @@
-import getNearbyLocations from '../../../data/getNearbyLocations'
+import getNearbyLocations from '../../functions/general/getNearbyLocations'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
 function updateNearbySelection(store, formState) {
