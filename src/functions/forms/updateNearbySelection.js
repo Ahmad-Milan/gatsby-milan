@@ -1,18 +1,11 @@
 import getNearbyLocations from '../../functions/general/getNearbyLocations'
 import scrollTo from 'gatsby-plugin-smoothscroll'
+import updateStoreProps from './updateStoreProps'
 
 function updateNearbySelection(store, formState) {
   const updatedFormState = { ...formState } // Shallow clone of formState
-  // Update formState store values
-  updatedFormState.store.salesforceValue = store.salesforceValue
-  updatedFormState.store.zipcode = store.zipcode
-  updatedFormState.store.address = store.address
-  updatedFormState.store.location = store.location
-  updatedFormState.store.locationOnAddress = store.locationOnAddress
-  updatedFormState.store.stateShort = store.stateShort
-  updatedFormState.store.virtual = store.virtual
-  updatedFormState.store.open = store.open
-  updatedFormState.store.virtualZip = store.virtualZip
+  // Update the values of formState.store porps
+  updateStoreProps(updatedFormState, store)
 
   // if store does NOT support Virtual Consult -> Set consultType to 'Consult'
   if(!store.virtual) updatedFormState.include.consultType = 'Consult'

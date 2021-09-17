@@ -1,39 +1,15 @@
-import allLocations from '../../data/allLocations.json'
 import getNearbyLocations from '../general/getNearbyLocations'
+import getStore from '../general/getStore'
+import updateStoreProps from './updateStoreProps'
 
 function updateDropdown(event, formState) {
-  let filteredStore
-  filteredStore = allLocations.locations.find(element => {
-    return element.stores.some(findLocation)
-  }).stores.find(findLocation)
 
-  function findLocation(elem) {
-    // Single Location: if the location is a single location in a city
-    if(elem.location) {
-      return elem.salesforceValue === event.target.value
-    }
-    // Multiple Locations: if the location is one of many locations in a city
-    if(elem.locations) {
-      return elem.locations.some(elem => elem.salesforceValue === event.target.value)
-    }
-  }
-
-  // if the selected location is one of many locations, filteredStore would be an array of all nearby locations, So...
-  if(filteredStore.locations) {
-    filteredStore = filteredStore.locations.find(location => location.salesforceValue === event.target.value)
-  }
+  // This function will find the selected store in the allLocations file and return it
+  const filteredStore = getStore(event)
     
   const updatedFormState = { ...formState } // Shallow clone of formState
   // Update the values of formState.store porps
-  updatedFormState.store.salesforceValue = filteredStore.salesforceValue
-  updatedFormState.store.zipcode = filteredStore.zipcode
-  updatedFormState.store.address = filteredStore.address
-  updatedFormState.store.location = filteredStore.location
-  updatedFormState.store.locationOnAddress = filteredStore.locationOnAddress
-  updatedFormState.store.stateShort = filteredStore.stateShort
-  updatedFormState.store.virtual = filteredStore.virtual
-  updatedFormState.store.open = filteredStore.open
-  updatedFormState.store.virtualZip = "010101"
+  updateStoreProps(updatedFormState, filteredStore)
 
   // if store does NOT support Virtual Consult -> Set consultType to 'Consult'
   if(!filteredStore.virtual) updatedFormState.include.consultType = 'Consult'

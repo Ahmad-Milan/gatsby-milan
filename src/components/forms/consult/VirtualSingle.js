@@ -23,7 +23,7 @@ import './Consult.css'
 // This form works ONLY for websites with multiple locations
 // This form supports the virtual consult option
 
-function VirtualMultiple() {
+function VirtualSingle() {
   const [formState, setFormState] = useState(formData)
 
   // Check if the current action is 'question'
@@ -351,4 +351,4 @@ function VirtualMultiple() {
   )
 }
 
-export default VirtualMultiple
+export default VirtualSingle
