@@ -1,31 +1,14 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import Header from "../components/header/Header"
 import Footer from "../components/footer/Footer"
 import VirtualMultiple from "../components/forms/consult/VirtualMultiple"
-import siteData from "../data/siteData.json"
-
+import siteDataM from "../data/siteDataM.json"
+import useResize from "../hooks/useResize"
 import "../styles/main.css";
 
 const Layout = ({ children }) => {
 
-  const [windowWidth, setWindowWidth] = useState(0)
-
-  // Check if window is defined (so if in the browser or in node.js).
-  const isBrowser = typeof window !== "undefined"
-
-  // See note below **
-  useEffect(() => {
-    let mounted = true
-    if(isBrowser && mounted) {
-      window.addEventListener("resize", handleResize)
-      setWindowWidth(window.innerWidth)
-    }
-    return () => mounted = false
-  }, [isBrowser])
-
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth)
-  }
+  const windowWidth = useResize()
 
   return (
     <>
@@ -33,7 +16,7 @@ const Layout = ({ children }) => {
       {children}
       <span id="scrollToConsult"></span>
       {
-        siteData.branches === 'multiple' && <VirtualMultiple />
+        siteDataM.branches === 'multiple' && <VirtualMultiple />
       }
       <div className="p-5 m-5"></div>
       <div className="p-5 m-5"></div>

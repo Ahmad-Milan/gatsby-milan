@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Link  from "../../../templates/linkTesting"
+import Link  from "../../../functions/general/linkTesting"
 import SubMenu from './subMenu/SubMenu'
 import { FaCaretDown, FaCaretUp, FaTimes } from 'react-icons/fa'
 import updateMenuExpansion from './updateMenuExpansion'
