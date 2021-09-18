@@ -5,7 +5,7 @@ import updateStoreProps from './updateStoreProps'
 function updateDropdown(event, formState) {
 
   // This function will find the selected store in the stores file and return it
-  const filteredStore = getStore(event)
+  const filteredStore = getStore(event.target.value)
     
   const updatedFormState = { ...formState } // Shallow clone of formState
   // Update the values of formState.store porps

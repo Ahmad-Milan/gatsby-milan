@@ -16,6 +16,6 @@ function Consult({siteData}) {
   // For cities with multiple locations
   if(city.locations.length > 1) return <VirtualMultiple />
   // For cities with single location
-  else return <VirtualSingle />
+  else return <VirtualSingle siteData={siteData} />
 }
 export default Consult

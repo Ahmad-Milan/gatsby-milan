@@ -3,10 +3,8 @@ import { Link } from 'gatsby'
 import { FaAsterisk, FaQuestionCircle, FaRegCalendarAlt, FaArrowLeft, FaPaperPlane, FaStoreAlt, FaArrowRight } from 'react-icons/fa'
 import { BiWebcam } from 'react-icons/bi'
 import formData from '../../../data/formData.json'
-import stores from '../../../data/stores.json'
-import getNearbyLocations from '../../../functions/general/getNearbyLocations'
-import updateNearbySelection  from '../../../functions/forms/updateNearbySelection'
-import updateDropdown from '../../../functions/forms/updateDropdown'
+import getStore from '../../../functions/general/getStore'
+import updateStoreProps from '../../../functions/forms/updateStoreProps'
 import updateConsultType from '../../../functions/forms/updateConsultType'
 import goBackBtn from '../../../functions/forms/goBackBtn'
 import updateFormAction from '../../../functions/forms/updateFormAction'
@@ -23,8 +21,16 @@ import './Consult.css'
 // This form works ONLY for websites with Single location
 // This form supports the virtual consult option
 
-function VirtualSingle() {
+function VirtualSingle({siteData}) {
+
+  // getStore takes the salesforce value as a parameter 
+  // but in single locations the city value is same as the salesforce value
+  const currentStore = getStore(siteData.city)
   const [formState, setFormState] = useState(formData)
+
+  // Update formState.store props 
+  // Get the values from currentStore
+  updateStoreProps(formState, currentStore)
 
   // Check if the current action is 'question'
   // This is usefull when navigating between site's pages
@@ -34,12 +40,6 @@ function VirtualSingle() {
   // Mailchimp checkbox 
   const handleSubscription = event => setFormState(updateSubscription(event, formState))
 
-  // This is the list of nearby locations (NOT the Dropdown) / click handler
-  const nearbySelectedHandler = store => setFormState(updateNearbySelection(store, formState))
-
-  // This is the Dropdown all locations list onChange handler
-  const dropdownHandler = event => setFormState(updateDropdown(event, formState))
-
   // Consult Type: 'Virtual' OR 'Consult'
   const handleConsultTypeClick = type => setFormState(updateConsultType(type, formState))
 
@@ -48,6 +48,7 @@ function VirtualSingle() {
 
   // Action: 'question' OR 'self_schedule'
   const actionHandler = (action, formikProps) => setFormState(updateFormAction(action, formikProps, formState))
+  console.log(formState)
 
   return (
     <div id="consult-form" className="full-section">
@@ -132,91 +133,6 @@ function VirtualSingle() {
                     </div>
                   </div>
 
-
-                  <div className="locations-container">
-                    <div className={`locations-wrapper mx-2 ${formState.include.action !== '' ? 'toggle' : ''}`}>
-                      <div className="row justify-content-center mx-auto pt-4">
-                        <div className="col-md-10">
-                          <h3 className="h5 mb-4 text-center">Select a Location Near You</h3>
-                          <ul className="d-flex justify-content-center flex-wrap">
-                            {
-                              getNearbyLocations().map((store, x) => (
-                                <li key={x} className="mb-2 col-6 col-md-4 col-lg-3">
-                                  <div
-                                    className={`card p-2 text-center ${store.selected === true ? 'selected' : 'shadow-sm'}`} 
-                                    onClick={() => nearbySelectedHandler(store)}>{store.location}
-                                  </div>
-                                </li>
-                              ))
-                            }
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div id="locations-dropdown" className="row justify-content-center mx-auto my-3">
-                        <div className="col-10 col-sm-8 col-md-6 col-lg-4">
-                          <h4 className="h6 text-center">Or select a location from the list</h4>
-                          <select
-                            value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event)}
-                            className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
-                            <optgroup>
-                              <option value="">Select a location</option>
-                            </optgroup>
-                            {
-                              stores.locations.map((item, i) => (
-                                <optgroup key={i} label={item.state}>
-                                  {
-                                    item.stores.map((elem) => {
-                                        let option = elem.locations.map((store, i) => {
-                                          return (
-                                            <option key={i} value={store.salesforceValue} zip={store.zipcode}>
-                                              {store.salesforceValue} {store.open === false ? '/ Coming Soon' : ''}
-                                            </option>
-                                          )})
-                                        return option
-                                    })
-                                  }
-                                </optgroup>
-                              ))
-                            }
-                          </select>
-                        </div>
-                      </div>
-
-                      <div className="row justify-content-center mx-auto selected-location-container">
-                        <div className={`col-md-10 selected-location-wrapper ${formState.store.salesforceValue !== '' ? 'toggle' : ''}`}>
-                          <div className="mb-0 text-center">
-                            {
-                            (formState.store.open || formState.include.action === 'question') &&
-                            <>
-                            <strong>Selected location address:</strong>&nbsp;<br className="d-lg-none" />
-                            <span className="d-block d-md-inline">
-                              {formState.store.address}, <br className="d-sm-none" />
-                              {formState.store.locationOnAddress === "same" ? formState.store.location : formState.store.locationOnAddress},&nbsp;
-                              {formState.store.stateShort}&nbsp;{formState.store.zipcode}
-                            </span>
-                            </>
-                            }
-                            {
-                            !formState.store.open && formState.include.action !== 'question' &&
-                            <div className="d-flex justify-content-center mb-3">
-                              <div className="alert alert-warning col text-center p-2 mb-0" role="alert">
-                                Selected location is not open yet, but you can still 
-                                <span onClick={
-                                    () => {
-                                      askQuestion(formik, formState)
-                                      setAskQuestionClicked(true)
-                                      actionHandler('question', formik)
-                                    }
-                                }>&nbsp;submit a question</span>! Or select a different location.
-                              </div>
-                            </div>
-                            }
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
                   <div className="consult-type-container">
                     <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.open ? 'toggle' : ''}`}>
