@@ -189,19 +189,11 @@ function VirtualSingle({siteData}) {
                     </button>
                   }
                   {
-                    askQuestionClicked && formState.include.action === '' &&
-                    <button 
-                      className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" 
-                      onClick={() => actionHandler('question', formik)}
-                      disabled={!formik.isValid}>
-                      <span className="pe-2">NEXT</span><i><FaArrowRight /></i>
-                    </button>
-                  }
-                  {
-                    askQuestionClicked && formState.include.action === 'question' &&
+                    askQuestionClicked && formState.include.action !== 'self_schedule' &&
                     <button 
                       className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" type="submit"
-                      disabled={formState.store.salesforceValue === '' || !formik.isValid ? true : false}>
+                      onClick={() => actionHandler('question', formik)}
+                      disabled={!formik.isValid ? true : false}>
                       <i><FaPaperPlane /></i><span className="ps-2">SEND QUESTION</span>
                     </button>
                   }
@@ -233,14 +225,8 @@ function VirtualSingle({siteData}) {
                     </button>
                   }
                   {
-                    askQuestionClicked && formState.include.action === '' &&
-                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => setAskQuestionClicked(false)}>
-                      <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
-                    </button>
-                  }
-                  {
-                    formState.include.action === 'question' &&
-                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => handleGoBack()}>
+                    askQuestionClicked && formState.include.action !== 'self_schedule' &&
+                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => {handleGoBack(); setAskQuestionClicked(false)}}>
                       <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
                     </button>
                   }

@@ -47,7 +47,6 @@ function Single({siteData}) {
 
   // Action: 'question' OR 'self_schedule'
   const actionHandler = (action, formikProps) => setFormState(updateFormAction(action, formikProps, formState))
-  console.log(formState)
 
   return (
     <div id="consult-form" className="full-section">
@@ -134,7 +133,7 @@ function Single({siteData}) {
 
 
                   <div className="consult-type-container">
-                    <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.open && formState.store.virtual ? 'toggle' : ''}`}>
+                    <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.open ? 'toggle' : ''}`}>
                       <div className="row justify-content-center mx-auto">
                         <div className="col-md-10 p-md-0">
                           <hr className="w-100 mb-0"/>
@@ -190,19 +189,11 @@ function Single({siteData}) {
                     </button>
                   }
                   {
-                    askQuestionClicked && formState.include.action === '' &&
-                    <button 
-                      className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" 
-                      onClick={() => actionHandler('question', formik)}
-                      disabled={!formik.isValid}>
-                      <span className="pe-2">NEXT</span><i><FaArrowRight /></i>
-                    </button>
-                  }
-                  {
-                    askQuestionClicked && formState.include.action === 'question' &&
+                    askQuestionClicked && formState.include.action !== 'self_schedule' &&
                     <button 
                       className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" type="submit"
-                      disabled={formState.store.salesforceValue === '' || !formik.isValid ? true : false}>
+                      onClick={() => actionHandler('question', formik)}
+                      disabled={!formik.isValid ? true : false}>
                       <i><FaPaperPlane /></i><span className="ps-2">SEND QUESTION</span>
                     </button>
                   }
@@ -218,23 +209,24 @@ function Single({siteData}) {
                   
                   <div className="col-lg-4 text-center">
                   {
-                    !askQuestionClicked && formState.include.action !== 'question' && !formState.virtual &&
+                    !askQuestionClicked && formState.include.action !== 'self_schedule' &&
                     <button 
-                      className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
-                      disabled={!formik.isValid ? true : false}
+                      className="w-100 cta-btn red-bg-btn py-2 shadow-sm" 
                       onClick={() => actionHandler('self_schedule', formik)}>
                     <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
                     </button>
                   }
                   {
-                    askQuestionClicked && formState.include.action === '' &&
-                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => setAskQuestionClicked(false)}>
-                      <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
+                    !askQuestionClicked && formState.include.action === 'self_schedule' &&
+                    <button 
+                      className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
+                      disabled={formState.include.consultType === '' || !formState.store.open || !formik.isValid ? true : false}>
+                    <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
                     </button>
                   }
                   {
-                    formState.include.action === 'question' &&
-                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => handleGoBack()}>
+                    askQuestionClicked && formState.include.action !== 'self_schedule' &&
+                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => {handleGoBack(); setAskQuestionClicked(false)}}>
                       <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
                     </button>
                   }
