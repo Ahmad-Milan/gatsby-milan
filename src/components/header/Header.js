@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import getMenu from './navbar/menu'
 import Navbar from './navbar/Navbar'
-import useClickOutside from '../../hooks/clickOutside'
+import useClickOutside from '../../hooks/useClickOutside'
 import { FaPhoneAlt } from 'react-icons/fa';
 import './Header.css'
 import scrollTo from 'gatsby-plugin-smoothscroll'

@@ -1,9 +1,11 @@
 import React from "react"
 import Header from "../components/header/Header"
+import Consult from '../components/forms/consult/Consult'
 import Footer from "../components/footer/Footer"
-import VirtualMultiple from "../components/forms/consult/VirtualMultiple"
 import siteDataM from "../data/siteDataM.json"
+import siteDataS from "../data/siteDataS.json"
 import useResize from "../hooks/useResize"
+
 import "../styles/main.css";
 
 const Layout = ({ children }) => {
@@ -15,9 +17,7 @@ const Layout = ({ children }) => {
       <Header windowWidth={windowWidth}/>
       {children}
       <span id="scrollToConsult"></span>
-      {
-        siteDataM.branches === 'multiple' && <VirtualMultiple />
-      }
+      <Consult siteData={siteDataS} />
       <div className="p-5 m-5"></div>
       <div className="p-5 m-5"></div>
       <Footer />
@@ -26,12 +26,3 @@ const Layout = ({ children }) => {
 }
 
 export default Layout
-
-
-/** Note
-Every time our effect will run, we are setting a local variable mounted to true, 
-we set it to false on the cleanup function of the effect (like suggested by react). 
-And most importantly, we are updating the state if and only if that value is true, 
-that is if the component is un-mounted meaning our variable is set to false, it wont enter the if block.
-refere to: https://www.debuggr.io/react-update-unmounted-component/
-*/

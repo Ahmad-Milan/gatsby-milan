@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { FaAsterisk, FaQuestionCircle, FaRegCalendarAlt, FaArrowLeft, FaPaperPlane, FaStoreAlt, FaArrowRight } from 'react-icons/fa'
 import { BiWebcam } from 'react-icons/bi'
 import formData from '../../../data/formData.json'
-import allLocations from '../../../data/allLocations.json'
+import stores from '../../../data/stores.json'
 import getNearbyLocations from '../../../functions/general/getNearbyLocations'
 import updateNearbySelection  from '../../../functions/forms/updateNearbySelection'
 import updateDropdown from '../../../functions/forms/updateDropdown'
@@ -20,7 +20,7 @@ import askQuestion from '../../../functions/forms/askQuestion'
 import onSubmit from '../../../functions/forms/onSubmit'
 import './Consult.css'
 
-// This form works ONLY for websites with multiple locations
+// This form works ONLY for websites with Single location
 // This form supports the virtual consult option
 
 function VirtualSingle() {
@@ -163,12 +163,10 @@ function VirtualSingle() {
                               <option value="">Select a location</option>
                             </optgroup>
                             {
-                              allLocations.locations.map((item, i) => (
+                              stores.locations.map((item, i) => (
                                 <optgroup key={i} label={item.state}>
                                   {
-                                    item.stores.map((elem, x) => {
-                                      if(elem.city) {
-                                        // if a city has multiple locations, loop through its locations
+                                    item.stores.map((elem) => {
                                         let option = elem.locations.map((store, i) => {
                                           return (
                                             <option key={i} value={store.salesforceValue} zip={store.zipcode}>
@@ -176,12 +174,6 @@ function VirtualSingle() {
                                             </option>
                                           )})
                                         return option
-                                      } else {
-                                        return (
-                                          <option key={x} value={elem.salesforceValue} zip={elem.zipcode}>
-                                            {elem.salesforceValue} {elem.open === false ? '/ Coming Soon' : ''}
-                                          </option>
-                                        )}
                                     })
                                   }
                                 </optgroup>
