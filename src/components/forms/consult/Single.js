@@ -19,9 +19,9 @@ import onSubmit from '../../../functions/forms/onSubmit'
 import './Consult.css'
 
 // This form works ONLY for websites with Single location
-// This form supports the virtual consult option
+// This form does NOT support the virtual consult option
 
-function VirtualSingle({siteData}) {
+function Single({siteData}) {
 
   // getStore takes the salesforce value as a parameter
   const currentStore = getStore(siteData.salesforce)
@@ -47,6 +47,7 @@ function VirtualSingle({siteData}) {
 
   // Action: 'question' OR 'self_schedule'
   const actionHandler = (action, formikProps) => setFormState(updateFormAction(action, formikProps, formState))
+  console.log(formState)
 
   return (
     <div id="consult-form" className="full-section">
@@ -133,7 +134,7 @@ function VirtualSingle({siteData}) {
 
 
                   <div className="consult-type-container">
-                    <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.open ? 'toggle' : ''}`}>
+                    <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.open && formState.store.virtual ? 'toggle' : ''}`}>
                       <div className="row justify-content-center mx-auto">
                         <div className="col-md-10 p-md-0">
                           <hr className="w-100 mb-0"/>
@@ -217,18 +218,11 @@ function VirtualSingle({siteData}) {
                   
                   <div className="col-lg-4 text-center">
                   {
-                    !askQuestionClicked && formState.include.action !== 'self_schedule' &&
-                    <button 
-                      className="w-100 cta-btn red-bg-btn py-2 shadow-sm" 
-                      onClick={() => actionHandler('self_schedule', formik)}>
-                    <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
-                    </button>
-                  }
-                  {
-                    !askQuestionClicked && formState.include.action === 'self_schedule' &&
+                    !askQuestionClicked && formState.include.action !== 'question' && !formState.virtual &&
                     <button 
                       className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
-                      disabled={formState.include.consultType === '' || !formState.store.open || !formik.isValid ? true : false}>
+                      disabled={!formik.isValid ? true : false}
+                      onClick={() => actionHandler('self_schedule', formik)}>
                     <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
                     </button>
                   }
@@ -257,4 +251,4 @@ function VirtualSingle({siteData}) {
   )
 }
 
-export default VirtualSingle
+export default Single

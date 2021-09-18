@@ -12,7 +12,7 @@ function askQuestion(formikProps, formState) {
   actionInit(formikProps)
 
   // Update formState's user inputs
-  const updatedFormState = updateUserInputs('question', formState, formikProps)
+  const updatedFormState = updateUserInputs(formState, formikProps)
 
   return updatedFormState
 }

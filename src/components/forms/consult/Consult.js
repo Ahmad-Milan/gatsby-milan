@@ -2,6 +2,7 @@ import React from "react"
 import stores from '../../../data/stores.json'
 import VirtualMultiple from './VirtualMultiple'
 import VirtualSingle from './VirtualSingle'
+import Single from "./Single"
 
 function Consult({siteData}) {
   let city

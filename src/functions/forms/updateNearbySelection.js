@@ -7,8 +7,9 @@ function updateNearbySelection(store, formState) {
   // Update the values of formState.store porps
   updateStoreProps(updatedFormState, store)
 
-  // if store does NOT support Virtual Consult -> Set consultType to 'Consult'
-  if(!store.virtual) updatedFormState.include.consultType = 'Consult'
+  // if action is self_schedule AND
+  // store does NOT support Virtual Consult -> Set consultType to 'Consult'
+  if(!store.virtual && formState.include.action === 'self_schedule') updatedFormState.include.consultType = 'Consult'
 
   // if store supports Virtual Consult -> Reset consultType and let the user chooses between the 2 types
   if(store.virtual) updatedFormState.include.consultType = ''

@@ -10,7 +10,8 @@ function updateFormAction(action, formikProps, formState) {
   actionInit(formikProps)
 
   // Update formState's user inputs
-  const updatedFormState = updateUserInputs(action, formState, formikProps)
+  const updatedFormState = updateUserInputs(formState, formikProps)
+  updatedFormState.include.action = action
 
   if(action === 'question') {
     updatedFormState.include.leadsource = 'Website'
@@ -21,6 +22,12 @@ function updateFormAction(action, formikProps, formState) {
   }
   if(action === 'self_schedule') {
     updatedFormState.include.leadsource = 'Self-Schedule Site'
+    
+    // For sites with Single location and NO virtual consult
+    if(!formState.store.virtual) {
+      updatedFormState.include.consultType = 'Consult'
+      updatedFormState.include.campaignId = '7011L000001K6qrQAC'
+    }
     // if user fields are not touched or the form is inValid scroll up
     checkTouched(formikProps, action)
   }
