@@ -2,8 +2,7 @@ import React from "react"
 import Header from "../components/header/Header"
 import Consult from '../components/forms/consult/Consult'
 import Footer from "../components/footer/Footer"
-import siteDataM from "../data/siteDataM.json"
-import siteDataS from "../data/siteDataS.json"
+import siteData from "../data/siteData.json"
 import useResize from "../hooks/useResize"
 
 import "../styles/main.css";
@@ -17,7 +16,7 @@ const Layout = ({ children }) => {
       <Header windowWidth={windowWidth}/>
       {children}
       <span id="scrollToConsult"></span>
-      <Consult siteData={siteDataM} />
+      <Consult siteData={siteData} />
       <div className="p-5 m-5"></div>
       <div className="p-5 m-5"></div>
       <Footer />

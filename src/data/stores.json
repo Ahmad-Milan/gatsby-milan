@@ -2,9 +2,11 @@
   "locations": [
     {
       "state": "Arizona",
+      "stateShort": "AZ",
       "stores": [
         {
           "city": "Phoenix",
+          "url": "phoenix",
           "locations": [
             {
               "location": "Chandler",
@@ -45,7 +47,7 @@
               "googleMap": "",
               "appleMap": "",
               "open": true,
-              "virtual": true,
+              "virtual": false,
               "virtualZip": "00000"
             },
             {
@@ -66,6 +68,7 @@
         },
         {
           "city": "Tucson",
+          "url": "tucson",
           "locations": [
             {
               "location": "Tucson",
@@ -88,9 +91,11 @@
     
     {
       "state": "Texas",
+      "stateShort": "TX",
       "stores": [
         {
           "city": "Austin",
+          "url": "austin",
           "locations": [
             {
               "location": "Austin",
@@ -110,6 +115,7 @@
         },
         {
           "city": "College Station",
+          "url": "collegestation",
           "locations": [
             {
               "location": "College Station",
@@ -121,14 +127,15 @@
               "phone": "936-213-3200",
               "googleMap": "",
               "appleMap": "",
-              "open": true,
-              "virtual": true,
+              "open": false,
+              "virtual": false,
               "virtualZip": "00000"
             }
           ]
         },
         {
           "city": "Houston",
+          "url": "houston",
           "locations": [
             {
               "location": "Richmond",
@@ -140,8 +147,8 @@
               "phone": "346-388-3611",
               "googleMap": "",
               "appleMap": "",
-              "open": true,
-              "virtual": true,
+              "open": false,
+              "virtual": false,
               "virtualZip": "00000"
             },
             {
@@ -154,8 +161,8 @@
               "phone": "281-801-4004",
               "googleMap": "",
               "appleMap": "",
-              "open": true,
-              "virtual": true,
+              "open": false,
+              "virtual": false,
               "virtualZip": "00000"
             },
             {
