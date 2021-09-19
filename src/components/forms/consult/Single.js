@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'gatsby'
-import { FaAsterisk, FaQuestionCircle, FaRegCalendarAlt, FaArrowLeft, FaPaperPlane, FaStoreAlt, FaArrowRight } from 'react-icons/fa'
+import { FaAsterisk, FaQuestionCircle, FaRegCalendarAlt, FaArrowLeft, FaPaperPlane, FaStoreAlt } from 'react-icons/fa'
 import { BiWebcam } from 'react-icons/bi'
 import formData from '../../../data/formData.json'
 import getStore from '../../../functions/general/getStore'
@@ -19,7 +19,7 @@ import onSubmit from '../../../functions/forms/onSubmit'
 import './Consult.css'
 
 // This form works ONLY for websites with Single location
-// This form does NOT support the virtual consult option
+// This form supports the virtual consult option
 
 function Single({siteData}) {
 
@@ -133,7 +133,7 @@ function Single({siteData}) {
 
 
                   <div className="consult-type-container">
-                    <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.open ? 'toggle' : ''}`}>
+                    <div className={`consult-type-wrapper ${formState.include.action === 'self_schedule' && formState.store.open ? formState.store.virtual && 'toggle' : ''}`}>
                       <div className="row justify-content-center mx-auto">
                         <div className="col-md-10 p-md-0">
                           <hr className="w-100 mb-0"/>
@@ -180,55 +180,123 @@ function Single({siteData}) {
 
                 <div id="actions-btns" className="row justify-content-center my-3 col-lg-10 m-auto">
                   <div className="col-lg-4 text-center">
+                  {/* If store has virtual consult option */}
                   {
-                    !askQuestionClicked && formState.include.action !== 'self_schedule' &&
-                    <button 
-                      className="w-100 cta-btn light-btn py-2 shadow-sm" 
-                      onClick={() => {askQuestion(formik, formState); setAskQuestionClicked(true)}}>
-                      <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
-                    </button>
+                    formState.store.virtual &&
+                    <>
+                    { // if Ask a Question button NOT clicked
+                      !askQuestionClicked &&
+                      <>
+                      {
+                        formState.include.action !== 'self_schedule' &&
+                        <button 
+                          className="w-100 cta-btn light-btn py-2 shadow-sm" 
+                          onClick={() => {askQuestion(formik, formState); setAskQuestionClicked(true)}}>
+                          <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
+                        </button>
+                      }
+                      {
+                        formState.include.action === 'self_schedule' &&
+                        <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => handleGoBack()}>
+                          <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
+                        </button>
+                      }
+                      </>
+                    }
+                    { // if Ask a Question button clicked
+                      askQuestionClicked && formState.include.action !== 'self_schedule' &&
+                      <button 
+                        className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" type="submit"
+                        onClick={() => actionHandler('question', formik)}
+                        disabled={!formik.isValid ? true : false}>
+                        <i><FaPaperPlane /></i><span className="ps-2">SEND QUESTION</span>
+                      </button>
+                    }
+                    </>
                   }
+
+                  {/* If store does NOT have virtual consult option */}
                   {
-                    askQuestionClicked && formState.include.action !== 'self_schedule' &&
-                    <button 
-                      className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" type="submit"
-                      onClick={() => actionHandler('question', formik)}
-                      disabled={!formik.isValid ? true : false}>
-                      <i><FaPaperPlane /></i><span className="ps-2">SEND QUESTION</span>
-                    </button>
-                  }
-                  {
-                    !askQuestionClicked && formState.include.action === 'self_schedule' &&
-                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => handleGoBack()}>
-                      <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
-                    </button>
+                    !formState.store.virtual &&
+                    <>
+                    { // if Ask a Question button NOT clicked
+                      !askQuestionClicked &&
+                      <button 
+                        className="w-100 cta-btn light-btn py-2 shadow-sm" 
+                        onClick={() => {askQuestion(formik, formState); setAskQuestionClicked(true)}}>
+                        <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
+                      </button>
+                    }
+                    { // if Ask a Question button clicked
+                      askQuestionClicked &&
+                      <button 
+                        className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" type="submit"
+                        onClick={() => actionHandler('question', formik)}
+                        disabled={!formik.isValid ? true : false}>
+                        <i><FaPaperPlane /></i><span className="ps-2">SEND QUESTION</span>
+                      </button>
+                    }
+                    </>
                   }
                   </div>
                   
                   <div className="col-lg-2 text-center"><div className="my-3 my-md-2">OR</div></div>
                   
                   <div className="col-lg-4 text-center">
+                  {/* If store has virtual consult option */}
                   {
-                    !askQuestionClicked && formState.include.action !== 'self_schedule' &&
-                    <button 
-                      className="w-100 cta-btn red-bg-btn py-2 shadow-sm" 
-                      onClick={() => actionHandler('self_schedule', formik)}>
-                    <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
-                    </button>
+                    formState.store.virtual &&
+                    <>
+                    { // if Ask a Question button NOT clicked
+                      !askQuestionClicked &&
+                      <>
+                      {
+                        formState.include.action !== 'self_schedule' &&
+                        <button 
+                          className="w-100 cta-btn red-bg-btn py-2 shadow-sm" 
+                          onClick={() => actionHandler('self_schedule', formik)}>
+                        <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
+                        </button>
+                      }
+                      {
+                        formState.include.action === 'self_schedule' &&
+                        <button 
+                          className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
+                          disabled={formState.include.consultType === '' || !formState.store.open || !formik.isValid ? true : false}>
+                        <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
+                        </button>
+                      }
+                      </>
+                    }
+                    { // if Ask a Question button clicked
+                      askQuestionClicked && formState.include.action !== 'self_schedule' &&
+                      <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => {handleGoBack(); setAskQuestionClicked(false)}}>
+                        <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
+                      </button>
+                    }
+                    </>
                   }
+
+                  {/* If store does NOT have virtual consult option */}
                   {
-                    !askQuestionClicked && formState.include.action === 'self_schedule' &&
-                    <button 
-                      className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
-                      disabled={formState.include.consultType === '' || !formState.store.open || !formik.isValid ? true : false}>
-                    <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
-                    </button>
-                  }
-                  {
-                    askQuestionClicked && formState.include.action !== 'self_schedule' &&
-                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => {handleGoBack(); setAskQuestionClicked(false)}}>
-                      <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
-                    </button>
+                    !formState.store.virtual &&
+                    <>
+                    { // if Ask a Question button NOT clicked
+                      !askQuestionClicked && formState.include.action !== 'question' &&
+                      <button 
+                        className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
+                        onClick={() => actionHandler('self_schedule', formik)}
+                        disabled={!formik.isValid ? true : false}>
+                      <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
+                      </button>
+                    }
+                    { // if Ask a Question button clicked
+                      askQuestionClicked &&
+                      <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => {handleGoBack(); setAskQuestionClicked(false)}}>
+                        <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
+                      </button>
+                    }
+                    </>
                   }
                   </div>
                 </div>
