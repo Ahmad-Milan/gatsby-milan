@@ -65,8 +65,8 @@ function Single({siteData}) {
               <Form className="w-100 py-4 rounded shadow" action="" method="POST" >
                 <input type="hidden" name="oid" value="00D410000014bPe" />
                 <input id="success" type="hidden" name="retURL" value="" />
-                <input className="lead_source" type="hidden" name="lead_source"  id="lead_source" value="" />
-                <input type="hidden" name="Campaign_ID" id="campaign" value="" />
+                <input className="lead_source" type="hidden" name="lead_source"  id="lead_source" value={formState.include.leadsource} />
+                <input type="hidden" name="Campaign_ID" id="campaign" value={formState.include.campaignId} />
     
                 <div className="form-steps-container position-relative overflow-hidden">
     

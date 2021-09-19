@@ -6,7 +6,7 @@ function checkTouched(formikProps, action) {
     scrollTo('#consult-form')
   }
   // if the user fields are touched && form is valid && action is 'question'
-  else if(action === 'question') {
+  else if(action === 'question' && formikProps.values.description === '') {
     scrollTo('#scrollToMessage')
   }
   // Note: if action is 'self_schedule' and valid -> don't do anything
