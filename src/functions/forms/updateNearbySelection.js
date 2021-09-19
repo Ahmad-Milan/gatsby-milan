@@ -2,7 +2,7 @@ import getNearbyLocations from '../../functions/general/getNearbyLocations'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import updateStoreProps from './updateStoreProps'
 
-function updateNearbySelection(store, formState) {
+function updateNearbySelection(store, formState, siteData) {
   const updatedFormState = { ...formState } // Shallow clone of formState
   // Update the values of formState.store porps
   updateStoreProps(updatedFormState, store)
@@ -15,7 +15,7 @@ function updateNearbySelection(store, formState) {
   if(store.virtual) updatedFormState.include.consultType = ''
 
   // Unclick all nearby locations if any
-  getNearbyLocations().map(store => store.selected = false)
+  getNearbyLocations(siteData).map(store => store.selected = false)
   // Then make the clicked one selected
   store.selected = true
 

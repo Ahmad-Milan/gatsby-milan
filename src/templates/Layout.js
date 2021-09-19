@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
       <Header windowWidth={windowWidth}/>
       {children}
       <span id="scrollToConsult"></span>
-      <Consult siteData={siteDataS} />
+      <Consult siteData={siteDataM} />
       <div className="p-5 m-5"></div>
       <div className="p-5 m-5"></div>
       <Footer />

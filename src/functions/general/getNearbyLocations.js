@@ -1,12 +1,11 @@
 import stores from '../../data/stores.json'
-import siteDataM from '../../data/siteDataM.json'
 
-function getNearbyLocations() {
+function getNearbyLocations(siteData) {
   // Get nearby locations
   const nearbyLocations = stores.locations.find(elem => (
-    elem.state === siteDataM.state
+    elem.state === siteData.state
   )).stores.find(item => (
-    item.city === siteDataM.city
+    item.city === siteData.city
   )).locations
 
   return nearbyLocations
