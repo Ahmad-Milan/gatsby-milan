@@ -210,59 +210,74 @@ function VirtualMultiple({siteData}) {
 
                 <div id="actions-btns" className="row justify-content-center my-3 col-lg-10 m-auto">
                   <div className="col-lg-4 text-center">
-                  {
-                    !askQuestionClicked && formState.include.action !== 'self_schedule' &&
-                    <button 
-                      className="w-100 cta-btn light-btn py-2 shadow-sm" 
-                      onClick={() => {askQuestion(formik, formState); setAskQuestionClicked(true)}}>
-                      <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
-                    </button>
+                  { // When Ask A Question button is NOT clicked
+                    !askQuestionClicked &&
+                    <>
+                    {
+                      formState.include.action !== 'self_schedule' &&
+                      <button 
+                        className="w-100 cta-btn light-btn py-2 shadow-sm" 
+                        onClick={() => {askQuestion(formik, formState); setAskQuestionClicked(true)}}>
+                        <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
+                      </button>
+                    }
+                    {
+                      formState.include.action === 'self_schedule' &&
+                      <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => handleGoBack()}>
+                        <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
+                      </button>
+                    }
+                    </>
                   }
-                  {
-                    askQuestionClicked && formState.include.action === '' &&
-                    <button 
-                      className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" 
-                      onClick={() => actionHandler('question', formik)}
-                      disabled={!formik.isValid}>
-                      <span className="pe-2">NEXT</span><i><FaArrowRight /></i>
-                    </button>
-                  }
-                  {
-                    askQuestionClicked && formState.include.action === 'question' &&
-                    <button 
-                      className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" type="submit"
-                      disabled={formState.store.salesforceValue === '' || !formik.isValid ? true : false}>
-                      <i><FaPaperPlane /></i><span className="ps-2">SEND QUESTION</span>
-                    </button>
-                  }
-                  {
-                    !askQuestionClicked && formState.include.action === 'self_schedule' &&
-                    <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => handleGoBack()}>
-                      <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
-                    </button>
+                  { // When Ask A Question button is clicked
+                    askQuestionClicked &&
+                    <>
+                    {
+                      formState.include.action === '' &&
+                      <button 
+                        className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" 
+                        onClick={() => actionHandler('question', formik)}
+                        disabled={!formik.isValid}>
+                        <span className="pe-2">NEXT</span><i><FaArrowRight /></i>
+                      </button>
+                    }
+                    {
+                      formState.include.action === 'question' &&
+                      <button 
+                        className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white" type="submit"
+                        disabled={formState.store.salesforceValue === '' || !formik.isValid ? true : false}>
+                        <i><FaPaperPlane /></i><span className="ps-2">SEND QUESTION</span>
+                      </button>
+                    }
+                    </>
                   }
                   </div>
                   
                   <div className="col-lg-2 text-center"><div className="my-3 my-md-2">OR</div></div>
                   
                   <div className="col-lg-4 text-center">
-                  {
-                    !askQuestionClicked && formState.include.action !== 'self_schedule' &&
-                    <button 
-                      className="w-100 cta-btn red-bg-btn py-2 shadow-sm" 
-                      onClick={() => actionHandler('self_schedule', formik)}>
-                    <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
-                    </button>
+                  { // When Ask A Question button is NOT clicked
+                    !askQuestionClicked &&
+                    <>
+                    {
+                      formState.include.action !== 'self_schedule' &&
+                      <button 
+                        className="w-100 cta-btn red-bg-btn py-2 shadow-sm" 
+                        onClick={() => actionHandler('self_schedule', formik)}>
+                      <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
+                      </button>
+                    }
+                    {
+                      formState.include.action === 'self_schedule' &&
+                      <button 
+                        className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
+                        disabled={formState.include.consultType === '' || !formState.store.open || !formik.isValid ? true : false}>
+                      <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
+                      </button>
+                    }
+                    </>
                   }
-                  {
-                    !askQuestionClicked && formState.include.action === 'self_schedule' &&
-                    <button 
-                      className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
-                      disabled={formState.include.consultType === '' || !formState.store.open || !formik.isValid ? true : false}>
-                    <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
-                    </button>
-                  }
-                  {
+                  { // When Ask A Question button is clicked
                     askQuestionClicked && formState.include.action === '' &&
                     <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => setAskQuestionClicked(false)}>
                       <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
