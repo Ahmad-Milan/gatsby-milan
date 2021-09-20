@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'gatsby'
-import { FaAsterisk } from 'react-icons/fa'
 import formData from '../../../data/formData.json'
 import stores from '../../../data/stores.json'
 import getNearbyLocations from '../../../functions/general/getNearbyLocations'
@@ -10,16 +9,14 @@ import updateStoreProps from '../../../functions/forms/updateStoreProps'
 import updateUserInputs from '../../../functions/forms/updateUserInputs'
 import getStore from '../../../functions/general/getStore'
 import updateFormAction from '../../../functions/forms/updateFormAction'
-import TextError from './TextError'
 import validationSchema from '../validation/validationSchema'
-import validateEmail from '../validation/validateEmail'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import InputMask from 'react-input-mask'
+import { Formik, Form } from 'formik'
 import updateSubscription from '../../../functions/forms/updateSubscription'
 import onSubmit from '../../../functions/forms/onSubmit'
-import './Consult.css'
 import checkTouched from '../../../functions/forms/checkTouched'
 import actionInit from '../../../functions/forms/actionInit'
+import UserInputs from './UserInputs'
+import './Consult.css'
 
 // This form works ONLY for NON OPEN locations, both Multiple and Single
 // This form does NOT support the virtual consult option
@@ -87,66 +84,11 @@ function NotOpen({siteData}) {
     
                 <div className="form-steps-container position-relative overflow-hidden">
     
-                  <div className="form-inputs-wrapper">
-                    <div className="row justify-content-center mx-auto pt-4 mb-md-3">
-                      <div className="col-md-5">
-                        <label htmlFor="first_name">First Name <sup><FaAsterisk /></sup></label>
-                        <Field className="form-control" type="text" placeholder="First Name" id="first_name" name="first_name" />
-                        <ErrorMessage name="first_name" component={TextError} />
-                      </div>
-                      <div className="col-md-5 mt-3 mt-sm-0">
-                        <label htmlFor="last_name">Last Name <sup><FaAsterisk /></sup></label>
-                        <Field className="form-control" type="text" placeholder="Last Name" id="last_name" name="last_name" />
-                        <ErrorMessage name="last_name" component={TextError} />
-                      </div>
-                    </div>
-                    
-                    <div id="scrollToMessage" className="row justify-content-center mx-auto pt-md-4 mb-md-3">
-                      <div className="col-md-5 mt-3 mt-sm-0">
-                        <label htmlFor="phone">Phone Number <sup><FaAsterisk /></sup></label>
-                        <Field name="phone">
-                          { // These props are coming from the Formik Field compoenent and it contains: field, form, meta
-                            props => {
-                              const { field, meta } = props
-                              return <>
-                                  <InputMask mask="+1\ 999-999-9999" maskChar={null} className="form-control phone_input" id="phone" 
-                                    {...field} placeholder="+1 999-999-9999" /> 
-                                    {meta.touched && meta.error ? <ErrorMessage name="phone" component={TextError} /> : null}
-                                </>
-                            }
-                          }
-                        </Field>
-                      </div>
-                  
-                      <div className="col-md-5 my-3 my-sm-0">
-                        <label htmlFor="email">Your Email <sup><FaAsterisk /></sup></label>
-                        <Field className="form-control" type="email" placeholder="youremail@mailbox.com" id="email" name="email" validate={validateEmail} />
-                        <ErrorMessage name="email" component={TextError} />
-                      </div>
-                    </div>
-    
-                    <div className="row justify-content-center mx-auto">
-                      <div className="col-md-10 p-md-0">
-                        <hr className="w-100 mb-0"/>
-                      </div>
-                    </div>
-    
-                    <div className="row justify-content-center mx-auto mt-3 overflow-hidden">
-                      <div className="col-md-10 mx-auto mb-2 ">
-                        <label htmlFor="description">Message</label>
-                        <Field as="textarea" className="form-control" placeholder="Hello…" id="description" name="description" rows="3"/>
-                      </div>
-                    </div>
-    
-                    <div className="row justify-content-center mx-auto">
-                      <div className="col-md-10 custom-checkbox">
-                        <input 
-                          className="me-2 form-check-input" type="checkbox" id="mailchimp"  name="updates" 
-                          checked={formState.user.mailchimp} onChange={(event) => handleSubscription(event)}/>
-                        <label className="main-blue mailchimp" htmlFor="mailchimp"><small>Get updates on laser hair removal deals. (no spam)</small></label>
-                      </div>
-                    </div>
-                  </div>
+                <UserInputs 
+                    formik={formik}
+                    formState={formState}
+                    askQuestionClicked={true}
+                    handleSubscription={handleSubscription} />
 
                   {
                     isMultiple &&
