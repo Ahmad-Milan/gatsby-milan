@@ -56,7 +56,7 @@ function Single({siteData}) {
         <Formik 
           initialValues={formState.user}
           validationSchema={validationSchema}
-          onSubmit={() => onSubmit(formState)}>
+          onSubmit={() => onSubmit(formState, siteData)}>
           {// This way we can get access to all formik props
           formik => {
             return (
