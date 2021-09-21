@@ -10,6 +10,8 @@ const validateEmail = value => {
         error = 'Undeliverable email entered. Please use another email.'
       }
       return error
+    }).catch(err => {
+      console.error(err)
     })
   }
 }
