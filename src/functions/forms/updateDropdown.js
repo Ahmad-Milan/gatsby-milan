@@ -11,12 +11,6 @@ function updateDropdown(event, formState, siteData) {
   // Update the values of formState.store porps
   updateStoreProps(updatedFormState, filteredStore)
 
-  // if store does NOT support Virtual Consult -> Set consultType to 'Consult'
-  if(!filteredStore.virtual) updatedFormState.include.consultType = 'Consult'
-
-  // if store supports Virtual Consult -> Reset consultType and let the user chooses between the 2 types
-  if(filteredStore.virtual) updatedFormState.include.consultType = ''
-
   // Unclick all nearby locations if any
   getNearbyLocations(siteData).map(store => store.selected = false)
 

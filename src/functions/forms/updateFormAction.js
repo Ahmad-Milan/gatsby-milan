@@ -17,17 +17,10 @@ function updateFormAction(action, formikProps, formState) {
     updatedFormState.include.leadsource = 'Website'
     updatedFormState.include.campaignId = ''
     updatedFormState.user.description = formikProps.values.description
-    // if action is question, there's no need for consultType
-    updatedFormState.include.consultType = ''
   }
   if(action === 'self_schedule') {
     updatedFormState.include.leadsource = 'Self-Schedule Site'
-    
-    // For sites with Single location and NO virtual consult
-    if(!formState.store.virtual) {
-      updatedFormState.include.consultType = 'Consult'
-      updatedFormState.include.campaignId = '7011L000001K6qrQAC'
-    }
+    updatedFormState.include.campaignId = '7011L000001K6qrQAC'
     // if user fields are not touched or the form is inValid scroll up
     checkTouched(formikProps, action)
   }
