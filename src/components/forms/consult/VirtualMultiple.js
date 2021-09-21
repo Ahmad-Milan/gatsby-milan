@@ -23,6 +23,8 @@ import './Consult.css'
 
 function VirtualMultiple({siteData}) {
   const [formState, setFormState] = useState(formData)
+
+  const formRef = useRef(null)
   const succesRef = useRef(null)
 
   // Check if the current action is 'question'
@@ -59,11 +61,13 @@ function VirtualMultiple({siteData}) {
         <Formik 
           initialValues={formState.user}
           validationSchema={validationSchema}
-          onSubmit={() => onSubmit(formState, siteData, succesRef)}>
+          onSubmit={() => onSubmit(formState, siteData, formRef, succesRef)}>
           {// This way we can get access to all formik props
           formik => {
             return (
-              <Form className="w-100 py-4 rounded shadow" action="https://go.milanlaser.com/l/642813/2018-12-05/h64s" method="POST" >
+              <Form 
+                className="w-100 py-4 rounded shadow" ref={formRef} method="POST"
+                action="https://cors-milanlaser.herokuapp.com/https://go.milanlaser.com/l/642813/2018-12-05/h64s">
                 <input type="hidden" name="oid" value="00D410000014bPe" />
                 <input id="success" type="hidden" name="retURL" ref={succesRef} value="" />
                 <input className="lead_source" type="hidden" name="lead_source"  id="lead_source" value={formState.include.leadsource} />
@@ -292,7 +296,6 @@ function VirtualMultiple({siteData}) {
                   }
                   </div>
                 </div>
-                {console.log(formik)}
               </Form>
             )
           }

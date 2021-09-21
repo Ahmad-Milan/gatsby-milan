@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { Link } from 'gatsby'
 import formData from '../../../data/formData.json'
 import stores from '../../../data/stores.json'
@@ -23,6 +23,10 @@ import './Consult.css'
 
 function NotOpen({siteData}) {
   const [formState, setFormState] = useState(formData)
+
+  const formRef = useRef(null)
+  const succesRef = useRef(null)
+
   // Check if city has multiple locations
   const isMultiple = getNearbyLocations(siteData).length > 1
 
@@ -76,9 +80,11 @@ function NotOpen({siteData}) {
           {// This way we can get access to all formik props
           formik => {
             return (
-              <Form className="w-100 py-4 rounded shadow" action="" method="POST" >
+              <Form 
+                className="w-100 py-4 rounded shadow" ref={formRef} method="POST"
+                action="https://cors-milanlaser.herokuapp.com/https://go.milanlaser.com/l/642813/2018-12-05/h64s">
                 <input type="hidden" name="oid" value="00D410000014bPe" />
-                <input id="success" type="hidden" name="retURL" value="" />
+                <input id="success" type="hidden" name="retURL" ref={succesRef} value="" />
                 <input className="lead_source" type="hidden" name="lead_source"  id="lead_source" value={formState.include.leadsource} />
                 <input type="hidden" name="Campaign_ID" id="campaign" value={formState.include.campaignId} />
     
