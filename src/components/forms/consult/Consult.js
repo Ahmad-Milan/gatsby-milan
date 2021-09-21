@@ -1,6 +1,6 @@
 import React from "react"
 import stores from '../../../data/stores.json'
-import VirtualMultiple from './VirtualMultiple'
+import Multiple from "./Multiple"
 import Single from "./Single"
 import NotOpen from "./NotOpen"
 
@@ -16,15 +16,17 @@ function Consult({siteData}) {
   
   // For cities with multiple locations
   if(city.locations.length > 1) {
+    siteData.multiple = true
     // if any store is Open 
     let isOpen = city.locations.find(elem => {
       return elem.open === true
     })
-    if(isOpen) return <VirtualMultiple siteData={siteData} />
+    if(isOpen) return <Multiple siteData={siteData} />
   }
   // For cities with single location
-  else if(city.locations.length === 1 && city.locations[0].open) {
-    return <Single siteData={siteData} />
+  else if(city.locations.length === 1) {
+    siteData.multiple = false
+    if(city.locations[0].open) return <Single siteData={siteData} />
   }
 
   return <NotOpen siteData={siteData} />

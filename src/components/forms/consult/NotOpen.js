@@ -27,9 +27,6 @@ function NotOpen({siteData}) {
   const formRef = useRef(null)
   const succesRef = useRef(null)
 
-  // Check if city has multiple locations
-  const isMultiple = getNearbyLocations(siteData).length > 1
-
   // -------------------Multiple--------------------- //
   // These lines are meant for the First Submit Button
   const [submitClicked, setSubmitClicked] = useState(false)
@@ -51,7 +48,7 @@ function NotOpen({siteData}) {
   const dropdownHandler = event => setFormState(updateDropdown(event, formState, siteData))
 
   // -------------------Single---------------------- //
-  if(!isMultiple) {
+  if(!siteData.multiple) {
     // getStore takes the salesforce value as a parameter
     const currentStore = getStore(siteData.salesforce)
     // Update formState.store props 
@@ -76,7 +73,7 @@ function NotOpen({siteData}) {
         <Formik 
           initialValues={formState.user}
           validationSchema={validationSchema}
-          onSubmit={() => onSubmit(formState, siteData)}>
+          onSubmit={() => onSubmit(formState, siteData, formRef, succesRef)}>
           {// This way we can get access to all formik props
           formik => {
             return (
@@ -97,7 +94,7 @@ function NotOpen({siteData}) {
                     handleSubscription={handleSubscription} />
 
                   {
-                    isMultiple &&
+                    siteData.multiple &&
                     <div className="locations-container">
                       <div className={`locations-wrapper mx-2 ${ submitClicked ? 'toggle' : ''}`}>
                         <div className="row justify-content-center mx-auto pt-4">
@@ -170,7 +167,7 @@ function NotOpen({siteData}) {
                 <div id="actions-btns" className="row justify-content-center my-3 col-lg-10 m-auto">
                   <div className="col-lg-4 text-center">
                     {
-                      isMultiple &&
+                      siteData.multiple &&
                       <>
                       {
                         !submitClicked &&
@@ -186,7 +183,7 @@ function NotOpen({siteData}) {
                       </>
                     }
                     {
-                      !isMultiple &&
+                      !siteData.multiple &&
                       <button 
                         className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
                         onClick={() => actionHandler('question', formik)}
