@@ -18,9 +18,7 @@
               "phone": "480-624-8185",
               "googleMap": "",
               "appleMap": "",
-              "open": true,
-              "virtual": true,
-              "virtualZip": "00000"
+              "open": true
             },
             {
               "location": "Peoria",
@@ -32,9 +30,7 @@
               "phone": "623-246-7510",
               "googleMap": "",
               "appleMap": "",
-              "open": true,
-              "virtual": true,
-              "virtualZip": "00000"
+              "open": true
             },
             {
               "location": "Scottsdale North",
@@ -46,9 +42,7 @@
               "phone": "480-955-0396",
               "googleMap": "",
               "appleMap": "",
-              "open": true,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": true
             },
             {
               "location": "Scottsdale South",
@@ -60,9 +54,7 @@
               "phone": "480-955-0262",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             }
           ]
         },
@@ -80,9 +72,7 @@
               "phone": "520-372-6791",
               "googleMap": "",
               "appleMap": "",
-              "open": true,
-              "virtual": true,
-              "virtualZip": "00000"
+              "open": true
             }
           ]
         }
@@ -107,9 +97,7 @@
               "phone": "737-787-7177",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             }
           ]
         },
@@ -127,9 +115,7 @@
               "phone": "936-213-3200",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             }
           ]
         },
@@ -147,9 +133,7 @@
               "phone": "346-388-3611",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             },
             {
               "location": "Spring",
@@ -161,9 +145,7 @@
               "phone": "281-801-4004",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             },
             {
               "location": "Webster",
@@ -175,9 +157,7 @@
               "phone": "281-407-5742",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             },
             {
               "location": "Humble",
@@ -189,9 +169,7 @@
               "phone": "281-713-4875",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             },
             {
               "location": "Galleria",
@@ -203,9 +181,7 @@
               "phone": "",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             },
             {
               "location": "Pearland",
@@ -217,9 +193,7 @@
               "phone": "",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             },
             {
               "location": "Cypress",
@@ -231,9 +205,7 @@
               "phone": "",
               "googleMap": "",
               "appleMap": "",
-              "open": false,
-              "virtual": false,
-              "virtualZip": "00000"
+              "open": false
             }
           ]
         }
