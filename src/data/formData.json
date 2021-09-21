@@ -14,13 +14,10 @@
     "salesforceValue": "",
     "zipcode": "",
     "stateShort": "",
-    "virtualZip": "",
-    "virtual": false,
     "open": false
   },
   "include": {
     "action": "",
-    "consultType": "",
     "campaignId": "",
     "leadsource": ""
   }
