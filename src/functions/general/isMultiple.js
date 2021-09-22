@@ -13,18 +13,14 @@ function isMultiple(siteData) {
   if(city.locations.length > 1) {
     siteData.multiple = true
     // if any store is Open 
-    let isOpen = city.locations.find(elem => {
-      return elem.open === true
-    })
-    if(isOpen) siteData.open = true
-    else siteData.open = false
+    let isOpen = city.locations.find(elem => elem.open === true)
+    isOpen ? siteData.open = true : siteData.open = false
   }
 
   // For cities with single location & open
   else if(city.locations.length === 1) {
     siteData.multiple = false
-    if(city.locations[0].open) siteData.open = true
-    else siteData.open = false
+    city.locations[0].open ? siteData.open = true : siteData.open = false
   }
 }
 
