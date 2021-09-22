@@ -6,7 +6,7 @@ import { FaPhoneAlt } from 'react-icons/fa';
 import './Header.css'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
-function Header({windowWidth}) {
+function Header({siteData, windowWidth}) {
   const menu = getMenu()
   const [isOpen, setIsOpen] = useState(false)
   // Close/Open the main menu
@@ -35,7 +35,9 @@ function Header({windowWidth}) {
                 </a>
               </div>
               <div className="d-inline-block">
-                <button className="cta-btn red-bg-btn py-1 px-3" onClick={() => scrollTo('#scrollToConsult')}>FREE CONSULT</button>
+                <button className="cta-btn red-bg-btn py-1 px-3" onClick={() => scrollTo('#scrollToConsult')}>
+                  {siteData.open ? 'FREE CONSULT' : 'Request More Information'}
+                </button>
               </div>
 					  </div>
           </nav>
