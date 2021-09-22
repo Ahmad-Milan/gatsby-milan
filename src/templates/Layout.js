@@ -4,8 +4,11 @@ import Consult from '../components/forms/consult/Consult'
 import Footer from "../components/footer/Footer"
 import siteData from "../data/siteData.json"
 import useResize from "../hooks/useResize"
+import isMultiple from "../functions/general/isMultiple"
+import "../styles/main.css"
 
-import "../styles/main.css";
+// Check if the site has multiple locations & if Open
+isMultiple(siteData)
 
 const Layout = ({ children }) => {
 
@@ -13,7 +16,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header windowWidth={windowWidth}/>
+      <Header siteData={siteData} windowWidth={windowWidth}/>
       {children}
       <span id="scrollToConsult"></span>
       <Consult siteData={siteData} />
