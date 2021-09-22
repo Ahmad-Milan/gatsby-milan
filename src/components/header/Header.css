@@ -35,11 +35,11 @@ header .navbar__menu .menu__item__link__wrapper a {
   color: #fff;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
-  padding: 25px 10px;
+  padding: 25px 8px 25px 9px;
 }
 header .subMenu__wrapper {
   display: block;
-  top: 67px;
+  top: 65px;
   transition: all 0.4s ease-in-out;
   transform-origin: top center;
   border: none !important;
@@ -126,6 +126,7 @@ header .navbar__menu--lg .menu__item__link__wrapper {
   z-index: 1000;
   background-color: var(--main-navy);
   padding: 22px 10px;
+  font-size: 14px;
 }
 header .navbar__menu--lg .subMenu__wrapper {
   position: absolute;
@@ -141,6 +142,7 @@ header .navbar__menu--lg .subMenu {
   margin-top: 1px;
   min-width: 200px;
 }
+header .navbar__menu--lg .subMenu li a {font-size: 14px;}
 header .navbar__menu--lg .subMenu > li:hover > .subSubMenu__wrapper {
   top: -8px; left: 100%;
 }
@@ -164,7 +166,7 @@ header .active-link {
 header .navbar__menu--sm {
   position: absolute;
   width: 100%;
-  top: 62px;
+  top: 60px;
   left: 0;
   padding-bottom: 5px;
   margin-top: -100vh;
@@ -268,6 +270,10 @@ header .navbar__menu--sm .subSubMenu {
   header .navbar__menu--sm .subMenu li > a {
     padding: 8px 15px;
   }
+}
+
+@media screen and (min-width: 576px) {
+  header .cta-btn { font-size: 15px;}
 }
 
 
