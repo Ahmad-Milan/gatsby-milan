@@ -19,7 +19,7 @@ import './Consult.css'
 function Single({siteData}) {
 
   // getStore takes the salesforce value as a parameter
-  const currentStore = getStore(siteData.salesforce)
+  const currentStore = getStore(siteData.salesforceValue)
   const [formState, setFormState] = useState(formData)
 
   const formRef = useRef(null)
