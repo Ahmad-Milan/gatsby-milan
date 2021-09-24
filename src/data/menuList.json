@@ -1,11 +1,11 @@
 {
-  "title": "Main menu list for multiple locations sites to be used in the navbarr",
+  "title": "Main menu list to be used in the navbar",
   "content" : [
     {
       "link": "Home",
       "url": "/"
     },
-    
+
     {
       "link": "Specials",
       "url": "/specials/",
@@ -110,18 +110,8 @@
       "url": "/contact/",
       "subMenu": [
         {
-          "link": "Our Locations",
-          "url": "https://milanlaser.com/locations/",
-          "subSubMenu": [
-            {
-              "link": "Omaha Central",
-              "url": "/about-us/omahacentral"
-            },
-            {
-              "link": "Omaha West",
-              "url": "/about-us/omahawest"
-            }
-          ]
+          "link": "Our Location",
+          "url": "/our-location/"
         },
         {
           "link": "Reviews/Testimonials",
@@ -133,17 +123,7 @@
         },
         {
           "link": "Facebook",
-          "url": "/contact/#facebook",
-          "subSubMenu": [
-            {
-              "link": "Omaha Central",
-              "url": "https://www.facebook.com/MilanLaserPapillion/"
-            },
-            {
-              "link": "Omaha West",
-              "url": "https://www.facebook.com/MilanLaserOmaha/"
-            }
-          ]
+          "url": "/contact/#facebook"
         },
         {
           "link": "Twitter",
@@ -151,7 +131,7 @@
         },
         {
           "link": "About Us",
-          "url": "/about-us/"
+          "url": "/about-us/#about-us"
         },
         {
           "link": "Careers",
