@@ -2,13 +2,11 @@ import React from "react"
 import Header from "../components/header/Header"
 import Consult from '../components/forms/consult/Consult'
 import Footer from "../components/footer/Footer"
-import siteData from "../data/siteData.json"
+import getSiteData from "../functions/general/getSiteData"
 import useResize from "../hooks/useResize"
-import isMultiple from "../functions/general/isMultiple"
 import "../styles/main.css"
 
-// Check if the site has multiple locations & if Open
-isMultiple(siteData)
+const siteData = getSiteData('Tucson', 'Arizona')
 
 const Layout = ({ children }) => {
 
