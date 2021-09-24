@@ -16,7 +16,7 @@ function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
 
   return (
     <ul className={`navbar__menu ${navbarSize} ${isOpen}`}>
-      {
+      { // X close button for smaller screens
         navbarSize === 'navbar__menu--sm' && 
         <li className="menu__item" onClick={closeMenu}>
           <div className="pb-1 pe-4 text-end close_menu_icon">
