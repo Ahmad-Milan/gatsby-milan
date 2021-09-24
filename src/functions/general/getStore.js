@@ -1,8 +1,10 @@
 import stores from '../../data/stores.json'
 
+// To be called in Single.js & NotOpen.js & updateDropDown.js
+// Accepts the salesforce value as a param
+// Returns the store object of the passed salesforce value (The store NOT the city)
 const getStore = (salesforceValue) => {
-  let filteredStore
-  filteredStore = stores.locations.find(element => {
+  let filteredStore = stores.locations.find(element => {
     return element.stores.some(findLocation)
   }).stores.find(findLocation)
 
