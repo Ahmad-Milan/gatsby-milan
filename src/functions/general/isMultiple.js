@@ -1,18 +1,17 @@
-import stores from '../../data/stores.json'
+import getCity from '../../functions/general/getCity'
+
+// This function is called in getSiteData() in Layout Comp
+// 1. Check whether the current city is a single location city or multiple
+// 2. Check if any store is open
+// 3. Update multiple & open props in siteData obj accordingly
 function isMultiple(siteData) {
-  let city
-  city = stores.locations.find(element => {
-    return element.stores.some(findLocation)
-  }).stores.find(findLocation)
+  // Get the current site city whether it's single or multiple
+  const city = getCity(siteData) // returns object
 
-  function findLocation(elem) {
-    return elem.city === siteData.city
-  }
-
-  // For cities with multiple locations & at least one location is open
+  // For cities with multiple locations & at least ONE location is open
   if(city.locations.length > 1) {
     siteData.multiple = true
-    // if any store is Open 
+    // if ANY store is Open 
     let isOpen = city.locations.find(elem => elem.open === true)
     isOpen ? siteData.open = true : siteData.open = false
   }
