@@ -7,7 +7,7 @@ import './Header.css'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
 function Header({siteData, windowWidth}) {
-  const menu = getMenu()
+  const menu = getMenu(siteData)
   const [isOpen, setIsOpen] = useState(false)
   // Close/Open the main menu
   const handleClick = () => setIsOpen(!isOpen)
@@ -24,7 +24,7 @@ function Header({siteData, windowWidth}) {
               style={isOpen ? {color: 'var(--main-turquoise)'} : {color: '#fff'}}
               onClick={handleClick}>MENU</button>
             {/* Main menu list */}
-            <Navbar menu={menu} closeMenu={() => setIsOpen(false)}
+            <Navbar siteData={siteData} menu={menu} closeMenu={() => setIsOpen(false)}
               navbarSize={`${windowWidth > 991 ? 'navbar__menu--lg' : 'navbar__menu--sm'}`}
               isOpen={isOpen ? 'isOpen' : ''}/>
 
