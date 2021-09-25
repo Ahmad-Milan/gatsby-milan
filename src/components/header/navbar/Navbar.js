@@ -31,7 +31,7 @@ function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
           {/*👇 Main menu links go here */}
           {/* Home / Specials / The Process / Areas / Contact & About Us  */}
           <Link
-            to={menuItem.url} 
+            to={menuItem.pathname} 
             activeClassName="active-link" 
             className="text-uppercase"
             onClick={closeMenu}

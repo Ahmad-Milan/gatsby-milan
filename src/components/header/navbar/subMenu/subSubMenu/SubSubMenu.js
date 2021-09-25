@@ -8,7 +8,7 @@ function SubSubMenu({subMenuItem, expanded}) {
         {/* SubSubMenuItems Ex: <li>Omaha Central</li> - <li>Omaha West</li>  */}
       { 
         subMenuItem.subSubMenu.map((subSubMenuItem, index) => (
-          <li key={index}><Link to={subSubMenuItem.url}>{subSubMenuItem.link}</Link></li>
+          <li key={index}><Link to={subSubMenuItem.pathname}>{subSubMenuItem.link}</Link></li>
         ))
       }
       </ul>

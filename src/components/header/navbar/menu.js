@@ -17,12 +17,12 @@ function getMenu(siteData) {
         if(siteData.multiple) {
           if(item.link === 'Our Location') {
             item.link = 'Our Locations'
-            item.url = '/locations/'
+            item.pathname = '/locations/'
             let locations = []
             city.locations.forEach(item => {
               locations.push({
                 "link": item.location,
-                "url": "/about-us/"+item.location.toLowerCase().replace(/\s+/g, '')
+                "pathname": "/about-us/"+item.location.toLowerCase().replace(/\s+/g, '')
               })
             })
             // add a subSubMenu prop and assign it to the generated locations array
@@ -33,7 +33,7 @@ function getMenu(siteData) {
             city.locations.forEach(item => {
               facebook.push({
                 "link": item.location,
-                "url": item.facebook
+                "pathname": item.facebook
               })
             })
             // add a subSubMenu prop and assign it to the generated facebook array
@@ -41,9 +41,9 @@ function getMenu(siteData) {
           }
         }
         // if the current city is a single location city
-        // Update the facebook url value
+        // Update the facebook pathname value
         if(!siteData.multiple && item.link === 'Facebook') {
-          item.url = city.locations[0].facebook
+          item.pathname = city.locations[0].facebook
         }
 
         // add expanded prop and set it to false initially

@@ -24,7 +24,7 @@ function SubMenu({menu, menuItem, navbarSize, expanded, index, closeMenu}) {
         menuItem.subMenu.map((subMenuItem, x) => {
           return (
           <li key={x}> {/* Ex: <li>Our Locations</li> */}
-            <Link to={subMenuItem.url} onClick={closeMenu}>{subMenuItem.link} </Link>
+            <Link to={subMenuItem.pathname} onClick={closeMenu}>{subMenuItem.link} </Link>
             {
               subMenuItem?.subSubMenu &&
               <>

@@ -6,7 +6,7 @@
       "stores": [
         {
           "city": "Phoenix",
-          "url": "phoenix",
+          "pathname": "phoenix",
           "locations": [
             {
               "location": "Chandler",
@@ -64,7 +64,7 @@
         },
         {
           "city": "Tucson",
-          "url": "tucson",
+          "pathname": "tucson",
           "locations": [
             {
               "location": "Tucson",
@@ -90,7 +90,7 @@
       "stores": [
         {
           "city": "Austin",
-          "url": "austin",
+          "pathname": "austin",
           "locations": [
             {
               "location": "Austin",
@@ -109,7 +109,7 @@
         },
         {
           "city": "College Station",
-          "url": "collegestation",
+          "pathname": "collegestation",
           "locations": [
             {
               "location": "College Station",
@@ -128,7 +128,7 @@
         },
         {
           "city": "Houston",
-          "url": "houston",
+          "pathname": "houston",
           "locations": [
             {
               "location": "Richmond",
