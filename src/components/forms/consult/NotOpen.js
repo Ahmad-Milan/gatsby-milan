@@ -38,14 +38,14 @@ function NotOpen({siteData}) {
     setSubmitClicked(true)
     actionInit(formikProps)
     checkTouched(formikProps, 'question')
-    updateUserInputs(formState, formikProps)
+    updateUserInputs(formState, formikProps.values)
   }
 
   // This is the list of nearby locations (NOT the Dropdown) / click handler
   const nearbySelectedHandler = store => setFormState(updateNearbySelection(store, formState, siteData))
 
-  // This is the Dropdown all locations list onChange handler
-  const dropdownHandler = event => setFormState(updateDropdown(event, formState, siteData))
+  // Locations dropdown onChange handler
+  const dropdownHandler = salesforceValue => setFormState(updateDropdown(salesforceValue, formState, siteData))
 
   // -------------------Single---------------------- //
   if(!siteData.multiple) {
@@ -119,7 +119,7 @@ function NotOpen({siteData}) {
                           <div className="col-10 col-sm-8 col-md-6 col-lg-4">
                             <h4 className="h6 text-center">Or select a location from the list</h4>
                             <select
-                              value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event)}
+                              value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event.target.value)}
                               className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
                               <optgroup>
                                 <option value="">Select a location</option>
@@ -160,6 +160,13 @@ function NotOpen({siteData}) {
                     </div>
                   </div>
 
+                  }
+
+                  { /* Location */
+                    !siteData.multiple && 
+                    <input 
+                      type="text" defaultValue={formState.store.salesforceValue} zip={formState.store.zipcode}
+                      className="d-none" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location" />
                   }
 
                 </div>

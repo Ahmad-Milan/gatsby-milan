@@ -75,6 +75,11 @@ function Single({siteData}) {
                   
                 </div>
 
+                {/* Location */}
+                <input 
+                  type="text" defaultValue={formState.store.salesforceValue} zip={formState.store.zipcode}
+                  className="d-none" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location" />
+
                 <div id="actions-btns" className="row justify-content-center my-3 col-lg-10 m-auto">
                   <div className="col-lg-4 text-center">
                   { // if Ask a Question button NOT clicked
