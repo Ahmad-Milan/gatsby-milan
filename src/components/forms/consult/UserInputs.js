@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, ErrorMessage } from 'formik'
-import TextError from './TextError'
+import TextError from '../shared/TextError'
 import validateEmail from '../validation/validateEmail'
 import InputMask from 'react-input-mask'
 import { FaAsterisk } from 'react-icons/fa'
