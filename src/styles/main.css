@@ -41,7 +41,9 @@ h2 {
   padding: 50px 0;
   line-height: 1.7rem;
 }
-
+.hero{
+  margin-top: 62px !important;
+}
 .light-blue {
   color: var(--light-blue) !important;
 }
@@ -67,8 +69,17 @@ h2 {
   border: none;
   transition: all 150ms ease-in-out;
 }
-
-
+#actions-btns .red-bg-btn:disabled {
+  background-color: var(--red-disabled);
+}
+#actions-btns .navy-bg-btn:disabled {
+  background-color: var(--navy-disabled);
+}
+form label sup {
+  color: var(--main-red);
+  font-size: .5rem;
+  top: -.53rem;
+}
 
 
 @media(min-width: 576px) and (max-width: 768px) {}
