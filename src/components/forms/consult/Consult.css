@@ -13,11 +13,6 @@
 #consult-form label {
   color: var(--main-blue);
 }
-#consult-form label sup {
-  color: var(--main-red);
-  font-size: .5rem;
-  top: -.53rem;
-}
 #consult-form hr {
   border-top: 2px solid var(--main-turquoise);
 }
@@ -38,12 +33,10 @@
   border-color: var(--main-navy);
 }
 #consult-form .locations-container,
-#consult-form .consult-type-container,
 #consult-form .selected-location-container {
   overflow: hidden;
 }
-#consult-form .locations-wrapper,
-#consult-form .consult-type-wrapper{
+#consult-form .locations-wrapper{
   margin-top: -700px;
   transition: all .6s ease-in-out 50ms;
 }
@@ -52,7 +45,6 @@
   transition: all .2s ease-in-out;
 }
 #consult-form .locations-wrapper.toggle,
-#consult-form .consult-type-wrapper.toggle,
 #consult-form .selected-location-wrapper.toggle {
   margin-top: 0;
 }
@@ -64,20 +56,11 @@
   text-decoration: underline;
   cursor: pointer;
 } 
-#consult-form .consult-type-wrapper span {
-  font-size: 4rem;
-}
 #consult-form #actions-btns button {
   max-width: 320px;
 }
 #consult-form #actions-btns button svg {
   vertical-align: text-top;
-}
-#consult-form #actions-btns .red-bg-btn:disabled {
-  background-color: var(--red-disabled);
-}
-#consult-form #actions-btns .navy-bg-btn:disabled {
-  background-color: var(--navy-disabled);
 }
 #consult-form .hide {
   display: none;
