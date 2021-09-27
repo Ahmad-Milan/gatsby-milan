@@ -1,11 +1,11 @@
-function updateUserInputs(formState, formikProps) {
+function updateUserInputs(formState, user) {
   const updatedFormState = { ...formState } // Shallow clone of formState
 
   // Update formState user values: get the values from formikProps.values
-  updatedFormState.user.first_name = formikProps.values.first_name
-  updatedFormState.user.last_name = formikProps.values.last_name
-  updatedFormState.user.email = formikProps.values.email
-  updatedFormState.user.phone = formikProps.values.phone
+  updatedFormState.user.first_name = user.first_name
+  updatedFormState.user.last_name = user.last_name
+  updatedFormState.user.email = user.email
+  updatedFormState.user.phone = user.phone
 
   return updatedFormState
 }

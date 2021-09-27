@@ -10,7 +10,7 @@ function updateFormAction(action, formikProps, formState) {
   actionInit(formikProps)
 
   // Update formState's user inputs
-  const updatedFormState = updateUserInputs(formState, formikProps)
+  const updatedFormState = updateUserInputs(formState, formikProps.values)
   updatedFormState.include.action = action
 
   if(action === 'question') {

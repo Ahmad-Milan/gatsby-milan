@@ -2,10 +2,10 @@ import getNearbyLocations from '../general/getNearbyLocations'
 import getStore from '../general/getStore'
 import updateStoreProps from './updateStoreProps'
 
-function updateDropdown(event, formState, siteData) {
+function updateDropdown(salesforceValue, formState, siteData) {
 
   // This function will find the selected store in the stores file and return it
-  const filteredStore = getStore(event.target.value)
+  const filteredStore = getStore(salesforceValue)
     
   const updatedFormState = { ...formState } // Shallow clone of formState
   // Update the values of formState.store porps
