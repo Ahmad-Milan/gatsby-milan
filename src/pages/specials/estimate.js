@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../templates/Layout'
+import Layout from '../../components/layout/Layout'
 import Quote from '../../components/forms/quote/Quote'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
