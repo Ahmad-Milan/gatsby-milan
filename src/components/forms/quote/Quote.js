@@ -18,8 +18,6 @@ import qs from 'qs'
 
 import './Quote.css'
 
-
-
 const quoteSchema = Yup.object().shape({
   first_name: Yup.string().required('First name is required!!'),
   email: Yup.string().email('Enter a valid email!').required('Email is required!'),
@@ -28,12 +26,22 @@ const quoteSchema = Yup.object().shape({
 
 function Quote({scrollTop}) {
 
-  const siteData = getSiteData()
-  const city = getCity(siteData)
-  let store = getStore(city.locations[0].salesforceValue)
-  formData.store.salesforceValue = store.salesforceValue
-  updateStoreProps(formData, store)
+  // On render, do the following:
+  // 1. get siteData
+  const siteData = getSiteData() // returns siteData obj
 
+  // 2. if store not selected yet.... 
+  // (this is useful when navigating between pages and the location is already selected some where else in other forms)
+  if(!formData.store.salesforceValue) {
+    const city = getCity(siteData) // returns current city obj
+
+    // Whether it's a single location city or multiple, 
+    // getStore will return the first element of the city locations array
+    let store = getStore(city.locations[0].salesforceValue)
+
+    // Update formData.store
+    updateStoreProps(formData, store)
+  }
 
   const [formState, setFormState] = useState(formData)
 
@@ -56,13 +64,17 @@ function Quote({scrollTop}) {
     legs: false,
     chest: false
   });
+  // areasFinal is the string that will be sent to salesforce along with otherAreas
   const [areasFinal, setAreasFinal] = useState('')
 
+  // Checkboxes check/uncheck
   const handleArea = (e) => {
     setAreas({ ...areas, [e.target.name]: e.target.checked });
     e.target.checked ? setAreasFinal(areasFinal.concat(e.target.value + ', ')) : setAreasFinal(areasFinal.replace(e.target.value + ', ', ''))
   }
-  const checkAreasNumber = () => Object.values(areas).reduce((acc, area) => acc + area, 0)
+
+  const checkAreasNumber = () => Object.values(areas).reduce((acc, area) => acc + area, 0) // only counts when area is true
+  // For other areas input field
   const [otherAreas, setOtherAreas] = useState('')
 
   const [submitting, setSubmitting] = useState(false);
@@ -87,25 +99,26 @@ function Quote({scrollTop}) {
           'Campaign_ID': '70141000000TgDG'
       }),
       config: { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
-    })
-      .then(res =>
+    }).then(res =>
           console.log(res.status, 'lead created'),
           axios({
               method: 'POST',
-              url: 'https://milanlaser.com/specials/quote.php',
+              url: 'https://milanlaser.com/gatsby/quote.php',
               data: qs.stringify({
                   'name': formState.user.first_name,
                   'email': formState.user.email,
                   'tel': formState.user.phone,
                   'location': formState.store.salesforceValue,
                   'areas': `${areasFinal}   ${otherAreas}`,
+                  'city': siteData.city
               })
           }).then(res =>
+            console.log(res),
             setSubmitting(false),
             setLeadSuccess(true)
-        )
+          ).catch(err => console.error(err))
       )
-      .catch((err) => { console.log(err) })
+      .catch((err) => { console.error(err) })
   }
 
   return (
