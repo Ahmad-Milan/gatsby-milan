@@ -4,37 +4,24 @@ import TextError from '../shared/TextError'
 import validateEmail from '../validation/validateEmail'
 import InputMask from 'react-input-mask'
 import { FaAsterisk } from 'react-icons/fa'
-import getSiteData from '../../../functions/general/getSiteData'
-import getCity from '../../../functions/general/getCity'
 import getStore from '../../../functions/general/getStore'
 import updateStoreProps from '../../../functions/forms/updateStoreProps'
 import formData from '../../../data/formData.json'
 import stores from '../../../data/stores.json'
 import updateDropdown from '../../../functions/forms/updateDropdown'
 import updateUserInputs from '../../../functions/forms/updateUserInputs'
-import * as Yup from 'yup'
+import quoteSchema from '../validation/quoteSchema'
 import axios from 'axios'
 import qs from 'qs'
+import { siteData, city } from '../../layout/Layout'
 
 import './Quote.css'
 
-const quoteSchema = Yup.object().shape({
-  first_name: Yup.string().required('First name is required!!'),
-  email: Yup.string().email('Enter a valid email!').required('Email is required!'),
-  phone: Yup.string().min(15, 'Enter valid phone number!').required('Phone number is required!'),
-})
-
 function Quote({scrollTop}) {
 
-  // On render, do the following:
-  // 1. get siteData
-  const siteData = getSiteData() // returns siteData obj
-
-  // 2. if store not selected yet.... 
-  // (this is useful when navigating between pages and the location is already selected some where else in other forms)
+  // if store not selected yet.... 
+  // (this is useful when navigating between pages and the location is already selected somewhere else in other forms)
   if(!formData.store.salesforceValue) {
-    const city = getCity(siteData) // returns current city obj
-
     // Whether it's a single location city or multiple, 
     // getStore will return the first element of the city locations array
     let store = getStore(city.locations[0].salesforceValue)
@@ -129,7 +116,7 @@ function Quote({scrollTop}) {
     {// This way we can get access to all formik props
       formik => {
         return (
-          <Form className="quote-form w-100 py-4" >
+          <Form className="quote-form w-100 pb-4" >
             {submitting ?
             <center>
               <p className="h3 mb-4">Form submitting...</p>
@@ -209,7 +196,7 @@ function Quote({scrollTop}) {
                 </div>
               </div>
 
-              <h3 className="text-center h5 mt-5">Please select up to 3 areas you’re interested in.</h3>
+              <h3 className="text-center h5 mt-3 mt-sm-4 mt-lg-5">Please select up to 3 areas you’re interested in.</h3>
               <div className="row justify-content-center mt-4 pt-1 checkboxes">
                 <div className="col-sm-10 row">
                   <div className="col-6 col-lg-3" >
@@ -249,7 +236,7 @@ function Quote({scrollTop}) {
               </div>
               
               <div className="row justify-content-center mt-4">
-                <div className="col-10 row">
+                <div className="col-md-10 row">
                   <h3 className="h5 text-center">Other Areas <span className="d-none d-md-inline">(we treat almost any area of the body)</span>:</h3>
                   <input 
                     className="form-control" type="text" placeholder="Describe any other areas you're interested in. " id="other_area" name="other_area" 
@@ -260,9 +247,9 @@ function Quote({scrollTop}) {
             </div>
 
             <div id="actions-btns" className="row justify-content-center my-3 col-lg-10 m-auto">
-              <div className="col-lg-4 text-center">
+              <div className="col-sm-6 col-lg-4 text-center">
                 <button
-                  className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit"
+                  className="w-100 cta-btn red-bg-btn py-2 shadow-sm" type="submit" 
                   disabled={!formik.isValid || (areasFinal==='' && otherAreas==='') ? true : false}>REQUEST A QUOTE</button>
               </div>
               <p className="text-center mt-2 mb-0"><small>Terms &amp; Conditions may apply. See store for more details.</small></p>
