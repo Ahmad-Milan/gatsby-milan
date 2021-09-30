@@ -1,5 +1,4 @@
 import stores from '../../data/stores.json'
-import isMultiple from './isMultiple'
 
 // To be called in the Layout Comp
 // Returns siteData obj
@@ -21,9 +20,6 @@ function setSiteData(pathname, state) {
   if(currentCity.locations.length === 1) {
     siteData.salesforceValue = currentCity.locations[0].salesforceValue
   }
-
-  // Check if the site has multiple locations & if Open
-  isMultiple(siteData)
   
   return siteData
 }
