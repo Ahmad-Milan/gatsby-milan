@@ -15,9 +15,9 @@ import askQuestion from '../../../functions/forms/askQuestion'
 import onSubmit from '../../../functions/forms/onSubmit'
 import UserInputs from './UserInputs'
 import './Consult.css'
-
-// This form works ONLY for websites with multiple locations
-
+// ******************************************************** //
+// This form works ONLY for websites with MULTIPLE locations
+// ******************************************************** //
 function Multiple({siteData}) {
   const [formState, setFormState] = useState(formData)
 
@@ -166,7 +166,7 @@ function Multiple({siteData}) {
                 <div id="actions-btns" className="row justify-content-center my-3 col-lg-10 m-auto">
                   <div className="col-lg-4 text-center">
                   { // When Ask A Question button is NOT clicked
-                    !askQuestionClicked &&
+                    !askQuestionClicked ?
                     <>
                     {
                       formState.include.action !== 'self_schedule' &&
@@ -183,9 +183,7 @@ function Multiple({siteData}) {
                       </button>
                     }
                     </>
-                  }
-                  { // When Ask A Question button is clicked
-                    askQuestionClicked &&
+                    : // When Ask A Question button is clicked
                     <>
                     {
                       formState.include.action === '' &&

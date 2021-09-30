@@ -13,9 +13,9 @@ import askQuestion from '../../../functions/forms/askQuestion'
 import onSubmit from '../../../functions/forms/onSubmit'
 import UserInputs from './UserInputs'
 import './Consult.css'
-
-// This form works ONLY for websites with Single location
-
+// ******************************************************** //
+// This form works ONLY for websites with SINGLE location
+// ******************************************************** //
 function Single({siteData}) {
 
   // getStore takes the salesforce value as a parameter
@@ -82,16 +82,14 @@ function Single({siteData}) {
 
                 <div id="actions-btns" className="row justify-content-center my-3 col-lg-10 m-auto">
                   <div className="col-lg-4 text-center">
-                  { // if Ask a Question button NOT clicked
-                    !askQuestionClicked &&
+                  { 
+                    !askQuestionClicked ?
                     <button 
                       className="w-100 cta-btn light-btn py-2 shadow-sm" 
                       onClick={() => {askQuestion(formik, formState); setAskQuestionClicked(true)}}>
                       <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
                     </button>
-                  }
-                  { // if Ask a Question button clicked
-                    askQuestionClicked && 
+                    :
                     <button 
                       className="w-100 cta-btn navy-bg-btn py-2 shadow-sm text-white"
                       onClick={() => actionHandler('question', formik)}
@@ -104,17 +102,15 @@ function Single({siteData}) {
                   <div className="col-lg-2 text-center"><div className="my-3 my-md-2">OR</div></div>
                   
                   <div className="col-lg-4 text-center">
-                  { // if Ask a Question button NOT clicked
-                    !askQuestionClicked && 
+                  { 
+                    !askQuestionClicked ?
                     <button 
                       className="w-100 cta-btn red-bg-btn py-2 shadow-sm" 
                       onClick={() => actionHandler('self_schedule', formik)}
                       disabled={!formik.isValid ? true : false} type="submit">
                       <i><FaRegCalendarAlt /></i><span className="ps-2">SEE AVAILABLE TIMES</span>
                     </button>
-                  }
-                  { // if Ask a Question button clicked
-                    askQuestionClicked && 
+                    :
                     <button className="w-100 cta-btn light-btn py-2 shadow-sm" onClick={() => {handleGoBack(); setAskQuestionClicked(false)}}>
                       <i><FaArrowLeft /></i><span className="ps-2">GO BACK</span>
                     </button>
