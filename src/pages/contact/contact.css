@@ -1,6 +1,6 @@
 .contact-hero h2 {font-size: calc(18px + (32 - 18) * ((100vw - 300px) / (1600 - 300)));}
 .contact-hero .ribbon {
-  position: relative; margin-right: -35px; margin-left: -35px; background: rgba(30,174,219,.9);
+  position: relative; margin-right: -28px; margin-left: -28px; background: rgba(30,174,219,.9);
   border-radius: 5px; color: #fff; box-shadow: 3px 6px 8px -4px #888; padding: 15px;
 }
 .contact-hero .ribbon:after, .ribbon:before {
