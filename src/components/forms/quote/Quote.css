@@ -1,4 +1,4 @@
-.area_label {display: block;position: relative;padding-left: 35px;margin-bottom: 12px;cursor: pointer;font-size: 18px;user-select: none;}
+.area_label {display: block;position: relative;padding-left: 35px;margin-bottom: 12px;cursor: pointer;user-select: none;}
 .area_label input {position: absolute;opacity: 0;cursor: pointer;height: 0;width: 0;}
 .checkmark {position: absolute;top: 0;left: 0;height: 22px;width: 22px;background-color: rgba(1, 113, 143, .5);}
 .area_label:hover input ~ .checkmark {background-color: var(--main-blue);}
@@ -9,3 +9,4 @@
 .area_label .checkmark:after {left: 9px;top: 5px;width: 5px;height: 10px;border: solid white;border-width: 0 3px 3px 0;transform: rotate(45deg);}
 .quote-form .success > p { line-height: 2rem;}
 .quote-form .spinner-border { width: 5rem; height: 5rem; }
+.quote-form #actions-btns .cta-btn { max-width: 300px; }
