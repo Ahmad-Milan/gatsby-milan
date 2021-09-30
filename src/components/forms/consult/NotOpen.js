@@ -1,8 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import { Link } from 'gatsby'
 import formData from '../../../data/formData.json'
-import stores from '../../../data/stores.json'
-import getNearbyLocations from '../../../functions/general/getNearbyLocations'
 import updateNearbySelection  from '../../../functions/forms/updateNearbySelection'
 import updateDropdown from '../../../functions/forms/updateDropdown'
 import updateStoreProps from '../../../functions/forms/updateStoreProps'
@@ -16,7 +14,10 @@ import onSubmit from '../../../functions/forms/onSubmit'
 import checkTouched from '../../../functions/forms/checkTouched'
 import actionInit from '../../../functions/forms/actionInit'
 import UserInputs from './UserInputs'
+import LocationsDropdown from '../shared/LocationsDropdown'
+import NearbyLocations from '../shared/NearbyLocations'
 import './Consult.css'
+
 // ********************************************************************* //
 // This form works ONLY for NON OPEN locations, both Multiple and Single
 // ********************************************************************* //
@@ -100,16 +101,7 @@ function NotOpen({siteData}) {
                           <div className="col-md-10">
                             <h3 className="h5 mb-4 text-center">Select a Location Near You</h3>
                             <ul className="d-flex justify-content-center flex-wrap">
-                              {
-                                getNearbyLocations(siteData).map((store, x) => (
-                                  <li key={x} className="mb-2 col-6 col-md-4 col-lg-3">
-                                    <div
-                                      className={`card p-2 text-center ${store.selected === true ? 'selected' : 'shadow-sm'}`} 
-                                      onClick={() => nearbySelectedHandler(store)}>{store.location}
-                                    </div>
-                                  </li>
-                                ))
-                              }
+                            <NearbyLocations nearbySelectedHandler={nearbySelectedHandler} />
                             </ul>
                           </div>
                         </div>
@@ -120,26 +112,7 @@ function NotOpen({siteData}) {
                             <select
                               value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event.target.value)}
                               className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
-                              <optgroup>
-                                <option value="">Select a location</option>
-                              </optgroup>
-                              {
-                                stores.locations.map((item, i) => (
-                                  <optgroup key={i} label={item.state}>
-                                    {
-                                      item.stores.map((elem) => {
-                                          let option = elem.locations.map((store, i) => {
-                                            return (
-                                              <option key={i} value={store.salesforceValue} zip={store.zipcode}>
-                                                {store.salesforceValue} {store.open === false ? '/ Coming Soon' : ''}
-                                              </option>
-                                            )})
-                                          return option
-                                      })
-                                    }
-                                  </optgroup>
-                                ))
-                              }
+                              <LocationsDropdown />
                             </select>
                           </div>
                         </div>

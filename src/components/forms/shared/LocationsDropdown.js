@@ -1,0 +1,31 @@
+import React from 'react'
+import stores from '../../../data/stores.json'
+
+function LocationsDropdown() {
+  return (
+    <>
+    <optgroup>
+      <option value="">Select a location</option>
+    </optgroup>
+    {
+      stores.locations.map((item, i) => (
+        <optgroup key={i} label={item.state}>
+          {
+            item.stores.map((elem) => {
+                let option = elem.locations.map((store, i) => {
+                  return (
+                    <option key={i} value={store.salesforceValue} zip={store.zipcode}>
+                      {store.salesforceValue} {store.open === false ? '/ Coming Soon' : ''}
+                    </option>
+                  )})
+                return option
+            })
+          }
+        </optgroup>
+      ))
+    }
+    </>
+  )
+}
+
+export default LocationsDropdown
