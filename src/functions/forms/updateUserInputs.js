@@ -3,9 +3,10 @@ function updateUserInputs(formState, user) {
 
   // Update formState user values: get the values from formikProps.values
   updatedFormState.user.first_name = user.first_name
-  updatedFormState.user.last_name = user.last_name
+  if(user.last_name) updatedFormState.user.last_name = user.last_name
   updatedFormState.user.email = user.email
   updatedFormState.user.phone = user.phone
+  if(user.description) updatedFormState.user.description = user.description
 
   return updatedFormState
 }
