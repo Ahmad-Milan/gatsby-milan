@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout, {siteData, city} from '../../components/layout/Layout'
-import Contact from '../../components/forms/consult/Contact'
+import Contact from '../../components/forms/contact/Contact'
 
 import './contact.css'
 
