@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import getMenu from './navbar/menu'
+import resetMenu from '../../functions/general/resetMenu'
 import Navbar from './navbar/Navbar'
 import useClickOutside from '../../hooks/useClickOutside'
 import { FaPhoneAlt } from 'react-icons/fa';
 import './Header.css'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
-function Header({siteData, windowWidth}) {
-  const menu = getMenu(siteData)
+function Header({menu, siteData, windowWidth}) {
+  resetMenu(menu)
   const [isOpen, setIsOpen] = useState(false)
   // Close/Open the main menu
   const handleClick = () => setIsOpen(!isOpen)
