@@ -7,14 +7,13 @@ import { FaAsterisk } from 'react-icons/fa'
 import getStore from '../../../functions/general/getStore'
 import updateStoreProps from '../../../functions/forms/updateStoreProps'
 import formData from '../../../data/formData.json'
-import stores from '../../../data/stores.json'
 import updateDropdown from '../../../functions/forms/updateDropdown'
 import updateUserInputs from '../../../functions/forms/updateUserInputs'
 import quoteSchema from '../validation/quoteSchema'
 import axios from 'axios'
 import qs from 'qs'
 import { siteData, city } from '../../layout/Layout'
-
+import LocationsDropdown from '../shared/LocationsDropdown'
 import './Quote.css'
 
 function Quote({scrollTop}) {
@@ -172,26 +171,7 @@ function Quote({scrollTop}) {
                   <select
                     value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event.target.value)}
                     className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
-                    <optgroup>
-                      <option value="">Select a location</option>
-                    </optgroup>
-                    {
-                      stores.locations.map((item, i) => (
-                        <optgroup key={i} label={item.state}>
-                          {
-                            item.stores.map((elem) => {
-                                let option = elem.locations.map((store, i) => {
-                                  return (
-                                    <option key={i} value={store.salesforceValue} zip={store.zipcode}>
-                                      {store.salesforceValue} {store.open === false ? '/ Coming Soon' : ''}
-                                    </option>
-                                  )})
-                                return option
-                            })
-                          }
-                        </optgroup>
-                      ))
-                    }
+                    <LocationsDropdown />
                   </select>
                 </div>
               </div>
