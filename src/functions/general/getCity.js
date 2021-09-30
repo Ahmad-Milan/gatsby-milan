@@ -1,7 +1,8 @@
 import stores from '../../data/stores.json'
+import isMultiple from './isMultiple'
 
-// To be called in menu.js & isMultiple.js
 // Find the current city from stores list
+// Check if the site has multiple locations & if Open
 // Returns city object
 function getCity(siteData) {
   let city
@@ -13,6 +14,10 @@ function getCity(siteData) {
   function findLocation(elem) {
     return elem.city === siteData.city
   }
+
+  // Check if the site has multiple locations & if Open
+  isMultiple(siteData, city)
+
   return city
 }
 
