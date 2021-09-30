@@ -17,10 +17,9 @@ import checkTouched from '../../../functions/forms/checkTouched'
 import actionInit from '../../../functions/forms/actionInit'
 import UserInputs from './UserInputs'
 import './Consult.css'
-
+// ********************************************************************* //
 // This form works ONLY for NON OPEN locations, both Multiple and Single
-// This form does NOT support the virtual consult option
-
+// ********************************************************************* //
 function NotOpen({siteData}) {
   const [formState, setFormState] = useState(formData)
 
