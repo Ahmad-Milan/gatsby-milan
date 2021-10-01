@@ -94,6 +94,7 @@ form .alert-danger {
 form label {
   font-size: 14px;
 }
+button:disabled{cursor: not-allowed;}
 
 
 @media(min-width: 576px) and (max-width: 768px) {}
