@@ -7,7 +7,7 @@ import updateStoreProps from '../../../functions/forms/updateStoreProps'
 import updateUserInputs from '../../../functions/forms/updateUserInputs'
 import getStore from '../../../functions/general/getStore'
 import updateFormAction from '../../../functions/forms/updateFormAction'
-import validationSchema from '../validation/validationSchema'
+import consultSchema from './consultSchema'
 import { Formik, Form } from 'formik'
 import updateSubscription from '../../../functions/forms/updateSubscription'
 import onSubmit from '../../../functions/forms/onSubmit'
@@ -72,7 +72,7 @@ function NotOpen({siteData}) {
         </div>
         <Formik 
           initialValues={formState.user}
-          validationSchema={validationSchema}
+          validationSchema={consultSchema}
           onSubmit={() => onSubmit(formState, siteData, formRef, succesRef)}>
           {// This way we can get access to all formik props
           formik => {

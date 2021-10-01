@@ -6,7 +6,7 @@ import updateNearbySelection  from '../../../functions/forms/updateNearbySelecti
 import updateDropdown from '../../../functions/forms/updateDropdown'
 import goBackBtn from '../../../functions/forms/goBackBtn'
 import updateFormAction from '../../../functions/forms/updateFormAction'
-import validationSchema from '../validation/validationSchema'
+import consultSchema from './consultSchema'
 import { Formik, Form } from 'formik'
 import updateSubscription from '../../../functions/forms/updateSubscription'
 import askQuestion from '../../../functions/forms/askQuestion'
@@ -56,7 +56,7 @@ function Multiple({siteData}) {
         </div>
         <Formik 
           initialValues={formState.user}
-          validationSchema={validationSchema}
+          validationSchema={consultSchema}
           onSubmit={() => onSubmit(formState, siteData, formRef, succesRef)}>
           {// This way we can get access to all formik props
           formik => {
