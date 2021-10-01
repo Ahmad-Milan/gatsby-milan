@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useRef} from 'react'
 import { Link } from 'gatsby'
 import formData from '../../../data/formData.json'
 import updateNearbySelection  from '../../../functions/forms/updateNearbySelection'
@@ -30,10 +30,6 @@ function NotOpen({siteData}) {
   // -------------------Multiple--------------------- //
   // These lines are meant for the First Submit Button
   const [submitClicked, setSubmitClicked] = useState(false)
-  useEffect(() => {
-    // In case user selects a location, then navigates away
-    if(formState.store.location !== '') setSubmitClicked(true)
-  }, [submitClicked])
   const handleSubmit = (formikProps) => {
     setSubmitClicked(true)
     actionInit(formikProps)
