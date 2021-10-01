@@ -1,25 +1,20 @@
 import React, {useState, useRef} from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import TextError from '../shared/TextError'
-import validateEmail from '../validation/validateEmail'
-import InputMask from 'react-input-mask'
-import { FaAsterisk } from 'react-icons/fa'
+import { Formik, Form } from 'formik'
+import PhoneInput from '../shared/PhoneInput'
 import getStore from '../../../functions/general/getStore'
 import updateStoreProps from '../../../functions/forms/updateStoreProps'
 import updateSubscription from '../../../functions/forms/updateSubscription'
 import formData from '../../../data/formData.json'
 import updateDropdown from '../../../functions/forms/updateDropdown'
 import updateUserInputs from '../../../functions/forms/updateUserInputs'
-import LocationsDropdown from '../shared/LocationsDropdown'
-import * as Yup from 'yup'
+import validationSchema from '../shared/validationSchema'
+import EmailInput from '../shared/EmailInput'
+import FullNameInput from '../shared/FullNameInput'
+import TextArea from '../shared/TextArea'
+import SubscriptionBox from '../shared/SubscriptionBox'
+import SelectLocation from '../shared/SelectLocation'
 
 
-const contactSchema = Yup.object().shape({
-  first_name: Yup.string().required('First name is required!'),
-  email: Yup.string().email('Enter a valid email!').required('Email is required!'),
-  phone: Yup.string().min(15, 'Enter valid phone number!').required('Phone number is required!'),
-  description: Yup.string()
-})
 function Contact({siteData, city}) {
 
   // if store not selected yet.... 
@@ -50,14 +45,13 @@ function Contact({siteData, city}) {
 
   const onSubmit = (user, formRef) => {
     updateUserInputs(formState, user)
-    // formRef.current.submit()
-    console.log(formState)
+    formRef.current.submit()
   }
 
   return (
         <Formik 
           initialValues={initialValues}
-          validationSchema={contactSchema}
+          validationSchema={validationSchema}
           onSubmit={(user) => onSubmit(user, formRef)}>
           {// This way we can get access to all formik props
           formik => {
@@ -71,66 +65,34 @@ function Contact({siteData, city}) {
 
                 <div className="row justify-content-center mx-auto pt-md-2">
                   <div className="col-md-6 mb-3">
-                    <label htmlFor="first_name">Your Name <sup><FaAsterisk /></sup></label>
-                    <Field className="form-control" type="text" placeholder="Mila N. Laser" id="first_name" name="first_name"
-                    style={formik.touched.first_name && formik.errors.first_name ? {borderColor: 'red'} : null} />
-                    <ErrorMessage name="first_name" component={TextError} />
+                    <FullNameInput formik={formik} />
                   </div>
                   <div className="col-md-6 mb-3">
-                    <label htmlFor="phone">Phone Number <sup><FaAsterisk /></sup></label>
-                    <Field name="phone" >
-                      { // These props are coming from the Formik Field compoenent and it contains: field, form, meta
-                        props => {
-                          const { field, meta } = props
-                          return <>
-                              <InputMask mask="+1\ 999-999-9999" maskChar={null} className="form-control phone_input" id="phone" 
-                                {...field} placeholder="+1 999-999-9999"
-                                style={meta.touched && meta.error ? {borderColor: 'red'} : null} /> 
-                                {meta.touched && meta.error ? <ErrorMessage name="phone" component={TextError} /> : null}
-                            </>
-                        }
-                      }
-                    </Field>
+                    <PhoneInput />
                   </div>
                 </div>
                 
                 <div className="row justify-content-center mx-auto">
                   <div className="col-md-6 mb-3">
-                    <label htmlFor="email">Your Email <sup><FaAsterisk /></sup></label>
-                    <Field 
-                      className="form-control" type="email" placeholder="youremail@mailbox.com" 
-                      id="email" name="email" validate={validateEmail}
-                      style={formik.touched.email && formik.errors.email ? {borderColor: 'red'} : null} />
-                    <ErrorMessage name="email" component={TextError} />
+                    <EmailInput formik={formik} />
                   </div>
 
                   <div className="col-md-6 mb-3">
-                    <label htmlFor="00N1L00000F9eBV">Location <sup><FaAsterisk /></sup></label>
-                    <select
-                      value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event.target.value)}
-                      className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
-                      <LocationsDropdown />
-                    </select>
+                    <SelectLocation formState={formState} dropdownHandler={dropdownHandler} />
                   </div>
                 </div>
 
                 <div className="row justify-content-center mx-auto overflow-hidden">
                   <div className="mb-2">
-                    <label htmlFor="description">Message</label>
-                    <Field as="textarea" className="form-control" placeholder="Hello…" id="description" name="description" rows="3"/>
+                    <TextArea />
                   </div>
                 </div>
 
                 <div className="row justify-content-center mx-auto">
                   <div className="custom-checkbox">
-                    <input 
-                      className="me-2 form-check-input" type="checkbox" id="mailchimp"  name="updates" 
-                      checked={formState.user.mailchimp} onChange={(event) => handleSubscription(event)}/>
-                    <label className="main-blue mailchimp" htmlFor="mailchimp"><small>Get updates on laser hair removal deals. (no spam)</small></label>
+                    <SubscriptionBox formState={formState} handleSubscription={handleSubscription} />
                   </div>
                 </div>
-
-
 
                 <div id="actions-btns" className="row justify-content-center mt-4">
                   <div className="col-10 col-lg-6 text-center">

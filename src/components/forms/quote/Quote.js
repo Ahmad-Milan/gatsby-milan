@@ -1,20 +1,19 @@
 import React, {useState} from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import TextError from '../shared/TextError'
-import validateEmail from '../validation/validateEmail'
-import InputMask from 'react-input-mask'
-import { FaAsterisk } from 'react-icons/fa'
+import { Formik, Form } from 'formik'
 import getStore from '../../../functions/general/getStore'
 import updateStoreProps from '../../../functions/forms/updateStoreProps'
 import formData from '../../../data/formData.json'
 import updateDropdown from '../../../functions/forms/updateDropdown'
 import updateUserInputs from '../../../functions/forms/updateUserInputs'
-import quoteSchema from '../validation/quoteSchema'
+import quoteSchema from './quoteSchema'
 import axios from 'axios'
 import qs from 'qs'
 import { siteData, city } from '../../layout/Layout'
-import LocationsDropdown from '../shared/LocationsDropdown'
 import './Quote.css'
+import PhoneInput from '../shared/PhoneInput'
+import EmailInput from '../shared/EmailInput'
+import FullNameInput from '../shared/FullNameInput'
+import SelectLocation from '../shared/SelectLocation'
 
 function Quote({scrollTop}) {
 
@@ -133,46 +132,20 @@ function Quote({scrollTop}) {
             <div className="form-inputs-wrapper">
               <div className="row justify-content-center mx-auto pt-4 mb-md-3">
                 <div className="col-md-5">
-                  <label htmlFor="first_name">Your Name <sup><FaAsterisk /></sup></label>
-                  <Field className="form-control" type="text" placeholder="Mila N. Laser" id="first_name" name="first_name"
-                  style={formik.touched.first_name && formik.errors.first_name ? {borderColor: 'red'} : null} />
-                  <ErrorMessage name="first_name" component={TextError} />
+                  <FullNameInput formik={formik} />
                 </div>
                 <div className="col-md-5">
-                  <label htmlFor="phone">Phone Number <sup><FaAsterisk /></sup></label>
-                  <Field name="phone" >
-                    { // These props are coming from the Formik Field compoenent and it contains: field, form, meta
-                      props => {
-                        const { field, meta } = props
-                        return <>
-                            <InputMask mask="+1\ 999-999-9999" maskChar={null} className="form-control phone_input" id="phone" 
-                              {...field} placeholder="+1 999-999-9999"
-                              style={meta.touched && meta.error ? {borderColor: 'red'} : null} /> 
-                              {meta.touched && meta.error ? <ErrorMessage name="phone" component={TextError} /> : null}
-                          </>
-                      }
-                    }
-                  </Field>
+                  <PhoneInput />
                 </div>
               </div>
               
               <div className="row justify-content-center mx-auto pt-md-4 mb-md-3">
                 <div className="col-md-5 my-3 my-sm-0">
-                  <label htmlFor="email">Your Email <sup><FaAsterisk /></sup></label>
-                  <Field 
-                    className="form-control" type="email" placeholder="youremail@mailbox.com" 
-                    id="email" name="email" validate={validateEmail}
-                    style={formik.touched.email && formik.errors.email ? {borderColor: 'red'} : null} />
-                  <ErrorMessage name="email" component={TextError} />
+                  <EmailInput formik={formik} />
                 </div>
 
                 <div className="col-md-5 my-3 my-sm-0">
-                  <label htmlFor="00N1L00000F9eBV">Location <sup><FaAsterisk /></sup></label>
-                  <select
-                    value={formState.store.salesforceValue} onChange={(event) => dropdownHandler(event.target.value)}
-                    className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
-                    <LocationsDropdown />
-                  </select>
+                  <SelectLocation formState={formState} dropdownHandler={dropdownHandler} />
                 </div>
               </div>
 
