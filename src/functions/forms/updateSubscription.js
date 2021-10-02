@@ -1,9 +1,8 @@
 // This is for the mailchimp checkbox subscription
 
-function updateSubscription(event, formState) {
-  const { id } = event.target
+function updateSubscription(formState) {
   const updatedFormState = { ...formState } // Shallow clone of formState
-  updatedFormState.user[id] = !updatedFormState.user[id]
+  updatedFormState.user.mailchimp = !updatedFormState.user.mailchimp
   return updatedFormState
 }
 
