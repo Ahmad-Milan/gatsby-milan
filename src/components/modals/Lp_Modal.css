@@ -1,0 +1,22 @@
+#lp-modal .modal-content {
+  background-color: var(--main-blue);
+  color: #fff;
+}
+#lp-modal .modal-header {
+  border-bottom: 0;
+  text-align: center;
+}
+#lp-modal .btn-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+#lp-modal .modal-title p.light-blue {
+  font-size: .8rem; line-height: 1.3rem;
+}
+#lp-modal .modal-title p.light-blue a{
+  text-decoration: underline;
+}
+#lp-modal .consent-msg, #lp-modal .custom-checkbox > label {
+  color: var(--light-blue);
+}
