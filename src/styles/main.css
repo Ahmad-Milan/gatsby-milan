@@ -123,3 +123,6 @@ button:disabled{cursor: not-allowed;}
 
 @media (min-width: 576px) {}
 
+@media only screen and (max-width: 991px) {
+  .subhead-sm, .subhead-tag {font-size: calc(18px + (28 - 18) * ((100vw - 300px) / (991 - 300)));}
+}
