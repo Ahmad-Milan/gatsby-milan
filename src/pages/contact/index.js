@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout, {siteData, city} from '../../components/layout/Layout'
-import Contact from '../../components/forms/contact/Contact'
+import MainForm from '../../components/forms/main/MainForm'
 import getNearbyLocations from '../../functions/general/getNearbyLocations'
 import { MILAN_PHONE, NO_RAZOR } from '../../functions/general/getSiteData'
 
@@ -50,7 +50,7 @@ function index() {
               </div>
 
               <h5 className="text-center mt-3">Or Send Us a Question</h5>
-              <Contact siteData={siteData} city={city} />
+              <MainForm siteData={siteData} city={city} action_link="l/642813/2018-12-05/h652" />
             </div>
           </div>
         </div>
