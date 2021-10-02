@@ -53,7 +53,7 @@ function NotOpen({siteData}) {
   }
   // -------------------------------------------------- //
   // Mailchimp checkbox 
-  const handleSubscription = event => setFormState(updateSubscription(event, formState))
+  const handleSubscription =() => setFormState(updateSubscription(formState))
 
   // Action: in this form it will only be 'question'
   const actionHandler = (action, formikProps) => setFormState(updateFormAction(action, formikProps, formState))

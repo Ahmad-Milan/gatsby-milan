@@ -35,7 +35,7 @@ function Single({siteData}) {
   const [askQuestionClicked, setAskQuestionClicked] = useState(isQuestion)
 
   // Mailchimp checkbox 
-  const handleSubscription = event => setFormState(updateSubscription(event, formState))
+  const handleSubscription =() => setFormState(updateSubscription(formState))
 
   // Go Back Button
   const handleGoBack = () => setFormState(goBackBtn(formState))

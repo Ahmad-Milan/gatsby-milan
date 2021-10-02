@@ -32,7 +32,7 @@ function Multiple({siteData}) {
   const [askQuestionClicked, setAskQuestionClicked] = useState(isQuestion)
 
   // Mailchimp checkbox 
-  const handleSubscription = event => setFormState(updateSubscription(event, formState))
+  const handleSubscription =() => setFormState(updateSubscription(formState))
 
   // This is the list of nearby locations (NOT the Dropdown) / click handler
   const nearbySelectedHandler = store => setFormState(updateNearbySelection(store, formState, siteData))
