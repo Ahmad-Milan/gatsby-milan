@@ -43,7 +43,7 @@ function UserInputs({ formik, formState, askQuestionClicked, handleSubscription 
 
       <div className="row justify-content-center mx-auto">
         <div className="col-md-10 custom-checkbox">
-          <SubscriptionBox formState={formState} handleSubscription={handleSubscription} />
+          <SubscriptionBox formState={formState} handleSubscription={handleSubscription} mailchimpID="mailchimp-consult" />
         </div>
       </div>
     </div>
