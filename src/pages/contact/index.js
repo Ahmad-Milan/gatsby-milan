@@ -8,7 +8,7 @@ import './contact.css'
 
 const nearbyLocations = getNearbyLocations(siteData)
 
-function index() {
+function ContactPage() {
   return (
     <Layout>
       <section className="full-section background hero contact-hero">
@@ -61,4 +61,4 @@ function index() {
   )
 }
 
-export default index
+export default ContactPage

@@ -3,7 +3,7 @@ import Layout, {siteData, city} from '../../components/layout/Layout'
 import Lp_Modal from '../../components/modals/Lp_Modal'
 
 
-function index() {
+function LpPage() {
 
   return (
     <Layout>
@@ -15,4 +15,4 @@ function index() {
   )
 }
 
-export default index
+export default LpPage

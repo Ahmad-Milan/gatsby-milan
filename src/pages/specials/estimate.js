@@ -3,7 +3,7 @@ import Layout from '../../components/layout/Layout'
 import Quote from '../../components/forms/quote/Quote'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
-function estimate() {
+function EstimatePage() {
   const scrollTop = () => scrollTo('#custon-quote')
   return (
     <Layout>
@@ -31,4 +31,4 @@ function estimate() {
   )
 }
 
-export default estimate
+export default EstimatePage

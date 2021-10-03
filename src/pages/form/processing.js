@@ -1,6 +1,6 @@
 import React from 'react'
 
-function processing() {
+function Processing() {
   return (
     <div>
       Form sent
@@ -8,4 +8,4 @@ function processing() {
   )
 }
 
-export default processing
+export default Processing

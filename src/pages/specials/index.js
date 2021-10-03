@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../components/layout/Layout'
 import { Link } from 'gatsby'
 
-function index() {
+function SpecialsPage() {
   return (
     <Layout>
       <div className="mt-5 pt-5"></div>
@@ -13,4 +13,4 @@ function index() {
   )
 }
 
-export default index
+export default SpecialsPage
