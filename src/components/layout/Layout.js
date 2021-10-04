@@ -12,7 +12,7 @@ export const siteData = getSiteData()
 export const city = getCity(siteData)
 const menu = createMenu(siteData, city)
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
 
   const windowWidth = useResize()
 

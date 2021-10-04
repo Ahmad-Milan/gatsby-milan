@@ -3,8 +3,8 @@ import resetMenu from '../../functions/general/resetMenu'
 import Navbar from './navbar/Navbar'
 import useClickOutside from '../../hooks/useClickOutside'
 import { FaPhoneAlt } from 'react-icons/fa';
-import './Header.css'
 import scrollTo from 'gatsby-plugin-smoothscroll'
+import './Header.css'
 
 function Header({menu, siteData, windowWidth}) {
   resetMenu(menu)
