@@ -11,21 +11,25 @@ function createMenu(siteData, city) {
       item.expanded = false
 
       item.subMenu.forEach(item => {
+
+        if(item.link === 'Our Locations') {
+          let locations = []
+          city.locations.forEach(item => {
+            locations.push({
+              "link": item.location,
+              "pathname": "/about-us/"+item.location.toLowerCase().replace(/\s+/g, '')
+            })
+          })
+          locations.push({
+            "link": "All Locations",
+            pathname: "/locations/"
+          })
+          // add a subSubMenu prop and assign it to the generated locations array
+          item.subSubMenu = locations
+        }
+
         // if the current city is a multiple locations city
         if(siteData.multiple) {
-          if(item.link === 'Our Location') {
-            item.link = 'Our Locations'
-            item.pathname = '/locations/'
-            let locations = []
-            city.locations.forEach(item => {
-              locations.push({
-                "link": item.location,
-                "pathname": "/about-us/"+item.location.toLowerCase().replace(/\s+/g, '')
-              })
-            })
-            // add a subSubMenu prop and assign it to the generated locations array
-            item.subSubMenu = locations
-          }
           if(item.link === 'Facebook') {
             let facebook = []
             city.locations.forEach(item => {
