@@ -110,8 +110,8 @@
       "pathname": "/contact/",
       "subMenu": [
         {
-          "link": "Our Location",
-          "pathname": "/our-location/"
+          "link": "Our Locations",
+          "pathname": "/locations/"
         },
         {
           "link": "Reviews/Testimonials",
