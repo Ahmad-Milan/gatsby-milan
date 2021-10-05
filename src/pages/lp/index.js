@@ -1,6 +1,6 @@
 import React from 'react'
-import Layout, {siteData, city} from '../../components/layout/Layout'
-import Lp_Modal from '../../components/modals/Lp_Modal'
+import Layout from '../../components/layout/Layout'
+import LpModal from '../../components/modals/LpModal'
 
 
 function LpPage() {
@@ -8,7 +8,7 @@ function LpPage() {
   return (
     <Layout>
       <div className="full-section background hero">
-      <Lp_Modal/>
+      <LpModal/>
       </div>
       
     </Layout>
