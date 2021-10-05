@@ -1,0 +1,38 @@
+[
+  {
+    "salesforceValue": "Phoenix (Chandler)",
+    "phone": "480-624-8185",
+    "googleMap": "",
+    "appleMap": "",
+    "facebook": "https://www.facebook.com/MilanLaserChandler",
+    "yelp": "",
+    "description": "across the street from Chandler Fashion Center, in the center with Hobby Lobby, Walmart, Phenix Salon Suites, and Petco, in between Petco and Pieology Pizza"
+  },
+  {
+    "salesforceValue": "Phoenix (Peoria)",
+    "phone": "623-246-7510",
+    "googleMap": "",
+    "appleMap": "",
+    "facebook": "https://www.facebook.com/MilanLaserPeoriaAZ",
+    "yelp": "",
+    "description": "off of Bell Road, in the center with Target, Ross, and HomeGoods, in the building with Staples, next to Elements Massage"
+  },
+  {
+    "salesforceValue": "Phoenix (Scottsdale North)",
+    "phone": "480-955-0396",
+    "googleMap": "",
+    "appleMap": "",
+    "facebook": "https://www.facebook.com/MilanLaserScottsdaleNorth",
+    "yelp": "",
+    "description": "just south of Kierland Commons at Scottsdale and Thunderbird Roads, in the center with Natural Grocers, RA Sushi, and First Watch, in between First Watch and RA Sushi"
+  },
+  {
+    "salesforceValue": "Phoenix (Scottsdale South)",
+    "phone": "480-955-0262",
+    "googleMap": "",
+    "appleMap": "",
+    "facebook": "https://www.facebook.com/MilanLaserScottsdaleSouth",
+    "yelp": "",
+    "description": ""
+  }
+]
