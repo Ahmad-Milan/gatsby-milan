@@ -1,14 +1,17 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Layout, {siteData, city} from '../../components/layout/Layout'
 import MainForm from '../../components/forms/main/MainForm'
 import getNearbyLocations from '../../functions/general/getNearbyLocations'
-import { MILAN_PHONE, NO_RAZOR } from '../../functions/general/getSiteData'
 
 import './contact.css'
 
 const nearbyLocations = getNearbyLocations(siteData)
 
-function ContactPage() {
+function ContactPage({data}) {
+  
+  const { MILAN_PHONE, NO_RAZOR } = data.site.siteMetadata
+
   return (
     <Layout>
       <section className="full-section background hero contact-hero">
@@ -62,3 +65,15 @@ function ContactPage() {
 }
 
 export default ContactPage
+
+
+export const query = graphql`
+  query MilanPhone {
+    site {
+      siteMetadata {
+        MILAN_PHONE
+        NO_RAZOR
+      }
+    }
+  }
+`
