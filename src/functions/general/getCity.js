@@ -1,5 +1,6 @@
 import stores from '../../data/stores.json'
 import isMultiple from './isMultiple'
+import updateCurrentCity from './updateCurrentCity'
 
 // Find the current city from stores list
 // Check if the site has multiple locations & if Open
@@ -17,6 +18,9 @@ function getCity(siteData) {
 
   // Check if the site has multiple locations & if Open
   isMultiple(siteData, city)
+  
+  // this function will add more props to the city.locations elements
+  updateCurrentCity(city)
 
   return city
 }
