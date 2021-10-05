@@ -23,4 +23,8 @@ module.exports = {
     },
     `gatsby-plugin-smoothscroll`,
   ],
+  siteMetadata: {
+    MILAN_PHONE: `833-667-2967`,
+    NO_RAZOR: `1-833-NO-RAZOR`,
+  },
 }
