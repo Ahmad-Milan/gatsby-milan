@@ -2,37 +2,55 @@
   {
     "salesforceValue": "Phoenix (Chandler)",
     "phone": "480-624-8185",
-    "googleMap": "",
-    "appleMap": "",
+    "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+    "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
     "facebook": "https://www.facebook.com/MilanLaserChandler",
-    "yelp": "",
-    "description": "across the street from Chandler Fashion Center, in the center with Hobby Lobby, Walmart, Phenix Salon Suites, and Petco, in between Petco and Pieology Pizza"
+    "yelp": "https://www.yelp.com/biz/milan-laser-hair-removal-chandler",
+    "description": "across the street from Chandler Fashion Center, in the center with Hobby Lobby, Walmart, Phenix Salon Suites, and Petco, in between Petco and Pieology Pizza",
+    "staff": [
+      { "name": "Dr. Harden", "role": "MD", "img": "Kim-Harden-cb" },
+      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
+      { "name": "Kayla W.", "role": "RN", "img": "Kayla-Witmer-cb" }
+    ]
   },
   {
     "salesforceValue": "Phoenix (Peoria)",
     "phone": "623-246-7510",
-    "googleMap": "",
-    "appleMap": "",
+    "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+    "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
     "facebook": "https://www.facebook.com/MilanLaserPeoriaAZ",
-    "yelp": "",
-    "description": "off of Bell Road, in the center with Target, Ross, and HomeGoods, in the building with Staples, next to Elements Massage"
+    "yelp": "https://www.yelp.com/biz/milan-laser-hair-removal-chandler",
+    "description": "off of Bell Road, in the center with Target, Ross, and HomeGoods, in the building with Staples, next to Elements Massage",
+    "staff": [
+      { "name": "Dr. Harden", "role": "MD", "img": "Kim-Harden-cb" },
+      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
+      { "name": "Karina R.", "role": "NP", "img": "Kayla-Witmer-cb" }
+    ]
   },
   {
     "salesforceValue": "Phoenix (Scottsdale North)",
     "phone": "480-955-0396",
-    "googleMap": "",
-    "appleMap": "",
+    "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+    "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
     "facebook": "https://www.facebook.com/MilanLaserScottsdaleNorth",
-    "yelp": "",
-    "description": "just south of Kierland Commons at Scottsdale and Thunderbird Roads, in the center with Natural Grocers, RA Sushi, and First Watch, in between First Watch and RA Sushi"
+    "yelp": "https://www.yelp.com/biz/milan-laser-hair-removal-chandler",
+    "description": "just south of Kierland Commons at Scottsdale and Thunderbird Roads, in the center with Natural Grocers, RA Sushi, and First Watch, in between First Watch and RA Sushi",
+    "staff": [
+      { "name": "Dr. Harden", "role": "MD", "img": "Kim-Harden-cb" },
+      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
+      { "name": "Kayla W.", "role": "RN", "img": "Kayla-Witmer-cb" }
+    ]
   },
   {
     "salesforceValue": "Phoenix (Scottsdale South)",
-    "phone": "480-955-0262",
+    "phone": "",
     "googleMap": "",
     "appleMap": "",
     "facebook": "https://www.facebook.com/MilanLaserScottsdaleSouth",
     "yelp": "",
-    "description": ""
+    "description": "",
+    "staff": [
+
+    ]
   }
 ]
