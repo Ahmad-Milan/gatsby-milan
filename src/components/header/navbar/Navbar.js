@@ -31,7 +31,7 @@ function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
           <li key={i} className="menu__item">
             <div className="menu__item__link__wrapper">
               {/*👇 Main menu links go here */}
-              {/* Home / Specials / The Process / Areas / Contact & About Us  */}
+              {/* Home / Specials / The Process / Areas / Locations  */}
               <Link
                 to={menuItem.pathname} 
                 activeClassName="active-link"
