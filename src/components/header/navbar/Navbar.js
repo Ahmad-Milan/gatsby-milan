@@ -32,7 +32,8 @@ function Navbar({ menu, navbarSize, isOpen, closeMenu }) {
           {/* Home / Specials / The Process / Areas / Contact & About Us  */}
           <Link
             to={menuItem.pathname} 
-            activeClassName="active-link" 
+            activeClassName="active-link"
+            partiallyActive={menuItem.pathname === "/" ? false : true }
             className="text-uppercase"
             onClick={closeMenu}
             >
