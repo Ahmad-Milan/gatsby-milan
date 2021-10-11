@@ -130,10 +130,6 @@
           "pathname": "/locations/reviews/"
         },
         {
-          "link": "Email or Call Us",
-          "pathname": "/locations/contact/"
-        },
-        {
           "link": "Facebook",
           "pathname": "/locations/contact/#facebook"
         },
