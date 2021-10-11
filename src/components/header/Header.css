@@ -121,6 +121,9 @@ header .navbar__menu--lg .menu__item {
   margin-right: -5px;
   display: inline-block;
 }
+header .navbar__menu--lg .menu__item:last-child .menu__item__link__wrapper {
+  padding-right: 80px;
+}
 header .navbar__menu--lg .menu__item__link__wrapper {
   position: relative;
   z-index: 1000;
