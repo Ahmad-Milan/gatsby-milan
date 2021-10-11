@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import resetMenu from '../../functions/general/resetMenu'
 import Navbar from './navbar/Navbar'
 import useClickOutside from '../../hooks/useClickOutside'
-import { FaPhoneAlt } from 'react-icons/fa';
+import { FaPhoneAlt } from 'react-icons/fa'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import './Header.css'
 
@@ -30,8 +30,8 @@ function Header({menu, siteData, windowWidth}) {
 
             <div className="float-end cta-btns" onClick={() => setIsOpen(false)}>
               <div className="me-3 header-tel d-none d-sm-inline-block">
-                <a href="tel:833-667-2967" className="d-nline-block">
-                  <span><FaPhoneAlt /></span>&nbsp; 1-833-NO-RAZOR
+                <a href="tel:833-667-2967">
+                  <i><FaPhoneAlt /></i><span className="ps-2">1-833-NO-RAZOR</span>
                 </a>
               </div>
               <div className="d-inline-block">
