@@ -10,7 +10,7 @@ header nav {
   background-color: var(--main-navy);
 }
 header .cta-btns {
-  padding: 18px 0;
+  padding: 17px 0;
 }
 header .navbar-toggler {
   padding: 10px 7px;
@@ -23,7 +23,7 @@ header .header-tel a {
 header .header-tel a:hover {
   color: var(--main-turquoise);
 }
-header .header-tel a span{
+header .header-tel a i{
   color: var(--main-turquoise);
 }
 header .navbar__menu {
@@ -142,7 +142,6 @@ header .navbar__menu--lg .menu__item:hover .subMenu {
 }
 header .navbar__menu--lg .subMenu {
   transform: translateY(-180%);
-  margin-top: 1px;
   min-width: 200px;
 }
 header .navbar__menu--lg .subMenu li a {font-size: 14px;}
