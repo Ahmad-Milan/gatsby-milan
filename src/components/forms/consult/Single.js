@@ -48,7 +48,7 @@ function Single({siteData}) {
       <div className="container">
         <div className="d-flex flex-column">
           <h2 className="text-center text-white subhead-sm consult-h2">Book Your Free Consult</h2>
-          <p className="text-center light-blue">Not ready for a consultation? <Link to="/contact/" className="ask_q light-blue">Feel free to ask a question.</Link></p>
+          <p className="text-center light-blue">Not ready for a consultation? <Link to="/locations/contact/" className="ask_q light-blue">Feel free to ask a question.</Link></p>
         </div>
         <Formik 
           initialValues={formState.user}

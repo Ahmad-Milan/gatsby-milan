@@ -64,7 +64,7 @@ function NotOpen({siteData}) {
         <div className="d-flex flex-column">
           <h2 className="text-center text-white subhead-sm consult-h2">Get Notified Once We Open</h2>
           <p className="text-center light-blue">Sign up to be notified when this location opens. <br /> 
-          <Link to="/contact/" className="ask_q light-blue">Feel free to ask a question.</Link></p>
+          <Link to="/locations/contact/" className="ask_q light-blue">Feel free to ask a question.</Link></p>
         </div>
         <Formik 
           initialValues={formState.user}
