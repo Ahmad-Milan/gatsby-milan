@@ -111,7 +111,7 @@
       "subMenu": [
         {
           "link": "City's Location",
-          "pathname": "/locations/"
+          "pathname": "/locations/city/"
         },
         {
           "link": "All Locations",
@@ -123,7 +123,7 @@
         },
         {
           "link": "About Us",
-          "pathname": "/locations/about-us/"
+          "pathname": "/locations/city/about-us/"
         },
         {
           "link": "Reviews/Testimonials",
