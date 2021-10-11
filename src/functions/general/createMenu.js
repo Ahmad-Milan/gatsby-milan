@@ -6,48 +6,51 @@ function createMenu(siteData, city) {
   const menu = MenuList.content
 
   menu.forEach(item => {
+
+    if(item.link === 'Locations') {
+      // Get index of 'City's Loctation' subMenu item
+      let l = item.subMenu.findIndex(elem => elem.link.includes("'s Location"))
+      // Get index of 'Facebook' subMenu item
+      let f = item.subMenu.findIndex(elem => elem.link === "Facebook")
+      // Get index of 'About Us' subMenu item
+      let ab = item.subMenu.findIndex(elem => elem.link === "About Us")
+
+      let city_pathname = `${siteData.city.trim().toLowerCase().replace(/\s/g, '')}`
+
+      item.subMenu[l].link = `${siteData.city}'s Location${siteData.multiple ? 's' : ''}`
+      item.subMenu[l].pathname = `/locations/${city_pathname}/`
+      item.subMenu[ab].pathname = `/locations/${city_pathname}/#about-us`
+      // if the current city is a multiple locations city
+      if(siteData.multiple) {
+        let locations = []
+        let facebook = []
+        city.locations.forEach(elem => {
+          elem.pathname = elem.location.trim().toLowerCase().replace(/\s+/g, '')
+          locations.push({
+            "link": elem.location,
+            "pathname": `/locations/${city_pathname}/${elem.pathname}/`
+          })
+          facebook.push({
+            "link": elem.location,
+            "pathname": elem.facebook
+          })
+        })
+
+        item.subMenu[l].subSubMenu = locations
+        item.subMenu[f].subSubMenu = facebook
+      }
+      // if the current city is a single location city
+      // Update the facebook pathname value
+      if(!siteData.multiple) {
+        item.subMenu[f].pathname = city.locations[0].facebook
+      }
+    }
+
     if(item.subMenu) {
       // add expanded prop and set it to false initially
       item.expanded = false
 
       item.subMenu.forEach(item => {
-
-        if(item.link === 'Our Locations') {
-          let locations = []
-          city.locations.forEach(item => {
-            locations.push({
-              "link": item.location,
-              "pathname": "/about-us/"+item.location.toLowerCase().replace(/\s+/g, '')
-            })
-          })
-          locations.push({
-            "link": "All Locations",
-            pathname: "/locations/"
-          })
-          // add a subSubMenu prop and assign it to the generated locations array
-          item.subSubMenu = locations
-        }
-
-        // if the current city is a multiple locations city
-        if(siteData.multiple) {
-          if(item.link === 'Facebook') {
-            let facebook = []
-            city.locations.forEach(item => {
-              facebook.push({
-                "link": item.location,
-                "pathname": item.facebook
-              })
-            })
-            // add a subSubMenu prop and assign it to the generated facebook array
-            item.subSubMenu = facebook
-          }
-        }
-        // if the current city is a single location city
-        // Update the facebook pathname value
-        if(!siteData.multiple && item.link === 'Facebook') {
-          item.pathname = city.locations[0].facebook
-        }
-
         // add expanded prop and set it to false initially
         if(item.subSubMenu) {
           item.expanded = false
