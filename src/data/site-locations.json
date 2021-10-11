@@ -2,6 +2,7 @@
   {
     "salesforceValue": "Phoenix (Chandler)",
     "phone": "480-624-8185",
+    "place_id": "",
     "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
     "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
     "facebook": "https://www.facebook.com/MilanLaserChandler",
@@ -16,6 +17,7 @@
   {
     "salesforceValue": "Phoenix (Peoria)",
     "phone": "623-246-7510",
+    "place_id": "",
     "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
     "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
     "facebook": "https://www.facebook.com/MilanLaserPeoriaAZ",
@@ -30,6 +32,7 @@
   {
     "salesforceValue": "Phoenix (Scottsdale North)",
     "phone": "480-955-0396",
+    "place_id": "",
     "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
     "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
     "facebook": "https://www.facebook.com/MilanLaserScottsdaleNorth",
@@ -44,6 +47,7 @@
   {
     "salesforceValue": "Phoenix (Scottsdale South)",
     "phone": "",
+    "place_id": "",
     "googleMap": "",
     "appleMap": "",
     "facebook": "https://www.facebook.com/MilanLaserScottsdaleSouth",
