@@ -25,7 +25,7 @@ function Lp_Modal() {
       <Modal.Header className="justify-content-center pb-0 mt-4" closeButton>
         <Modal.Title id="lp-modal-title">
           <h3 className="subhead-sm mb-0">Book Your Free Consultation</h3>
-          <p className="text-center mb-0 light-blue">Not ready for a consultation? <Link to="/contact/" className="light-blue">Feel free to ask a question.</Link></p>
+          <p className="text-center mb-0 light-blue">Not ready for a consultation? <Link to="/locations/contact/" className="light-blue">Feel free to ask a question.</Link></p>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
