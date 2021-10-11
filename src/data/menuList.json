@@ -106,32 +106,40 @@
     },
 
     {
-      "link": "Contact & About Us",
-      "pathname": "/contact/",
+      "link": "Locations",
+      "pathname": "/locations/",
       "subMenu": [
         {
-          "link": "Our Locations",
+          "link": "City's Location",
           "pathname": "/locations/"
         },
         {
+          "link": "All Locations",
+          "pathname": "/locations/"
+        },
+        {
+          "link": "Contact Us",
+          "pathname": "/locations/contact/"
+        },
+        {
+          "link": "About Us",
+          "pathname": "/locations/about-us/"
+        },
+        {
           "link": "Reviews/Testimonials",
-          "pathname": "/about-us/reviews"
+          "pathname": "/locations/reviews/"
         },
         {
           "link": "Email or Call Us",
-          "pathname": "/contact/"
+          "pathname": "/locations/contact/"
         },
         {
           "link": "Facebook",
-          "pathname": "/contact/#facebook"
+          "pathname": "/locations/contact/#facebook"
         },
         {
           "link": "Twitter",
           "pathname": "https://twitter.com/milanlaser"
-        },
-        {
-          "link": "About Us",
-          "pathname": "/about-us/#about-us"
         },
         {
           "link": "Careers",
