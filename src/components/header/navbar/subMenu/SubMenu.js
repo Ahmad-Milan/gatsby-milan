@@ -22,7 +22,6 @@ function SubMenu({menu, menuItem, navbarSize, expanded, index, closeMenu}) {
       <ul className={`subMenu shadow ${expanded ? 'expanded' : ''}`}> 
         {
         menuItem.subMenu.map((subMenuItem, x) => {
-          console.log(subMenuItem.link)
           return (
           <li key={x}> {/* Ex: <li>All Locations</li> */}
             <Link to={subMenuItem.pathname} onClick={closeMenu}>
