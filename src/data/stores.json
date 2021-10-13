@@ -28,7 +28,7 @@
             },
             {
               "location": "Scottsdale North",
-              "locationOnAddress": "same",
+              "locationOnAddress": "Scottsdale",
               "salesforceValue": "Phoenix (Scottsdale North)",
               "stateShort": "AZ",
               "address": "13802 N Scottsdale Rd",
@@ -37,7 +37,7 @@
             },
             {
               "location": "Scottsdale South",
-              "locationOnAddress": "same",
+              "locationOnAddress": "Scottsdale",
               "salesforceValue": "Phoenix (Scottsdale South)",
               "stateShort": "AZ",
               "address": "4408 N Miller Rd",
