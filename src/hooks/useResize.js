@@ -1,5 +1,7 @@
 import {useState, useEffect} from "react"
 
+// ******* This hook is not used in any component anymore ***** //
+
 const useResize = () => {
   const [windowWidth, setWindowWidth] = useState(0)
 
