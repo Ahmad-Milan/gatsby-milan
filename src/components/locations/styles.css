@@ -10,8 +10,7 @@
   background: var(--main-navy);
 }
 .about-us-hero .wrapper .loc-exterior {
-  background-image: url('https://milanlaser.com/about-us/images/coming-soon-cam.jpg');
-  background-position: top center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 40vh;
@@ -30,10 +29,8 @@
 
 @media (max-width: 576px) {
   .about-us-hero {background-image: none;}
-  /* .about-us-hero .hero-sm{background-size: cover; background-position: top center;} */
   .about-us-hero .map-btn{width: 250px; font-size: .9rem;}
   .about-us-hero .bg-blue-sm {background-color: var(--main-blue);}
   .about-us-hero .bg-blue-sm > div {box-shadow: none !important;}
 }
-
 
