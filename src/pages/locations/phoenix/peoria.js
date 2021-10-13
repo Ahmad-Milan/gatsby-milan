@@ -1,6 +1,6 @@
 import React from 'react'
-import Layout, {city} from '../../../components/layout/Layout'
-import Hero from '../../../components/locations/Hero'
+import Layout, {siteData, city} from '../../../components/layout/Layout'
+import LocationLayout from '../../../components/locations/location-layout/LocationLayout'
 
 function Store({location}) {
 
@@ -8,7 +8,7 @@ function Store({location}) {
 
   return (
     <Layout>
-      <Hero city={city} store={store} />
+      <LocationLayout siteData={siteData} city={city} store={store} />
       
     </Layout>
   )
