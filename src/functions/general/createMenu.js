@@ -8,8 +8,6 @@ function createMenu(siteData, city) {
   menu.forEach(item => {
 
     if(item.link === 'Locations') {
-      // Get index of 'City's Loctation' subMenu item
-      let l = item.subMenu.findIndex(elem => elem.link.includes("'s Location"))
       // Get index of 'Facebook' subMenu item
       let f = item.subMenu.findIndex(elem => elem.link === "Facebook")
       // Get index of 'About Us' subMenu item
@@ -17,8 +15,8 @@ function createMenu(siteData, city) {
 
       let city_pathname = `${siteData.city.trim().toLowerCase().replace(/\s/g, '')}`
 
-      item.subMenu[l].link = `${siteData.city}'s Location${siteData.multiple ? 's' : ''}`
-      item.subMenu[l].pathname = `/locations/${city_pathname}/`
+      item.subMenu[0].link = `${siteData.city} Location${siteData.multiple ? 's' : ''}`
+      item.subMenu[0].pathname = `/locations/${city_pathname}/`
       item.subMenu[ab].pathname = `/locations/${city_pathname}/#about-us`
       // if the current city is a multiple locations city
       if(siteData.multiple) {
@@ -36,7 +34,7 @@ function createMenu(siteData, city) {
           })
         })
 
-        item.subMenu[l].subSubMenu = locations
+        item.subMenu[0].subSubMenu = locations
         item.subMenu[f].subSubMenu = facebook
       }
       // if the current city is a single location city
