@@ -4,15 +4,18 @@ import Navbar from './navbar/Navbar'
 import useClickOutside from '../../hooks/useClickOutside'
 import { FaPhoneAlt } from 'react-icons/fa'
 import scrollTo from 'gatsby-plugin-smoothscroll'
+import { useBreakpoint } from 'gatsby-plugin-breakpoints'
 import './Header.css'
 
-function Header({menu, siteData, windowWidth}) {
+function Header({menu, siteData}) {
   resetMenu(menu)
   const [isOpen, setIsOpen] = useState(false)
   // Close/Open the main menu
   const handleClick = () => setIsOpen(!isOpen)
   // Close main menu when click outside the Header component
   const domNode = useClickOutside(() => setIsOpen(false))
+
+  const breakpoints = useBreakpoint()
 
   return (
     <header ref={domNode} className="shadow-sm">
@@ -25,7 +28,7 @@ function Header({menu, siteData, windowWidth}) {
               onClick={handleClick}>MENU</button>
             {/* Main menu list */}
             <Navbar siteData={siteData} menu={menu} closeMenu={() => setIsOpen(false)}
-              navbarSize={`${windowWidth > 991 ? 'navbar__menu--lg' : 'navbar__menu--sm'}`}
+              navbarSize={`${breakpoints.md ? 'navbar__menu--sm' : 'navbar__menu--lg'}`}
               isOpen={isOpen ? 'isOpen' : ''}/>
 
             <div className="float-end cta-btns" onClick={() => setIsOpen(false)}>
