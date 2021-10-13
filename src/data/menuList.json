@@ -110,7 +110,7 @@
       "pathname": "/locations/",
       "subMenu": [
         {
-          "link": "City's Location",
+          "link": "City Location",
           "pathname": "/locations/city/"
         },
         {
