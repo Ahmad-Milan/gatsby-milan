@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Link  from "../../../../functions/general/linkTesting"
 import SubSubMenu from './subSubMenu/SubSubMenu'
 
-import { FaCaretRight, FaCaretDown, FaCaretUp, FaFacebookSquare, FaTwitter, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaCaretRight, FaCaretDown, FaCaretUp, FaFacebookSquare, FaTwitter } from 'react-icons/fa';
 import updateSubMenuExpansion from './updateSubMenuExpansion';
 
 function SubMenu({menu, menuItem, navbarSize, expanded, index, closeMenu}) {
@@ -27,9 +27,7 @@ function SubMenu({menu, menuItem, navbarSize, expanded, index, closeMenu}) {
             <Link to={subMenuItem.pathname} onClick={closeMenu}>
               {subMenuItem.link === 'Facebook' ? <i className="me-2"><FaFacebookSquare /></i>  : null}
               {subMenuItem.link === 'Twitter' ? <i className="me-2"><FaTwitter /></i>  : null}
-              {subMenuItem.link === 'Contact Us' ? <i className="me-2"><FaEnvelope /></i>  : null}
               {subMenuItem.link}
-              {subMenuItem.link === 'Contact Us' ? <i className="ms-2"><FaPhone /></i>  : null}
             </Link>
             {
               subMenuItem?.subSubMenu &&
