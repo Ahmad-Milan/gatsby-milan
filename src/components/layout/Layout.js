@@ -3,7 +3,6 @@ import Header from "../header/Header"
 import Consult from '../forms/consult/Consult'
 import Footer from "../footer/Footer"
 import getSiteData from "../../functions/general/getSiteData"
-import useResize from "../../hooks/useResize"
 import createMenu from '../../functions/general/createMenu'
 import getCity from '../../functions/general/getCity'
 import "../../styles/main.css"
@@ -14,11 +13,9 @@ const menu = createMenu(siteData, city)
 
 function Layout({ children }) {
 
-  const windowWidth = useResize()
-
   return (
     <>
-      <Header menu={menu} siteData={siteData} windowWidth={windowWidth}/>
+      <Header menu={menu} siteData={siteData}/>
       {children}
       <span id="scrollToConsult"></span>
       <Consult siteData={siteData} />
