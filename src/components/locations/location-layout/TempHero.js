@@ -15,7 +15,7 @@ function TempHero({siteData, city, store, defaultImages}) {
   useEffect(() => {
     try {
       imageExists(`${imgPath}ExteriorTemp.jpg`, function(exists) {
-        if (exists) setExteriorTemp(`${imgPath}Exterior.jpg`)
+        if (exists) setExteriorTemp(`${imgPath}ExteriorTemp.jpg`)
       })
     } catch (err) {
       console.error(err)
