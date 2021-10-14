@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 // import { StaticImage } from "gatsby-plugin-image"
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
-import imageExists from 'image-exists'
+import imageExists from '../../../functions/general/imageExists'
 import '../styles.css'
 
 
@@ -13,13 +13,11 @@ function TempHero({siteData, city, store, defaultImages}) {
   const [exteriorTemp, setExteriorTemp] = useState(defaultImages.exterior)
 
   useEffect(() => {
-    try {
-      imageExists(`${imgPath}ExteriorTemp.jpg`, function(exists) {
-        if (exists) setExteriorTemp(`${imgPath}ExteriorTemp.jpg`)
-      })
-    } catch (err) {
-      console.error(err)
-    }
+    imageExists(`${imgPath}ExteriorTemp.jpg`)
+      .then(res => {
+        if(res.status === 'ok') setExteriorTemp(res.path)
+        else console.error(res.status)
+      }).catch(err => console.error(err))
   }, [])
 
   console.log('rendered')
