@@ -1,38 +1,38 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import React, {useState, useEffect} from 'react'
 // import { StaticImage } from "gatsby-plugin-image"
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
-
+import imageExists from 'image-exists'
 import '../styles.css'
 
-function TempHero({siteData, city, store}) {
+
+function TempHero({siteData, city, store, defaultImages}) {
   const breakpoints = useBreakpoint()
-
-  const data = useStaticQuery(graphql`
-  {
-    site {
-      siteMetadata {
-        MILAN_PHONE
-        NO_RAZOR
-      }
-    }
-  }
-  `)
-
-  const { MILAN_PHONE, NO_RAZOR } = data.site.siteMetadata
 
   const imgPath = `https://milanlaser.com/gatsby/images/${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/`
 
+  const [exteriorTemp, setExteriorTemp] = useState(defaultImages.exterior)
+
+  useEffect(() => {
+    try {
+      imageExists(`${imgPath}ExteriorTemp.jpg`, function(exists) {
+        if (exists) setExteriorTemp(`${imgPath}Exterior.jpg`)
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  }, [])
+
+  console.log('rendered')
   return (
     <section className="hero about-us-hero">
       <div className="container">
         <div className="row justify-content-center">
           
           <div className="wrapper col-lg-10 col-xl-9 p-0 d-flex flex-column flex-md-row-reverse">
-            
+             
             <div 
               className="col-md-6 loc-exterior"
-              style={{backgroundImage: breakpoints.md ? `url(${imgPath}Thumbnail.jpg)` : `url(${imgPath}Exterior.jpg)`}}></div>
+              style={{backgroundImage: breakpoints.md ? `url(${defaultImages.thumbnail})` : `url(${exteriorTemp})`}}></div>
             
             <div className="col-md-6 p-0">
               <div className="shadow bg-blue py-4 px-sm-4 text-center text-white">
@@ -45,8 +45,8 @@ function TempHero({siteData, city, store}) {
                   {store.locationOnAddress === 'same' ? store.location : store.locationOnAddress}, {store.stateShort} {store.zipcode}
                 </p>
                 <p className="mb-4"><i className="fa fa-fw fa-phone"></i>&nbsp; 
-                  <a href={`tel:${store.phone === '' ? MILAN_PHONE : store.phone}`} className="text-white">
-                    {store.phone === '' ? NO_RAZOR : store.phone}
+                  <a href={`tel:${store.phone === '' ? '833-667-2967' : store.phone}`} className="text-white">
+                    {store.phone === '' ? '833-667-2967' : store.phone}
                   </a>
                 </p>
 
