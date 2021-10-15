@@ -13,7 +13,8 @@
       { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
       { "name": "Kayla W.", "role": "RN", "img": "Kayla-Witmer-cb" }
     ],
-    "proPhotos": true
+    "proPhotos": true,
+    "heroReversed": true
   },
   {
     "salesforceValue": "Phoenix (Peoria)",
@@ -29,7 +30,8 @@
       { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
       { "name": "Karina R.", "role": "NP", "img": "Kayla-Witmer-cb" }
     ],
-    "proPhotos": true
+    "proPhotos": true,
+    "heroReversed": false
   },
   {
     "salesforceValue": "Phoenix (Scottsdale North)",
@@ -45,7 +47,8 @@
       { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
       { "name": "Kayla W.", "role": "RN", "img": "Kayla-Witmer-cb" }
     ],
-    "proPhotos": false
+    "proPhotos": false,
+    "heroReversed": false
   },
   {
     "salesforceValue": "Phoenix (Scottsdale South)",
@@ -59,6 +62,7 @@
     "staff": [
 
     ],
-    "proPhotos": false
+    "proPhotos": false,
+    "heroReversed": false
   }
 ]
