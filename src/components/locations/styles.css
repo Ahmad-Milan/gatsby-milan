@@ -1,21 +1,27 @@
-.about-us-hero {
+.store-hero {
   background-image: url('https://milanlaser.com/images/mapbackground.jpg');
   background-position: center;
-  line-height: 1.5rem;
 }
-.about-us-hero .map-btn {
+.store-hero .map-btn {
   padding: 10px 20px;
   width: 270px;
   display: inline-block;
   background: var(--main-navy);
 }
-.about-us-hero .wrapper .loc-exterior {
+.store-hero .wrapper .loc-exterior {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 40vh;
   box-shadow: inset 0 0 30px 4px rgba(0,0,0,0.2);
 }
+.store-hero-pro {
+  background-position: center;
+}
+.store-hero-pro .bg-blue {
+  background-color: rgba(1, 113, 143, .9);
+}
+
 
 .location-slider .my-dots .slick-dots {display: flex; justify-content: center; list-style: none; padding-left: 0;}
 .location-slider .my-dots .slick-dots > li {margin-right: 10px;}
@@ -28,9 +34,15 @@
 #reviews-wrapper .slick-track {display: flex !important;}
 
 @media (max-width: 576px) {
-  .about-us-hero {background-image: none;}
-  .about-us-hero .map-btn{width: 250px; font-size: .9rem;}
-  .about-us-hero .bg-blue-sm {background-color: var(--main-blue);}
-  .about-us-hero .bg-blue-sm > div {box-shadow: none !important;}
+  .store-hero {background-image: none;}
+  .store-hero .map-btn{width: 250px; font-size: .9rem;}
+  .bg-blue-sm {background-color: var(--main-blue);}
+  .bg-blue-sm > div {box-shadow: none !important;}
+  .store-hero-pro {background-image: none !important;}
+  .store-hero-pro .hero-sm {
+    background-size: cover;
+    background-position: center;
+    height: 260px;
+  }
 }
 
