@@ -100,6 +100,10 @@ button:disabled{
 .bg-blue {
   background-color: var(--main-blue);
 }
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 @media(min-width: 576px) and (max-width: 768px) {}
 
