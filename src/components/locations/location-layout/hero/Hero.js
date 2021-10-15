@@ -1,7 +1,7 @@
 import React from 'react'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
 import HeroDetails from './HeroDetails'
-import '../styles.css'
+import '../../styles.css'
 
 
 function Hero({siteData, city, store}) {

@@ -1,6 +1,6 @@
 import React from 'react'
-import TempHero from './TempHero'
-import Hero from './Hero'
+import TempHero from './hero/TempHero'
+import Hero from './hero/Hero'
 
 const sharedPath = 'https://milanlaser.com/gatsby/images/shared/'
 

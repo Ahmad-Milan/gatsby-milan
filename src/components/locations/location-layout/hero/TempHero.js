@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
-import imageExists from '../../../functions/general/imageExists'
+import imageExists from '../../../../functions/general/imageExists'
 import HeroDetails from './HeroDetails'
-import '../styles.css'
+import '../../styles.css'
 
 
 function TempHero({siteData, city, store, defaultImages}) {
