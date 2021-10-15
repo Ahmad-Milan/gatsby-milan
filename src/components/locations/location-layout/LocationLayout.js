@@ -1,5 +1,6 @@
 import React from 'react'
 import TempHero from './TempHero'
+import Hero from './Hero'
 
 const sharedPath = 'https://milanlaser.com/gatsby/images/shared/'
 
@@ -15,10 +16,14 @@ const defaultImages = {
 }
 
 function Layout({siteData, city, store}) {
-  console.log('Layout')
   return (
     <>
+    {
+      store.proPhotos ?
+      <Hero siteData={siteData} city={city} store={store} />
+      :
       <TempHero siteData={siteData} city={city} store={store} defaultImages={defaultImages} />
+    }
     </>
   )
 }
