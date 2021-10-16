@@ -70,7 +70,8 @@ function Quote({scrollTop}) {
     scrollTop()
     setSubmitting(true)
     axios({
-      method: 'POST', url: 'https://cors-milanlaser.herokuapp.com/https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8',
+      method: 'POST',
+      url: 'https://cors-milanlaser.herokuapp.com/https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8',
       data: qs.stringify({
           'first_name': formState.user.first_name,
           'last_name': '',
