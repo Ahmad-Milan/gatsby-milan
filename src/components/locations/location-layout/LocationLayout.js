@@ -1,6 +1,8 @@
 import React from 'react'
 import TempHero from './hero/TempHero'
 import Hero from './hero/Hero'
+import Reviews from './reviews/Reviews'
+import '../styles.css'
 
 const sharedPath = 'https://milanlaser.com/gatsby/images/shared/'
 
@@ -24,6 +26,10 @@ function Layout({siteData, city, store}) {
       :
       <TempHero siteData={siteData} city={city} store={store} defaultImages={defaultImages} />
     }
+    {
+      store.place_id !== '' && <Reviews store={store} />
+    }
+    
     </>
   )
 }
