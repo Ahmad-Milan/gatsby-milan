@@ -21,7 +21,9 @@
 .store-hero-pro .bg-blue {
   background-color: rgba(1, 113, 143, .9);
 }
-
+.customers-reviews {
+  background: var(--main-navy);
+}
 
 .location-slider .my-dots .slick-dots {display: flex; justify-content: center; list-style: none; padding-left: 0;}
 .location-slider .my-dots .slick-dots > li {margin-right: 10px;}
