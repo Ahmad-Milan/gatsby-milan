@@ -24,13 +24,46 @@
 .customers-reviews {
   background: var(--main-navy);
 }
+.locations-banner {
+  background-image: url('https://milanlaser.com/images/alllocationsbanner-bkg.png'); 
+  background-color: var(--main-navy);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-.location-slider .my-dots .slick-dots {display: flex; justify-content: center; list-style: none; padding-left: 0;}
-.location-slider .my-dots .slick-dots > li {margin-right: 10px;}
-.location-slider .my-dots .slick-dots > li > button {position: relative; background-color: var(--main-navy); color: var(--main-navy); box-shadow: none; border: none; outline: none !important;}
-.location-slider .my-dots .slick-dots > li > button::before {content: url('https://milanlaser.com//images/ellipse.svg'); position: absolute;left: 5px;}
-.location-slider .my-dots .slick-dots .slick-active > button::before {content: url('https://milanlaser.com//images/ellipse-active.svg');}
-.location-slider .location-wrapper .location:focus {outline: none !important;}
+.nearby-locations-carousel {
+  background: var(--main-navy);
+}
+.nearby-locations-carousel .slick-list {
+  margin-top: 30px;
+}
+.nearby-locations-carousel .slick-dots {
+  display: flex; 
+  justify-content: center; 
+  padding-left: 0;
+  top: 7px;
+  bottom: unset !important;
+}
+.nearby-locations-carousel .slick-dots li { width: 25px; }
+.nearby-locations-carousel .slick-dots li > button {
+  position: relative; background-color: var(--main-navy); 
+  color: var(--main-navy); box-shadow: none; 
+  border: none; outline: none !important;
+}
+.nearby-locations-carousel .slick-dots li button::before {
+  content: url('https://milanlaser.com//images/ellipse.svg'); 
+  position: absolute;
+  left: 5px;
+  opacity: .75;
+}
+.nearby-locations-carousel .slick-dots .slick-active > button::before {
+  content: url('https://milanlaser.com//images/ellipse-active.svg');
+}
+.location-wrapper img {max-height: 260px;} 
+.nearby-locations-carousel .location-wrapper .location:focus {
+  outline: none !important;
+}
 
 
 #reviews-wrapper .slick-track {display: flex !important;}
