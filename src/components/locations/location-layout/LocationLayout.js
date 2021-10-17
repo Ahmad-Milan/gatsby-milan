@@ -3,6 +3,8 @@ import TempHero from './hero/TempHero'
 import Hero from './hero/Hero'
 import Reviews from './reviews/Reviews'
 import '../styles.css'
+import Nearby from './nearby-locations/Nearby'
+import LocationsBanner from '../../shared/LocationsBanner'
 
 const sharedPath = 'https://milanlaser.com/gatsby/images/shared/'
 
@@ -18,18 +20,27 @@ const defaultImages = {
 }
 
 function Layout({siteData, city, store}) {
+  const passedProps = {
+    siteData: siteData,
+    city: city,
+    store: store
+  }
   return (
     <>
     {
       store.proPhotos ?
-      <Hero siteData={siteData} city={city} store={store} />
+      <Hero {...passedProps} />
       :
-      <TempHero siteData={siteData} city={city} store={store} defaultImages={defaultImages} />
+      <TempHero {...passedProps} defaultImages={defaultImages} />
     }
     {
       store.place_id !== '' && <Reviews store={store} />
     }
-    
+    {
+      siteData.multiple ?
+      <Nearby {...passedProps} /> :
+      <LocationsBanner />
+    }
     </>
   )
 }
