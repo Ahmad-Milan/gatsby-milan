@@ -21,6 +21,9 @@ function Nearby({siteData, city, store}) {
       </div>
     )
   }
+
+  const nearby = city.locations.filter(location => location.pathname !== store.pathname)
+
   return (
     <section className="full-section nearby-locations-carousel">
         
@@ -29,10 +32,9 @@ function Nearby({siteData, city, store}) {
           
             <Slider {...settings} className="location-wrapper overflow-hidden">
               {
-                city.locations.map((location, x) => {
+                nearby.map((location, x) => {
                   let imgPath = `https://milanlaser.com/gatsby/images/${siteData.stateShort.toLowerCase()}/${city.pathname}/${location.pathname}/${location.location.trim().replace(/\s/g, '')}_Thumbnail.jpg`
                   if(!location.proPhotos) imgPath = `https://milanlaser.com/gatsby/images/shared/coming-soon-cam-sm.jpg`
-                  if(location.pathname === store.pathname) return
                   return (
                     <div key={x} className={`d-inline-block ${settings.dots ? 'mt-4' : ''}`}>
                       <Link to={`/locations/${city.pathname}/${location.pathname}/`} 

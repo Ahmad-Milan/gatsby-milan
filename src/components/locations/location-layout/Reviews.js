@@ -39,7 +39,7 @@ function Reviews({store}) {
     })
     .then(res => setReviews(res.data.result.reviews))
     .catch(err => console.error(err))
-  }, [])
+  }, [URL])
 
   return (
     <section className="w-100 py-4 text-white customers-reviews">
