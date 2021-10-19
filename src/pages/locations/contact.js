@@ -22,8 +22,8 @@ function ContactPage({data}) {
             <div className="col-11 col-md-8 col-lg-6 text-all-bg shadow-sm rounded mx-auto">
               <div className="text-center">
                 <h2 className="mt-3 pb-3">Milan Laser | {siteData.city}, {siteData.stateShort}</h2>
-                {/* <h5 className="ribbon">Call Us <a href={`tel:${MILAN_PHONE}`} className="text-white stretched-link">{NO_RAZOR}</a></h5> */}
-                {/* <a name="askQ" id="askQ" ></a> */}
+                <h5 className="ribbon">Call Us <a href={`tel:${MILAN_PHONE}`} className="text-white stretched-link">{NO_RAZOR}</a></h5>
+                <span name="askQ" id="askQ" ></span>
                 <h5 className="mt-4 mb-2">To Re-schedule a Treatment
                 {
                   nearbyLocations.length === 1 && 
