@@ -4,8 +4,10 @@ import Hero from './hero/Hero'
 import Reviews from './Reviews'
 import Nearby from './Nearby'
 import LocationsBanner from '../../shared/LocationsBanner'
-import '../styles.css'
 import Description from './Description'
+import InteriorPhotos from './InteriorPhotos'
+import StaffPhotos from './StaffPhotos'
+import '../styles.css'
 
 const sharedPath = 'https://milanlaser.com/gatsby/images/shared/'
 
@@ -22,11 +24,14 @@ const defaultImages = {
 
 function Layout({siteData, city, store}) {
 
+  const imgPath = `https://milanlaser.com/gatsby/images/${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/${store.location.trim().replace(/\s/g, '')}_`
+
   const passedProps = {
     siteData: siteData,
     city: city,
     store: store,
-    defaultImages: defaultImages
+    defaultImages: defaultImages,
+    imgPath: imgPath
   }
   return (
     <>
@@ -38,6 +43,8 @@ function Layout({siteData, city, store}) {
     }
     <section className="full-section pb-2 light-blue-bg">
       <Description {...passedProps} />
+      { store.staff.length !== 0 && <StaffPhotos store={store} /> }
+      <InteriorPhotos {...passedProps} />
     </section>
 
     {
