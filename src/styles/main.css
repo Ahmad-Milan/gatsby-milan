@@ -104,6 +104,9 @@ button:disabled{
   background-size: cover;
   background-repeat: no-repeat;
 }
+.anchor-blue a {
+  color: var(--main-blue); cursor: pointer;
+}
 
 @media(min-width: 576px) and (max-width: 768px) {}
 
