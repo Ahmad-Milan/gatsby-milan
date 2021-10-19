@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'gatsby'
 import imageExists from '../../../functions/general/imageExists'
+import { MILAN_PHONE } from '../../../constants/constants'
 
 function Description({siteData, city, store, defaultImages}) {
 
@@ -33,8 +34,8 @@ function Description({siteData, city, store, defaultImages}) {
               </>
             }
             <p>For more information, call&nbsp;
-              <a href={`tel:${store.phone === '' ? '833-667-2967' : store.phone}`}>
-                {store.phone === '' ? '833-667-2967' : store.phone}
+              <a href={`tel:${store.phone === '' ? MILAN_PHONE : store.phone}`}>
+                {store.phone === '' ? MILAN_PHONE : store.phone}
               </a> or&nbsp;
               <Link to="/locations/contact/#askQ">submit your question online</Link>.
             </p>

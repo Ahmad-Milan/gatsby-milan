@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { MILAN_PHONE } from '../../../constants/constants'
 
 function Nearby({siteData, city, store}) {
 
@@ -52,7 +53,7 @@ function Nearby({siteData, city, store}) {
                             {location.address}<br />
                             {location.locationOnAddress === 'same' ? location.location : location.locationOnAddress}, {location.stateShort} {location.zipcode}
                           </p>
-                          <p className="mb-4">{location.phone === '' ? '833-667-2967' : location.phone}</p>
+                          <p className="mb-4">{location.phone === '' ? MILAN_PHONE : location.phone}</p>
                         </div>
                       </Link>
                     </div>
