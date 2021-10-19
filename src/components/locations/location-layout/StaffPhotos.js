@@ -1,7 +1,7 @@
 import React from 'react'
 
 function StaffPhotos({store}) {
-  const staffPath = 'https://milanlaser.com/about-us/images/'
+  const staffPath = 'https://milanlaser.com/gatsby/images/shared/staff/'
 
   return (
     <div className="container mb-3">
@@ -10,17 +10,42 @@ function StaffPhotos({store}) {
       <div className="row justify-content-center">
         <div className="row col-xl-11 justify-content-center">
           {
-            store.staff.map((member, x) => (
-              <div key={x} className="col-10 col-sm-6 col-md-4 col-lg-3">
+            store.staff.map((member, x) => {
+              const memberArr = member.split("-") // returns ["firstname", "lastname", "role", "...etc"]
+              let role
+              switch (memberArr[2]) {
+                case 'MD': role = 'Medical Director' 
+                  break
+                case 'CM': role = 'Clinic Manager'
+                  break
+                case 'RN': role = 'Registered Nurse'
+                  break
+                case 'CS': role = 'Client Specialist'
+                  break
+                case 'LPN': role = 'Licensed Practical Nurse'
+                  break
+                case 'NP': role = 'Nurse Practitioner'
+                  break
+                default: role = member.role
+              }
+              return (
+                <div key={x} className="col-10 col-sm-6 col-md-4 col-lg-3">
                 <div className="img-thumbnail shadow-sm mb-3">
-                  <img src={`${staffPath}${member.img}.jpg`} className="w-100" alt="" />
+                  <img src={`${staffPath}${member}.jpg`} className="w-100" alt="" />
                   <div className="text-center py-2">
-                    <div><strong>{member.name}</strong></div>
-                    <div>{member.role}</div>
+                    <div>
+                      <strong>
+                        {
+                          role === 'Medical Director' ? `Dr. ${memberArr[1]}` : `${memberArr[0]} ${memberArr[1][0]}.`
+                        }
+                      </strong>
+                    </div>
+                    <div>{role}</div>
                   </div>
                 </div>
               </div>
-            ))
+              )
+            })
           }
         </div>
       </div>
