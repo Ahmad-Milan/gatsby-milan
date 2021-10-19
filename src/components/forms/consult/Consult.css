@@ -2,7 +2,7 @@
   background-color: var(--main-blue);
 }
 #consult-form form {
-  background: var(--form-bg)
+  background: var(--light-blue-bg)
 }
 #consult-form > div p.light-blue {
   font-size: .9rem; line-height: 1.3rem;
