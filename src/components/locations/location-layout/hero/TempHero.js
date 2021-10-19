@@ -14,9 +14,9 @@ function TempHero({siteData, city, store, defaultImages}) {
     imageExists(`${imgPath}ExteriorTemp.jpg`)
       .then(res => {
         if(res.status === 'ok') setExteriorTemp(res.path)
-        else throw 'Exterior image not found :('
+        else throw new Error('Exterior image not found :(')
       }).catch(err => console.error(err))
-  }, [])
+  }, [imgPath])
 
   return (
     <section className="hero store-hero lh-base">
