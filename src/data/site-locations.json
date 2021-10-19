@@ -11,6 +11,9 @@
     "staff": [
       { "name": "Dr. Harden", "role": "MD", "img": "Kim-Harden-cb" },
       { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
+      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
+      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
+      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
       { "name": "Kayla W.", "role": "RN", "img": "Kayla-Witmer-cb" }
     ],
     "proPhotos": true,
