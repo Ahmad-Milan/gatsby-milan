@@ -35,7 +35,7 @@ function Nearby({siteData, city, store}) {
               {
                 nearby.map((location, x) => {
                   let imgPath = `https://milanlaser.com/gatsby/images/${siteData.stateShort.toLowerCase()}/${city.pathname}/${location.pathname}/${location.location.trim().replace(/\s/g, '')}_Thumbnail.jpg`
-                  if(!location.proPhotos) imgPath = `https://milanlaser.com/gatsby/images/shared/coming-soon-cam-sm.jpg`
+                  if(!location.proPhotos) imgPath = `https://milanlaser.com/gatsby/images/shared/store_temp/coming-soon-cam-sm.jpg`
                   return (
                     <div key={x} className={`d-inline-block ${settings.dots ? 'mt-4' : ''}`}>
                       <Link to={`/locations/${city.pathname}/${location.pathname}/`} 
