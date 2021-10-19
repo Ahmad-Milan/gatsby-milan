@@ -9,12 +9,12 @@
     "yelp": "chandler",
     "description": "across the street from Chandler Fashion Center, in the center with Hobby Lobby, Walmart, Phenix Salon Suites, and Petco, in between Petco and Pieology Pizza",
     "staff": [
-      { "name": "Dr. Harden", "role": "MD", "img": "Kim-Harden-cb" },
-      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
-      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
-      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
-      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
-      { "name": "Kayla W.", "role": "RN", "img": "Kayla-Witmer-cb" }
+      "Kitri-Redmond-MD",
+      "Kieria-Franks-CM",
+      "Kerry-Galaton-RN",
+      "Madeline-McKey-CS",
+      "Joslyn-Saleda-LPN",
+      "Josephyne-Brito-NP"
     ],
     "proPhotos": true,
     "heroReversed": true
@@ -29,9 +29,10 @@
     "yelp": "chandler",
     "description": "off of Bell Road, in the center with Target, Ross, and HomeGoods, in the building with Staples, next to Elements Massage",
     "staff": [
-      { "name": "Dr. Harden", "role": "MD", "img": "Kim-Harden-cb" },
-      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
-      { "name": "Karina R.", "role": "NP", "img": "Kayla-Witmer-cb" }
+      "Kitri-Redmond-MD",
+      "Kieria-Franks-CM",
+      "Kerry-Galaton-RN",
+      "Josephyne-Brito-NP"
     ],
     "proPhotos": true,
     "heroReversed": false
@@ -46,9 +47,10 @@
     "yelp": "chandler",
     "description": "just south of Kierland Commons at Scottsdale and Thunderbird Roads, in the center with Natural Grocers, RA Sushi, and First Watch, in between First Watch and RA Sushi",
     "staff": [
-      { "name": "Dr. Harden", "role": "MD", "img": "Kim-Harden-cb" },
-      { "name": "Michelle S.", "role": "CM", "img": "Michelle_Sund2" },
-      { "name": "Kayla W.", "role": "RN", "img": "Kayla-Witmer-cb" }
+      "Kitri-Redmond-MD",
+      "Kieria-Franks-CM",
+      "Kerry-Galaton-RN",
+      "Madeline-McKey-CS"
     ],
     "proPhotos": false,
     "heroReversed": false
