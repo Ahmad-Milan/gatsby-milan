@@ -9,7 +9,7 @@ import InteriorPhotos from './InteriorPhotos'
 import StaffPhotos from './StaffPhotos'
 import '../styles.css'
 
-const sharedPath = 'https://milanlaser.com/gatsby/images/shared/'
+const sharedPath = 'https://milanlaser.com/gatsby/images/shared/store_temp/'
 
 // To be used if the store doesn't have pro images yet
 const defaultImages = {
