@@ -2,10 +2,8 @@ import React from 'react'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
 import HeroDetails from './HeroDetails'
 
-function Hero({siteData, city, store}) {
+function Hero({city, store, imgPath}) {
   const breakpoints = useBreakpoint()
-
-  const imgPath = `https://milanlaser.com/gatsby/images/${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/${store.location.trim().replace(/\s/g, '')}_`
   
   return (
     <section 
