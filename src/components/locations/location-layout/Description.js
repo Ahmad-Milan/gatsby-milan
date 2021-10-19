@@ -3,9 +3,8 @@ import { Link } from 'gatsby'
 import imageExists from '../../../functions/general/imageExists'
 import { MILAN_PHONE } from '../../../constants/constants'
 
-function Description({siteData, city, store, defaultImages}) {
+function Description({store, imgPath, defaultImages}) {
 
-  const imgPath = `https://milanlaser.com/gatsby/images/${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/${store.location.trim().replace(/\s/g, '')}_`
   const [thumbnail, setThumbnail] = useState(imgPath+'FrontDoor.jpg')
 
   useEffect(() => {
