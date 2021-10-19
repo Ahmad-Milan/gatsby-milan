@@ -60,9 +60,15 @@
 .nearby-locations-carousel .slick-dots .slick-active > button::before {
   content: url('https://milanlaser.com//images/ellipse-active.svg');
 }
-.location-wrapper img {max-height: 260px;} 
+.location-wrapper img {max-height: 230px;} 
 .nearby-locations-carousel .location-wrapper .location:focus {
   outline: none !important;
+}
+.location-description .img-thumbnail {
+  max-width: 350px;
+}
+.location-description .cta-btn {
+  line-height: 1.4rem; font-size: 14px;
 }
 
 
