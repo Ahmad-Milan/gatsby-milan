@@ -6,17 +6,17 @@ import HeroDetails from './HeroDetails'
 function TempHero({siteData, city, store, defaultImages}) {
   const breakpoints = useBreakpoint()
 
-  const imgPath = `https://milanlaser.com/gatsby/images/${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/`
+  const exteriorTempPath = `https://milanlaser.com/gatsby/images/${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/`
 
   const [exteriorTemp, setExteriorTemp] = useState(defaultImages.exterior)
 
   useEffect(() => {
-    imageExists(`${imgPath}ExteriorTemp.jpg`)
+    imageExists(`${exteriorTempPath}ExteriorTemp.jpg`)
       .then(res => {
         if(res.status === 'ok') setExteriorTemp(res.path)
         else throw new Error('Exterior image not found :(')
       }).catch(err => console.error(err))
-  }, [imgPath])
+  }, [exteriorTempPath])
 
   return (
     <section className="hero store-hero lh-base">
