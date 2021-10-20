@@ -26,7 +26,7 @@ function StaffPhotos({store}) {
                   break
                 case 'NP': role = 'Nurse Practitioner'
                   break
-                default: role = member.role
+                default: role = memberArr[2]
               }
               return (
                 <div key={x} className="col-10 col-sm-6 col-md-4 col-lg-3">
