@@ -1,6 +1,8 @@
 import React from 'react'
+import openStoresDisplayed from '../../../functions/general/openStoresDisplayed'
 
 function Doctors() {
+  const openStoresNum= openStoresDisplayed()
   return (
     <section className="full-section light-blue-bg">
       <div className="container">
@@ -13,7 +15,7 @@ function Doctors() {
           <div className="col-lg-6">
             <div className="anchor-blue text-center text-lg-start">
                 <p>Milan Laser was founded in 2012 by two Board Certified medical doctors. Our goal is to provide state of the art laser treatments in a safe, comfortable environment in every one of 
-                  <strong><a href="https://milanlaser.com/locations/" target="_blank"> our <span className="location-number">100</span>+ locations.</a></strong></p>
+                  <strong><a href="https://milanlaser.com/locations/" target="_blank"> our {openStoresNum}+ locations.</a></strong></p>
                 <p>Our treatments are safe, and all of our procedures are performed by highly-trained medical professionals. Our lasers are FDA cleared  and are tailored to your specific skin type &amp; hair color.</p>
                 <p><strong>Shikhar Saxena M.D.<br />
                   </strong>Board Certified in Internal Medicine,<br /> Owner
