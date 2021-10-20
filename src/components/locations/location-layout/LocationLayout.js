@@ -8,6 +8,7 @@ import Description from './Description'
 import InteriorPhotos from './InteriorPhotos'
 import StaffPhotos from './StaffPhotos'
 import '../styles.css'
+import Doctors from './Doctors'
 
 const sharedPath = 'https://milanlaser.com/gatsby/images/shared/store_temp/'
 
@@ -50,6 +51,7 @@ function Layout({siteData, city, store}) {
     {
       store.place_id !== '' && <Reviews store={store} />
     }
+    <Doctors />
     </>
   )
 }
