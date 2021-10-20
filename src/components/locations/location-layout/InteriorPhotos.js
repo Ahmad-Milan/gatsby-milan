@@ -15,7 +15,7 @@ function InteriorPhotos({store, imgPath, defaultImages}) {
       </div>
       <div className="col-sm-6 col-lg-3 p-1">
         <img 
-          src={ store.proPhotos ? `${imgPath}ConsultRoom.jpg` : defaultImages.consultroom }
+          src={ store.proPhotos ? `${imgPath}ConsultationRoom.jpg` : defaultImages.consultroom }
           alt={`Milan Laser ${store.location} Consultation Room`} className="img-fluid" />
       </div>
       <div className="col-sm-6 col-lg-3 p-1">
