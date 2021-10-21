@@ -51,7 +51,6 @@ function ContactHero({siteData, city}) {
           </div>
         </div>
       </div>
-      <span id="facebook"> Facebook hash</span>
     </section>
   )
 }
