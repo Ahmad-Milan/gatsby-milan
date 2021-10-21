@@ -31,7 +31,6 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .nearby-locations-carousel {
   background: var(--main-navy);
 }
@@ -70,9 +69,31 @@
 .location-description .cta-btn {
   line-height: 1.4rem; font-size: 14px;
 }
-
+/******* Contact Us Page - Social Media Section *********/
+.social_h3 {
+  margin-bottom: 8px;
+  padding: 5px 15px;
+  display: inline-block;
+  border-radius: 4px;
+  color: #fff;
+}
+#fb > a > p {
+  font-size: 1.6rem;
+  padding: 30px 20px;
+  line-height: 2.5rem;
+}
+#fb_tw{
+  min-height: 500px;
+  margin-bottom: 20px;
+}
+/******************************************************/
 
 #reviews-wrapper .slick-track {display: flex !important;}
+
+@media only screen and (max-width: 991px) {
+  #fb > a > p {font-size: 1.2rem;padding: 10px 20px;}
+	.social_h3 {font-size: 1.4rem;}
+}
 
 @media (max-width: 576px) {
   .store-hero {background-image: none;}
