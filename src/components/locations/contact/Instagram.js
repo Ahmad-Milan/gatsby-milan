@@ -1,9 +1,12 @@
 import React from 'react'
-import { InstagramGallery } from "instagram-gallery"
+import { InstagramGallery } from './getInstagram'
 
 function Instagram() {
   return (
-    <InstagramGallery accessToken={process.env.Ahmad_Instagram_Token} count={9}/>
+    <InstagramGallery 
+      accessToken={process.env.Ahmad_Instagram_Token}
+      count={9}
+      profile="Milanlaser" pagination="true" />
   )
 }
 
