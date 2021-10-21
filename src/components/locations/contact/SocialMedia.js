@@ -26,7 +26,7 @@ function SocialMedia({city}) {
                     <div className="text-decoration-none mb-2 d-flex flex-wrap">
                       {
                         city.locations.map((location, x) =>(
-                          <div key={x} className="mb-lg-2 col-lg-6 px-0">
+                          <div key={x} className="mb-lg-2 col-12 col-lg-6 px-0">
                             <Facebook location={location} />
                           </div>
                         ))
