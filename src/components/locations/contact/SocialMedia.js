@@ -1,6 +1,7 @@
 import React from 'react'
 import Twitter from './Twitter'
 import Facebook from './Facebook'
+import Instagram from './Instagram'
 import { FaFacebookSquare, FaTwitter, FaInstagram } from 'react-icons/fa'
 
 function SocialMedia({city}) {
@@ -53,6 +54,7 @@ function SocialMedia({city}) {
                   <FaInstagram className="me-1 pb-1 fs-2" /> See Us on Instagram
                 </h3>
               </a>
+              <Instagram />
             </div>
           </div>
         </div>
