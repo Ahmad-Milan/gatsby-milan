@@ -92,22 +92,44 @@
   flex-wrap: wrap;
   width: 100%;
 }
-#instagram .instagram-gallery {
+#instagram .instagram-gallery .instagram-items-wrapper {
   display: flex;
   flex-wrap: wrap;
 } 
-
 #instagram .instagram-item {
   flex: 0 0 calc(100% / 3 - 10px);
   margin: 5px;
   display: block;
   position: relative;
 }
-
+#instagram .instagram-link {
+  display: block;
+}
 #instagram .instagram-image {
   display: block;
   width: 100%;
   height: 100%;
+}
+#instagram .pagination-btn {
+  border: none;
+  color: #8a3ab9;
+  background-color: var(--light-blue-bg);
+  padding-right: 5px;
+  padding-left: 5px;
+  transition: all .1s ease-in;
+}
+#instagram .pagination-btn:hover {
+  color: var(--light-blue-bg);
+  background-color: #8a3ab9;
+}
+#instagram .instagram-item-caption {
+  opacity: 0;
+  background-color: rgba(255, 255, 255, .8);
+  transition: all .2s ease-in;
+  color: var(--main-blue);
+}
+#instagram .instagram-item:hover > .instagram-link .instagram-item-caption {
+  opacity: 1;
 }
 /******************************************************/
 
@@ -117,7 +139,14 @@
   #fb > a > p {font-size: 1.2rem;padding: 10px 20px;}
 	.social_h3 {font-size: 1.4rem;}
 }
-
+@media(min-width: 768px) and (max-width: 991px) {
+  #instagram .instagram-item {
+    flex: 0 0 calc(100% / 2 - 10px);
+  }
+  #instagram .instagram-item:last-child {
+    display: none !important;
+  }
+}
 @media (max-width: 576px) {
   .store-hero {background-image: none;}
   .store-hero .map-btn{width: 250px; font-size: .9rem;}
