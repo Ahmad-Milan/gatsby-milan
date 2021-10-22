@@ -128,9 +128,9 @@ export const InstagramGallery = (props: GalleryProps) => {
 
       {usePagination && (
         <div className="pagination">
-          {true && (
+          {paginationPrevUrl && (
             <button
-              className="pagination-btn pagination-prev rounded shadow-sm"
+              className="pagination-btn pagination-prev rounded shadow-sm me-2"
               type="button"
               onClick={handlePaginationPrev}
             >
@@ -139,7 +139,7 @@ export const InstagramGallery = (props: GalleryProps) => {
           )}
           {paginationNextUrl && (
             <button
-              className="pagination-btn pagination-next rounded shadow-sm ms-2"
+              className="pagination-btn pagination-next rounded shadow-sm"
               type="button"
               onClick={handlePaginationNext}
             >
