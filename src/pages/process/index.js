@@ -1,10 +1,11 @@
 import React from 'react'
+import Layout from '../../components/layout/Layout'
 
 function ProcessPage() {
   return (
-    <div>
+    <Layout>
       Process main Page
-    </div>
+    </Layout>
   )
 }
 
