@@ -107,7 +107,16 @@ button:disabled{
 .anchor-blue a {
   color: var(--main-blue); cursor: pointer;
 }
-.light-blue-bg { background-color: var(--light-blue-bg);}
+.light-blue-bg { 
+  background-color: var(--light-blue-bg);
+}
+.divider {
+	background: url('https://www.milanlaser.com/images/section-divider.png');
+  background-size: contain;
+  text-align: center;
+  padding: 15px; 
+  margin: auto;
+}
 
 @media(min-width: 576px) and (max-width: 768px) {}
 
