@@ -31,37 +31,37 @@
         },
         {
           "link": "Befor/After Photos",
-          "pathname": "/process/beforeafter",
+          "pathname": "/process/beforeafter/",
           "subSubMenu": [
             {
               "link": "Face & Lip",
-              "pathname": "/process/beforeafter_lip"
+              "pathname": "/process/beforeafter_lip/"
             },
             {
               "link": "Underarms",
-              "pathname": "/process/beforeafter_underarm"
+              "pathname": "/process/beforeafter_underarm/"
             },
             {
               "link": "Bikini",
-              "pathname": "/process/beforeafter_bikini"
+              "pathname": "/process/beforeafter_bikini/"
             },
             {
               "link": "Legs",
-              "pathname": "/process/beforeafter_legs"
+              "pathname": "/process/beforeafter_legs/"
             },
             {
               "link": "Men's Area",
-              "pathname": "/process/beforeafter_men"
+              "pathname": "/process/beforeafter_men/"
             }
           ]
         },
         {
           "link": "FAQs",
-          "pathname": "/process/faqs"
+          "pathname": "/process/faqs/"
         },
         {
           "link": "Types of Hair Removal",
-          "pathname": "/process/compare"
+          "pathname": "/process/compare/"
         }
       ]
     },
@@ -72,31 +72,31 @@
       "subMenu": [
         {
           "link": "Lip & Chin",
-          "pathname": "/areas/lipnchin"
+          "pathname": "/areas/lipnchin/"
         },
         {
           "link": "Legs",
-          "pathname": "/areas/legs"
+          "pathname": "/areas/legs/"
         },
         {
           "link": "Underarm",
-          "pathname": "/areas/underarm"
+          "pathname": "/areas/underarm/"
         },
         {
           "link": "Bikini Area",
-          "pathname": "/areas/bikini"
+          "pathname": "/areas/bikini/"
         },
         {
           "link": "Brazilian Bikini",
-          "pathname": "/areas/brazilian"
+          "pathname": "/areas/brazilian/"
         },
         {
           "link": "For Men",
-          "pathname": "/areas/for-men"
+          "pathname": "/areas/for-men/"
         },
         {
           "link": "For Dark Skin",
-          "pathname": "/areas/darkskin"
+          "pathname": "/areas/darkskin/"
         },
         {
           "link": "All Body Areas",
