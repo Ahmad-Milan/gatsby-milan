@@ -1,0 +1,31 @@
+.faqs-hero {
+	background-image: url('https://milanlaser.com/images/FAQ_Hero_v2_mobile.jpg'); 
+  min-height: 340px;
+	background-size: cover; 
+  background-position: top right; 
+  background-repeat: no-repeat; 
+  background-color: #E5F6FB;
+}
+
+
+@media (min-width: 576px) {
+  .faqs-hero {
+    background-image: url('https://milanlaser.com/images/FAQ_Hero_tab.jpg');
+  }
+}
+@media (min-width: 991px) {
+	.faqs-hero { 
+    min-height: 370px;
+  }
+
+}
+@media (min-width: 1200px) {
+  .faqs-hero {
+    background-image: url('https://milanlaser.com/images/FAQ_Hero_v3.jpg');
+  }
+}
+@media (min-width: 1600px) {
+  .faqs-hero {
+    background-image: url('https://milanlaser.com/images/FAQ_Hero_v2.jpg');
+  }
+}
