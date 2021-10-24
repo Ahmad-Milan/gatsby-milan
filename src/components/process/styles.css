@@ -7,6 +7,9 @@
   background-color: #E5F6FB;
 }
 
+#faqs .wrapper {
+  background-color: #32A9C5;
+}
 
 @media (min-width: 576px) {
   .faqs-hero {
