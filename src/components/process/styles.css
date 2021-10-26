@@ -6,23 +6,28 @@
   background-repeat: no-repeat; 
   background-color: #E5F6FB;
 }
-
-/* #faqs .card {
-  background-color: inherit;
-} */
+#faqs .card {
+  background-color: inherit !important;
+  margin-bottom: 6px;
+  padding-right: 3px;
+  padding-left: 3px;
+  border: none;
+}
+#faqs .card .card-header{
+  border-bottom: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+#faqs .card-body p:last-child{
+  margin-bottom: 0;
+}
 #faqs .card .wrapper {
   background-color: #32A9C5;
 }
-#faqs .dark-blue-bg {
-  background-color: #0696B8 !important;
+#faqs p a {
+  color: #fff;
+  text-decoration: underline;
 }
-#faqs .darker-blue-bg {
-  background-color: rgba(0, 58, 68, .8) !important;
-}
-/* #faqs .accordion-collapse {
-  background-color: inherit;
-} */
-
 @media (min-width: 576px) {
   .faqs-hero {
     background-image: url('https://milanlaser.com/images/FAQ_Hero_tab.jpg');
@@ -34,6 +39,12 @@
   }
   #faqs .card .card-header > div {
     min-height: 100px;
+  }
+  #faqs .dark-blue-bg {
+    background-color: #0696B8 !important;
+  }
+  #faqs .darker-blue-bg {
+    background-color: rgba(0, 58, 68, .8) !important;
   }
 }
 @media (min-width: 1200px) {
