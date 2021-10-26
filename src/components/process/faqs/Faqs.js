@@ -19,12 +19,13 @@ function ContextAwareToggle({ children, eventKey, callback }) {
 
   return (
     <div
-      type="button"
       onClick={decoratedOnClick}
-      className="text-right">
+      className="d-flex flex-column justify-content-between">
         {children}
-        <span className="pe-2">Answer</span>
-        {isCurrentEventKey ? <FaMinusCircle /> : <FaPlusCircle />}
+        <aside className="text-end">
+          <span className="pe-2">Answer</span>
+          {isCurrentEventKey ? <FaMinusCircle /> : <FaPlusCircle />}
+        </aside>
       </div>
   );
 }
@@ -44,13 +45,14 @@ function Faqs() {
                   </ContextAwareToggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
-                  <Card.Body className="row">
+                  <Card.Body className="row mx-0">
                     <div className="col-12 col-lg-8 px-0">
                       <p>Your safety is a top priority at Milan! We use the safest laser in the industry, and take special care to prepare you for laser hair removal with our Pre and Post care guide.</p>
                       <p>Additionally, all of our treatment providers are <strong>Authorized Candela Practitioners</strong> who have been extensively trained by Independent Candela Trainers and are supervised by medical doctors. Their comprehensive training touches on everything from laser physics to medical conditions affecting hair growth, so you can rest assured that you’re in good hands with us!</p>
                     </div>
-                    <div className="col-12 col-lg-4 text-center px-0 pb-4">
-                      <img className="img-fluid" id="candela" src="https://milanlaser.com/images/Candela-Badge.png" alt="Candela Badge" style={{maxHeight: '200px'}} /> 
+                    <div className="col-12 col-lg-4 text-center pt-2 pt-sm-0 px-0 pb-2">
+                      <img className="img-fluid" src="https://milanlaser.com/images/Candela-Badge.png" 
+                        alt="Candela Badge" style={{maxHeight: '200px'}} /> 
                     </div>
                   </Card.Body>
                 </Accordion.Collapse>
@@ -81,7 +83,7 @@ function Faqs() {
                 </Card.Header>
                 <Accordion.Collapse eventKey="2">
                   <Card.Body>
-                    <p>Hair is gone forever! Most of our clients are 95-100% hair-free in treated areas in 7-10 sessions. Hormones, pregnancy and the odd stubborn hair that just won’t quit, is why we include our <u><Link to="/specials/#guarantee">Unlimited Package</Link></u> with every purchase—so you never pay touch-up fees or need to buy additional sessions.</p>
+                    <p>Hair is gone forever! Most of our clients are 95-100% hair-free in treated areas in 7-10 sessions. Hormones, pregnancy and the odd stubborn hair that just won’t quit, is why we include our <Link to="/specials/#guarantee">Unlimited Package</Link> with every purchase—so you never pay touch-up fees or need to buy additional sessions.</p>
                   </Card.Body>
                 </Accordion.Collapse>
               </div>
@@ -97,7 +99,7 @@ function Faqs() {
                 <Accordion.Collapse eventKey="3">
                   <Card.Body>
                     <p >At Milan — Yes! Our laser hair removal works on all skin tones. Some hair removal methods are limited to light skin tones. But our laser is precise enough to target the hair follicle, and eliminate hair at the root without damaging your skin. Even the darkest of skin tones can be treated.</p>
-                    <u><Link to="/process/quiz/">See if you’re a candidate for Laser Hair Removal.</Link></u>
+                    <p><Link to="/process/quiz/">See if you’re a candidate for Laser Hair Removal.</Link></p>
                   </Card.Body>
                 </Accordion.Collapse>
               </div>
@@ -147,7 +149,7 @@ function Faqs() {
                     <p><strong>Blondes:</strong> Laser hair removal will work on most people with blonde hair as long as the hair isn’t “bleach blonde” or “platinum” in color.</p>
                     <p><strong>Reds:</strong> It will frequently work on red hair as long as there is some pigment for the laser to capture.</p>
                     <p><strong>Gray:</strong> Gray hair is, well, a gray area! We would have to see your hair to determine exactly how much pigment is left for the laser to target. This can be determined during your consultation!</p>
-                    <u><Link to="/process/quiz/">See if you’re a candidate for Laser Hair Removal.</Link></u>
+                    <p><Link to="/process/quiz/">See if you’re a candidate for Laser Hair Removal.</Link></p>
                   </Card.Body>
                 </Accordion.Collapse>
               </div>
@@ -210,7 +212,7 @@ function Faqs() {
                 </Card.Header>
                 <Accordion.Collapse eventKey="10">
                   <Card.Body>
-                    <p>With our <u><Link to="/specials/#guarantee">Unlimited Package</Link></u> (included with every area), most people need between 7-10 treatments to get 95%+ hair removal. The best part of this package – besides never shaving again – is that no matter how many treatments you need, it’s the same price!</p>
+                    <p>With our <Link to="/specials/#guarantee">Unlimited Package</Link> (included with every area), most people need between 7-10 treatments to get 95%+ hair removal. The best part of this package – besides never shaving again – is that no matter how many treatments you need, it’s the same price!</p>
                     <p>At Milan, you’ll never worry about buying additional treatments or paying touch-up fees. Unlike other places, once you’ve purchased an area with us it’s covered for the rest of your life.</p>
                     <p>Each treatment is completed 5 weeks apart.</p>
                   </Card.Body>
@@ -228,7 +230,7 @@ function Faqs() {
                 <Accordion.Collapse eventKey="11">
                   <Card.Body>
                     <p>Payments can be as low as $29 a month with our 24-month 0% APR payment plans. Instead of spending $60-$70 a month to get your legs waxed for years on end, you’ll finish your payment plan and be hair-free for life.</p>
-                    <u><Link to="/specials/estimate/">Get a custom quote</Link></u> today!
+                    <p><Link to="/specials/estimate/">Get a custom quote</Link> today!</p>
                   </Card.Body>
                 </Accordion.Collapse>
               </div>
@@ -273,7 +275,7 @@ function Faqs() {
                 </Card.Header>
                 <Accordion.Collapse eventKey="14">
                   <Card.Body>
-                    <p>We have more than {totalOpenStoresNum} convenient Locations across the country – making us the best solution to getting rid of your unwanted hair. <u><Link to="/locations/">Locate the Milan closest to you</Link></u> and take the first step toward never shaving again!</p>
+                    <p>We have more than {totalOpenStoresNum} convenient Locations across the country – making us the best solution to getting rid of your unwanted hair. <Link to="/locations/">Locate the Milan closest to you</Link> and take the first step toward never shaving again!</p>
                   </Card.Body>
                 </Accordion.Collapse>
               </div>
@@ -288,7 +290,7 @@ function Faqs() {
                 </Card.Header>
                 <Accordion.Collapse eventKey="15">
                   <Card.Body>
-                    <ul className="pl-3" style={{listStyle: 'disc'}}>
+                    <ul className="ps-3" style={{listStyle: 'disc'}}>
                       <li>You can shave! In fact, we want you to shave the day before or day-of your treatment.</li>
                       <li>Your skin needs to be it’s natural skin tone (no sun, no tanning beds, no self-tanner).</li>
                       <li>Come in for your treatment with clean skin (no lotions or makeup).</li>
