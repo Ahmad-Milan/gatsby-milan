@@ -28,6 +28,11 @@
   color: #fff;
   text-decoration: underline;
 }
+#ask_new_question {
+  background-color: var(--main-navy);
+}
+
+
 @media (min-width: 576px) {
   .faqs-hero {
     background-image: url('https://milanlaser.com/images/FAQ_Hero_tab.jpg');
