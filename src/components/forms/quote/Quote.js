@@ -37,7 +37,10 @@ function Quote({scrollTop}) {
   }
 
   // Locations dropdown onChange handler
-  const dropdownHandler = salesforceValue => setFormState(updateDropdown(salesforceValue, formState, siteData))
+  const dropdownHandler = salesforceValue => {
+    if(salesforceValue === '') return
+    else setFormState(updateDropdown(salesforceValue, formState, siteData))
+  }
 
   const [areas, setAreas] = useState({ 
     brazilian: false,

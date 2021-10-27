@@ -41,7 +41,10 @@ function NotOpen({siteData}) {
   const nearbySelectedHandler = store => setFormState(updateNearbySelection(store, formState, siteData))
 
   // Locations dropdown onChange handler
-  const dropdownHandler = salesforceValue => setFormState(updateDropdown(salesforceValue, formState, siteData))
+  const dropdownHandler = salesforceValue => {
+    if(salesforceValue === '') return
+    else setFormState(updateDropdown(salesforceValue, formState, siteData))
+  }
 
   // -------------------Single---------------------- //
   if(!siteData.multiple) {

@@ -38,7 +38,10 @@ function MainForm({siteData, city, action_link}) {
   }
 
   // Locations dropdown onChange handler
-  const dropdownHandler = salesforceValue => setFormState(updateDropdown(salesforceValue, formState, siteData))
+  const dropdownHandler = salesforceValue => {
+    if(salesforceValue === '') return
+    else setFormState(updateDropdown(salesforceValue, formState, siteData))
+  }
 
   // Mailchimp checkbox 
   const handleSubscription =() => setFormState(updateSubscription(formState))
@@ -89,7 +92,7 @@ function MainForm({siteData, city, action_link}) {
                 </div>
 
                 <div className="row justify-content-center mx-auto">
-                  <div className="custom-checkbox">
+                  <div className="custom-checkbox d-flex">
                     <SubscriptionBox formState={formState} handleSubscription={handleSubscription} mailchimpID="mailchimp-mainForm" />
                   </div>
                 </div>

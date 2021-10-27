@@ -38,7 +38,10 @@ function Multiple({siteData}) {
   const nearbySelectedHandler = store => setFormState(updateNearbySelection(store, formState, siteData))
 
   // Locations dropdown onChange handler
-  const dropdownHandler = salesforceValue => setFormState(updateDropdown(salesforceValue, formState, siteData))
+  const dropdownHandler = salesforceValue => {
+    if(salesforceValue === '') return
+    else setFormState(updateDropdown(salesforceValue, formState, siteData))
+  }
 
   // Go Back Button
   const handleGoBack = () => setFormState(goBackBtn(formState))
