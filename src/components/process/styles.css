@@ -31,6 +31,9 @@
 #ask_new_question {
   background-color: var(--main-navy);
 }
+#ask_new_question .mailchimp {
+  color: var(--light-blue);
+}
 
 
 @media (min-width: 576px) {
