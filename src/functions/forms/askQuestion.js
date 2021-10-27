@@ -2,7 +2,8 @@ import actionInit from './actionInit'
 import checkTouched from './checkTouched'
 import updateUserInputs from './updateUserInputs'
 
-function askQuestion(formikProps, formState) {
+function askQuestion(event, formikProps, formState) {
+  event.preventDefault()
   // 1. check if user fields are touched and scroll to the right place
   checkTouched(formikProps, 'question')
 
