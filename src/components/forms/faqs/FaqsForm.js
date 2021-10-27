@@ -11,9 +11,8 @@ import updateUserInputs from '../../../functions/forms/updateUserInputs'
 import axios from 'axios'
 import qs from 'qs'
 import { siteData, city } from '../../layout/Layout'
-import EmailInput from '../shared/EmailInput'
-import FullNameInput from '../shared/FullNameInput'
-import SelectLocation from '../shared/SelectLocation'
+import validateEmail from '../shared/validateEmail'
+import LocationsDropdown from '../shared/LocationsDropdown'
 import { FaAsterisk } from 'react-icons/fa'
 import * as Yup from 'yup'
 
@@ -48,7 +47,10 @@ function FaqsForm() {
   }
 
   // Locations dropdown onChange handler
-  const dropdownHandler = salesforceValue => setFormState(updateDropdown(salesforceValue, formState, siteData))
+  const dropdownHandler = salesforceValue => {
+    if(salesforceValue === '') return
+    else setFormState(updateDropdown(salesforceValue, formState, siteData))
+  }
 
     // Mailchimp checkbox 
     const handleSubscription = () => setFormState(updateSubscription(formState))
@@ -114,25 +116,37 @@ function FaqsForm() {
             : <>
             <div className="row">
               <div className="col-md-6">
-                <label htmlFor="description">Your Question <sup><FaAsterisk /></sup></label>
-                <Field as="textarea" className="form-control" placeholder="Hello…" id="description" name="description" rows="7"/>
-                <ErrorMessage name="description" component={TextError} />
+                <div className="mb-2">
+                  <Field as="textarea" className="form-control" placeholder="Your Question" id="description" name="description" rows="5"/>
+                  <ErrorMessage name="description" component={TextError} />
+                </div>
               </div>
               <div className="col-md-6">
                 <div className="mb-2">
-                  <FullNameInput formik={formik} />
+                  <Field 
+                    className="form-control" type="text" placeholder="Your Name" id="first_name" name="first_name"
+                    style={formik.touched.first_name && formik.errors.first_name ? {borderColor: 'red'} : null} />
+                    <ErrorMessage name="first_name" component={TextError} />
                 </div>
                 <div className="mb-2">
-                  <EmailInput formik={formik} />
+                  <Field 
+                    className="form-control" type="email" placeholder="Your Email" 
+                    id="email" name="email" validate={validateEmail}
+                    style={formik.touched.email && formik.errors.email ? {borderColor: 'red'} : null} /> 
+                  <ErrorMessage name="email" component={TextError} />
                 </div>
                 <div>
-                  <SelectLocation formState={formState} dropdownHandler={dropdownHandler} />
+                  <select
+                    value={formState.store.salesforceValue} onChange={ event => dropdownHandler(event.target.value) }
+                    className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
+                    <LocationsDropdown />
+                  </select>
                 </div>
               </div>
             </div>
             
             <div className="row">
-              <div className="col-12">
+              <div className="d-flex mt-2 mt-md-0">
                 <SubscriptionBox formState={formState} handleSubscription={handleSubscription} mailchimpID="mailchimp-faqs" />
               </div>
             </div>
