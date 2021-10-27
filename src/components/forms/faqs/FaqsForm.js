@@ -26,7 +26,6 @@ function faqsFormSchema() {
 }
 
 function FaqsForm() {
-
   // if store not selected yet.... 
   // (this is useful when navigating between pages and the location is already selected somewhere else in other forms)
   if(!formData.store.salesforceValue) {
@@ -52,17 +51,17 @@ function FaqsForm() {
     else setFormState(updateDropdown(salesforceValue, formState, siteData))
   }
 
-    // Mailchimp checkbox 
-    const handleSubscription = () => setFormState(updateSubscription(formState))
+  // Mailchimp checkbox 
+  const handleSubscription = () => setFormState(updateSubscription(formState))
 
   const [submitting, setSubmitting] = useState(false)
   const [leadSuccess, setLeadSuccess] = useState(false)
   const [questionNotSent, setQuestionNotSent] = useState(false)
 
   const onSubmit = (user) => {
+
     updateUserInputs(formState, user)
     setSubmitting(true)
-    console.log(formState)
     axios({
       method: 'POST',
       url: 'https://cors-milanlaser.herokuapp.com/https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8',
@@ -82,8 +81,8 @@ function FaqsForm() {
     }).then(res => (
       console.log(res.status, 'Question sent to Salesforce'),
       setSubmitting(false),
-      setLeadSuccess(true)
-      
+      setLeadSuccess(true),
+      formData.user.description = '' // To clear the description field in other forms across the website
     )).catch((err) => { 
       console.error(err)
       setSubmitting(false)
@@ -91,6 +90,12 @@ function FaqsForm() {
      })
   }
 
+  const askNewQuestionHandler = (formik) => {
+    setSubmitting(false)
+    setLeadSuccess(false)
+    setQuestionNotSent(false)
+    formik.setFieldValue('description', 'Ask a new question')
+  }
   return (
     <Formik 
     initialValues={initialValues}
@@ -110,8 +115,13 @@ function FaqsForm() {
             : leadSuccess ?
             <center className="px-3 mt-3 success">
               <p className="h1 text-success">SUCCESS!</p>
-              <p className="h3 mt-5 mb-3">Your request has been submitted.</p>
+              <p className="h3 mt-3 mb-3">Your request has been submitted.</p>
               <p className="h5">We will be contacting you shortly with more information. During normal business hours you can expect to hear from us in about 15 minutes.</p>
+              <button 
+                className="w-100 cta-btn light-btn py-2 shadow-sm" 
+                onClick={() => askNewQuestionHandler(formik)}>
+                ASK ANOTHER QUESTION
+              </button>
             </center>
             : questionNotSent ?
             <div className="alert alert-danger">
@@ -123,7 +133,8 @@ function FaqsForm() {
               <div className="col-md-6">
                 <div className="mb-2">
                   <Field as="textarea" 
-                    className="form-control" placeholder="Your Question" id="description" name="description" rows="5"
+                    className="form-control" placeholder="Your Question" id="description" name="description" 
+                    rows={siteData.multiple ? '5' : '3'}
                     style={formik.touched.first_name && formik.errors.first_name ? {borderColor: 'red'} : null} />
                   <ErrorMessage name="description" component={TextError} />
                 </div>
@@ -142,13 +153,17 @@ function FaqsForm() {
                     style={formik.touched.email && formik.errors.email ? {borderColor: 'red'} : null} /> 
                   <ErrorMessage name="email" component={TextError} />
                 </div>
-                <div>
-                  <select
-                    value={formState.store.salesforceValue} onChange={ event => dropdownHandler(event.target.value) }
-                    className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
-                    <LocationsDropdown />
-                  </select>
-                </div>
+                {
+                  siteData.multiple &&
+                  <div>
+                    <select
+                      value={formState.store.salesforceValue} onChange={ event => dropdownHandler(event.target.value) }
+                      className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
+                      <LocationsDropdown />
+                    </select>
+                  </div>
+                }
+
               </div>
             </div>
             
@@ -170,7 +185,7 @@ function FaqsForm() {
                 </p>
               </div>
             </div>
-            </>         
+            </>
            }
           </Form>
         )
