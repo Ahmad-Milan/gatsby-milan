@@ -86,7 +86,7 @@ function Single({siteData}) {
                     !askQuestionClicked ?
                     <button 
                       className="w-100 cta-btn light-btn py-2 shadow-sm" 
-                      onClick={() => {askQuestion(formik, formState); setAskQuestionClicked(true)}}>
+                      onClick={(event) => {askQuestion(event, formik, formState); setAskQuestionClicked(true)}}>
                       <i><FaQuestionCircle /></i><span className="ps-2">ASK A QUESTION</span>
                     </button>
                     :
