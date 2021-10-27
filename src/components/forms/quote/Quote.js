@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from 'gatsby'
 import { Formik, Form } from 'formik'
 import getStore from '../../../functions/general/getStore'
 import updateStoreProps from '../../../functions/forms/updateStoreProps'
@@ -57,7 +58,7 @@ function Quote({scrollTop}) {
 
   // Checkboxes check/uncheck
   const handleArea = (e) => {
-    setAreas({ ...areas, [e.target.name]: e.target.checked });
+    setAreas({ ...areas, [e.target.name]: e.target.checked })
     e.target.checked ? setAreasFinal(areasFinal.concat(e.target.value + ', ')) : setAreasFinal(areasFinal.replace(e.target.value + ', ', ''))
   }
 
@@ -65,8 +66,9 @@ function Quote({scrollTop}) {
   // For other areas input field
   const [otherAreas, setOtherAreas] = useState('')
 
-  const [submitting, setSubmitting] = useState(false);
-  const [leadSuccess, setLeadSuccess] = useState(false);
+  const [submitting, setSubmitting] = useState(false)
+  const [leadSuccess, setLeadSuccess] = useState(false)
+  const [formNotSubmitted, setFormNotSubmitted] = useState(false)
 
   const onSubmit = (user) => {
     updateUserInputs(formState, user)
@@ -107,7 +109,12 @@ function Quote({scrollTop}) {
             setLeadSuccess(true)
           ).catch(err => console.error(err))
       )
-      .catch((err) => { console.error(err) })
+      .catch((err) => { 
+        console.error(err)
+        setSubmitting(false)
+        setLeadSuccess(false)
+        setFormNotSubmitted(true)
+      })
   }
 
   return (
@@ -119,7 +126,7 @@ function Quote({scrollTop}) {
       formik => {
         return (
           <Form className="quote-form w-100 pb-4" >
-            {submitting ?
+          { submitting ?
             <center>
               <p className="h3 mb-4">Form submitting...</p>
               <div className="spinner-border" role="status">
@@ -131,6 +138,11 @@ function Quote({scrollTop}) {
               <p className="h1 text-success">SUCCESS!</p>
               <p className="h3 mt-5 mb-3">Your request has been submitted.</p>
               <p className="h5">We will be contacting you shortly with more information. During normal business hours you can expect to hear from us in about 15 minutes.</p>
+            </center>
+            : formNotSubmitted ?
+            <center className="alert alert-danger col-md-10 col-lg-6 mx-auto">
+              <p>Ruh Roh! Something went wrong. Form not submitted. :(</p>
+              Click <Link to="/locations/contact/" className="main-blue text-decoration-underline">here</Link> to contact us.
             </center>
             : <>
             <div className="form-inputs-wrapper">
