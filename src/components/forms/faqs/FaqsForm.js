@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from 'gatsby'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import TextError from '../shared/TextError'
 import SubscriptionBox from '../shared/SubscriptionBox'
@@ -13,7 +14,6 @@ import qs from 'qs'
 import { siteData, city } from '../../layout/Layout'
 import validateEmail from '../shared/validateEmail'
 import LocationsDropdown from '../shared/LocationsDropdown'
-import { FaAsterisk } from 'react-icons/fa'
 import * as Yup from 'yup'
 
 function faqsFormSchema() {
@@ -55,8 +55,9 @@ function FaqsForm() {
     // Mailchimp checkbox 
     const handleSubscription = () => setFormState(updateSubscription(formState))
 
-  const [submitting, setSubmitting] = useState(false);
-  const [leadSuccess, setLeadSuccess] = useState(false);
+  const [submitting, setSubmitting] = useState(false)
+  const [leadSuccess, setLeadSuccess] = useState(false)
+  const [questionNotSent, setQuestionNotSent] = useState(false)
 
   const onSubmit = (user) => {
     updateUserInputs(formState, user)
@@ -85,7 +86,8 @@ function FaqsForm() {
       
     )).catch((err) => { 
       console.error(err)
-
+      setSubmitting(false)
+      setQuestionNotSent(true)
      })
   }
 
@@ -98,26 +100,31 @@ function FaqsForm() {
       formik => {
         return (
           <Form className="w-100" >
-            { submitting &&
+            { submitting ?
             <center>
               <p className="h3 mb-4">Sending question...</p>
               <div className="spinner-border" role="status">
                 <span className="visually-hidden">Loading...</span>
               </div>
             </center>
-            }
-            {
-              leadSuccess ?
+            : leadSuccess ?
             <center className="px-3 mt-3 success">
               <p className="h1 text-success">SUCCESS!</p>
               <p className="h3 mt-5 mb-3">Your request has been submitted.</p>
               <p className="h5">We will be contacting you shortly with more information. During normal business hours you can expect to hear from us in about 15 minutes.</p>
             </center>
+            : questionNotSent ?
+            <div className="alert alert-danger">
+              <p>Ruh Roh! Something went wrong. Question not sent. :(</p>
+              Click <Link to="/locations/contact/" className="main-blue text-decoration-underline">here</Link> to contact us.
+            </div>
             : <>
             <div className="row">
               <div className="col-md-6">
                 <div className="mb-2">
-                  <Field as="textarea" className="form-control" placeholder="Your Question" id="description" name="description" rows="5"/>
+                  <Field as="textarea" 
+                    className="form-control" placeholder="Your Question" id="description" name="description" rows="5"
+                    style={formik.touched.first_name && formik.errors.first_name ? {borderColor: 'red'} : null} />
                   <ErrorMessage name="description" component={TextError} />
                 </div>
               </div>
