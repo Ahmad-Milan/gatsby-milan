@@ -42,7 +42,7 @@
               "stateShort": "AZ",
               "address": "4408 N Miller Rd",
               "zipcode": "85251",
-              "open": true
+              "open": false
             }
           ]
         },
@@ -94,7 +94,7 @@
               "stateShort": "TX",
               "address": "2001 Texas Ave S",
               "zipcode": "77840",
-              "open": false
+              "open": true
             }
           ]
         },
@@ -127,7 +127,7 @@
               "stateShort": "TX",
               "address": "1501 Bay Area Blvd",
               "zipcode": "77598",
-              "open": false
+              "open": true
             },
             {
               "location": "Humble",
