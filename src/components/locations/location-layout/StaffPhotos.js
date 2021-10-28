@@ -1,7 +1,8 @@
 import React from 'react'
+import { milan_img_path } from '../../../constants/constants'
 
 function StaffPhotos({store}) {
-  const staffPath = 'https://milanlaser.com/gatsby/images/shared/staff/'
+  const staffPath = `${milan_img_path}shared/staff/`
 
   return (
     <div className="container mb-3">

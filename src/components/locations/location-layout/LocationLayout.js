@@ -7,10 +7,11 @@ import LocationsBanner from '../../shared/LocationsBanner'
 import Description from './Description'
 import InteriorPhotos from './InteriorPhotos'
 import StaffPhotos from './StaffPhotos'
-import '../styles.css'
+import { milan_img_path } from '../../../constants/constants'
 import Doctors from './Doctors'
+import '../styles.css'
 
-const sharedPath = 'https://milanlaser.com/gatsby/images/shared/store_temp/'
+const sharedPath = `${milan_img_path}shared/store_temp/`
 
 // To be used if the store doesn't have pro images yet
 const defaultImages = {
@@ -25,7 +26,7 @@ const defaultImages = {
 
 function Layout({siteData, city, store}) {
 
-  const imgPath = `https://milanlaser.com/gatsby/images/${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/${store.location.trim().replace(/\s/g, '')}_`
+  const imgPath = `${milan_img_path}${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/${store.location.trim().replace(/\s/g, '')}_`
 
   const passedProps = {
     siteData: siteData,

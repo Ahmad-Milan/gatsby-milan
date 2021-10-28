@@ -1,5 +1,6 @@
 import React from 'react'
 import openStoresDisplayed from '../../../functions/general/openStoresDisplayed'
+import { milan_img_path } from '../../../constants/constants'
 
 function Doctors() {
   const openStoresNum= openStoresDisplayed()
@@ -10,7 +11,7 @@ function Doctors() {
         <div className="row justify-content-center">
           <div className="row col-xl-11 justify-content-center">
             <div className="col-sm-10 col-lg-6 text-center mb-3">
-              <img src="https://milanlaser.com/gatsby/images/shared/staff/shikhar-abe.jpg" alt="Milan Laser Owners" className="img-thumbnail" />
+              <img src={`${milan_img_path}shared/staff/shikhar-abe.jpg`} alt="Milan Laser Owners" className="img-thumbnail" />
             </div>
 
             <div className="col-lg-6">
