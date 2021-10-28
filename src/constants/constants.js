@@ -1,2 +1,6 @@
 export const MILAN_PHONE = '833-667-2967'
 export const NO_RAZOR = '1-833-NO-RAZOR'
+export const milan_img_path = 'https://milanlaser.com/gatsby/images/'
+export const google_reviews_start = 'https://www.google.com/search?q=milan+laser+hair+removal+'
+export const yelp_start = 'https://www.yelp.com/biz/milan-laser-hair-removal-'
+export const facebook_start = 'https://www.facebook.com/MilanLaser'
