@@ -1,11 +1,19 @@
 import React from 'react'
+import Layout, {city} from '../../components/layout/Layout'
+import { Helmet } from 'react-helmet'
+import ReviewsHero from '../../components/locations/reviews/ReviewsHero'
 
-function Reviews() {
+function ReviewsPage() {
+
   return (
-    <div>
-      
-    </div>
+    <Layout>
+      <Helmet>
+        <script src={process.env.ReviewsOnOurWebsiteSrc} type="text/javascript"></script>
+      </Helmet>
+      <ReviewsHero city={city} />
+    </Layout>
+
   )
 }
 
-export default Reviews
+export default ReviewsPage
