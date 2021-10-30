@@ -6,7 +6,7 @@ import siteLocations from '../../data/site-locations.json'
 let final_locations = []
 const updateCurrentCity = (city) => {
   siteLocations.locations.forEach(elem => {
-    let store = city.locations.find(loc => loc.salesforceValue === elem.salesforceValue)
+    let store = city.locations.find(loc => loc.location === elem.location)
     store = {...elem, ...store}
     final_locations.push(store)
   })
