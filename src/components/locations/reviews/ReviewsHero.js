@@ -15,9 +15,9 @@ function ReviewsHero({city}) {
         </div>
         
         <div className="row mb-4 justify-content-around">
-          <ReviewUsBtn city={city} link={google_reviews_start} platform="google" bgColor="#DB4E41" />
-          <ReviewUsBtn city={city} link={yelp_start} platform="yelp" bgColor="#D82B2C" />
-          <ReviewUsBtn city={city} link={facebook_start} platform="facebook" bgColor="#3E5A97" />
+          <ReviewUsBtn city={city} link={google_reviews_start} platform="google" />
+          <ReviewUsBtn city={city} link={yelp_start} platform="yelp" />
+          <ReviewUsBtn city={city} link={facebook_start} platform="facebook" />
         </div>
       </div>
       
