@@ -2,10 +2,10 @@ import stores from '../../data/stores.json'
 
 // To be called in the Layout Comp
 // Returns siteData obj
-function setSiteData(pathname, state) {
+function setSiteData(pathname, stateShort) {
  
   // 1. Find the matching state from the stores list
-  let currentState = stores.locations.find(elem => elem.state === state)
+  let currentState = stores.locations.find(elem => elem.stateShort === stateShort)
   // 2. Find the current city in that state
   let currentCity = currentState.stores.find(city => city.pathname === pathname.toLowerCase())
 
