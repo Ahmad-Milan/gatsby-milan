@@ -3,7 +3,7 @@
   "stateShort": "AZ",
   "locations": [
     {
-      "salesforceValue": "Phoenix (Chandler)",
+      "location": "Chandler",
       "phone": "480-624-8185",
       "place_id": "ChIJIelTB04HK4cR95v9yd-Nt4A",
       "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "salesforceValue": "Phoenix (Peoria)",
+      "location": "Peoria",
       "phone": "623-246-7510",
       "place_id": "",
       "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "salesforceValue": "Phoenix (Scottsdale North)",
+      "location": "Scottsdale North",
       "phone": "480-955-0396",
       "place_id": "",
       "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "salesforceValue": "Phoenix (Scottsdale South)",
+      "location": "Scottsdale South",
       "phone": "",
       "place_id": "",
       "googleMap": "",
