@@ -141,13 +141,29 @@
   border: 1px solid rgba(0,0,0,0.3); 
   border-radius: 12px;
 }
-
 #reviews-section .dropdown > .dropdown-toggle {
   padding: 0;
   border: none;
 }
 #reviews-section .dropdown > .dropdown-toggle::after {
   margin-right: 10px;
+}
+#reviews-section .dropdown > .dropdown-toggle:focus {
+  box-shadow: unset !important;
+}
+#reviews-section .dropdown-menu {
+  width: 204px;
+}
+#reviews-section .dropdown-item {
+  color: #fff;
+}
+#reviews-section .dropdown-item:hover {
+  background-color: inherit;
+  color: #650000;
+  transition: all .1s ease-in;
+}
+#reviews-section #facebook-reviews .dropdown-item:hover {
+  color: var(--main-turquoise);
 }
 
 @media only screen and (max-width: 991px) {
