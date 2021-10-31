@@ -1,5 +1,6 @@
 import React from 'react'
 import { MILAN_PHONE } from '../../../../constants/constants'
+import { FaPhone } from 'react-icons/fa'
 
 function HeroDetails({city, store}) {
   return (
@@ -12,7 +13,7 @@ function HeroDetails({city, store}) {
       <p className="my-4">{store.address}<br /> 
         {store.locationOnAddress === 'same' ? store.location : store.locationOnAddress}, {store.stateShort} {store.zipcode}
       </p>
-      <p className="mb-4"><i className="fa fa-fw fa-phone"></i>&nbsp; 
+      <p className="mb-4"><FaPhone className="me-2" /> 
         <a href={`tel:${store.phone === '' ? MILAN_PHONE : store.phone}`} className="text-white">
           {store.phone === '' ? MILAN_PHONE : store.phone}
         </a>
