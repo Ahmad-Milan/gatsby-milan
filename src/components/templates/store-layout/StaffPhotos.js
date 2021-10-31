@@ -31,20 +31,20 @@ function StaffPhotos({store}) {
               }
               return (
                 <div key={x} className="col-10 col-sm-6 col-md-4 col-lg-3">
-                <div className="img-thumbnail shadow-sm mb-3">
-                  <img src={`${staffPath}${member}.jpg`} className="w-100" alt="" />
-                  <div className="text-center py-2">
-                    <div>
-                      <strong>
-                        {
-                          role === 'Medical Director' ? `Dr. ${memberArr[1]}` : `${memberArr[0]} ${memberArr[1][0]}.`
-                        }
-                      </strong>
+                  <div className="img-thumbnail shadow-sm mb-3">
+                    <img src={`${staffPath}${member}.jpg`} className="w-100" alt="" />
+                    <div className="text-center py-2">
+                      <div>
+                        <strong>
+                          {
+                            role === 'Medical Director' ? `Dr. ${memberArr[1]}` : `${memberArr[0]} ${memberArr[1][0]}.`
+                          }
+                        </strong>
+                      </div>
+                      <div>{role}</div>
                     </div>
-                    <div>{role}</div>
                   </div>
                 </div>
-              </div>
               )
             })
           }
