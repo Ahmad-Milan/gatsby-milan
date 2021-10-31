@@ -51,6 +51,7 @@ function Layout({siteData, city, store}) {
     {
       store.place_id !== '' && <Reviews store={store} />
     }
+    <span id="about-us"></span>
     <Doctors />
     </>
   )
