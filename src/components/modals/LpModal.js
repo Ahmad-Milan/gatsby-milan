@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'gatsby'
 import Modal from 'react-bootstrap/Modal'
 import MainForm from '../forms/main/MainForm'
-import {siteData, city} from '../layout/Layout'
+import {siteData, city} from '../templates/Layout'
 
 import './LpModal.css'
 

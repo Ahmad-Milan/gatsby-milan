@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout, {city} from '../../components/layout/Layout'
+import Layout, {city} from '../../components/templates/Layout'
 import { Helmet } from 'react-helmet'
 import ReviewsHero from '../../components/locations/reviews/ReviewsHero'
 

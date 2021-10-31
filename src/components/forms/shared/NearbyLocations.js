@@ -1,6 +1,6 @@
 import React from 'react'
 import getNearbyLocations from '../../../functions/general/getNearbyLocations'
-import { siteData } from '../../layout/Layout'
+import { siteData } from '../../templates/Layout'
 
 function NearbyLocations({nearbySelectedHandler}) {
   return (
