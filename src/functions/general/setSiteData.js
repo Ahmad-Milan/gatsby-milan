@@ -5,7 +5,7 @@ import stores from '../../data/stores.json'
 function setSiteData(pathname, stateShort) {
  
   // 1. Find the matching state from the stores list
-  let currentState = stores.locations.find(elem => elem.stateShort === stateShort)
+  let currentState = stores.locations.find(state => state.stateShort === stateShort)
   // 2. Find the current city in that state
   let currentCity = currentState.stores.find(city => city.pathname === pathname.toLowerCase())
 
@@ -20,7 +20,6 @@ function setSiteData(pathname, stateShort) {
   if(currentCity.locations.length === 1) {
     siteData.salesforceValue = currentCity.locations[0].salesforceValue
   }
-  
   return siteData
 }
 
