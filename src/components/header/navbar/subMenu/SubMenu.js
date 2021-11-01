@@ -25,8 +25,8 @@ function SubMenu({menu, menuItem, navbarSize, expanded, index, closeMenu}) {
           return (
           <li key={x}> {/* Ex: <li>All Locations</li> */}
             <Link to={subMenuItem.pathname} onClick={closeMenu}>
-              {subMenuItem.link === 'Facebook' ? <i className="me-2"><FaFacebookSquare /></i>  : null}
-              {subMenuItem.link === 'Twitter' ? <i className="me-2"><FaTwitter /></i>  : null}
+              {subMenuItem.link === 'Facebook' ? <i className="me-2"><FaFacebookSquare /></i>  :
+              subMenuItem.link === 'Twitter' ? <i className="me-2"><FaTwitter /></i>  : null}
               {subMenuItem.link}
             </Link>
             {
