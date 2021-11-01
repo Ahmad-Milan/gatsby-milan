@@ -5,7 +5,7 @@ import { MILAN_PHONE } from '../../../constants/constants'
 
 function CityStores({city}) {
   return (
-    <section className="full-section background hero lh-base light-blue-bg">
+    <section className="full-section background hero light-blue-bg">
       <div className="container">
         <div className="row text-center">
           <h1 className="pb-4">Our {city.city} Locations</h1>
@@ -19,7 +19,7 @@ function CityStores({city}) {
                 to={`/locations/${city.pathname}/${store.pathname}/`} 
                 className="card p-3 text-center shadow-sm mb-3 navy-bg-btn cta-btn">
                 <h2 className="h5 py-3 fw-bold text-white">{store.location}</h2>
-                <h3 className="h6 text-white">
+                <h3 className="h6 lh-base text-white">
                   {store.address}<br /> 
                   {store.locationOnAddress === 'same' ? store.location : store.locationOnAddress}, {store.stateShort} {store.zipcode}
                 </h3>
