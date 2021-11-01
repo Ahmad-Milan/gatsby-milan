@@ -8,6 +8,7 @@ const updateCurrentCity = (city) => {
   siteLocations.locations.forEach(elem => {
     let store = city.locations.find(loc => loc.location === elem.location)
     store = {...elem, ...store}
+    store.pathname = store.location.trim().toLowerCase().replace(/\s+/g, '')
     final_locations.push(store)
   })
   city.locations = final_locations
