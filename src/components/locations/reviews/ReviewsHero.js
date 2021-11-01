@@ -2,8 +2,10 @@ import React from 'react'
 import { google_reviews_start, yelp_start, facebook_start } from '../../../constants/constants'
 import ReviewsBox from './ReviewsBox'
 import ReviewUsBtn from './ReviewUsBtn'
+import TempReviews from './TempReviews'
 
 function ReviewsHero({city}) {
+  const stores_with_reviews = city.locations.filter(store => store.reviews.reviews_token !== '')
   return (
     <section id="reviews-section" className="full-section background hero light-blue-bg">
       <div className="container">
@@ -20,9 +22,10 @@ function ReviewsHero({city}) {
           <ReviewUsBtn city={city} link={facebook_start} platform="facebook" />
         </div>
       </div>
-      
-      <ReviewsBox city={city} />
-      
+      {
+        stores_with_reviews.length === 0 ?
+        <TempReviews /> : <ReviewsBox stores={stores_with_reviews} />
+      }      
     </section>
   )
 }
