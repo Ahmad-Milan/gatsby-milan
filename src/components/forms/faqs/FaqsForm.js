@@ -69,12 +69,12 @@ function FaqsForm() {
         'Campaign_ID': '7011L000001hWzN'
       }),
       config: { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
-    }).then(res => (
-      console.log(res.status, 'Question sent to Salesforce'),
-      setSubmitting(false),
-      setLeadSuccess(true),
+    }).then(res => {
+      console.log(res.status, 'Question sent to Salesforce')
+      setSubmitting(false)
+      setLeadSuccess(true)
       formData.user.description = '' // To clear the description field in other forms across the website
-    )).catch((err) => { 
+    }).catch((err) => { 
       console.error(err)
       setSubmitting(false)
       setQuestionNotSent(true)
