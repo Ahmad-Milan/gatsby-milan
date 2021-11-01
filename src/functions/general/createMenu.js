@@ -1,4 +1,5 @@
 import MenuList from '../../data/menuList.json'
+import { facebook_start } from '../../constants/constants'
 
 // Pass in the generated siteData & city objects and create a menu list for the curretn city to be used in the navbar
 function createMenu(siteData, city) {
@@ -22,25 +23,23 @@ function createMenu(siteData, city) {
       if(siteData.multiple) {
         let locations = []
         let facebook = []
-        city.locations.forEach(elem => {
-          elem.pathname = elem.location.trim().toLowerCase().replace(/\s+/g, '')
+        city.locations.forEach(store => {
           locations.push({
-            "link": elem.location,
-            "pathname": `/locations/${city_pathname}/${elem.pathname}/`
+            "link": store.location,
+            "pathname": `/locations/${city_pathname}/${store.pathname}/`
           })
           facebook.push({
-            "link": elem.location,
-            "pathname": elem.facebook
+            "link": store.location,
+            "pathname": `${facebook_start}${store.reviews.facebook}`
           })
         })
-
         item.subMenu[0].subSubMenu = locations
         item.subMenu[f].subSubMenu = facebook
       }
       // if the current city is a single location city
       // Update the facebook pathname value
       if(!siteData.multiple) {
-        item.subMenu[f].pathname = city.locations[0].facebook
+        item.subMenu[f].pathname = facebook_start+city.locations[0].reviews.facebook
       }
     }
 
