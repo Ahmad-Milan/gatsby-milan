@@ -1,0 +1,94 @@
+{
+  "city": "Phoenix",
+  "pathname": "phoenix",
+  "stateShort": "AZ",
+  "locations": [
+    {
+      "location": "Chandler",
+      "phone": "480-624-8185",
+      "place_id": "ChIJIelTB04HK4cR95v9yd-Nt4A",
+      "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+      "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
+      "description": "across the street from Chandler Fashion Center, in the center with Hobby Lobby, Walmart, Phenix Salon Suites, and Petco, in between Petco and Pieology Pizza",
+      "proPhotos": true,
+      "heroReversed": true,
+      "reviews": {
+        "reviews_token": "3zXzaNRq9hj8EC4u3qPCmsM5zjddU416SkUoO70xsWfqWgKcdM",
+        "facebook": "Chandler",
+        "yelp": "chandler",
+        "google": "chandler+az&oq=milan+laser+hair+removal+chandler+az&aqs=chrome..69i57j69i60.19546j1j4&sourceid=chrome&ie=UTF-8#lrd=0x872b074e0753e921:0x80b78ddfc9fd9bf7,3,,,"
+      },
+      "staff": [
+        "Kitri-Redmond-MD",
+        "Kieria-Franks-CM",
+        "Kerry-Galaton-RN",
+        "Madeline-McKey-CS",
+        "Joslyn-Saleda-LPN",
+        "Josephyne-Brito-NP"
+      ]
+    },
+    {
+      "location": "Peoria",
+      "phone": "623-246-7510",
+      "place_id": "",
+      "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+      "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
+      "description": "off of Bell Road, in the center with Target, Ross, and HomeGoods, in the building with Staples, next to Elements Massage",
+      "proPhotos": true,
+      "heroReversed": false,
+      "reviews": {
+        "reviews_token": "UWQCDxVCRlQ8hve59PklwMvIizIwnEs81DeQsyvpKCSdxiTz6D",
+        "facebook": "PeoriaAZ",
+        "yelp": "peoria",
+        "google": "peoria+az&oq=milan+laser+hair+removal+peoria+az&aqs=chrome..69i57j35i39j69i60j69i64l3j69i60l2.8087j1j4&sourceid=chrome&ie=UTF-8#lrd=0x872b69123cf54a59:0x7f2808279ca67b78,3,,,"
+      },
+      "staff": [
+        "Kitri-Redmond-MD",
+        "Kieria-Franks-CM",
+        "Kerry-Galaton-RN",
+        "Josephyne-Brito-NP"
+      ]
+    },
+    {
+      "location": "Scottsdale North",
+      "phone": "480-955-0396",
+      "place_id": "",
+      "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+      "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
+      "description": "just south of Kierland Commons at Scottsdale and Thunderbird Roads, in the center with Natural Grocers, RA Sushi, and First Watch, in between First Watch and RA Sushi",
+      "proPhotos": false,
+      "heroReversed": false,
+      "reviews": {
+        "reviews_token": "UWQCDxVCRlQ8hve59PklwMvIizIwnEs81DeQsyvpKCSdxiTz6D",
+        "facebook": "ScottsdaleNorth",
+        "yelp": "scottsdale",
+        "google": "scottsdale+az&oq=milan+laser+hair+removal+scottsdale+&aqs=chrome.1.69i57j0j69i60.8375j0j7&sourceid=chrome&ie=UTF-8#lrd=0x872b75f9e8be9745:0x60ee00d30acbc79c,3,,,"
+      },
+      "staff": [
+        "Kitri-Redmond-MD",
+        "Kieria-Franks-CM",
+        "Kerry-Galaton-RN",
+        "Madeline-McKey-CS"
+      ]
+    },
+    {
+      "location": "Scottsdale South",
+      "phone": "",
+      "place_id": "",
+      "googleMap": "",
+      "appleMap": "",
+      "description": "",
+      "proPhotos": false,
+      "heroReversed": false,
+      "reviews": {
+        "reviews_token": "",
+        "facebook": "ScottsdaleSouth",
+        "yelp": "",
+        "google": ""
+      },
+      "staff": [
+  
+      ]
+    }
+  ]
+}
