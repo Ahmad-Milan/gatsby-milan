@@ -4,12 +4,11 @@ import Consult from '../forms/consult/Consult'
 import Footer from "../footer/Footer"
 import getSiteData from "../../functions/general/getSiteData"
 import createMenu from '../../functions/general/createMenu'
-import getCity from '../../functions/general/getCity'
 import "../../styles/main.css"
 
 export const siteData = getSiteData()
-export const city = getCity(siteData)
-const menu = createMenu(siteData, city)
+
+const menu = createMenu(siteData)
 
 function Layout({ children }) {
 
