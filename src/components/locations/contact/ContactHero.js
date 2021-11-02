@@ -3,7 +3,7 @@ import MainForm from '../../forms/main/MainForm'
 import getNearbyLocations from '../../../functions/general/getNearbyLocations'
 import { MILAN_PHONE, NO_RAZOR } from '../../../constants/constants'
 
-function ContactHero({siteData, city}) {
+function ContactHero({siteData}) {
 
   const nearbyLocations = getNearbyLocations(siteData)
 
@@ -47,7 +47,7 @@ function ContactHero({siteData, city}) {
             </div>
 
             <h5 className="text-center mt-3">Or Send Us a Question</h5>
-            <MainForm siteData={siteData} city={city} action_link="l/642813/2018-12-05/h652" />
+            <MainForm siteData={siteData} action_link="l/642813/2018-12-05/h652" />
           </div>
         </div>
       </div>

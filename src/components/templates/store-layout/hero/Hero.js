@@ -2,7 +2,7 @@ import React from 'react'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
 import HeroDetails from './HeroDetails'
 
-function Hero({city, store, imgPath}) {
+function Hero({siteData, store, imgPath}) {
   const breakpoints = useBreakpoint()
   
   return (
@@ -15,7 +15,7 @@ function Hero({city, store, imgPath}) {
       <div className="container">
         <div className={`row ${store.heroReversed ? 'flex-row-reverse' : ''}`}>
           <div className="col-sm-8 col-md-6 col-lg-5 bg-blue-sm">
-            <HeroDetails city={city} store={store} />
+            <HeroDetails siteData={siteData} store={store} />
           </div>
           <div className="col-sm-4 col-md-6"></div>
         </div>

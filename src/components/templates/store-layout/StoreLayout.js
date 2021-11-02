@@ -23,13 +23,12 @@ const defaultImages = {
   consultroom: `${sharedPath}ConsultationRoom.jpg`,
 }
 
-function Layout({siteData, city, store}) {
+function StoreLayout({siteData, store}) {
 
-  const imgPath = `${milan_img_path}${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/${store.location.trim().replace(/\s/g, '')}_`
+  const imgPath = `${milan_img_path}${siteData.stateShort.toLowerCase()}/${siteData.pathname}/${store.pathname}/${store.location.trim().replace(/\s/g, '')}_`
 
   const passedProps = {
     siteData: siteData,
-    city: city,
     store: store,
     defaultImages: defaultImages,
     imgPath: imgPath
@@ -57,4 +56,4 @@ function Layout({siteData, city, store}) {
   )
 }
 
-export default Layout
+export default StoreLayout

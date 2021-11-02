@@ -9,7 +9,7 @@ import updateUserInputs from '../../../functions/forms/updateUserInputs'
 import quoteSchema from './quoteSchema'
 import axios from 'axios'
 import qs from 'qs'
-import { siteData, city } from '../../templates/Layout'
+import { siteData } from '../../templates/Layout'
 import './Quote.css'
 import PhoneInput from '../shared/PhoneInput'
 import EmailInput from '../shared/EmailInput'
@@ -23,7 +23,7 @@ function Quote({scrollTop}) {
   if(!formData.store.salesforceValue) {
     // Whether it's a single location city or multiple, 
     // getStore will return the first element of the city locations array
-    let store = getStore(city.locations[0].salesforceValue)
+    let store = getStore(siteData.locations[0].salesforceValue)
 
     // Update formData.store
     updateStoreProps(formData, store)

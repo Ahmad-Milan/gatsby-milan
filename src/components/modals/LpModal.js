@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'gatsby'
 import Modal from 'react-bootstrap/Modal'
 import MainForm from '../forms/main/MainForm'
-import {siteData, city} from '../templates/Layout'
+import {siteData} from '../templates/Layout'
 
 import './LpModal.css'
 
@@ -29,7 +29,7 @@ function Lp_Modal() {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <MainForm siteData={siteData} city={city} action_link="l/642813/2018-11-30/gz1s" />
+        <MainForm siteData={siteData} action_link="l/642813/2018-11-30/gz1s" />
       </Modal.Body>
     </Modal>
   )

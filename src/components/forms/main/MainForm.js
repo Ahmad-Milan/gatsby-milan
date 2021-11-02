@@ -15,14 +15,14 @@ import SubscriptionBox from '../shared/SubscriptionBox'
 import SelectLocation from '../shared/SelectLocation'
 
 
-function MainForm({siteData, city, action_link}) {
+function MainForm({siteData, action_link}) {
 
   // if store not selected yet.... 
   // (this is useful when navigating between pages and the location is already selected somewhere else in other forms)
   if(!formData.store.salesforceValue) {
     // Whether it's a single location city or multiple, 
     // getStore will return the first element of the city locations array
-    let store = getStore(city.locations[0].salesforceValue)
+    let store = getStore(siteData.locations[0].salesforceValue)
 
     // Update formData.store
     updateStoreProps(formData, store)

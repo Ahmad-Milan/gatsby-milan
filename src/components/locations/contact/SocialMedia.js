@@ -5,7 +5,7 @@ import Instagram from './Instagram'
 import { FaFacebookSquare, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { facebook_start } from '../../../constants/constants'
 
-function SocialMedia({city}) {
+function SocialMedia({siteData}) {
   return (
     <section className="full-section background light-blue-bg">
       <div className="container">
@@ -18,16 +18,16 @@ function SocialMedia({city}) {
                 </h3>
                 
                   {
-                    city.locations.length === 1 ?
+                    !siteData.multiple ?
                     <div className="text-decoration-none bg-white p-3 mb-3 rounded shadow-sm">
                       <a className="d-block main-blue h5 mb-0" 
-                        href={`${facebook_start}${city.locations[0].reviews.facebook}`} target="_blank" rel="noreferrer">
-                      <FaFacebookSquare className="me-1 pb-1 fs-3" /> {city.locations[0].location}, {city.locations[0].stateShort}</a>
+                        href={`${facebook_start}${siteData.locations[0].reviews.facebook}`} target="_blank" rel="noreferrer">
+                      <FaFacebookSquare className="me-1 pb-1 fs-3" /> {siteData.locations[0].location}, {siteData.locations[0].stateShort}</a>
                     </div>
                     :
                     <div className="text-decoration-none mb-2 d-flex flex-wrap">
                       {
-                        city.locations.map((location, x) =>(
+                        siteData.locations.map((location, x) =>(
                           <div key={x} className="mb-lg-2 col-12 col-lg-6 px-0">
                             <Facebook location={location} />
                           </div>

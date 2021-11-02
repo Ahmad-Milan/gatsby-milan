@@ -4,10 +4,10 @@ import imageExists from '../../../../functions/general/imageExists'
 import HeroDetails from './HeroDetails'
 import { milan_img_path } from '../../../../constants/constants'
 
-function TempHero({siteData, city, store, defaultImages}) {
+function TempHero({siteData, store, defaultImages}) {
   const breakpoints = useBreakpoint()
 
-  const exteriorTempPath = `${milan_img_path}${siteData.stateShort.toLowerCase()}/${city.pathname}/${store.pathname}/`
+  const exteriorTempPath = `${milan_img_path}${siteData.stateShort.toLowerCase()}/${siteData.pathname}/${store.pathname}/`
 
   const [exteriorTemp, setExteriorTemp] = useState(defaultImages.exterior)
 
@@ -31,7 +31,7 @@ function TempHero({siteData, city, store, defaultImages}) {
               style={{backgroundImage: breakpoints.md ? `url(${defaultImages.thumbnail})` : `url(${exteriorTemp})`}}></div>
             
             <div className="col-md-6 p-0">
-              <HeroDetails city={city} store={store} />
+              <HeroDetails siteData={siteData} store={store} />
             </div>
 
           </div>

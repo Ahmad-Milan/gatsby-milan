@@ -5,10 +5,10 @@ import Doctors from '../store-layout/Doctors'
 import CityStores from './CityStores'
 
 
-function CityLayout({city}) {
+function CityLayout({siteData}) {
   return (
     <Layout>
-      <CityStores city={city} />
+      <CityStores siteData={siteData} />
       <LocationsBanner />
       <span id="about-us"></span>
       <Doctors />

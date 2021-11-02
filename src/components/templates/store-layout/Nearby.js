@@ -5,10 +5,10 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { MILAN_PHONE, milan_img_path } from '../../../constants/constants'
 
-function Nearby({siteData, city, store}) {
+function Nearby({siteData, store}) {
 
   const settings = {
-    dots: siteData.multiple && city.locations.length > 2 ? true : false,
+    dots: siteData.multiple && siteData.locations.length > 2 ? true : false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -23,7 +23,7 @@ function Nearby({siteData, city, store}) {
     )
   }
 
-  const nearby = city.locations.filter(location => location.pathname !== store.pathname)
+  const nearby = siteData.locations.filter(location => location.pathname !== store.pathname)
 
   return (
     <section className="full-section nearby-locations-carousel">
@@ -34,11 +34,11 @@ function Nearby({siteData, city, store}) {
             <Slider {...settings} className="location-wrapper overflow-hidden">
               {
                 nearby.map((location, x) => {
-                  let imgPath = `${milan_img_path}${siteData.stateShort.toLowerCase()}/${city.pathname}/${location.pathname}/${location.location.trim().replace(/\s/g, '')}_Thumbnail.jpg`
+                  let imgPath = `${milan_img_path}${siteData.stateShort.toLowerCase()}/${siteData.pathname}/${location.pathname}/${location.location.trim().replace(/\s/g, '')}_Thumbnail.jpg`
                   if(!location.proPhotos) imgPath = `${milan_img_path}shared/store_temp/coming-soon-cam-sm.jpg`
                   return (
                     <div key={x} className={`d-inline-block ${settings.dots ? 'mt-4' : ''}`}>
-                      <Link to={`/locations/${city.pathname}/${location.pathname}/`} 
+                      <Link to={`/locations/${siteData.pathname}/${location.pathname}/`} 
                         className="location text-white d-flex justify-content-center flex-column flex-lg-row">
                         <div className="col-lg-4">
                           <div className="w-100 text-center">
