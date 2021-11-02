@@ -18,13 +18,6 @@ function getSiteData() {
 
   combineLocationsProps(siteData, currentCity)
 
-  /**************************************/
-  // if the city is a single location city, add a salesforceValue prop
-  if(currentCity.locations.length === 1) {
-    siteData.salesforceValue = currentCity.locations[0].salesforceValue
-  }
-  /**************************************/
-
   console.log(siteData)
   return siteData
 }
