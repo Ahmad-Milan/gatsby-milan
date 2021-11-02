@@ -49,7 +49,7 @@ function NotOpen({siteData}) {
   // -------------------Single---------------------- //
   if(!siteData.multiple) {
     // getStore takes the salesforce value as a parameter
-    const currentStore = getStore(siteData.salesforceValue)
+    const currentStore = getStore(siteData.locations[0].salesforceValue)
     // Update formState.store props 
     // Get the values from currentStore
     updateStoreProps(formState, currentStore)
