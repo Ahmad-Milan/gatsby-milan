@@ -2,7 +2,7 @@
   background-image: url('https://milanlaser.com/images/mapbackground.jpg');
   background-position: center;
 }
-.store-hero .map-btn {
+.store-hero .map-btn, .store-hero-pro .map-btn {
   padding: 10px 20px;
   width: 270px;
   display: inline-block;
@@ -180,7 +180,9 @@
 }
 @media (max-width: 576px) {
   .store-hero {background-image: none;}
-  .store-hero .map-btn{width: 250px; font-size: .9rem;}
+  .store-hero .map-btn, .store-hero-pro .map-btn {
+    width: 250px; font-size: .9rem;
+  }
   .bg-blue-sm {background-color: var(--main-blue);}
   .bg-blue-sm > div {box-shadow: none !important;}
   .store-hero-pro {background-image: none !important;}
