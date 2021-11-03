@@ -2,14 +2,16 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { FaPhone } from 'react-icons/fa'
 import { MILAN_PHONE } from '../../../constants/constants'
+import { ToWords } from 'to-words';
 
 function CityStores({siteData}) {
+  const toWords = new ToWords();
   return (
     <section className="full-section background hero light-blue-bg">
       <div className="container">
         <div className="row text-center">
           <h1 className="pb-4">Our {siteData.city} Locations</h1>
-          <p className="col-md-10 mx-auto">We have {siteData.locations.length} convenient {siteData.city} area locations. We are currently open across the street from the Chandler Fashion Center in Chandler, just off of Bell Road in the center with Target, Ross, and HomeGoods, in Peoria, just south of Kierland Commons at Scottsdale and Thunderbird Roads in Scottsdale with a second Scottsdale location opening soon.</p>
+          <p className="col-md-10 mx-auto">We have {toWords.convert(siteData.locations.length).toLocaleLowerCase()} convenient {siteData.city} area locations. We are currently open across the street from the Chandler Fashion Center in Chandler, just off of Bell Road in the center with Target, Ross, and HomeGoods, in Peoria, just south of Kierland Commons at Scottsdale and Thunderbird Roads in Scottsdale with a second Scottsdale location opening soon.</p>
         </div>
         <div className="row pt-4 justify-content-center">
         {
