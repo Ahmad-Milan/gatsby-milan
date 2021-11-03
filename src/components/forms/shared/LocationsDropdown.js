@@ -8,7 +8,7 @@ function LocationsDropdown() {
       <option value="">Select a location</option>
     </optgroup>
     {
-      stores.locations.map((item, i) => (
+      stores.map((item, i) => (
         <optgroup key={i} label={item.state}>
           {
             item.stores.map((elem) => {

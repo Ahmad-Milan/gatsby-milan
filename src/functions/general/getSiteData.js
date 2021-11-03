@@ -6,7 +6,7 @@ import combineLocationsProps from './combineLocationsProps'
 // Returns siteData obj
 function getSiteData() {
   // 1. Find the matching state from the stores list
-  let currentState = stores.locations.find(state => state.stateShort === siteData.stateShort)
+  let currentState = stores.find(state => state.stateShort === siteData.stateShort)
   // 2. Find the current city in that state
   let currentCity = currentState.stores.find(city => city.pathname === siteData.pathname.toLowerCase())
   // 3. Add more props to siteData obj

@@ -4,7 +4,7 @@ import stores from '../../data/stores.json'
 // Accepts the salesforce value as a param
 // Returns the store object of the passed salesforce value (The store NOT the city)
 const getStore = (salesforceValue) => {
-  let filteredStore = stores.locations.find(element => {
+  let filteredStore = stores.find(element => {
     return element.stores.some(findLocation)
   }).stores.find(findLocation)
 

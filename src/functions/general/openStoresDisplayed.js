@@ -2,7 +2,7 @@ import stores from '../../data/stores.json'
 
 function openStoresTotal() {
   let total = 0
-  stores.locations.forEach(state => {
+  stores.forEach(state => {
     state.stores.forEach(city => {
       let open = city.locations.reduce((acc, location) => acc + location.open, 0)
       total += open
