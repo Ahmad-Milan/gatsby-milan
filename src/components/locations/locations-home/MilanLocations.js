@@ -2,6 +2,8 @@ import React, {useState, useEffect, useRef} from 'react'
 import openStoresDisplayed from '../../../functions/general/openStoresDisplayed'
 import { Link } from 'gatsby'
 import { Form } from 'react-bootstrap'
+import { usePosition } from '../../../hooks/usePosition'
+import axios from 'axios'
 
 function MilanLocations({siteData, stores}) {
   const openStoresNum = openStoresDisplayed()
@@ -9,7 +11,11 @@ function MilanLocations({siteData, stores}) {
   const [selectedCity, setSelectedCity] = useState(selectedState.stores.find(city => city.city === siteData.city))
   const didMount = useRef(false)
 
+  const {latitude, longitude, error} = usePosition()
+  const [userInteraction, setUserInteraction] = useState(false)
+
   const statesDropdownHandler = event => {
+    setUserInteraction(true)
     setSelectedState(stores.find(state => state.state === event.target.value))
   }
 
@@ -18,10 +24,58 @@ function MilanLocations({siteData, stores}) {
   }
 
   useEffect(() => {
-    // using useRef in this case, prevents useEffect from running on mount
-    if(didMount.current) setSelectedCity(selectedState.stores[0])
-    else didMount.current = true
-  }, [selectedState])
+    if(latitude && longitude && !didMount.current && !userInteraction) {
+      didMount.current = true
+      axios.get(`https://maps.googleapis.com/maps/api/geocode/json`, {
+        params: {
+          latlng: `${latitude},${longitude}`,
+          key: process.env.Google_Maps_API_Key
+        }
+      })
+      .then(response => {
+        let [detectedCity, stateShort, country] = getCityStateCountry(response)
+        let detectedState
+        if(country === 'United States') detectedState = stores.find(state => state.stateShort === stateShort)
+        if(detectedState) {
+          setSelectedState(detectedState)
+          const milanCity = findCity(detectedCity, detectedState)
+          if(milanCity) setSelectedCity(milanCity)
+          else if(!milanCity) setSelectedCity(detectedState.stores[0])
+        }
+      }).catch(err => console.error(err))
+    }else if(userInteraction) {
+      setSelectedCity(selectedState.stores[0])
+    }
+  },[latitude, longitude, selectedState, userInteraction])
+
+
+  const getCityStateCountry = response => {
+    let detectedCity, stateShort, country
+    for (let i = 0; i < response.data.results[0].address_components.length; i++) {
+      for (let j = 0; j < response.data.results[0].address_components[i].types.length; j++) {
+        switch (response.data.results[0].address_components[i].types[j]) {
+          case "locality":
+            detectedCity = response.data.results[0].address_components[i].long_name;
+            break;
+          case "administrative_area_level_1":
+            stateShort = response.data.results[0].address_components[i].short_name;
+            break;
+          case "country":
+            country = response.data.results[0].address_components[i].long_name;
+            break;
+        }
+      }
+    }
+    return [detectedCity, stateShort, country]
+  }
+
+  const findCity = (detectedCity, detectedState) => {
+    let filteredCity = detectedState.stores.find(city => {
+      if(city.city === detectedCity) return true
+      else return city.locations.find(location => location.location === detectedCity)
+    })
+    return filteredCity
+  }
 
   return (
     <section id="milan-locations" className="full-section background hero light-blue-bg">
@@ -86,7 +140,6 @@ function MilanLocations({siteData, stores}) {
                 </li>
               ))
             }
-
           </ul>
         </div>
       </div>
