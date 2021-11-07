@@ -1,3 +1,4 @@
+/******** FAQs Page *****************/
 .faqs-hero {
 	background-image: url('https://milanlaser.com/images/FAQ_Hero_v2_mobile.jpg'); 
   min-height: 340px;
@@ -35,6 +36,40 @@
   color: var(--light-blue);
 }
 
+/******** Quiz Page *****************/
+.quiz-box .question-wrapper {
+  position: relative;	perspective: 1500px;perspective-origin: bottom;
+  z-index: 1;	overflow: hidden;width: 100%;flex: 0 0 auto;transition: all ease-in .5s;
+}
+.quiz-box .question > h4 > span {color: var(--main-blue);}
+/*	Options Container 	*/
+.quiz-box .options-container {
+  transform-origin: bottom;transition: all .5s ease-in-out .1s;height: 260px;
+list-style: none;
+}
+.quiz-box .options-container .option {
+cursor: pointer; border-radius: 0; margin-bottom: 2px; border-top-width: 1px; line-height: 1.3rem;
+}
+.quiz-box .options-container .option > button {
+  padding-top: .8rem;
+  padding-bottom: .8rem;
+}
+.quiz-box .options-container .option > button.active {background-color: var(--main-blue); color: #fff;}
+.quiz-box .fold-up {transform: rotateX(75deg) translateY(-100%);}
+/*	Answers Container 	*/
+.quiz-box .answers-container {
+  position: absolute; transform-origin: top; width: 100%;
+  transition: all .5s ease-in-out .1s;height: 260px; overflow: scroll;
+}
+.quiz-box .answers-container > .answer {display: none;}
+.quiz-box .answers-container > .answer.active {	display: block;}
+.quiz-box .answers-container > h4 {color: var(--main-blue); height: 19px;}
+.quiz-box .answers-container .show-options-btn {
+  color: var(--main-blue);cursor: pointer;margin-left: 8px;font-size: 12px;
+}
+/*	Next & Prev Buttons 	*/
+.quiz-box .quiz-btns .navy-bg-btn{min-width: 120px;}
+.quiz-box .quiz-btns {height: 40px; z-index: 100;}
 
 @media (min-width: 576px) {
   .faqs-hero {
@@ -68,4 +103,12 @@
 @media (max-width: 991px) {
 	#faqs .card:nth-child(3n+2) .wrapper {background-color: #0696B8;}
 	#faqs .card:nth-child(3n+3) .wrapper {background-color: rgba(0, 58, 68, .8);}
+}
+@media (max-width: 576) {
+  .quiz-box .answers-container > .answer {box-shadow: none !important;}
+  .quiz-box .answers-container .show-options-btn {margin-left: 0px;}
+  .quiz-box .options-container .option {font-size: 14px;}
+  .quiz-box .options-container .option > a > img {max-width: 70px;}
+  .quiz-box .question-wrapper:last-child .list-group-item {padding: 0 !important; min-height: 70px;}
+  .quiz-box .question-wrapper:last-child .list-group-item figcaption {display: inline;}
 }
