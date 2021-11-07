@@ -145,7 +145,7 @@ function Faqs() {
                 </Card.Header>
                 <Accordion.Collapse eventKey="6">
                   <Card.Body>
-                    <p>Our lasers usually do, but the best way to determine if it will work for you is to <u><span onClick={() => scrollTo('#scrollToConsult')}>come in for a free consultation.</span></u> If your hair is too light to work, we will let you know. Our #1 priority is customer satisfaction, so we absolutely will not sell you laser hair removal if it won’t produce absolutely stellar results!</p>
+                    <p>Our lasers usually do, but the best way to determine if it will work for you is to <u><span onClick={() => scrollTo('#consultation')}>come in for a free consultation.</span></u> If your hair is too light to work, we will let you know. Our #1 priority is customer satisfaction, so we absolutely will not sell you laser hair removal if it won’t produce absolutely stellar results!</p>
                     <p><strong>Blondes:</strong> Laser hair removal will work on most people with blonde hair as long as the hair isn’t “bleach blonde” or “platinum” in color.</p>
                     <p><strong>Reds:</strong> It will frequently work on red hair as long as there is some pigment for the laser to capture.</p>
                     <p><strong>Gray:</strong> Gray hair is, well, a gray area! We would have to see your hair to determine exactly how much pigment is left for the laser to target. This can be determined during your consultation!</p>

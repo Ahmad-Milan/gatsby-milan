@@ -38,7 +38,7 @@ function Header({menu, siteData}) {
                 </a>
               </div>
               <div className="d-inline-block">
-                <button className="cta-btn red-bg-btn py-1 px-3" onClick={() => scrollTo('#scrollToConsult')}>
+                <button className="cta-btn red-bg-btn py-1 px-3" onClick={() => scrollTo('#consultation')}>
                   {siteData.open ? 'FREE CONSULT' : 'Request More Information'}
                 </button>
               </div>
