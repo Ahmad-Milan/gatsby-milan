@@ -12,6 +12,8 @@ const getCityStateCountry = response => {
         case "country":
           country = response.data.results[0].address_components[i].long_name;
           break;
+        default:
+          break;
       }
     }
   }
