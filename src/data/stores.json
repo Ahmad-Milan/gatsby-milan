@@ -62,6 +62,61 @@
       }
     ]
   },
+
+  {
+    "state": "Nebraska",
+    "stateShort": "NE",
+    "stores": [
+      {
+        "city": "Lincoln",
+        "pathname": "lincoln",
+        "locations": [
+          {
+            "location": "Lincoln South",
+            "locationOnAddress": "same",
+            "salesforceValue": "Lincoln",
+            "stateShort": "NE",
+            "address": "3450 W Chandler Blvd",
+            "zipcode": "85226",
+            "open": true
+          },
+          {
+            "location": "Lincoln North",
+            "locationOnAddress": "same",
+            "salesforceValue": "Lincoln (North)",
+            "stateShort": "AZ",
+            "address": "7857 W Bell Rd",
+            "zipcode": "85382",
+            "open": false
+          }
+        ]
+      },
+      {
+        "city": "Omaha",
+        "pathname": "omaha",
+        "locations": [
+          {
+            "location": "Omaha Central",
+            "locationOnAddress": "Omaha",
+            "salesforceValue": "Omaha Central",
+            "stateShort": "NE",
+            "address": "3450 W Chandler Blvd",
+            "zipcode": "85226",
+            "open": true
+          },
+          {
+            "location": "Omaha West",
+            "locationOnAddress": "Omaha",
+            "salesforceValue": "Omaha West",
+            "stateShort": "NE",
+            "address": "7857 W Bell Rd",
+            "zipcode": "85382",
+            "open": true
+          }
+        ]
+      }
+    ]
+  },
   
   {
     "state": "Texas",
