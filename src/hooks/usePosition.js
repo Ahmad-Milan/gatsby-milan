@@ -1,25 +1,33 @@
 import {useState, useEffect} from 'react';
 export const usePosition = () => {
   const [position, setPosition] = useState({});
-  const [error, setError] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
   
-  const onChange = ({coords}) => {
+  // success: callback function takes a coords object as an input parameter
+  const success = ({coords}) => {
     setPosition({
       latitude: coords.latitude,
       longitude: coords.longitude,
     });
   };
-  const onError = (error) => {
-    setError(error.message);
-  };
+
+  // error: callback function that takes a GeolocationPositionError object as an input parameter.
+  const error = err => setErrorMsg(err.message)
+
   useEffect(() => {
-    const geo = navigator.geolocation;
+    const geo = navigator.geolocation
+    // Check if the browser is supporting navigator.geolocation
     if (!geo) {
-      setError('Geolocation is not supported');
-      return;
+      setErrorMsg('Geolocation is not supported')
+      return
     }
-    const watcher = geo.watchPosition(onChange, onError);
-    return () => geo.clearWatch(watcher);
+    // navigator.geolocation.watchPosition(success, error, options)
+    // The ID number returned by the Geolocation.watchPosition() method when installing the handler you wish to remove.
+    const id = geo.watchPosition(success, error);
+
+    // The ID can be passed to the Geolocation.clearWatch() to unregister the handler.
+    return () => geo.clearWatch(id);
   }, []);
-  return {...position, error};
+  return {...position, errorMsg};
 }
+
