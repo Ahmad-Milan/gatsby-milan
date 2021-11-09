@@ -16,7 +16,7 @@ import EmailInput from '../shared/EmailInput'
 import FullNameInput from '../shared/FullNameInput'
 import SelectLocation from '../shared/SelectLocation'
 
-function Quote({scrollTop}) {
+function QuoteForm({scrollTop}) {
 
   // if store not selected yet.... 
   // (this is useful when navigating between pages and the location is already selected somewhere else in other forms)
@@ -234,4 +234,4 @@ function Quote({scrollTop}) {
   )
 }
 
-export default Quote
+export default QuoteForm
