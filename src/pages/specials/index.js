@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import Layout, {siteData}  from '../../components/templates/Layout'
-import { Link } from 'gatsby'
 import SpecialsHero from '../../components/specials/SpecialsHero'
 import SignUpModal from '../../components/modals/SignUpModal'
+import MilanCredit from '../../components/specials/MilanCredit'
 
 function SpecialsPage() {
   const [showSignUpModal, setShowSignUpModal] = useState(false)
@@ -14,7 +14,7 @@ function SpecialsPage() {
         showSignUpModal &&
         <SignUpModal showSignUpModal={showSignUpModal} setShowSignUpModal={setShowSignUpModal} />
       }
-      <Link to="/specials/estimate/">Customm Quote</Link>
+      <MilanCredit setShowSignUpModal={setShowSignUpModal} />
     </Layout>
   )
 }
