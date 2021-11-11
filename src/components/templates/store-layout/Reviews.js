@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { milan_img_path } from '../../../constants/constants'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -47,7 +48,7 @@ function Reviews({store}) {
         <h2 className="text-center subhead-sm mb-4">What Our Chandler Customers Are Saying</h2>
         <div className="row">
           <div className="col-md-1 text-right d-none d-md-block">
-            <img src="https://milanlaser.com/images/left-quote.svg" alt="" className="w-75" />
+            <img src={`${milan_img_path}shared/other/left-quote.svg`} alt="" className="w-75" />
           </div>
           <div className="col-md-10 text-center text-white">
             <Slider className="overflow-hidden mb-0" {...settings}>
@@ -59,7 +60,7 @@ function Reviews({store}) {
                       {review.text.length > 400 ? review.text.substr(0, 400) + '...' : review.text}
                       &nbsp;<i className="fas fa-quote-right d-md-none"></i>
                     </p>
-                    <p><img className="mx-auto" src="https://milanlaser.com/images/stars.svg" alt="" style={{maxWidth: '150px'}} /></p>
+                    <p><img className="mx-auto" src={`${milan_img_path}shared/other/stars.svg`} alt="" style={{maxWidth: '150px'}} /></p>
                     <div>{review.author_name.substring(0, review.author_name.indexOf(" ") + 2)}.</div>
                   </div>
                 ))
@@ -67,7 +68,7 @@ function Reviews({store}) {
             </Slider>
           </div>
           <div className="col-md-1 text-right d-none d-md-block">
-            <img src="https://milanlaser.com/images/right-quote.svg" alt="" className="w-75" />
+            <img src={`${milan_img_path}shared/other/right-quote.svg`} alt="" className="w-75" />
           </div>
         </div>
       </div>
