@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaArrowUp, FaAsterisk } from 'react-icons/fa'
+import { FaAsterisk } from 'react-icons/fa'
+import BackToOptionBtn from './BackToOptionBtn'
 import { Link } from 'gatsby'
 
 function QuestionThree({optionClickHandler, backToOptionsHandler, quiz, userInputs, counter}) {
@@ -66,7 +67,7 @@ function QuestionThree({optionClickHandler, backToOptionsHandler, quiz, userInpu
           <span className="d-sm-none">Advances in laser hair removal technology have made it <Link to="/areas/darkskin/" className="main-blue">safe for all skin tones</Link>. However, make sure you find a place that can complete your treatments using Nd: Yag technology.</span>
         </li>
 
-        <span className="show-options-btn" onClick={() => backToOptionsHandler('question_3')}>Back to options <FaArrowUp /></span>
+        <BackToOptionBtn questionNumber="3" backToOptionsHandler={backToOptionsHandler} />
       </ul>
     </div>
   )

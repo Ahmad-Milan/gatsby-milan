@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaArrowUp, FaAsterisk } from 'react-icons/fa'
+import { FaAsterisk } from 'react-icons/fa'
+import BackToOptionBtn from './BackToOptionBtn'
 import { Link } from 'gatsby'
 
 function QuestionTwo({optionClickHandler, backToOptionsHandler, quiz, userInputs, counter}) {
@@ -69,7 +70,7 @@ function QuestionTwo({optionClickHandler, backToOptionsHandler, quiz, userInputs
           <span className="d-sm-none">If you have dark body hair, it will respond well to laser hair removal treatments. <Link to="/process/" className="main-blue">Learn more</Link>.</span>
         </li>
 
-        <span className="show-options-btn" onClick={() => backToOptionsHandler('question_2')}>Back to options <FaArrowUp /></span>
+        <BackToOptionBtn questionNumber="2" backToOptionsHandler={backToOptionsHandler} />
       </ul>
     </div>
   )

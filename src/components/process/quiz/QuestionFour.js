@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaArrowUp, FaAsterisk } from 'react-icons/fa'
+import { FaAsterisk } from 'react-icons/fa'
+import BackToOptionBtn from './BackToOptionBtn'
 
 function QuestionFour({optionClickHandler, backToOptionsHandler, quiz, userInputs, counter}) {
   return (
@@ -37,7 +38,7 @@ function QuestionFour({optionClickHandler, backToOptionsHandler, quiz, userInput
           <span className="d-sm-none">Your skin is its natural color, which makes it safe to treat! Avoiding sun exposure and tanning beds is a great way to ensure you can be treated.</span>
         </li>
 
-        <span className="show-options-btn" onClick={() => backToOptionsHandler('question_4')}>Back to options <FaArrowUp /></span>
+        <BackToOptionBtn questionNumber="4" backToOptionsHandler={backToOptionsHandler} />
       </ul>
     </div>
   )

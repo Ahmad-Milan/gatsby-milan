@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaArrowUp, FaAsterisk } from 'react-icons/fa'
+import { FaAsterisk } from 'react-icons/fa'
+import BackToOptionBtn from './BackToOptionBtn'
 
 function QuestionOne({optionClickHandler, backToOptionsHandler, quiz, userInputs, counter}) {
   return (
@@ -77,7 +78,7 @@ function QuestionOne({optionClickHandler, backToOptionsHandler, quiz, userInputs
           <span className="d-sm-none">You can consent to begin laser hair removal treatments on your own. At this point, the color of your unwanted hair is a key factor.</span>
         </li>
 
-        <span className="show-options-btn" onClick={() => backToOptionsHandler('question_1')}>Back to options <FaArrowUp /></span>
+        <BackToOptionBtn questionNumber="1" backToOptionsHandler={backToOptionsHandler} />
       </ul>
     </div>
   )

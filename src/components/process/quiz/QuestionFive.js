@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaArrowUp, FaAsterisk } from 'react-icons/fa'
+import { FaAsterisk } from 'react-icons/fa'
+import BackToOptionBtn from './BackToOptionBtn'
 import { Link } from 'gatsby'
 
 function QuestionFive({optionClickHandler, backToOptionsHandler, quiz, userInputs, counter}) {
@@ -37,7 +38,7 @@ function QuestionFive({optionClickHandler, backToOptionsHandler, quiz, userInput
           <span className="d-sm-none">There’s no reason to wait to begin laser hair removal. Hormone changes associated with future pregnancy or menopause may lead to new hair growth down the road, so it’s always a good idea to look for a company that offers <Link to="/specials/#guarantee" className="main-blue">unlimited laser hair removal treatments</Link> instead of only purchasing a set number of treatments.</span>
         </li>
 
-        <span className="show-options-btn" onClick={() => backToOptionsHandler('question_5')}>Back to options <FaArrowUp /></span>
+        <BackToOptionBtn questionNumber="5" backToOptionsHandler={backToOptionsHandler} />
       </ul>
     </div>
   )
