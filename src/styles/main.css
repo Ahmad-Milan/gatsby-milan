@@ -72,10 +72,10 @@ h2 {
   border: none;
   transition: all 150ms ease-in-out;
 }
-#actions-btns .red-bg-btn:disabled {
+.red-bg-btn:disabled {
   background-color: var(--red-disabled);
 }
-#actions-btns .navy-bg-btn:disabled {
+.navy-bg-btn:disabled {
   background-color: var(--navy-disabled);
 }
 form label sup {
@@ -117,6 +117,34 @@ button:disabled{
   padding: 15px; 
   margin: auto;
 }
+.pointer {
+  cursor: pointer;
+}
+/**************** Modal **************/
+.modal .btn-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.modal .modal-content {
+  background-color: var(--main-blue);
+  color: #fff;
+  min-height: 300px;
+}
+.modal .modal-header {
+  border-bottom: 0;
+  text-align: center;
+}
+.modal .modal-title p.light-blue {
+  font-size: .8rem; line-height: 1.3rem;
+}
+.modal .modal-title p.light-blue a{
+  text-decoration: underline;
+}
+.modal .consent-msg, #lp-modal .custom-checkbox > label {
+  color: var(--light-blue);
+}
+/**************************************/
 
 @media(min-width: 576px) and (max-width: 768px) {}
 
