@@ -1,11 +1,11 @@
 import React, {useContext} from 'react'
 import { Accordion, Card } from 'react-bootstrap'
 import { Link } from 'gatsby'
-import scrollTo from 'gatsby-plugin-smoothscroll'
 import { useAccordionButton } from 'react-bootstrap/AccordionButton'
 import AccordionContext from 'react-bootstrap/AccordionContext'
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
 import openStoresDisplayed from '../../../functions/general/openStoresDisplayed'
+import { milan_img_path} from '../../../constants/constants'
 
 function ContextAwareToggle({ children, eventKey, callback }) {
   const { activeEventKey } = useContext(AccordionContext);
@@ -19,14 +19,15 @@ function ContextAwareToggle({ children, eventKey, callback }) {
 
   return (
     <div
-      onClick={decoratedOnClick}
+      onClick={decoratedOnClick} role="button" tabIndex="0"
+      onKeyDown={e => e.key === 'Enter' && decoratedOnClick}
       className="d-flex flex-column justify-content-between">
         {children}
-        <aside className="text-end">
-          <span className="pe-2">Answer</span>
-          {isCurrentEventKey ? <FaMinusCircle /> : <FaPlusCircle />}
-        </aside>
-      </div>
+      <aside className="text-end">
+        <span className="pe-2">Answer</span>
+        {isCurrentEventKey ? <FaMinusCircle /> : <FaPlusCircle />}
+      </aside>
+    </div>
   );
 }
 
@@ -51,7 +52,7 @@ function Faqs() {
                       <p>Additionally, all of our treatment providers are <strong>Authorized Candela Practitioners</strong> who have been extensively trained by Independent Candela Trainers and are supervised by medical doctors. Their comprehensive training touches on everything from laser physics to medical conditions affecting hair growth, so you can rest assured that you’re in good hands with us!</p>
                     </div>
                     <div className="col-12 col-lg-4 text-center pt-2 pt-sm-0 px-0 pb-2">
-                      <img className="img-fluid" src="https://milanlaser.com/images/Candela-Badge.png" 
+                      <img className="img-fluid" src={`${milan_img_path}shared/other/Candela-Badge.png`}
                         alt="Candela Badge" style={{maxHeight: '200px'}} /> 
                     </div>
                   </Card.Body>
@@ -145,7 +146,7 @@ function Faqs() {
                 </Card.Header>
                 <Accordion.Collapse eventKey="6">
                   <Card.Body>
-                    <p>Our lasers usually do, but the best way to determine if it will work for you is to <u><span onClick={() => scrollTo('#consultation')}>come in for a free consultation.</span></u> If your hair is too light to work, we will let you know. Our #1 priority is customer satisfaction, so we absolutely will not sell you laser hair removal if it won’t produce absolutely stellar results!</p>
+                    <p>Our lasers usually do, but the best way to determine if it will work for you is to <u><Link to="#consultation" className="main-blue">come in for a free consultation.</Link></u> If your hair is too light to work, we will let you know. Our #1 priority is customer satisfaction, so we absolutely will not sell you laser hair removal if it won’t produce absolutely stellar results!</p>
                     <p><strong>Blondes:</strong> Laser hair removal will work on most people with blonde hair as long as the hair isn’t “bleach blonde” or “platinum” in color.</p>
                     <p><strong>Reds:</strong> It will frequently work on red hair as long as there is some pigment for the laser to capture.</p>
                     <p><strong>Gray:</strong> Gray hair is, well, a gray area! We would have to see your hair to determine exactly how much pigment is left for the laser to target. This can be determined during your consultation!</p>
