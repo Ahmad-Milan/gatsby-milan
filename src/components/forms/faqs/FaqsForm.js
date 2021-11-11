@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Link } from 'gatsby'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import TextError from '../shared/TextError'
 import SubscriptionBox from '../shared/SubscriptionBox'
@@ -15,6 +14,10 @@ import { siteData } from '../../templates/Layout'
 import validateEmail from '../shared/validateEmail'
 import LocationsDropdown from '../shared/LocationsDropdown'
 import faqsFormSchema from './faqsFormSchema'
+import { WebToLeadLink } from '../../../constants/constants'
+import FormSubmitting from '../shared/FormSubmitting'
+import FaqsSuccess from './FaqsSuccess'
+import FormFailed from '../shared/FormFailed'
 
 function FaqsForm() {
   // if store not selected yet.... 
@@ -23,7 +26,6 @@ function FaqsForm() {
     // Whether it's a single location city or multiple, 
     // getStore will return the first element of the city locations array
     let store = getStore(siteData.locations[0].salesforceValue)
-
     // Update formData.store
     updateStoreProps(formData, store)
   }
@@ -55,7 +57,7 @@ function FaqsForm() {
     setSubmitting(true)
     axios({
       method: 'POST',
-      url: 'https://cors-milanlaser.herokuapp.com/https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8',
+      url: WebToLeadLink,
       data: qs.stringify({
         'first_name': formState.user.first_name,
         'last_name': '',
@@ -96,29 +98,9 @@ function FaqsForm() {
       formik => {
         return (
           <Form className="w-100" >
-            { submitting ?
-            <center>
-              <p className="h3 mb-4">Sending question...</p>
-              <div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </center>
-            : leadSuccess ?
-            <center className="px-3 mt-3 success">
-              <p className="h1 text-success">SUCCESS!</p>
-              <p className="h3 mt-3 mb-3">Your request has been submitted.</p>
-              <p className="h5">We will be contacting you shortly with more information. During normal business hours you can expect to hear from us in about 15 minutes.</p>
-              <button 
-                className="w-100 cta-btn light-btn py-2 shadow-sm" 
-                onClick={() => askNewQuestionHandler(formik)}>
-                ASK ANOTHER QUESTION
-              </button>
-            </center>
-            : questionNotSent ?
-            <div className="alert alert-danger">
-              <p>Ruh Roh! Something went wrong. Question not sent. :(</p>
-              Click <Link to="/locations/contact/" className="main-blue text-decoration-underline">here</Link> to contact us.
-            </div>
+            { submitting ? <FormSubmitting />
+            : leadSuccess ? <FaqsSuccess askNewQuestionHandler={askNewQuestionHandler} formik={formik} />
+            : questionNotSent ? <FormFailed />
             : <>
             <div className="row">
               <div className="col-md-6">
@@ -154,7 +136,6 @@ function FaqsForm() {
                     </select>
                   </div>
                 }
-
               </div>
             </div>
             
