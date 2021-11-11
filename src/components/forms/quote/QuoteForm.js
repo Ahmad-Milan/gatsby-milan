@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Link } from 'gatsby'
 import { Formik, Form } from 'formik'
 import getStore from '../../../functions/general/getStore'
 import updateStoreProps from '../../../functions/forms/updateStoreProps'
@@ -10,27 +9,28 @@ import quoteSchema from './quoteSchema'
 import axios from 'axios'
 import qs from 'qs'
 import { siteData } from '../../templates/Layout'
-import './Quote.css'
 import PhoneInput from '../shared/PhoneInput'
 import EmailInput from '../shared/EmailInput'
 import FullNameInput from '../shared/FullNameInput'
 import SelectLocation from '../shared/SelectLocation'
+import { WebToLeadLink } from '../../../constants/constants'
+import FormSubmitting from '../shared/FormSubmitting'
+import QuoteSuccess from './QuoteSuccess'
+import FormFailed from '../shared/FormFailed'
+import './Quote.css'
 
 function QuoteForm({scrollTop}) {
-
   // if store not selected yet.... 
   // (this is useful when navigating between pages and the location is already selected somewhere else in other forms)
   if(!formData.store.salesforceValue) {
     // Whether it's a single location city or multiple, 
     // getStore will return the first element of the city locations array
     let store = getStore(siteData.locations[0].salesforceValue)
-
     // Update formData.store
     updateStoreProps(formData, store)
   }
 
   const [formState, setFormState] = useState(formData)
-
   const initialValues = {
     first_name: formState.user.first_name,
     phone: formState.user.phone,
@@ -69,14 +69,14 @@ function QuoteForm({scrollTop}) {
   const [submitting, setSubmitting] = useState(false)
   const [leadSuccess, setLeadSuccess] = useState(false)
   const [formNotSubmitted, setFormNotSubmitted] = useState(false)
-
+  
   const onSubmit = (user) => {
     updateUserInputs(formState, user)
     scrollTop()
     setSubmitting(true)
     axios({
       method: 'POST',
-      url: 'https://cors-milanlaser.herokuapp.com/https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8',
+      url: WebToLeadLink,
       data: qs.stringify({
           'first_name': formState.user.first_name,
           'last_name': '',
@@ -126,24 +126,7 @@ function QuoteForm({scrollTop}) {
       formik => {
         return (
           <Form className="quote-form w-100 pb-4" >
-          { submitting ?
-            <center>
-              <p className="h3 mb-4">Form submitting...</p>
-              <div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </center>
-            : leadSuccess ?
-            <center className="px-3 mt-3 success">
-              <p className="h1 text-success">SUCCESS!</p>
-              <p className="h3 mt-5 mb-3">Your request has been submitted.</p>
-              <p className="h5">We will be contacting you shortly with more information. During normal business hours you can expect to hear from us in about 15 minutes.</p>
-            </center>
-            : formNotSubmitted ?
-            <center className="alert alert-danger col-md-10 col-lg-6 mx-auto">
-              <p>Ruh Roh! Something went wrong. Form not submitted. :(</p>
-              Click <Link to="/locations/contact/" className="main-blue text-decoration-underline">here</Link> to contact us.
-            </center>
+          { submitting ? <FormSubmitting />  : leadSuccess ? <QuoteSuccess /> : formNotSubmitted ? <FormFailed />
             : <>
             <div className="form-inputs-wrapper">
               <div className="row justify-content-center mx-auto pt-4 mb-md-3">
