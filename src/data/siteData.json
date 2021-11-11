@@ -2,6 +2,7 @@
   "city": "Phoenix",
   "pathname": "phoenix",
   "stateShort": "AZ",
+  "grandOpening": true,
   "locations": [
     {
       "location": "Chandler",
