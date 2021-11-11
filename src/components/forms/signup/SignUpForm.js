@@ -83,12 +83,12 @@ function SignUpForm({setShowHeader}) {
             { submitting ? <FormSubmitting /> : leadSuccess ? <SignUpSuccess /> : signupFailed ? <FormFailed />
             : <>
             <div className="row">
-                <div className="mb-3">
+                <div>
                   <EmailInput formik={formik} />
                 </div>
                 {
                   siteData.multiple &&
-                  <div>
+                  <div className="mt-3">
                     <label htmlFor="00N1L00000F9eBV">Location <sup><FaAsterisk /></sup></label>
                     <select
                       value={formState.store.salesforceValue} onChange={ event => dropdownHandler(event.target.value) }
