@@ -2,6 +2,7 @@ import React from 'react'
 import openStoresDisplayed from '../../functions/general/openStoresDisplayed'
 import CountUp from 'react-countup'
 import VisibilitySensor from 'react-visibility-sensor'
+import { milan_img_path } from '../../constants/constants'
 
 function LocationsBanner() {
   const openStoresNum = openStoresDisplayed()
@@ -14,7 +15,7 @@ function LocationsBanner() {
             <h2 className="text-center text-white subhead-sm text-capitalize">
               {isVisible ? <CountUp className="text-white" end={openStoresNum} duration={2} /> : null}+ Milan Laser Locations
             </h2>
-            <img src="https://milanlaser.com/images/banner-button.png" alt="" />
+            <img src={`${milan_img_path}shared/other/locations-pin-btn.png`} alt="" />
           </a>
         </div>
       )}
