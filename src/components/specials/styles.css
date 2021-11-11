@@ -1,9 +1,18 @@
+:root {
+  --specials-hero-mobile: url('https://milanlaser.com/gatsby/images/shared/specials/Nov21_bg_sm.png');
+  --specials-hero-desktop: url('https://milanlaser.com/gatsby/images/shared/specials/Nov21_bg.png');
+}
 .specials-hero {
-	position: relative; background-image: url(https://milanlaser.com/images/Nov21_bg_sm.png); 
-	background-position: bottom; background-color: #fff; background-repeat: no-repeat; background-size: cover
+	position: relative;
+	background-image: var(--specials-hero-mobile);
+	background-position: bottom;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .specials-hero #graphic {max-height: 450px;}
-
 @media (min-width: 576px) {
-	.specials-hero {background-image: url(https://milanlaser.com/images/Nov21_bg.png);}
+	.specials-hero {
+		background-image: var(--specials-hero-desktop);
+	}
 }
