@@ -1,6 +1,12 @@
 /******** FAQs Page *****************/
+:root {
+  --faqs-hero-mobile: url('https://milanlaser.com/gatsby/images/shared/faqs/FAQ_Hero_Mobile.jpg');
+  --faqs-hero-tablet: url('https://milanlaser.com/gatsby/images/shared/faqs/FAQ_Hero_Tablet.jpg');
+  --faqs-hero-lg: url('https://milanlaser.com/gatsby/images/shared/faqs/FAQ_Hero_lg.jpg');
+  --faqs-hero-xl: url('https://milanlaser.com/gatsby/images/shared/faqs/FAQ_Hero_xl.jpg');
+}
 .faqs-hero {
-	background-image: url('https://milanlaser.com/images/FAQ_Hero_v2_mobile.jpg'); 
+	background-image: var(--faqs-hero-mobile);
   min-height: 340px;
 	background-size: cover; 
   background-position: top right; 
@@ -73,7 +79,7 @@ cursor: pointer; border-radius: 0; margin-bottom: 2px; border-top-width: 1px; li
 
 @media (min-width: 576px) {
   .faqs-hero {
-    background-image: url('https://milanlaser.com/images/FAQ_Hero_tab.jpg');
+    background-image: var(--faqs-hero-tablet);
   }
 }
 @media (min-width: 991px) {
@@ -92,12 +98,12 @@ cursor: pointer; border-radius: 0; margin-bottom: 2px; border-top-width: 1px; li
 }
 @media (min-width: 1200px) {
   .faqs-hero {
-    background-image: url('https://milanlaser.com/images/FAQ_Hero_v3.jpg');
+    background-image: var(--faqs-hero-lg);
   }
 }
 @media (min-width: 1600px) {
   .faqs-hero {
-    background-image: url('https://milanlaser.com/images/FAQ_Hero_v2.jpg');
+    background-image: var(--faqs-hero-xl);
   }
 }
 @media (max-width: 991px) {

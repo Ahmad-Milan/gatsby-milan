@@ -1,5 +1,9 @@
+:root {
+  --mapbackground: url('https://milanlaser.com/gatsby/images/shared/other/mapbackground.jpg');
+  --alllocationsbanner: url('https://milanlaser.com/gatsby/images/shared/other/alllocationsbanner-bkg.png');
+}
 .store-hero {
-  background-image: url('https://milanlaser.com/images/mapbackground.jpg');
+  background-image: var(--mapbackground);
   background-position: center;
 }
 .store-hero .map-btn, .store-hero-pro .map-btn {
@@ -25,7 +29,7 @@
   background: var(--main-navy);
 }
 .locations-banner {
-  background-image: url('https://milanlaser.com/images/alllocationsbanner-bkg.png'); 
+  background-image: var(--alllocationsbanner);
   background-color: var(--main-navy);
   background-size: contain;
   background-position: center;
