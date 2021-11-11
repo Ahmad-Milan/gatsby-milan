@@ -4,22 +4,21 @@ import Modal from 'react-bootstrap/Modal'
 import MainForm from '../forms/main/MainForm'
 import {siteData} from '../templates/Layout'
 
-import './LpModal.css'
-
-function Lp_Modal() {
-  const [lgShow, setLgShow] = useState(false);
+// Milan Landing Page Pop Up Modal
+function LpModal() {
+  const [showLpModal, setShowLpModal] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      setLgShow(true)
+      setShowLpModal(true)
     }, 2000);
   }, [])
 
   return (
     <Modal
       size="lg" id="lp-modal"
-      show={lgShow}
-      onHide={() => setLgShow(false)}
+      show={showLpModal}
+      onHide={() => setShowLpModal(false)}
       aria-labelledby="lp-modal-title"
     >
       <Modal.Header className="justify-content-center pb-0 mt-4" closeButton>
@@ -35,4 +34,4 @@ function Lp_Modal() {
   )
 }
 
-export default Lp_Modal
+export default LpModal
