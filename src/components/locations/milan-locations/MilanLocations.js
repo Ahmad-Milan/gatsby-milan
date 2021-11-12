@@ -60,7 +60,7 @@ function MilanLocations({siteData, stores}) {
     <section id="milan-locations" className="full-section background hero light-blue-bg">
       <div className="container">
         <div className="row text-center">
-          <h1>{openStoresNum}<sup>+</sup> Milan Locations in {stores.length} states</h1>
+          <h1>{openStoresNum}<sup>+</sup> Milan Locations in {stores.length} States</h1>
         </div>
 
         <div className="row pt-4 justify-content-center">
@@ -123,7 +123,7 @@ function MilanLocations({siteData, stores}) {
         </div>
         <div className="row justify-content-center">
           <div className="col-10 col-md-8 col-lg-6 col-xl-4 text-center anchor-blue border-top border-bottom py-2">
-            <Link to="https://milanlaser.com/locations/">See all Milan locations</Link>
+            <a href="https://milanlaser.com/locations/" target="_blank" rel="noreferrer">See all Milan locations</a>
           </div>
         </div>
       </div>
