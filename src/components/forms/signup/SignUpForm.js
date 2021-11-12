@@ -11,7 +11,7 @@ import { siteData } from '../../templates/Layout'
 import LocationsDropdown from '../shared/LocationsDropdown'
 import * as Yup from 'yup'
 import { FaAsterisk } from 'react-icons/fa'
-import SignUpSuccess from './SignUpSuccess'
+import SignUpSuccess from '../shared/SignUpSuccess'
 import FormFailed from '../shared/FormFailed'
 import FormSubmitting from '../shared/FormSubmitting'
 import EmailInput from '../shared/EmailInput'
@@ -73,9 +73,9 @@ function SignUpForm({setShowHeader}) {
 
   return (
     <Formik 
-    initialValues={initialValues}
-    validationSchema={signUpSchema}
-    onSubmit={(user) => onSubmit(user)}>
+      initialValues={initialValues}
+      validationSchema={signUpSchema}
+      onSubmit={(user) => onSubmit(user)}>
     {// This way we can get access to all formik props
       formik => {
         return (
@@ -83,20 +83,20 @@ function SignUpForm({setShowHeader}) {
             { submitting ? <FormSubmitting /> : leadSuccess ? <SignUpSuccess /> : signupFailed ? <FormFailed />
             : <>
             <div className="row">
-                <div>
-                  <EmailInput formik={formik} />
+              <div>
+                <EmailInput formik={formik} />
+              </div>
+              {
+                siteData.multiple &&
+                <div className="mt-3">
+                  <label htmlFor="00N1L00000F9eBV">Location <sup><FaAsterisk /></sup></label>
+                  <select
+                    value={formState.store.salesforceValue} onChange={ event => dropdownHandler(event.target.value) }
+                    className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
+                    <LocationsDropdown />
+                  </select>
                 </div>
-                {
-                  siteData.multiple &&
-                  <div className="mt-3">
-                    <label htmlFor="00N1L00000F9eBV">Location <sup><FaAsterisk /></sup></label>
-                    <select
-                      value={formState.store.salesforceValue} onChange={ event => dropdownHandler(event.target.value) }
-                      className="form-select" id="00N1L00000F9eBV" name="00N1L00000F9eBV" title="Location">
-                      <LocationsDropdown />
-                    </select>
-                  </div>
-                }
+              }
             </div>
             <div className="row mt-1">
               <div className="col-12 mb-3">
