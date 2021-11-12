@@ -13,14 +13,12 @@
   --light-bg: rgba(207,246,255,1.00);
   --light-blue-bg: #F5FAFD;
 }
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
 }
-
 body {
   font-family: 'Open Sans',sans-serif;
   font-size: 16px;
@@ -141,6 +139,9 @@ button:disabled{
 .milan-btn:hover {
   box-shadow: 0 10px 6px -6px rgba(0,58,68,.7);
   border: none; color: #fff !important;
+}
+.mb-n2 {
+  margin-bottom: -0.5rem;
 }
 /**************** Modal **************/
 .modal .btn-close {
