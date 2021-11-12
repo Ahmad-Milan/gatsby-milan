@@ -62,8 +62,9 @@ function MilanLocations({siteData, stores}) {
         <div className="row text-center">
           <h1>{openStoresNum}<sup>+</sup> Milan Locations in {stores.length} states</h1>
         </div>
+
         <div className="row pt-4 justify-content-center">
-          <h2 className="h4 pb-1 text-center">Select your state</h2>
+          <h2 className="h4 pb-1 text-center">Select a state from the list</h2>
           <div className="col-md-6 col-lg-4">
             <Form.Select aria-label="milan states" value={selectedState.state} onChange={statesDropdownHandler}>
               {
@@ -76,9 +77,8 @@ function MilanLocations({siteData, stores}) {
             </Form.Select>
           </div>
         </div>
-
         <div className="row pt-4 justify-content-center">
-          <h2 className="h4 pb-1 text-center">Select a city near you</h2>
+          <h2 className="h4 pb-1 text-center">Select a city from the list</h2>
           <div className="col-md-6 col-lg-4">
             <Form.Select aria-label="current city" value={selectedCity.city} onChange={citiesDropdownHandler}>
               {
@@ -120,6 +120,11 @@ function MilanLocations({siteData, stores}) {
               ))
             }
           </ul>
+        </div>
+        <div className="row justify-content-center">
+          <div className="col-10 col-md-8 col-lg-6 col-xl-4 text-center anchor-blue border-top border-bottom py-2">
+            <Link to="https://milanlaser.com/locations/">See all Milan locations</Link>
+          </div>
         </div>
       </div>
     </section>
