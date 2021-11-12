@@ -66,6 +66,9 @@ h2 {
   background: var(--main-red);
   color: #fff;
 }
+.navy-bg {
+  background: var(--main-navy);
+}
 .navy-bg-btn{background: var(--main-navy);}
 .navy-bg-btn:hover{background: var(--main-blue);}
 .cta-btn {
