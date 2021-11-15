@@ -12,12 +12,15 @@ function StaffPhotos({store}) {
         <div className="row col-xl-11 justify-content-center">
           {
             store.staff.map((member, x) => {
-              const memberArr = member.split("-") // returns ["firstname", "lastname", "role", "...etc"]
+              const memberArr = member.split("-") // returns ["firstname", "lastname", "role"]
+              // memberArr length can be > 3
               let role
-              switch (memberArr[2]) {
+              switch (memberArr[memberArr.length - 1]) {
                 case 'MD': role = 'Medical Director' 
                   break
                 case 'CM': role = 'Clinic Manager'
+                  break
+                case 'ACM': role = 'Assistant Clinic Manager'
                   break
                 case 'RN': role = 'Registered Nurse'
                   break
@@ -37,7 +40,8 @@ function StaffPhotos({store}) {
                       <div>
                         <strong>
                           {
-                            role === 'Medical Director' ? `Dr. ${memberArr[1]}` : `${memberArr[0]} ${memberArr[1][0]}.`
+                            role === 'Medical Director' ? `Dr. ${memberArr[1]}` 
+                            : `${memberArr[0]} ${memberArr[1][0]+'.' } ${memberArr.length > 3 ? memberArr[2][0]+'.' : ''}`
                           }
                         </strong>
                       </div>
