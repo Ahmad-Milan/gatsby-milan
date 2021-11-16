@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import Modal from 'react-bootstrap/Modal'
 import MainForm from '../forms/main/MainForm'
 import {siteData} from '../templates/Layout'
+import { FORM_ACTION_LP_LINK } from '../../constants/constants'
 
 // Milan Landing Page Pop Up Modal
 function LpModal() {
@@ -28,7 +29,7 @@ function LpModal() {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <MainForm siteData={siteData} action_link="l/642813/2018-11-30/gz1s" />
+        <MainForm siteData={siteData} action_link={FORM_ACTION_LP_LINK} />
       </Modal.Body>
     </Modal>
   )

@@ -13,8 +13,6 @@ import FullNameInput from '../shared/FullNameInput'
 import TextArea from '../shared/TextArea'
 import SubscriptionBox from '../shared/SubscriptionBox'
 import SelectLocation from '../shared/SelectLocation'
-import { MILAN_CORS } from '../../../constants/constants'
-
 
 function MainForm({siteData, action_link}) {
 
@@ -62,7 +60,7 @@ function MainForm({siteData, action_link}) {
             return (
               <Form 
                 className="w-100 pb-4" ref={formRef} method="POST"
-                action={`${MILAN_CORS}https://go.milanlaser.com/${action_link}`}>
+                action={action_link}>
                 <input type="hidden" name="oid" value="00D410000014bPe" />
                 <input type="hidden" name="retURL" value={`${siteData.origin}/form/processing.html`} />
                 <input className="lead_source" type="hidden" name="lead_source"  id="lead_source" value="Website" />

@@ -14,7 +14,7 @@ import onSubmit from '../../../functions/forms/onSubmit'
 import UserInputs from './UserInputs'
 import LocationsDropdown from '../shared/LocationsDropdown'
 import NearbyLocations from '../shared/NearbyLocations'
-import { MILAN_CORS } from '../../../constants/constants'
+import { FORM_ACTION_MAIN_LINK } from '../../../constants/constants'
 import './Consult.css'
 
 
@@ -49,8 +49,7 @@ function Multiple({siteData}) {
 
   // Action: 'question' OR 'self_schedule'
   const actionHandler = (action, formikProps) => setFormState(updateFormAction(action, formikProps, formState))
-  // console.log(formState)
-
+console.log(formState)
   return (
     <div id="consult-form" className="full-section">
       <div className="container">
@@ -67,7 +66,7 @@ function Multiple({siteData}) {
             return (
               <Form 
                 className="w-100 py-4 rounded shadow" ref={formRef} method="POST"
-                action={`${MILAN_CORS}https://go.milanlaser.com/l/642813/2018-12-05/h64s`}>
+                action={`${FORM_ACTION_MAIN_LINK}`}>
                 <input type="hidden" name="oid" value="00D410000014bPe" />
                 <input id="success" type="hidden" name="retURL" ref={succesRef} value="" />
                 <input className="lead_source" type="hidden" name="lead_source"  id="lead_source" value={formState.include.leadsource} />

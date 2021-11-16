@@ -1,7 +1,7 @@
 import React from 'react'
 import MainForm from '../../forms/main/MainForm'
 import getNearbyLocations from '../../../functions/general/getNearbyLocations'
-import { MILAN_PHONE, NO_RAZOR } from '../../../constants/constants'
+import { MILAN_PHONE, NO_RAZOR, FORM_ACTION_CONTACT_LINK } from '../../../constants/constants'
 
 function ContactHero({siteData}) {
 
@@ -47,7 +47,7 @@ function ContactHero({siteData}) {
             </div>
 
             <h5 className="text-center mt-3">Or Send Us a Question</h5>
-            <MainForm siteData={siteData} action_link="l/642813/2018-12-05/h652" />
+            <MainForm siteData={siteData} action_link={FORM_ACTION_CONTACT_LINK} />
           </div>
         </div>
       </div>
