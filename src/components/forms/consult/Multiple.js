@@ -49,7 +49,7 @@ function Multiple({siteData}) {
 
   // Action: 'question' OR 'self_schedule'
   const actionHandler = (action, formikProps) => setFormState(updateFormAction(action, formikProps, formState))
-console.log(formState)
+
   return (
     <div id="consult-form" className="full-section">
       <div className="container">
@@ -80,7 +80,6 @@ console.log(formState)
                     askQuestionClicked={askQuestionClicked}
                     handleSubscription={handleSubscription} />
 
-
                   <div className="locations-container">
                     <div className={`locations-wrapper mx-2 ${formState.include.action !== '' ? 'toggle' : ''}`}>
                       <div className="row justify-content-center mx-auto pt-4">
@@ -109,12 +108,19 @@ console.log(formState)
                             {
                             (formState.store.open || formState.include.action === 'question') &&
                             <>
-                            <strong>Selected location address:</strong>&nbsp;<br className="d-lg-none" />
-                            <span className="d-block d-md-inline">
-                              {formState.store.address}, <br className="d-sm-none" />
-                              {formState.store.locationOnAddress === "same" ? formState.store.location : formState.store.locationOnAddress},&nbsp;
-                              {formState.store.stateShort}&nbsp;{formState.store.zipcode}
-                            </span>
+                            {
+                              formState.store.address ? // This is true only when a nearby location is selected
+                              <>
+                              <strong>Selected location address:</strong>&nbsp;<br className="d-lg-none" />
+                              <span className="d-block d-md-inline">
+                                {formState.store.address}, <br className="d-sm-none" />
+                                {formState.store.locationOnAddress === "same" ? formState.store.location : formState.store.locationOnAddress},&nbsp;
+                                {formState.store.stateShort}&nbsp;{formState.store.zipcode}
+                              </span>
+                              </>
+                              : // This is true for all locations except the nearby ones
+                              <a href={`https://milanlaser${formState.city.pathname}.com/`} className="main-blue">Learn more about milan laser {formState.city.cityName}.</a>
+                            }
                             </>
                             }
                             {
