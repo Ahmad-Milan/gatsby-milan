@@ -1,4 +1,8 @@
 {
+  "city": {
+    "cityName": "",
+    "pathName": ""
+  },
   "user": {
     "first_name": "",
     "last_name": "",

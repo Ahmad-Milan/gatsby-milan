@@ -9,41 +9,33 @@
         "locations": [
           {
             "location": "Chandler",
-            "locationOnAddress": "same",
             "salesforceValue": "Phoenix (Chandler)",
             "stateShort": "AZ",
             "place_id": "ChIJIelTB04HK4cR95v9yd-Nt4A",
-            "address": "3450 W Chandler Blvd",
             "zipcode": "85226",
             "open": true
           },
           {
             "location": "Peoria",
-            "locationOnAddress": "same",
             "salesforceValue": "Phoenix (Peoria)",
             "stateShort": "AZ",
             "place_id": "ChIJWUr1PBJpK4cReHumnCcIKH8",
-            "address": "7857 W Bell Rd",
             "zipcode": "85382",
             "open": true
           },
           {
             "location": "Scottsdale North",
-            "locationOnAddress": "Scottsdale",
             "salesforceValue": "Phoenix (Scottsdale North)",
             "stateShort": "AZ",
             "place_id": "ChIJRZe-6Pl1K4cRnMfLCtMA7mA",
-            "address": "13802 N Scottsdale Rd",
             "zipcode": "85254",
             "open": true
           },
           {
             "location": "Scottsdale South",
-            "locationOnAddress": "Scottsdale",
             "salesforceValue": "Phoenix (Scottsdale South)",
             "stateShort": "AZ",
             "place_id": "",
-            "address": "4408 N Miller Rd",
             "zipcode": "85251",
             "open": false
           }
@@ -55,11 +47,9 @@
         "locations": [
           {
             "location": "Tucson",
-            "locationOnAddress": "same",
             "salesforceValue": "Tucson",
             "stateShort": "AZ",
             "place_id": "",
-            "address": "4280 N Oracle Rd",
             "zipcode": "85705",
             "open": true
           }
@@ -78,21 +68,17 @@
         "locations": [
           {
             "location": "Lincoln South",
-            "locationOnAddress": "same",
             "salesforceValue": "Lincoln",
             "stateShort": "NE",
             "place_id": "",
-            "address": "3450 W Chandler Blvd",
             "zipcode": "85226",
             "open": true
           },
           {
             "location": "Lincoln North",
-            "locationOnAddress": "same",
             "salesforceValue": "Lincoln (North)",
             "stateShort": "NE",
             "place_id": "",
-            "address": "7857 W Bell Rd",
             "zipcode": "85382",
             "open": false
           }
@@ -104,21 +90,17 @@
         "locations": [
           {
             "location": "Omaha Central",
-            "locationOnAddress": "Omaha",
             "salesforceValue": "Omaha Central",
             "stateShort": "NE",
             "place_id": "ChIJr_f-gGGKk4cRcwDQZ1D_mmo",
-            "address": "3450 W Chandler Blvd",
             "zipcode": "85226",
             "open": true
           },
           {
             "location": "Omaha West",
-            "locationOnAddress": "Omaha",
             "salesforceValue": "Omaha West",
             "stateShort": "NE",
             "place_id": "ChIJ8ccP1Qvxk4cRyN7eIlg0wBM",
-            "address": "7857 W Bell Rd",
             "zipcode": "85382",
             "open": true
           }
@@ -137,13 +119,11 @@
         "locations": [
           {
             "location": "Austin",
-            "locationOnAddress": "same",
             "salesforceValue": "Austin",
             "stateShort": "TX",
             "place_id": "",
-            "address": "10001 Research Blvd",
             "zipcode": "78759",
-            "open": false
+            "open": true
           }
         ]
       },
@@ -153,11 +133,9 @@
         "locations": [
           {
             "location": "College Station",
-            "locationOnAddress": "same",
             "salesforceValue": "College Station",
             "stateShort": "TX",
             "place_id": "",
-            "address": "2001 Texas Ave S",
             "zipcode": "77840",
             "open": true
           }
@@ -169,41 +147,33 @@
         "locations": [
           {
             "location": "Richmond",
-            "locationOnAddress": "same",
             "salesforceValue": "Houston (Richmond)",
             "stateShort": "TX",
             "place_id": "",
-            "address": "4818 Waterview Town Center Dr",
             "zipcode": "77406",
             "open": false
           },
           {
             "location": "Spring",
-            "locationOnAddress": "same",
             "salesforceValue": "Houston (Spring)",
             "stateShort": "TX",
             "place_id": "",
-            "address": "525 Sawdust Rd",
             "zipcode": "77380",
             "open": false
           },
           {
             "location": "Webster",
-            "locationOnAddress": "same",
             "salesforceValue": "Houston (Webster)",
             "stateShort": "TX",
             "place_id": "",
-            "address": "1501 Bay Area Blvd",
             "zipcode": "77598",
             "open": true
           },
           {
             "location": "Humble",
-            "locationOnAddress": "same",
             "salesforceValue": "Houston (Humble)",
             "stateShort": "TX",
             "place_id": "",
-            "address": "19211 West Lake Houston Parkway",
             "zipcode": "77346",
             "open": false
           },
@@ -213,17 +183,14 @@
             "salesforceValue": "Houston (Galleria)",
             "stateShort": "TX",
             "place_id": "",
-            "address": "5785 San Felipe St",
             "zipcode": "77057",
             "open": false
           },
           {
             "location": "Pearland",
-            "locationOnAddress": "same",
             "salesforceValue": "Houston (Pearland",
             "stateShort": "TX",
             "place_id": "",
-            "address": "2750 Smith Ranch Rd",
             "zipcode": "77584",
             "open": false
           },
@@ -233,7 +200,6 @@
             "salesforceValue": "Houston (Cypress)",
             "stateShort": "TX",
             "place_id": "",
-            "address": "17445 Spring Cypress Rd",
             "zipcode": "77429",
             "open": false
           }
