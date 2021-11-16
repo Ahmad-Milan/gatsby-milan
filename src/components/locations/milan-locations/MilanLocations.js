@@ -33,7 +33,6 @@ function MilanLocations({siteData, stores}) {
   useEffect(() => {
     // This will NOT run if user interacts
     // This will run ONLY ONCE
-    console.log(latitude)
     if(latitude && longitude && !didMount.current && !userInteraction) {
       didMount.current = true
       setLoading(true)
