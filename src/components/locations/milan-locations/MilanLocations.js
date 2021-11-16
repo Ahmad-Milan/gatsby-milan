@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react'
 import openStoresDisplayed from '../../../functions/general/openStoresDisplayed'
-import { Link } from 'gatsby'
+import Link from '../../../functions/general/linkTesting'
 import { Form } from 'react-bootstrap'
 import { usePosition } from '../../../hooks/usePosition'
 import axios from 'axios'
-import getCityStateCountry from '../../../functions/general/geocodingAPI/getCityStateCountry'
-import isMilanCity from '../../../functions/general/geocodingAPI/isMilanCIty'
+import { MILAN_CORS } from '../../../constants/constants'
+import LinearProgress from '@mui/material/LinearProgress'
 
 function MilanLocations({siteData, stores}) {
   // Get total number of open stores in all states
@@ -13,6 +13,8 @@ function MilanLocations({siteData, stores}) {
   // Default state & city to this site state & city
   const [selectedState, setSelectedState] = useState(stores.find(state => state.state === siteData.state))
   const [selectedCity, setSelectedCity] = useState(selectedState.stores.find(city => city.city === siteData.city))
+  const [nearbyMilanStores, setNearbyMilanStores] = useState([])
+  const [loading, setLoading] = useState(false)
   // In case a user changed the selection manually
   const [userInteraction, setUserInteraction] = useState(false)
   // States dropdown
@@ -32,22 +34,19 @@ function MilanLocations({siteData, stores}) {
     // This will run ONLY ONCE
     if(latitude && longitude && !didMount.current && !userInteraction) {
       didMount.current = true
-      axios.get(`https://maps.googleapis.com/maps/api/geocode/json`, {
+      setLoading(true)
+      axios.get(`${MILAN_CORS}https://maps.googleapis.com/maps/api/place/findplacefromtext/json`, {
         params: {
-          latlng: `${latitude}, ${longitude}`,
+          input: 'milan+laser',
+          inputtype: 'textquery',
+          locationbias: `point:${latitude},${longitude}`,
           key: process.env.Google_Maps_API_Key
         }
       })
       .then(response => {
-        let [detectedCity, stateShort, country] = getCityStateCountry(response)
-        let detectedState
-        if(country === 'United States') detectedState = stores.find(state => state.stateShort === stateShort)
-        if(detectedState) {
-          setSelectedState(detectedState)
-          const milanCity = isMilanCity(detectedCity, detectedState)
-          if(milanCity) setSelectedCity(milanCity)
-          else setSelectedCity(detectedState.stores[0])
-        }
+        let nearbyStores = getNearestMilan(response.data.candidates)
+        if(nearbyStores.length > 0) setNearbyMilanStores(nearbyStores)
+        setLoading(false)
       }).catch(err => console.error(err))
     }
     // This will run if user interacts
@@ -56,15 +55,66 @@ function MilanLocations({siteData, stores}) {
     }
   },[latitude, longitude, selectedState, userInteraction])
 
+  function getNearestMilan(candidates) {
+    let nearbyStores = []
+    if(candidates.length !== 0) {
+      candidates.forEach(elem => {
+        stores.forEach(state => {
+          state.stores.forEach(city => {
+            city.locations.forEach(store => {
+              if(store.place_id === elem.place_id) {
+                setSelectedState(state)
+                setSelectedCity(city)
+                nearbyStores.push({
+                  city: city.city,
+                  pathname: city.pathname,
+                  store: store
+                })
+              } 
+            })
+          })
+        })
+      })
+    }
+    return nearbyStores
+  }
+
   return (
     <section id="milan-locations" className="full-section background hero light-blue-bg">
       <div className="container">
         <div className="row text-center">
           <h1>{openStoresNum}<sup>+</sup> Milan Locations in {stores.length} States</h1>
         </div>
+        
+        <div className="row pt-4 justify-content-center">
+          {
+            loading ? 
+            <div className="col-md-6 col-lg-4 text-center" style={{color: 'var(--main-blue)'}}>
+              <span className="main-blue">Finding nearest Milan</span>
+              <LinearProgress color="inherit" />
+            </div>
+            : nearbyMilanStores.length !== 0 ? 
+            <>
+            <h2 className="h3 text-center">Nearest Milan to you</h2>
+            <ul className="d-flex justify-content-center flex-wrap mt-1">
+              {
+                nearbyMilanStores.map((store, x) => (
+                  <li key={x} className="col-10 col-sm-6 col-md-4 col-lg-3 p-2">
+                    <Link to={store.pathname === siteData.pathname ? `/locations/${store.city.trim().toLowerCase().replace(/\s+/g, '')}/${store.store.location.trim().toLowerCase().replace(/\s+/g, '')}/` : `https://milanlaser${store.pathname}.com/locations/${store.city.trim().toLowerCase().replace(/\s+/g, '')}/${store.store.location.trim().toLowerCase().replace(/\s+/g, '')}/`}>
+                      {store.store.location}
+                    </Link>
+                  </li>
+                ))
+              }
+            </ul>
+            </>
+            :
+            <></>
+          }
+        </div>
 
         <div className="row pt-4 justify-content-center">
-          <h2 className="h4 pb-1 text-center">Select a state from the list</h2>
+          <h3 className="h4 pb-1 text-center">Select a state from the list</h3>
           <div className="col-md-6 col-lg-4">
             <Form.Select aria-label="milan states" value={selectedState.state} onChange={statesDropdownHandler}>
               {
@@ -78,7 +128,7 @@ function MilanLocations({siteData, stores}) {
           </div>
         </div>
         <div className="row pt-4 justify-content-center">
-          <h2 className="h4 pb-1 text-center">Select a city from the list</h2>
+          <h3 className="h4 pb-1 text-center">Select a city from the list</h3>
           <div className="col-md-6 col-lg-4">
             <Form.Select aria-label="current city" value={selectedCity.city} onChange={citiesDropdownHandler}>
               {
