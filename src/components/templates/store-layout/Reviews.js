@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import { milan_img_path } from '../../../constants/constants'
+import { milan_img_path, MILAN_CORS } from '../../../constants/constants'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -27,9 +27,8 @@ function Reviews({store}) {
 
   const key = process.env.Screen_Cloud_Api_Key
   const place_id = store.place_id
-  const PROXY_URL = 'https://cors-milanlaser.herokuapp.com/'
   const TARGET_URL = 'https://maps.googleapis.com/maps/api/place/details/json?place_id='+place_id+'&fields=name,review,formatted_address&key='
-  const URL = PROXY_URL + TARGET_URL + key
+  const URL = MILAN_CORS + TARGET_URL + key
 
   useEffect(() => {
     axios({

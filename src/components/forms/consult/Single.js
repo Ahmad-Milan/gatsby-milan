@@ -12,6 +12,7 @@ import updateSubscription from '../../../functions/forms/updateSubscription'
 import askQuestion from '../../../functions/forms/askQuestion'
 import onSubmit from '../../../functions/forms/onSubmit'
 import UserInputs from './UserInputs'
+import { MILAN_CORS } from '../../../constants/constants'
 import './Consult.css'
 // ******************************************************** //
 // This form works ONLY for websites with SINGLE location
@@ -59,7 +60,7 @@ function Single({siteData}) {
             return (
               <Form 
                 className="w-100 py-4 rounded shadow" ref={formRef} method="POST"
-                action="https://cors-milanlaser.herokuapp.com/https://go.milanlaser.com/l/642813/2018-12-05/h64s">
+                action={`${MILAN_CORS}https://go.milanlaser.com/l/642813/2018-12-05/h64s`}>
                 <input type="hidden" name="oid" value="00D410000014bPe" />
                 <input id="success" type="hidden" name="retURL" ref={succesRef} value="" />
                 <input className="lead_source" type="hidden" name="lead_source"  id="lead_source" value={formState.include.leadsource} />
