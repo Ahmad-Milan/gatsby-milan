@@ -5,7 +5,7 @@ import { useAccordionButton } from 'react-bootstrap/AccordionButton'
 import AccordionContext from 'react-bootstrap/AccordionContext'
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
 import openStoresDisplayed from '../../../functions/general/openStoresDisplayed'
-import { milan_img_path} from '../../../constants/constants'
+import { MILAN_IMG_PATH} from '../../../constants/constants'
 
 function ContextAwareToggle({ children, eventKey, callback }) {
   const { activeEventKey } = useContext(AccordionContext);
@@ -52,7 +52,7 @@ function Faqs() {
                       <p>Additionally, all of our treatment providers are <strong>Authorized Candela Practitioners</strong> who have been extensively trained by Independent Candela Trainers and are supervised by medical doctors. Their comprehensive training touches on everything from laser physics to medical conditions affecting hair growth, so you can rest assured that you’re in good hands with us!</p>
                     </div>
                     <div className="col-12 col-lg-4 text-center pt-2 pt-sm-0 px-0 pb-2">
-                      <img className="img-fluid" src={`${milan_img_path}shared/other/Candela-Badge.png`}
+                      <img className="img-fluid" src={`${MILAN_IMG_PATH}shared/other/Candela-Badge.png`}
                         alt="Candela Badge" style={{maxHeight: '200px'}} /> 
                     </div>
                   </Card.Body>

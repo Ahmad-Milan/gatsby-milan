@@ -1,8 +1,8 @@
 import React from 'react'
-import { milan_img_path } from '../../../constants/constants'
+import { MILAN_IMG_PATH } from '../../../constants/constants'
 
 function TempReviews() {
-  const stars = `${milan_img_path}shared/other/stars.png`
+  const stars = `${MILAN_IMG_PATH}shared/other/stars.png`
   return (
     <div className="container">
       <div className="row justify-content-around mt-5 mx-1">

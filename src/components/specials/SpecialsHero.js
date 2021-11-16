@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { milan_img_path } from '../../constants/constants'
+import { MILAN_IMG_PATH } from '../../constants/constants'
 import './styles.css'
 
 function SpecialsHero({siteData, setShowSignUpModal}) {
@@ -17,7 +17,7 @@ function SpecialsHero({siteData, setShowSignUpModal}) {
         <div className="row justify-content-center mt-4 mt-lg-5">
           <div className="col-lg-6">
             <div className="graphic-wrapper text-center w-100 mb-3 mb-lg-0 position-relative">
-              <img id="graphic" src={`${milan_img_path}shared/specials/Rake-in-Savings.gif`} alt="Milan Laser Specials" className="img-fluid"/>
+              <img id="graphic" src={`${MILAN_IMG_PATH}shared/specials/Rake-in-Savings.gif`} alt="Milan Laser Specials" className="img-fluid"/>
             </div>
           </div>
           <div className="col-lg-6 mb-md-4">

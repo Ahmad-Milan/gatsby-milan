@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dropdown } from 'react-bootstrap'
-import { milan_img_path } from '../../../constants/constants'
+import { MILAN_IMG_PATH } from '../../../constants/constants'
 import { FaYelp, FaFacebookF, FaGooglePlusG } from 'react-icons/fa'
 
 function ReviewUsBtn({siteData, link, platform}) {
@@ -17,13 +17,13 @@ function ReviewUsBtn({siteData, link, platform}) {
         <div>
           <a className="d-inline-block" 
             href={`${siteData.locations[0].reviews[platform] !== '' ? link : ''}${siteData.locations[0].reviews[platform]}`}>
-            <img src={`${milan_img_path}shared/other/reviews-${platform}.png`} width="180" height="60" alt={`milan laser ${platform} reviews`} />
+            <img src={`${MILAN_IMG_PATH}shared/other/reviews-${platform}.png`} width="180" height="60" alt={`milan laser ${platform} reviews`} />
           </a>
         </div>
         :
         <Dropdown id={`${platform}-reviews`}>
           <Dropdown.Toggle style={{backgroundColor: bgColor[platform] }}>
-            <img src={`${milan_img_path}shared/other/reviews-${platform}.png`} width="180" height="60" alt={`milan laser ${platform} reviews`} />
+            <img src={`${MILAN_IMG_PATH}shared/other/reviews-${platform}.png`} width="180" height="60" alt={`milan laser ${platform} reviews`} />
           </Dropdown.Toggle>
           <Dropdown.Menu className="py-0" style={{backgroundColor: bgColor[platform]}}>
             {

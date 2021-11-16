@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
 import imageExists from '../../../../functions/general/imageExists'
 import HeroDetails from './HeroDetails'
-import { milan_img_path } from '../../../../constants/constants'
+import { MILAN_IMG_PATH } from '../../../../constants/constants'
 
 function TempHero({siteData, store, defaultImages}) {
   const breakpoints = useBreakpoint()
 
-  const exteriorTempPath = `${milan_img_path}${siteData.stateShort.toLowerCase()}/${siteData.pathname}/${store.pathname}/`
+  const exteriorTempPath = `${MILAN_IMG_PATH}${siteData.stateShort.toLowerCase()}/${siteData.pathname}/${store.pathname}/`
 
   const [exteriorTemp, setExteriorTemp] = useState(defaultImages.exterior)
 

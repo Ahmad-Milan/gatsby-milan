@@ -15,7 +15,7 @@ import * as Yup from 'yup'
 import SignUpSuccess from '../shared/SignUpSuccess'
 import FormFailed from '../shared/FormFailed'
 import FormSubmitting from '../shared/FormSubmitting'
-import { WebToLeadLink } from '../../../constants/constants'
+import { WEB_TO_LEAD_LINK } from '../../../constants/constants'
 
 const signUpSchema = Yup.object().shape({
   email: Yup.string().email('Enter a valid email!').required('Email is required!')
@@ -48,7 +48,7 @@ function MilanDealsSignUp() {
     setSubmitting(true)
     axios({
       method: 'POST',
-      url: WebToLeadLink,
+      url: WEB_TO_LEAD_LINK,
       data: qs.stringify({
         'email': formState.user.email,
         'updates': true,

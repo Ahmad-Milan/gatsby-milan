@@ -14,7 +14,7 @@ import { siteData } from '../../templates/Layout'
 import validateEmail from '../shared/validateEmail'
 import LocationsDropdown from '../shared/LocationsDropdown'
 import faqsFormSchema from './faqsFormSchema'
-import { WebToLeadLink } from '../../../constants/constants'
+import { WEB_TO_LEAD_LINK } from '../../../constants/constants'
 import FormSubmitting from '../shared/FormSubmitting'
 import FaqsSuccess from './FaqsSuccess'
 import FormFailed from '../shared/FormFailed'
@@ -57,7 +57,7 @@ function FaqsForm() {
     setSubmitting(true)
     axios({
       method: 'POST',
-      url: WebToLeadLink,
+      url: WEB_TO_LEAD_LINK,
       data: qs.stringify({
         'first_name': formState.user.first_name,
         'last_name': '',
