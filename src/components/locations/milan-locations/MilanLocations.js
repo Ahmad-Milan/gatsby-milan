@@ -122,7 +122,6 @@ function MilanLocations({siteData, stores}) {
           <h3 className="h4 pb-1 text-center">Select a state from the list</h3>
           <div className="col-md-6 col-lg-4">
             <Form.Select aria-label="milan states" value={selectedState.state} onChange={statesDropdownHandler}>
-              <option>Select a state</option>
               {
                 stores.map((state, x) => (
                   <option key={x} value={state.state}>
