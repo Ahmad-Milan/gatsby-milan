@@ -4,8 +4,9 @@ import Link from '../../../functions/general/linkTesting'
 import { Form } from 'react-bootstrap'
 import { usePosition } from '../../../hooks/usePosition'
 import axios from 'axios'
-import { MILAN_CORS } from '../../../constants/constants'
+import { FIND_PLACE_GOOGLE_MAPS_URL } from '../../../constants/constants'
 import LinearProgress from '@mui/material/LinearProgress'
+import trimAll from '../../../functions/general/trimAll'
 
 function MilanLocations({siteData, stores}) {
   // Get total number of open stores in all states
@@ -32,10 +33,11 @@ function MilanLocations({siteData, stores}) {
   useEffect(() => {
     // This will NOT run if user interacts
     // This will run ONLY ONCE
+    console.log(latitude)
     if(latitude && longitude && !didMount.current && !userInteraction) {
       didMount.current = true
       setLoading(true)
-      axios.get(`${MILAN_CORS}https://maps.googleapis.com/maps/api/place/findplacefromtext/json`, {
+      axios.get(`${FIND_PLACE_GOOGLE_MAPS_URL}`, {
         params: {
           input: 'milan+laser',
           inputtype: 'textquery',
@@ -100,7 +102,10 @@ function MilanLocations({siteData, stores}) {
               {
                 nearbyMilanStores.map((store, x) => (
                   <li key={x} className="col-10 col-sm-6 col-md-4 col-lg-3 p-2">
-                    <Link to={store.pathname === siteData.pathname ? `/locations/${store.city.trim().toLowerCase().replace(/\s+/g, '')}/${store.store.location.trim().toLowerCase().replace(/\s+/g, '')}/` : `https://milanlaser${store.pathname}.com/locations/${store.city.trim().toLowerCase().replace(/\s+/g, '')}/${store.store.location.trim().toLowerCase().replace(/\s+/g, '')}/`}>
+                    <Link 
+                      to={store.pathname === siteData.pathname ? 
+                      `/locations/${trimAll(store.city)}/${trimAll(store.store.location)}/` : 
+                      `https://milanlaser${store.pathname}.com/locations/${trimAll(store.city)}/${trimAll(store.store.location)}/`}>
                       {store.store.location}
                     </Link>
                   </li>
@@ -117,8 +122,9 @@ function MilanLocations({siteData, stores}) {
           <h3 className="h4 pb-1 text-center">Select a state from the list</h3>
           <div className="col-md-6 col-lg-4">
             <Form.Select aria-label="milan states" value={selectedState.state} onChange={statesDropdownHandler}>
+              <option>Select a state</option>
               {
-                stores.sort().map((state, x) => (
+                stores.map((state, x) => (
                   <option key={x} value={state.state}>
                     {state.state}
                   </option>
@@ -162,7 +168,7 @@ function MilanLocations({siteData, stores}) {
                     selectedCity.locations.length === 1 ?
                     <a key={x} href={`https://milanlaser${selectedCity.pathname}.com`}>{location.location}</a>
                     : <a key={x} 
-                        href={`https://milanlaser${selectedCity.pathname}.com/locations/${selectedCity.city.trim().toLowerCase().replace(/\s+/g, '')}/${location.location.trim().toLowerCase().replace(/\s+/g, '')}/`}>
+                        href={`https://milanlaser${selectedCity.pathname}.com/locations/${trimAll(selectedCity.city)}/${trimAll(location.location)}/`}>
                       {location.location}
                       </a>
                   }
