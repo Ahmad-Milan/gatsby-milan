@@ -195,7 +195,7 @@
   color: var(--main-turquoise);
 }
 /* Locations Page */
-#milan-locations #locations-list li a {
+#milan-locations ul li a {
   background-color: #fff;
   width: 100%;
   padding: .75rem 1rem;
