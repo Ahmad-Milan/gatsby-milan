@@ -16,6 +16,7 @@ import actionInit from '../../../functions/forms/actionInit'
 import UserInputs from './UserInputs'
 import LocationsDropdown from '../shared/LocationsDropdown'
 import NearbyLocations from '../shared/NearbyLocations'
+import ShowAddressOrLink from '../shared/ShowAddressOrLink'
 import { FORM_ACTION_MAIN_LINK } from '../../../constants/constants'
 import './Consult.css'
 
@@ -101,7 +102,7 @@ function NotOpen({siteData}) {
                           <div className="col-md-10">
                             <h3 className="h5 mb-4 text-center">Select a Location Near You</h3>
                             <ul className="d-flex justify-content-center flex-wrap">
-                            <NearbyLocations nearbySelectedHandler={nearbySelectedHandler} />
+                            <NearbyLocations siteData={siteData} nearbySelectedHandler={nearbySelectedHandler} />
                             </ul>
                           </div>
                         </div>
@@ -120,12 +121,7 @@ function NotOpen({siteData}) {
                         <div className="row justify-content-center mx-auto selected-location-container">
                           <div className={`col-md-10 selected-location-wrapper ${formState.store.salesforceValue !== '' ? 'toggle' : ''}`}>
                             <div className="mb-0 text-center">
-                              <strong>Selected location address:</strong>&nbsp;<br className="d-lg-none" />
-                              <span className="d-block d-md-inline">
-                                {formState.store.address}, <br className="d-sm-none" />
-                                {formState.store.locationOnAddress === "same" ? formState.store.location : formState.store.locationOnAddress},&nbsp;
-                                {formState.store.stateShort}&nbsp;{formState.store.zipcode}
-                              </span>
+                              <ShowAddressOrLink formState={formState} />
                             </div>
                           </div>
                         </div>
