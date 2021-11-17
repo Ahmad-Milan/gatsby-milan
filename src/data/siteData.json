@@ -28,6 +28,72 @@
         "Joslyn-Saleda-LPN",
         "Josephyne-Brito-NP"
       ]
+    },
+    {
+      "location": "Peoria",
+      "locationOnAddress": "same",
+      "address": "7857 W Bell Rd",
+      "phone": "623-246-7510",
+      "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+      "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
+      "description": "off of Bell Road, in the center with Target, Ross, and HomeGoods, in the building with Staples, next to Elements Massage",
+      "proPhotos": true,
+      "heroReversed": false,
+      "reviews": {
+        "reviews_token": "UWQCDxVCRlQ8hve59PklwMvIizIwnEs81DeQsyvpKCSdxiTz6D",
+        "facebook": "PeoriaAZ",
+        "yelp": "peoria",
+        "google": "peoria+az&oq=milan+laser+hair+removal+peoria+az&aqs=chrome..69i57j35i39j69i60j69i64l3j69i60l2.8087j1j4&sourceid=chrome&ie=UTF-8#lrd=0x872b69123cf54a59:0x7f2808279ca67b78,3,,,"
+      },
+      "staff": [
+        "Kitri-Redmond-MD",
+        "Kieria-Franks-CM",
+        "Kerry-Galaton-RN",
+        "Josephyne-Brito-NP"
+      ]
+    },
+    {
+      "location": "Scottsdale North",
+      "locationOnAddress": "Scottsdale",
+      "address": "13802 N Scottsdale Rd",
+      "phone": "480-955-0396",
+      "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+      "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
+      "description": "just south of Kierland Commons at Scottsdale and Thunderbird Roads, in the center with Natural Grocers, RA Sushi, and First Watch, in between First Watch and RA Sushi",
+      "proPhotos": false,
+      "heroReversed": false,
+      "reviews": {
+        "reviews_token": "UWQCDxVCRlQ8hve59PklwMvIizIwnEs81DeQsyvpKCSdxiTz6D",
+        "facebook": "ScottsdaleNorth",
+        "yelp": "scottsdale",
+        "google": "scottsdale+az&oq=milan+laser+hair+removal+scottsdale+&aqs=chrome.1.69i57j0j69i60.8375j0j7&sourceid=chrome&ie=UTF-8#lrd=0x872b75f9e8be9745:0x60ee00d30acbc79c,3,,,"
+      },
+      "staff": [
+        "Kitri-Redmond-MD",
+        "Kieria-Franks-CM",
+        "Kerry-Galaton-RN",
+        "Madeline-McKey-CS"
+      ]
+    },
+    {
+      "location": "Scottsdale South",
+      "locationOnAddress": "Scottsdale",
+      "address": "4408 N Miller Rd",
+      "phone": "",
+      "googleMap": "",
+      "appleMap": "",
+      "description": "",
+      "proPhotos": false,
+      "heroReversed": false,
+      "reviews": {
+        "reviews_token": "",
+        "facebook": "ScottsdaleSouth",
+        "yelp": "",
+        "google": ""
+      },
+      "staff": [
+  
+      ]
     }
   ]
 }
