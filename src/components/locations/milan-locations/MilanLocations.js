@@ -13,7 +13,7 @@ function MilanLocations({siteData, stores}) {
   const openStoresNum = openStoresDisplayed()
   // Default state & city to this site state & city
   const [selectedState, setSelectedState] = useState(stores.find(state => state.state === siteData.state))
-  const [selectedCity, setSelectedCity] = useState(selectedState.cities.find(city => city.city === siteData.city))
+  const [selectedCity, setSelectedCity] = useState(selectedState.cities.find(city => city.cityName === siteData.cityName))
   const [nearbyMilanStores, setNearbyMilanStores] = useState([])
   const [loading, setLoading] = useState(false)
   // In case a user changed the selection manually
@@ -25,7 +25,7 @@ function MilanLocations({siteData, stores}) {
   }
   // Cities dropdown
   const citiesDropdownHandler = event => {
-    setSelectedCity(selectedState.cities.find(city => city.city === event.target.value))
+    setSelectedCity(selectedState.cities.find(city => city.cityName === event.target.value))
   }
   // This will prevent the useEffect from calling google geocoding api more than once after mounting
   const didMount = useRef(false)
@@ -67,7 +67,7 @@ function MilanLocations({siteData, stores}) {
                 setSelectedState(state)
                 setSelectedCity(city)
                 nearbyStores.push({
-                  city: city.city,
+                  cityName: city.cityName,
                   pathname: city.pathname,
                   store: store
                 })
@@ -103,8 +103,8 @@ function MilanLocations({siteData, stores}) {
                   <li key={x} className="col-10 col-sm-6 col-md-4 col-lg-3 p-2">
                     <Link 
                       to={store.pathname === siteData.pathname ? 
-                      `/locations/${trimAll(store.city)}/${trimAll(store.store.location)}/` : 
-                      `https://milanlaser${store.pathname}.com/locations/${trimAll(store.city)}/${trimAll(store.store.location)}/`}>
+                      `/locations/${trimAll(store.cityName)}/${trimAll(store.store.location)}/` : 
+                      `https://milanlaser${store.pathname}.com/locations/${trimAll(store.cityName)}/${trimAll(store.store.location)}/`}>
                       {store.store.location}
                     </Link>
                   </li>
@@ -134,11 +134,11 @@ function MilanLocations({siteData, stores}) {
         <div className="row pt-4 justify-content-center">
           <h3 className="h4 pb-1 text-center">Select a city from the list</h3>
           <div className="col-md-6 col-lg-4">
-            <Form.Select aria-label="current city" value={selectedCity.city} onChange={citiesDropdownHandler}>
+            <Form.Select aria-label="current city" value={selectedCity.cityName} onChange={citiesDropdownHandler}>
               {
                 selectedState.cities.map((city, x) => (
-                  <option key={x} value={city.city}>
-                    {city.city}
+                  <option key={x} value={city.cityName}>
+                    {city.cityName}
                   </option>
                 ))
               }
@@ -146,7 +146,7 @@ function MilanLocations({siteData, stores}) {
           </div>
         </div>
         <div className="row pt-4 justify-content-center">
-          <h3 className="text-center">Our {selectedCity.city} Location{selectedCity.locations.length === 1 ? '' : 's'}</h3>
+          <h3 className="text-center">Our {selectedCity.cityName} Location{selectedCity.locations.length === 1 ? '' : 's'}</h3>
           <ul id="locations-list" className="d-flex justify-content-center flex-wrap mt-1">
             {
               selectedCity.pathname === siteData.pathname ?
@@ -166,7 +166,7 @@ function MilanLocations({siteData, stores}) {
                     selectedCity.locations.length === 1 ?
                     <a key={x} href={`https://milanlaser${selectedCity.pathname}.com`}>{location.location}</a>
                     : <a key={x} 
-                        href={`https://milanlaser${selectedCity.pathname}.com/locations/${trimAll(selectedCity.city)}/${trimAll(location.location)}/`}>
+                        href={`https://milanlaser${selectedCity.pathname}.com/locations/${trimAll(selectedCity.cityName)}/${trimAll(location.location)}/`}>
                       {location.location}
                       </a>
                   }

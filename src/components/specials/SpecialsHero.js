@@ -7,7 +7,7 @@ function SpecialsHero({siteData, setShowSignUpModal}) {
   return (
     <section className="full-section hero specials-hero">
       <div className="container position-relative">
-        <h1 className="text-center mb-3">Laser Hair Removal Specials in {siteData.city}, {siteData.stateShort}</h1>
+        <h1 className="text-center mb-3">Laser Hair Removal Specials in {siteData.cityName}, {siteData.stateShort}</h1>
         {
           siteData.grandOpening ?
           <h2 className="h5 text-center">Grand Opening Savings! Up to 50% OFF unlimited laser hair removal.</h2>

@@ -4,7 +4,7 @@
     "stateShort": "AZ",
     "cities": [
       {
-        "city": "Phoenix",
+        "cityName": "Phoenix",
         "pathname": "phoenix",
         "locations": [
           {
@@ -42,7 +42,7 @@
         ]
       },
       {
-        "city": "Tucson",
+        "cityName": "Tucson",
         "pathname": "tucson",
         "locations": [
           {
@@ -63,7 +63,7 @@
     "stateShort": "NE",
     "cities": [
       {
-        "city": "Lincoln",
+        "cityName": "Lincoln",
         "pathname": "lincoln",
         "locations": [
           {
@@ -85,7 +85,7 @@
         ]
       },
       {
-        "city": "Omaha",
+        "cityName": "Omaha",
         "pathname": "omaha",
         "locations": [
           {
@@ -114,7 +114,7 @@
     "stateShort": "TX",
     "cities": [
       {
-        "city": "Austin",
+        "cityName": "Austin",
         "pathname": "austin",
         "locations": [
           {
@@ -128,7 +128,7 @@
         ]
       },
       {
-        "city": "College Station",
+        "cityName": "College Station",
         "pathname": "collegestation",
         "locations": [
           {
@@ -142,7 +142,7 @@
         ]
       },
       {
-        "city": "Houston",
+        "cityName": "Houston",
         "pathname": "houston",
         "locations": [
           {

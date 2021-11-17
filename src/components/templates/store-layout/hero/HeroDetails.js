@@ -8,7 +8,7 @@ function HeroDetails({siteData, store}) {
       <div className="my-4 d-none d-md-block">
         <img style={{maxWidth: '160px'}} src="https://milanlaser.com/CommonAssets/Milan_Reverse.svg" alt="Milan Laser Hair Removal Logo"/>
       </div>
-      <h1 className="h4 pt-2 pt-sm-0 mb-2">{siteData.city}</h1>
+      <h1 className="h4 pt-2 pt-sm-0 mb-2">{siteData.cityName}</h1>
       <h2 className="h2">({store.location}, {store.stateShort})</h2>
       <p className="my-4">{store.address}<br /> 
         {store.locationOnAddress === 'same' ? store.location : store.locationOnAddress}, {store.stateShort} {store.zipcode}

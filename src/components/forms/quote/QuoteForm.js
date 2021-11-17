@@ -101,7 +101,7 @@ function QuoteForm({scrollTop}) {
                   'tel': formState.user.phone,
                   'location': formState.store.salesforceValue,
                   'areas': `${areasFinal}   ${otherAreas}`,
-                  'city': siteData.city
+                  'city': siteData.cityName
               })
           }).then(res =>
             console.log(res),

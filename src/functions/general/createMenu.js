@@ -1,5 +1,6 @@
 import MenuList from '../../data/menuList.json'
 import { facebook_start } from '../../constants/constants'
+import trimAll from './trimAll'
 
 // Pass in the generated siteData & city objects and create a menu list for the curretn city to be used in the navbar
 function createMenu(siteData) {
@@ -14,9 +15,9 @@ function createMenu(siteData) {
       // Get index of 'About Us' subMenu item
       let ab = item.subMenu.findIndex(elem => elem.link === "About Us")
 
-      let city_pathname = `${siteData.city.trim().toLowerCase().replace(/\s/g, '')}`
+      let city_pathname = `${trimAll(siteData.cityName)}`
 
-      item.subMenu[0].link = `${siteData.city} Location${siteData.multiple ? 's' : ''}`
+      item.subMenu[0].link = `${siteData.cityName} Location${siteData.multiple ? 's' : ''}`
       item.subMenu[0].pathname = `/locations/${city_pathname}/`
       item.subMenu[ab].pathname = `/locations/${city_pathname}/#about-us`
       // if the current city is a multiple locations city

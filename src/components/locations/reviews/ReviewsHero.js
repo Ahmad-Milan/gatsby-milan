@@ -11,7 +11,7 @@ function ReviewsHero({siteData}) {
       <div className="container">
         <div className="row justify-content-center text-center px-3">
           <div className="col-md-10">
-            <h1>{siteData.city} Laser Hair Removal Reviews</h1>
+            <h1>{siteData.cityName} Laser Hair Removal Reviews</h1>
             <p className="mt-3">Our clients love their permanent results from their laser hair removal at Milan. Even clients who received unsuccessful laser hair removal treatments somewhere else see amazing, permanent results with our lasers. <strong>Skeptical? Don’t just take our word for it</strong> – read laser hair removal reviews from real clients.</p>
           </div>
         </div>
