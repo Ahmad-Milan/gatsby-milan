@@ -1,11 +1,8 @@
 import React from 'react'
 import MainForm from '../../forms/main/MainForm'
-import getNearbyLocations from '../../../functions/general/getNearbyLocations'
 import { MILAN_PHONE, NO_RAZOR, FORM_ACTION_CONTACT_LINK } from '../../../constants/constants'
 
 function ContactHero({siteData}) {
-
-  const nearbyLocations = getNearbyLocations(siteData)
 
   return (
     <section className="full-section background hero contact-hero">
@@ -20,19 +17,19 @@ function ContactHero({siteData}) {
               <span name="askQ" id="askQ" ></span>
               <h5 className="mt-4 mb-2">To Re-schedule a Treatment
               {
-                nearbyLocations.length === 1 && 
+                siteData.locations.length === 1 && 
                 <span>:&nbsp;
-                  <a href={`tel:${nearbyLocations[0].phone !== '' ? nearbyLocations[0].phone : MILAN_PHONE}`} className="main-blue d-block d-md-inline">
-                  {`${nearbyLocations[0].phone !== '' ? nearbyLocations[0].phone : MILAN_PHONE}`}
+                  <a href={`tel:${siteData.locations[0].phone !== '' ? siteData.locations[0].phone : MILAN_PHONE}`} className="main-blue d-block d-md-inline">
+                  {`${siteData.locations[0].phone !== '' ? siteData.locations[0].phone : MILAN_PHONE}`}
                   </a>
                 </span>
               }
               </h5>
               {
-                nearbyLocations.length > 1 &&
+                siteData.locations.length > 1 &&
                 <ul className="row text-lg-start">
                   {
-                    nearbyLocations.map((store, x) => (
+                    siteData.locations.map((store, x) => (
                     <li key={x} className="col-lg-6 text-center">
                       <span className="h6">{store.location}:&nbsp;
                         <a href={`tel:${store.phone !== '' ? store.phone : MILAN_PHONE}`} className="main-blue">
