@@ -13,7 +13,7 @@ function MilanLocations({siteData, stores}) {
   const openStoresNum = openStoresDisplayed()
   // Default state & city to this site state & city
   const [selectedState, setSelectedState] = useState(stores.find(state => state.state === siteData.state))
-  const [selectedCity, setSelectedCity] = useState(selectedState.stores.find(city => city.city === siteData.city))
+  const [selectedCity, setSelectedCity] = useState(selectedState.cities.find(city => city.city === siteData.city))
   const [nearbyMilanStores, setNearbyMilanStores] = useState([])
   const [loading, setLoading] = useState(false)
   // In case a user changed the selection manually
@@ -25,7 +25,7 @@ function MilanLocations({siteData, stores}) {
   }
   // Cities dropdown
   const citiesDropdownHandler = event => {
-    setSelectedCity(selectedState.stores.find(city => city.city === event.target.value))
+    setSelectedCity(selectedState.cities.find(city => city.city === event.target.value))
   }
   // This will prevent the useEffect from calling google geocoding api more than once after mounting
   const didMount = useRef(false)
@@ -52,7 +52,7 @@ function MilanLocations({siteData, stores}) {
     }
     // This will run if user interacts
     if(userInteraction) {
-      setSelectedCity(selectedState.stores[0])
+      setSelectedCity(selectedState.cities[0])
     }
   },[latitude, longitude, selectedState, userInteraction])
 
@@ -61,7 +61,7 @@ function MilanLocations({siteData, stores}) {
     if(candidates.length !== 0) {
       candidates.forEach(elem => {
         stores.forEach(state => {
-          state.stores.forEach(city => {
+          state.cities.forEach(city => {
             city.locations.forEach(store => {
               if(store.place_id === elem.place_id) {
                 setSelectedState(state)
@@ -136,7 +136,7 @@ function MilanLocations({siteData, stores}) {
           <div className="col-md-6 col-lg-4">
             <Form.Select aria-label="current city" value={selectedCity.city} onChange={citiesDropdownHandler}>
               {
-                selectedState.stores.map((city, x) => (
+                selectedState.cities.map((city, x) => (
                   <option key={x} value={city.city}>
                     {city.city}
                   </option>

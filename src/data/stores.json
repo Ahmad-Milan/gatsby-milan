@@ -2,7 +2,7 @@
   {
     "state": "Arizona",
     "stateShort": "AZ",
-    "stores": [
+    "cities": [
       {
         "city": "Phoenix",
         "pathname": "phoenix",
@@ -61,7 +61,7 @@
   {
     "state": "Nebraska",
     "stateShort": "NE",
-    "stores": [
+    "cities": [
       {
         "city": "Lincoln",
         "pathname": "lincoln",
@@ -112,7 +112,7 @@
   {
     "state": "Texas",
     "stateShort": "TX",
-    "stores": [
+    "cities": [
       {
         "city": "Austin",
         "pathname": "austin",

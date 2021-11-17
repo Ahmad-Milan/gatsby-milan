@@ -11,7 +11,7 @@ function LocationsDropdown() {
       stores.map((item, i) => (
         <optgroup key={i} label={item.state}>
           {
-            item.stores.map((elem) => {
+            item.cities.map((elem) => {
                 let option = elem.locations.map((store, i) => {
                   return (
                     <option key={i} value={store.salesforceValue} zip={store.zipcode}>
