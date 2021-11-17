@@ -1,8 +1,9 @@
 exports.createPages = ({ actions: { createPage } }) => {
   const siteData = require("./src/data/siteData.json")
+  const trimAll = str => str.trim().toLowerCase().replace(/\s+/g, '')
   // Create a page for city
   createPage({
-    path: `/locations/${siteData.city.trim().replace(/\s/g, '').toLowerCase()}/`,
+    path: `/locations/${trimAll(siteData.cityName)}/`,
     component: require.resolve("./src/components/templates/city-template.js"),
     context: { siteData },
   })
@@ -12,7 +13,7 @@ exports.createPages = ({ actions: { createPage } }) => {
     // Create a page for each store.
     siteData.locations.forEach((store) => {
       createPage({
-        path: `/locations/${siteData.city.trim().replace(/\s/g, '').toLowerCase()}/${store.location.trim().toLowerCase().replace(/\s/g, '')}/`,
+        path: `/locations/${trimAll(siteData.cityName)}/${trimAll(store.location)}/`,
         component: require.resolve("./src/components/templates/store-template.js"),
         context: { store },
       })
