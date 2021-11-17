@@ -21,7 +21,7 @@ function MainForm({siteData, action_link}) {
   if(!formData.store.salesforceValue) {
     // Whether it's a single location city or multiple, 
     // getStore will return the first element of the city locations array
-    let store = getStore(siteData.locations[0].salesforceValue)
+    let store = getStore(siteData.locations[0].salesforceValue).store
 
     // Update formData.store
     updateStoreProps(formData, store)

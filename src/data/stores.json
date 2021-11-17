@@ -14,30 +14,6 @@
             "place_id": "ChIJIelTB04HK4cR95v9yd-Nt4A",
             "zipcode": "85226",
             "open": true
-          },
-          {
-            "location": "Peoria",
-            "salesforceValue": "Phoenix (Peoria)",
-            "stateShort": "AZ",
-            "place_id": "ChIJWUr1PBJpK4cReHumnCcIKH8",
-            "zipcode": "85382",
-            "open": true
-          },
-          {
-            "location": "Scottsdale North",
-            "salesforceValue": "Phoenix (Scottsdale North)",
-            "stateShort": "AZ",
-            "place_id": "ChIJRZe-6Pl1K4cRnMfLCtMA7mA",
-            "zipcode": "85254",
-            "open": true
-          },
-          {
-            "location": "Scottsdale South",
-            "salesforceValue": "Phoenix (Scottsdale South)",
-            "stateShort": "AZ",
-            "place_id": "",
-            "zipcode": "85251",
-            "open": false
           }
         ]
       },
