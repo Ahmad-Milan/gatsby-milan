@@ -40,6 +40,8 @@ function Reviews({store}) {
   }, [store.place_id])
 
   return (
+    <>
+    { reviews && 
     <section className="w-100 py-4 text-white customers-reviews">
       <div className="container">
         <h2 className="text-center subhead-sm mb-4">What Our Chandler Customers Are Saying</h2>
@@ -71,6 +73,8 @@ function Reviews({store}) {
       </div>
       <span id="about-us"></span>
     </section>
+    }
+    </>
   )
 }
 
