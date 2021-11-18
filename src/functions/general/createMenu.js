@@ -1,5 +1,5 @@
 import MenuList from '../../data/menuList.json'
-import { facebook_start } from '../../constants/constants'
+import { FACEBOOK_URL_START } from '../../constants/constants'
 import trimAll from './trimAll'
 
 // Pass in the generated siteData & city objects and create a menu list for the curretn city to be used in the navbar
@@ -31,7 +31,7 @@ function createMenu(siteData) {
           })
           facebook.push({
             "link": store.location,
-            "pathname": `${facebook_start}${store.reviews.facebook}`
+            "pathname": `${FACEBOOK_URL_START}${store.platforms.facebook}`
           })
         })
         item.subMenu[0].subSubMenu = locations
@@ -40,7 +40,7 @@ function createMenu(siteData) {
       // if the current city is a single location city
       // Update the facebook pathname value
       if(!siteData.multiple) {
-        item.subMenu[f].pathname = facebook_start+siteData.locations[0].reviews.facebook
+        item.subMenu[f].pathname = FACEBOOK_URL_START+siteData.locations[0].platforms.facebook
       }
     }
 
