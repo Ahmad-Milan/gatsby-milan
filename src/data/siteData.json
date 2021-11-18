@@ -6,13 +6,12 @@
   "locations": [
     {
       "location": "Chandler",
-      "phone": "480-624-8185",
-      "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
-      "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
+      "linkToGoogleMaps": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+      "linkToAppleMaps": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
       "description": "across the street from Chandler Fashion Center, in the center with Hobby Lobby, Walmart, Phenix Salon Suites, and Petco, in between Petco and Pieology Pizza",
       "proPhotos": true,
       "heroReversed": true,
-      "reviews": {
+      "platforms": {
         "reviews_token": "3zXzaNRq9hj8EC4u3qPCmsM5zjddU416SkUoO70xsWfqWgKcdM",
         "facebook": "Chandler",
         "yelp": "chandler",
@@ -29,13 +28,12 @@
     },
     {
       "location": "Peoria",
-      "phone": "623-246-7510",
-      "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
-      "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
+      "linkToGoogleMaps": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+      "linkToAppleMaps": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
       "description": "off of Bell Road, in the center with Target, Ross, and HomeGoods, in the building with Staples, next to Elements Massage",
       "proPhotos": true,
       "heroReversed": false,
-      "reviews": {
+      "platforms": {
         "reviews_token": "UWQCDxVCRlQ8hve59PklwMvIizIwnEs81DeQsyvpKCSdxiTz6D",
         "facebook": "PeoriaAZ",
         "yelp": "peoria",
@@ -50,13 +48,12 @@
     },
     {
       "location": "Scottsdale North",
-      "phone": "480-955-0396",
-      "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
-      "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
+      "linkToGoogleMaps": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
+      "linkToAppleMaps": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
       "description": "just south of Kierland Commons at Scottsdale and Thunderbird Roads, in the center with Natural Grocers, RA Sushi, and First Watch, in between First Watch and RA Sushi",
       "proPhotos": false,
       "heroReversed": false,
-      "reviews": {
+      "platforms": {
         "reviews_token": "UWQCDxVCRlQ8hve59PklwMvIizIwnEs81DeQsyvpKCSdxiTz6D",
         "facebook": "ScottsdaleNorth",
         "yelp": "scottsdale",
@@ -71,13 +68,12 @@
     },
     {
       "location": "Scottsdale South",
-      "phone": "",
-      "googleMap": "",
-      "appleMap": "",
+      "linkToGoogleMaps": "",
+      "linkToAppleMaps": "",
       "description": "",
       "proPhotos": false,
       "heroReversed": false,
-      "reviews": {
+      "platforms": {
         "reviews_token": "",
         "facebook": "ScottsdaleSouth",
         "yelp": "",
