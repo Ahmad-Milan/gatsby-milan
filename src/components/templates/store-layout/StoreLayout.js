@@ -35,21 +35,14 @@ function StoreLayout({siteData, store}) {
   }
   return (
     <>
-    {
-      store.proPhotos ?  <Hero {...passedProps} /> : <TempHero {...passedProps} />
-    }
-    {
-      siteData.multiple ? <Nearby {...passedProps} /> : <LocationsBanner />
-    }
+    { store.proPhotos ?  <Hero {...passedProps} /> : <TempHero {...passedProps} /> }
+    { siteData.multiple ? <Nearby {...passedProps} /> : <LocationsBanner /> }
     <section className="full-section pb-2 light-blue-bg">
       <Description {...passedProps} />
       { store.staff.length !== 0 && <StaffPhotos store={store} /> }
       <InteriorPhotos {...passedProps} />
     </section>
-
-    {
-      store.place_id !== '' && <Reviews store={store} />
-    }
+    { store.place_id !== '' && <Reviews store={store} /> }
     <span id="about-us"></span>
     <Doctors />
     </>
