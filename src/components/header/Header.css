@@ -247,13 +247,14 @@ header .navbar__menu--sm .subSubMenu {
     margin-top: 5px !important;
   }
   header .cta-btns {
-    padding: 15px 0;
+    padding: 16px 0;
   }
 }
 
 @media screen and (max-width: 576px) {
   header .cta-btns {
     margin-right: 15px;
+    padding: 15px 0;
   }
   header .navbar__menu--sm {
     height: 100vh;
