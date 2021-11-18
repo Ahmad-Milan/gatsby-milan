@@ -121,7 +121,7 @@ function NotOpen({siteData}) {
                         <div className="row justify-content-center mx-auto selected-location-container">
                           <div className={`col-md-10 selected-location-wrapper ${formState.store.salesforceValue !== '' ? 'toggle' : ''}`}>
                             <div className="mb-0 text-center">
-                              <ShowAddressOrLink formState={formState} />
+                              <ShowAddressOrLink formState={formState} siteData={siteData} />
                             </div>
                           </div>
                         </div>

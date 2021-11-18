@@ -106,7 +106,7 @@ function Multiple({siteData}) {
                       <div className="row justify-content-center mx-auto selected-location-container">
                         <div className={`col-md-10 selected-location-wrapper ${formState.store.salesforceValue !== '' ? 'toggle' : ''}`}>
                           <div className="mb-0 text-center">
-                            { (formState.store.open || formState.include.action === 'question') &&  <ShowAddressOrLink formState={formState} />  }
+                            { (formState.store.open || formState.include.action === 'question') &&  <ShowAddressOrLink formState={formState} siteData={siteData} />  }
                             {
                             !formState.store.open && formState.include.action !== 'question' &&
                             <div className="d-flex justify-content-center mb-3">
