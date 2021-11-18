@@ -6,8 +6,6 @@
   "locations": [
     {
       "location": "Chandler",
-      "locationOnAddress": "same",
-      "address": "3450 W Chandler Blvd",
       "phone": "480-624-8185",
       "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
       "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
@@ -31,8 +29,6 @@
     },
     {
       "location": "Peoria",
-      "locationOnAddress": "same",
-      "address": "7857 W Bell Rd",
       "phone": "623-246-7510",
       "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
       "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
@@ -54,8 +50,6 @@
     },
     {
       "location": "Scottsdale North",
-      "locationOnAddress": "Scottsdale",
-      "address": "13802 N Scottsdale Rd",
       "phone": "480-955-0396",
       "googleMap": "https://goo.gl/maps/i8k6577ppcgnSsKf8",
       "appleMap": "https://maps.apple.com/?address=3450 W Chandler Blvd, Unit 8, Chandler, AZ 85226, United States&auid=4261834509486085311&ll=33.307112,-111.899309&lsp=9902&q=Milan Laser Hair Removal - Chandler&_ext=ChkKBQgEEOIBCgQIBRADCgQIBhBnCgQIChAAEiYpszHAQLymQEAxBF5sU+b5W8A5MQfmnOKnQEBBdqPkNzb5W8BQBA==",
@@ -77,8 +71,6 @@
     },
     {
       "location": "Scottsdale South",
-      "locationOnAddress": "Scottsdale",
-      "address": "4408 N Miller Rd",
       "phone": "",
       "googleMap": "",
       "appleMap": "",
