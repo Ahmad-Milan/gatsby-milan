@@ -12,7 +12,6 @@ function ReviewsPage() {
       </Helmet>
       <ReviewsHero siteData={siteData} />
     </Layout>
-
   )
 }
 
