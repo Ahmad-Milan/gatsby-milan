@@ -22,14 +22,13 @@ function SpecialsHero({siteData, setShowSignUpModal}) {
           </div>
           <div className="col-lg-6 mb-md-4">
             <div className="anchor-blue text-center">
-
               <p><span className="d-none d-sm-inline">The days are shorter, temperatures are dropping, and as</span><span className="d-sm-none">As</span> our minds turn toward cozy autumn days, it’s the perfect time for you to get the always cuddle-ready, smooth, hair-free skin of your dreams!</p>
-            {
+              {
               siteData.grandOpening ?
               <p><Link to="/locations/">Visit Milan Laser</Link> this month to get <span className="d-none d-sm-inline">a cornucopia of savings,</span> <strong>30%, 40%, or even 50% OFF unlimited laser hair removal, during our Grand Opening</strong><span className="d-none d-sm-inline">, and get re-<i>leaf</i> from your razor</span>. Just like the leaves this time of year, you’ll fall in love with never having to shave again. AND, because <Link to="#guarantee">our exclusive Unlimited Package™</Link> is included with every purchase, you’ll get all of the sessions you need to be hair-free for life at up to 50% OFF!</p>
               :
               <p>This month, get re-<i>leaf</i> from your endless shaving routine and a cornucopia of savings with <strong>30%, 40%, or even 50% OFF unlimited laser hair removal!</strong> Just like the leaves this time of year, you’ll fall in love with never having to shave again. AND, because <Link to="#guarantee">our exclusive Unlimited Package™</Link> is included with every purchase, you’ll get all of the sessions you need to be hair-free for life at up to 50% OFF!</p>
-            }
+              }
               <p className="d-none d-md-block"><strong>Feast Your Eyes on Smooth Skin:</strong> Receive a <strong>FREE TREATMENT*</strong>  on your underarms, bikini line, lower legs, face &amp; neck, shoulders, or neckline when you complete a complimentary consultation this month.</p>
               <p className="d-md-none"><strong>Feast Your Eyes on Smooth Skin:</strong> Receive a <strong>FREE TREATMENT*</strong> when you complete a complimentary consultation this month.</p>
               <p>Hurry into your <Link to="/locations/">local Milan Laser</Link> by <strong>November 30</strong> to get your <i>Rake in the Savings</i> card, then simply scratch the playing area to reveal your bounty of savings!</p>
