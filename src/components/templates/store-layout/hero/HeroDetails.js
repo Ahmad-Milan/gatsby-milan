@@ -32,8 +32,8 @@ function HeroDetails({siteData, store}) {
       }
 
       <div className="pt-4">
-        <div className="mb-3"><a className="map-btn shadow text-white" rel="noreferrer" href={store.googleMap} target="_blank">Get Directions In Google Maps</a></div>
-        <div className="mb-3"><a className="map-btn shadow text-white" rel="noreferrer" href={store.appleMap} target="_blank">Get Directions In Apple Maps</a></div>
+        <div className="mb-3"><a className="map-btn shadow text-white" rel="noreferrer" href={store.linkToGoogleMaps} target="_blank">Get Directions In Google Maps</a></div>
+        <div className="mb-3"><a className="map-btn shadow text-white" rel="noreferrer" href={store.linkToAppleMaps} target="_blank">Get Directions In Apple Maps</a></div>
       </div>
 
     </div>
