@@ -1,10 +1,11 @@
 import axios from 'axios'
+import { KICKBOX_URL } from '../../../constants/constants'
 
 // Kickbox email verification
-const validateEmail = value => {
+const validateEmail = async value => {
   if(value) {
     let error
-    return axios.get(`https://us-central1-milanlaser-fcb24.cloudfunctions.net/api/kickbox/${value}`) // returns a Promise
+    return axios.get(`${KICKBOX_URL}${value}`) // returns a Promise
     .then(response => {
       if(response.data.result !== 'deliverable') {
         error = 'Undeliverable email entered. Please use another email.'
