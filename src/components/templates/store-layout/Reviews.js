@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import { MILAN_IMG_PATH, MILAN_CORS } from '../../../constants/constants'
+import { MILAN_IMG_PATH, GOOGLE_REVIEWS_API_URL } from '../../../constants/constants'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -25,21 +25,19 @@ function Reviews({store}) {
     arrows: false
   }
 
-  const key = process.env.Screen_Cloud_Api_Key
-  const place_id = store.place_id
-  const TARGET_URL = 'https://maps.googleapis.com/maps/api/place/details/json?place_id='+place_id+'&fields=name,review,formatted_address&key='
-  const URL = MILAN_CORS + TARGET_URL + key
-
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: URL,
+    axios.get(`${GOOGLE_REVIEWS_API_URL}`, {
+      params: {
+        place_id: store.place_id,
+        fields: 'name,review,formatted_address',
+        key: process.env.Screen_Cloud_Api_Key
+      },
       contentType: "application/json",
       dataType: 'json',
     })
     .then(res => setReviews(res.data.result.reviews))
     .catch(err => console.error(err))
-  }, [URL])
+  }, [store.place_id])
 
   return (
     <section className="w-100 py-4 text-white customers-reviews">
