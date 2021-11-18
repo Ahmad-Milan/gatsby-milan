@@ -1,0 +1,141 @@
+:root {
+  --home-hero-bg-sm: url('https://milanlaser.com/gatsby/images/shared/home/home-hero-sm.jpg');
+  --home-hero-bg-lg: url('https://milanlaser.com/gatsby/images/shared/home/home-hero-lg.jpg');
+  --home-hero-bg-xl: url('https://milanlaser.com/gatsby/images/shared/home/home-hero-xl.jpg');
+}
+
+/* h2.subhead-bold, h1.subhead-bold, .show-bold{font-weight: 600 !important; } */
+/* .secondBG {background-image:url(https://milanlaser.com/images/Index_AboutLHR_413.jpg); background-position: left center; }
+.thirdBG {background-image:url(https://milanlaser.com/images/Index_WhyMLHR_413.jpg); background-position: center right; }
+.fourthBG {background-image:url(https://milanlaser.com/images/Index_Credit_1920.jpg); background-position: center; }
+@media (min-width: 576px) {	
+	.secondBG {background-image:url(https://milanlaser.com/images/Index_AboutLHR_767.jpg); background-position: center; }
+	.thirdBG {background-image:url(https://milanlaser.com/images/Index_WhyMLHR_767.jpg); background-position: center right; }
+}
+@media (min-width: 768px) {
+	.secondBG {background-image:url(https://milanlaser.com/images/Index_AboutLHR_1199.jpg); }
+	.thirdBG {background-image:url(https://milanlaser.com/images/Index_WhyMLHR_1119.jpg); background-position: center; }
+}
+@media (min-width: 1200px) {	
+	.secondBG {background-image:url(https://milanlaser.com/images/Index_AboutLHR_1920-1.jpg); }
+	.thirdBG {background-image:url(https://milanlaser.com/images/Index_WhyMLHR_1920.jpg); background-position: right; }
+	.fourthBG {background-image:url(https://milanlaser.com/images/Index_Credit_1920.jpg); }
+} */
+
+#home-hero {
+  background-image: var(--home-hero-bg-lg);
+  max-height: 1000px;
+  min-height: 750px;
+  background-position: center;
+}
+#home-hero #logo {margin-top: 90px; }
+#home-hero #logo img{max-width: 200px; }
+#home-hero .slogan { font-size: 1.5rem; color: var(--main-blue); font-weight: 600; line-height: 3rem; }
+#home-hero .address > div { color: var(--main-blue); }
+#home-hero .card {
+  color: var(--main-navy); background: rgba(255, 255, 255, .7); width: 400px;
+  border: 2px solid var(--main-navy); border-radius: 0 !important; transition: all 150ms ease-in-out;
+}
+#home-hero .card .card-body { padding: .5rem 1rem; }
+#home-hero .card-body > .cta-footer { background: var(--main-navy);transition: all 150ms ease-in-out; }
+#home-hero .card:last-child { border: 2px solid var(--main-blue);	color: var(--main-blue); }
+#home-hero .card:last-child .cta-footer { background: var(--main-blue); }
+#home-hero .card:hover { border-color: var(--main-red); }
+#home-hero .card:hover .cta-footer { background: var(--main-red); }
+#home-hero .top_badge { right: 0px; top: -2px; max-width: 150px;	z-index: 350; }
+#home-hero .top_badge img:hover { opacity: .8 }
+#home-hero .card-body .card-text {
+  font-size: calc(20px + (24 - 20) * ((100vw - 300px) / (1600 - 300)));
+}
+#home-hero .card-body span, #home-hero .card-body > .cta-footer {
+  font-size: calc(12px + (16 - 12) * ((100vw - 300px) / (1600 - 300)));
+}
+
+/******* Home Page Special bar *****/
+.specials-banner {
+  top: -70px;
+  left: 0;
+  text-align: center; 
+  animation: slideDown .4s ease-out 1.3s forwards normal;
+  opacity: 1;
+}
+.specials-banner a { margin-top: 1px; }
+.specials-banner > a > .bar {
+  position: relative;
+  padding: 8px 15px 10px 10px;
+  background: var(--main-red);
+  margin-left: -4px;
+  z-index: 1;
+  display: inline-block;
+  min-width: 300px;
+}
+.specials-banner > a > .bell {
+  position:relative;
+  color:#fff;
+  padding:8px 15px 10px;
+  vertical-align: baseline;
+  background: var(--main-red);
+  z-index: 2;
+  display: inline-block;
+}
+.specials-banner > a > .bell > svg {
+  animation: ring 300ms linear 0s infinite normal forwards;
+}
+@keyframes ring {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+@keyframes slideDown {
+  0%{ top: -70px; }
+  80%{ top: 10px; }
+  100%{ top: 3px; }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  #home-hero .card { width: 350px; }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	#home-hero .specials-banner { text-align: left }
+}
+@media only screen and (max-width: 1600px) {
+  #home-hero .card { width: 380px; }
+}
+@media only screen and (max-width: 991px) {
+  #home-hero .specials-banner > a > .bar {
+    padding: 8px 20px 10px 10px;
+    margin-left: -8px;
+    animation: none;
+  }
+  #home-hero .card { width: 320px; } 
+  #home-hero .slogan {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+  #home-hero .address { font-size: 1rem }
+}
+@media (max-width: 576px) {
+  #home-hero {
+    background-image: var(--home-hero-bg-sm);
+    background-position: top;
+    min-height: 650px;
+  }
+  #home-hero #logo { margin-top: 70px; }
+  #home-hero #logo img { max-width: 170px; }
+  #home-hero .slogan { font-size: 1rem; line-height: 1.4rem; }
+  #home-hero .specials-banner > a { font-size: 14px; }
+  #home-hero .specials-banner > a > .bar { margin-left: 0; padding: 6px 15px; }
+  #home-hero .address > div { font-size: .9rem; line-height: 1.8rem; }
+  #home-hero .address i { display: none; }
+  #home-hero .card { width: 100%; line-height: 1.3rem; }
+}
+@media (max-width: 360px) {
+  #home-hero #logo { margin-top: 63px; }
+  #home-hero #logo img { max-width: 150px; }
+  #home-hero .slogan { font-size: .8rem; }
+}
+@media (min-width: 1600px) {
+  #home-hero {
+    background-image: var(--home-hero-bg-xl);
+    min-height: 850px;
+  }
+}
