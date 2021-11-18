@@ -18,7 +18,6 @@ import ShowAddressOrLink from '../shared/ShowAddressOrLink'
 import { FORM_ACTION_MAIN_LINK } from '../../../constants/constants'
 import './Consult.css'
 
-
 // ******************************************************** //
 // This form works ONLY for websites with MULTIPLE locations
 // ******************************************************** //
