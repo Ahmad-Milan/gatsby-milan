@@ -3,7 +3,7 @@ import Twitter from './Twitter'
 import Facebook from './Facebook'
 import Instagram from './Instagram'
 import { FaFacebookSquare, FaTwitter, FaInstagram } from 'react-icons/fa'
-import { facebook_start } from '../../../constants/constants'
+import { FACEBOOK_URL_START } from '../../../constants/constants'
 
 function SocialMedia({siteData}) {
   return (
@@ -21,7 +21,7 @@ function SocialMedia({siteData}) {
                     !siteData.multiple ?
                     <div className="text-decoration-none bg-white p-3 mb-3 rounded shadow-sm">
                       <a className="d-block main-blue h5 mb-0" 
-                        href={`${facebook_start}${siteData.locations[0].reviews.facebook}`} target="_blank" rel="noreferrer">
+                        href={`${FACEBOOK_URL_START}${siteData.locations[0].platforms.facebook}`} target="_blank" rel="noreferrer">
                       <FaFacebookSquare className="me-1 pb-1 fs-3" /> {siteData.locations[0].location}, {siteData.locations[0].stateShort}</a>
                     </div>
                     :

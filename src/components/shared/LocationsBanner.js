@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import openStoresDisplayed from '../../functions/general/openStoresDisplayed'
 import CountUp from 'react-countup'
 import VisibilitySensor from 'react-visibility-sensor'
@@ -11,12 +12,12 @@ function LocationsBanner() {
       <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
       {({ isVisible }) => (
         <div className="container text-center">
-          <a href="https://milanlaser.com/locations/" target="_blank" rel="noreferrer">
+          <Link to="/locations/">
             <h2 className="text-center text-white subhead-sm text-capitalize">
               {isVisible ? <CountUp className="text-white" end={openStoresNum} duration={2} /> : null}+ Milan Laser Locations
             </h2>
             <img src={`${MILAN_IMG_PATH}shared/other/locations-pin-btn.png`} alt="" />
-          </a>
+          </Link>
         </div>
       )}
       </VisibilitySensor>

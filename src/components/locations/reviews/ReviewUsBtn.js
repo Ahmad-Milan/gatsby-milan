@@ -16,7 +16,7 @@ function ReviewUsBtn({siteData, link, platform}) {
         !siteData.multiple ?
         <div>
           <a className="d-inline-block" 
-            href={`${siteData.locations[0].reviews[platform] !== '' ? link : ''}${siteData.locations[0].reviews[platform]}`}>
+            href={`${siteData.locations[0].platforms[platform] !== '' ? link : ''}${siteData.locations[0].platforms[platform]}`}>
             <img src={`${MILAN_IMG_PATH}shared/other/reviews-${platform}.png`} width="180" height="60" alt={`milan laser ${platform} reviews`} />
           </a>
         </div>
@@ -29,7 +29,7 @@ function ReviewUsBtn({siteData, link, platform}) {
             {
               siteData.locations.map((location, x) => (
                 <Dropdown.Item className="border-bottom" key={x} target="_blanc" rel="noreferrer"
-                  href={`${location.reviews[platform] !== '' ? link : ''}${location.reviews[platform]}`}>
+                  href={`${location.platforms[platform] !== '' ? link : ''}${location.platforms[platform]}`}>
                     {
                       platform === 'google' ?
                       <FaGooglePlusG className="fs-5 me-1" />

@@ -1,11 +1,11 @@
 import React from 'react'
-import { google_reviews_start, yelp_start, facebook_start } from '../../../constants/constants'
+import { GOOGLE_REVIEWS_URL_START, YELP_URL_START, FACEBOOK_URL_START } from '../../../constants/constants'
 import ReviewsBox from './ReviewsBox'
 import ReviewUsBtn from './ReviewUsBtn'
 import TempReviews from './TempReviews'
 
 function ReviewsHero({siteData}) {
-  const stores_with_reviews = siteData.locations.filter(store => store.reviews.reviews_token !== '')
+  const stores_with_reviews = siteData.locations.filter(store => store.platforms.reviews_token !== '')
   return (
     <section id="reviews-section" className="full-section background hero light-blue-bg">
       <div className="container">
@@ -17,9 +17,9 @@ function ReviewsHero({siteData}) {
         </div>
         
         <div className="row mb-4 justify-content-around">
-          <ReviewUsBtn siteData={siteData} link={google_reviews_start} platform="google" />
-          <ReviewUsBtn siteData={siteData} link={yelp_start} platform="yelp" />
-          <ReviewUsBtn siteData={siteData} link={facebook_start} platform="facebook" />
+          <ReviewUsBtn siteData={siteData} link={GOOGLE_REVIEWS_URL_START} platform="google" />
+          <ReviewUsBtn siteData={siteData} link={YELP_URL_START} platform="yelp" />
+          <ReviewUsBtn siteData={siteData} link={FACEBOOK_URL_START} platform="facebook" />
         </div>
       </div>
       {
