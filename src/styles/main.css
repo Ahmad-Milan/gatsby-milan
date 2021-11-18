@@ -47,6 +47,10 @@ h2 {
 }
 .main-blue {
   color: var(--main-blue);
+  transition: all 100ms ease-in-out;
+}
+.main-blue:hover {
+  color: var(--main-navy);
 }
 .red-bg-btn {
   background: var(--main-red);
@@ -142,6 +146,9 @@ button:disabled{
 }
 .mb-n2 {
   margin-bottom: -0.5rem;
+}
+.transparent-bg {
+  background: rgba(255, 255, 255, .7);
 }
 /**************** Modal **************/
 .modal .btn-close {
