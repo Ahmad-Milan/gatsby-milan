@@ -14,7 +14,7 @@ const getStore = (salesforceValue) => {
   let filteredStore = filteredCity.locations.find(location => location.salesforceValue === salesforceValue)
   return {
     city: {
-      cityName: filteredCity.city,
+      cityName: filteredCity.cityName,
       pathname: filteredCity.pathname,
     },
     store: filteredStore
