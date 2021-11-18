@@ -12,3 +12,8 @@ export const FORM_ACTION_LP_LINK = MILAN_CORS+'https://go.milanlaser.com/l/64281
 export const FORM_ACTION_CONTACT_LINK = MILAN_CORS+'https://go.milanlaser.com/l/642813/2018-12-05/h652'
 export const GOOGLE_REVIEWS_API_URL = MILAN_CORS+'https://maps.googleapis.com/maps/api/place/details/json'
 export const KICKBOX_URL = 'https://us-central1-milanlaser-fcb24.cloudfunctions.net/api/kickbox/'
+
+export const HOME_PAGE_COPY = {
+  default: 'Rake in the Savings—Get Up to 50% OFF + 1 FREE treatment!',
+  grandOpening: ['Grand Opening Sale:', 'Up to 50% OFF + 1 FREE treatment!']
+}
