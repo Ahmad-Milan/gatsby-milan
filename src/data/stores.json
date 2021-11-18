@@ -15,6 +15,7 @@
             "address": "3450 W Chandler Blvd",
             "place_id": "ChIJIelTB04HK4cR95v9yd-Nt4A",
             "zipcode": "85226",
+            "phone": "480-624-8185",
             "open": true
           },
           {
@@ -25,6 +26,7 @@
             "address": "7857 W Bell Rd",
             "place_id": "ChIJWUr1PBJpK4cReHumnCcIKH8",
             "zipcode": "85382",
+            "phone": "623-246-7510",
             "open": true
           },
           {
@@ -35,6 +37,7 @@
             "address": "13802 N Scottsdale Rd",
             "place_id": "ChIJRZe-6Pl1K4cRnMfLCtMA7mA",
             "zipcode": "85254",
+            "phone": "480-955-0396",
             "open": true
           },
           {
@@ -45,6 +48,7 @@
             "address": "4408 N Miller Rd",
             "place_id": "",
             "zipcode": "85251",
+            "phone": "",
             "open": false
           }
         ]
@@ -60,6 +64,7 @@
             "stateShort": "AZ",
             "address": "4280 N Oracle Rd",
             "zipcode": "85705",
+            "phone": "",
             "open": true
           }
         ]
@@ -83,6 +88,7 @@
             "address": "8550 Andermatt Dr",
             "place_id": "ChIJPSy8GxNNGIgRKW5Gh_TSrh8",
             "zipcode": "85226",
+            "phone": "402-327-0001",
             "open": true
           },
           {
@@ -93,6 +99,7 @@
             "address": "4701 Champlain Dr",
             "place_id": "",
             "zipcode": "85382",
+            "phone": "",
             "open": false
           }
         ]
@@ -109,6 +116,7 @@
             "address": "225 N 80th St",
             "place_id": "ChIJr_f-gGGKk4cRcwDQZ1D_mmo",
             "zipcode": "85226",
+            "phone": "402-812-5111",
             "open": true
           },
           {
@@ -119,6 +127,7 @@
             "address": "16939 Wright Plaza",
             "place_id": "ChIJ8ccP1Qvxk4cRyN7eIlg0wBM",
             "zipcode": "85382",
+            "phone": "402-991-0789",
             "open": true
           }
         ]
@@ -142,6 +151,7 @@
             "address": "10001 Research Blvd",
             "place_id": "",
             "zipcode": "78759",
+            "phone": "",
             "open": false
           }
         ]
@@ -158,6 +168,7 @@
             "address": "2001 Texas Ave S",
             "place_id": "",
             "zipcode": "77840",
+            "phone": "",
             "open": true
           }
         ]
@@ -174,6 +185,7 @@
             "address": "4818 Waterview Town Center Dr",
             "place_id": "",
             "zipcode": "77406",
+            "phone": "346-388-3611",
             "open": false
           },
           {
@@ -184,6 +196,7 @@
             "address": "525 Sawdust Rd",
             "place_id": "",
             "zipcode": "77380",
+            "phone": "281-801-4004",
             "open": false
           },
           {
@@ -194,6 +207,7 @@
             "address": "1501 Bay Area Blvd",
             "place_id": "",
             "zipcode": "77598",
+            "phone": "281-407-5742",
             "open": true
           },
           {
@@ -204,6 +218,7 @@
             "address": "19211 West Lake Houston Parkway",
             "place_id": "",
             "zipcode": "77346",
+            "phone": "281-713-4875",
             "open": false
           },
           {
@@ -214,6 +229,7 @@
             "address": "5785 San Felipe St",
             "place_id": "",
             "zipcode": "77057",
+            "phone": "",
             "open": false
           },
           {
@@ -224,6 +240,7 @@
             "address": "2750 Smith Ranch Rd",
             "place_id": "",
             "zipcode": "77584",
+            "phone": "713-527-2131",
             "open": false
           },
           {
@@ -234,6 +251,7 @@
             "address": "17445 Spring Cypress Rd",
             "place_id": "",
             "zipcode": "77429",
+            "phone": "832-968-6465",
             "open": false
           }
         ]
