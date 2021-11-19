@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { KICKBOX_URL } from '../../../constants/constants'
+import { KICKBOX_URL } from '../../../utils/constants/constants'
 
 // Kickbox email verification
 const validateEmail = async value => {

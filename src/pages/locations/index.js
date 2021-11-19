@@ -1,5 +1,5 @@
 import React from 'react'
-import stores from '../../data/stores.json'
+import stores from '../../assets/data/stores.json'
 import Layout, {siteData} from '../../components/templates/Layout'
 import MilanLocations from '../../components/locations/milan-locations/MilanLocations'
 

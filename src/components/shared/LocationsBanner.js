@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import openStoresDisplayed from '../../functions/general/openStoresDisplayed'
+import openStoresDisplayed from '../../utils/helpers/general/openStoresDisplayed'
 import CountUp from 'react-countup'
 import VisibilitySensor from 'react-visibility-sensor'
-import { MILAN_IMG_PATH } from '../../constants/constants'
+import { MILAN_IMG_PATH } from '../../utils/constants/constants'
 
 function LocationsBanner() {
   const openStoresNum = openStoresDisplayed()

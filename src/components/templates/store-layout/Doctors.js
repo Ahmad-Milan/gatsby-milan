@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import openStoresDisplayed from '../../../functions/general/openStoresDisplayed'
-import { MILAN_IMG_PATH } from '../../../constants/constants'
+import openStoresDisplayed from '../../../utils/helpers/general/openStoresDisplayed'
+import { MILAN_IMG_PATH } from '../../../utils/constants/constants'
 
 function Doctors() {
   const openStoresNum= openStoresDisplayed()

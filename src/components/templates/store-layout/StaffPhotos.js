@@ -1,5 +1,5 @@
 import React from 'react'
-import { MILAN_IMG_PATH } from '../../../constants/constants'
+import { MILAN_IMG_PATH } from '../../../utils/constants/constants'
 
 function StaffPhotos({store}) {
   const staffPath = `${MILAN_IMG_PATH}shared/staff/`

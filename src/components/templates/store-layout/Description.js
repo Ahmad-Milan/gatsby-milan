@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'gatsby'
-import imageExists from '../../../functions/general/imageExists'
-import { MILAN_PHONE } from '../../../constants/constants'
+import imageExists from '../../../utils/helpers/general/imageExists'
+import { MILAN_PHONE } from '../../../utils/constants/constants'
 
 function Description({store, imgPath, defaultImages}) {
 

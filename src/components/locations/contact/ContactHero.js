@@ -1,6 +1,6 @@
 import React from 'react'
 import MainForm from '../../forms/main/MainForm'
-import { MILAN_PHONE, NO_RAZOR, FORM_ACTION_CONTACT_LINK } from '../../../constants/constants'
+import { MILAN_PHONE, NO_RAZOR, FORM_ACTION_CONTACT_LINK } from '../../../utils/constants/constants'
 
 function ContactHero({siteData}) {
 

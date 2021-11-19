@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import resetMenu from '../../functions/general/resetMenu'
+import resetMenu from '../../utils/helpers/general/resetMenu'
 import Navbar from './navbar/Navbar'
 import useClickOutside from '../../hooks/useClickOutside'
 import { FaPhoneAlt } from 'react-icons/fa'

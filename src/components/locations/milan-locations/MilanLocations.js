@@ -1,12 +1,12 @@
 import React, {useState, useEffect, useRef} from 'react'
-import openStoresDisplayed from '../../../functions/general/openStoresDisplayed'
-import Link from '../../../functions/general/linkTesting'
+import openStoresDisplayed from '../../../utils/helpers/general/openStoresDisplayed'
+import Link from '../../../utils/helpers/general/linkTesting'
 import { Form } from 'react-bootstrap'
 import { usePosition } from '../../../hooks/usePosition'
 import axios from 'axios'
-import { FIND_PLACE_GOOGLE_MAPS_URL } from '../../../constants/constants'
+import { FIND_PLACE_GOOGLE_MAPS_URL } from '../../../utils/constants/constants'
 import LinearProgress from '@mui/material/LinearProgress'
-import trimAll from '../../../functions/general/trimAll'
+import trimAll from '../../../utils/helpers/general/trimAll'
 
 function MilanLocations({siteData, stores}) {
   // Get total number of open stores in all states

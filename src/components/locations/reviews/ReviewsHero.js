@@ -1,5 +1,5 @@
 import React from 'react'
-import { GOOGLE_REVIEWS_URL_START, YELP_URL_START, FACEBOOK_URL_START } from '../../../constants/constants'
+import { GOOGLE_REVIEWS_URL_START, YELP_URL_START, FACEBOOK_URL_START } from '../../../utils/constants/constants'
 import ReviewsBox from './ReviewsBox'
 import ReviewUsBtn from './ReviewUsBtn'
 import TempReviews from './TempReviews'

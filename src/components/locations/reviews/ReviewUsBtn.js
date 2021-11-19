@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dropdown } from 'react-bootstrap'
-import { MILAN_IMG_PATH } from '../../../constants/constants'
+import { MILAN_IMG_PATH } from '../../../utils/constants/constants'
 import { FaYelp, FaFacebookF, FaGooglePlusG } from 'react-icons/fa'
 
 function ReviewUsBtn({siteData, link, platform}) {

@@ -1,4 +1,4 @@
-import stores from '../../data/stores.json'
+import stores from '../../../assets/data/stores.json'
 
 function openStoresTotal() {
   let total = 0

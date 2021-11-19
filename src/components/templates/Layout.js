@@ -2,8 +2,8 @@ import React from "react"
 import Header from "../header/Header"
 import Consult from '../forms/consult/Consult'
 import Footer from "../footer/Footer"
-import getSiteData from "../../functions/general/getSiteData"
-import createMenu from '../../functions/general/createMenu'
+import getSiteData from "../../utils/helpers/general/getSiteData"
+import createMenu from '../../utils/helpers/general/createMenu'
 import "../../styles/main.css"
 
 export const siteData = getSiteData()

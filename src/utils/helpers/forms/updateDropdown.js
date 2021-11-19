@@ -1,6 +1,6 @@
 import getStore from '../general/getStore'
 import updateStoreProps from './updateStoreProps'
-import formData from '../../data/formData.json'
+import formData from '../../../assets/data/formData.json'
 
 function updateDropdown(salesforceValue, formState, siteData) {
 

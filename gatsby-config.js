@@ -21,14 +21,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images/`,
+        path: `${__dirname}/src/assets/images/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
-        path: `${__dirname}/src/data/`,
+        path: `${__dirname}/src/assets/data/`,
       },
     },
     `gatsby-plugin-smoothscroll`,
@@ -42,9 +42,5 @@ module.exports = {
           queries: myCustomQueries,
       },
     },
-  ],
-  siteMetadata: {
-    MILAN_PHONE: `833-667-2967`,
-    NO_RAZOR: `1-833-NO-RAZOR`,
-  },
+  ]
 }

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints'
-import imageExists from '../../../../functions/general/imageExists'
+import imageExists from '../../../../utils/helpers/general/imageExists'
 import HeroDetails from './HeroDetails'
-import { MILAN_IMG_PATH } from '../../../../constants/constants'
+import { MILAN_IMG_PATH } from '../../../../utils/constants/constants'
 
 function TempHero({siteData, store, defaultImages}) {
   const breakpoints = useBreakpoint()

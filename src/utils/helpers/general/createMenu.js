@@ -1,5 +1,5 @@
-import MenuList from '../../data/menuList.json'
-import { FACEBOOK_URL_START } from '../../constants/constants'
+import MenuList from '../../../assets/data/menuList.json'
+import { FACEBOOK_URL_START } from '../../../utils/constants/constants'
 import trimAll from './trimAll'
 
 // Pass in the generated siteData & city objects and create a menu list for the curretn city to be used in the navbar

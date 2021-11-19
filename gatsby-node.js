@@ -1,5 +1,5 @@
 exports.createPages = ({ actions: { createPage } }) => {
-  const siteData = require("./src/data/siteData.json")
+  const siteData = require("./src/assets/data/siteData.json")
   const trimAll = str => str.trim().toLowerCase().replace(/\s+/g, '')
   // Create a page for city
   createPage({

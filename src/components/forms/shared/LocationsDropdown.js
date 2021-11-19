@@ -1,5 +1,5 @@
 import React from 'react'
-import stores from '../../../data/stores.json'
+import stores from '../../../assets/data/stores.json'
 
 function LocationsDropdown() {
   return (

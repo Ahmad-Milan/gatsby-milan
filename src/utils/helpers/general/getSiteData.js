@@ -1,5 +1,5 @@
-import stores from '../../data/stores.json'
-import siteData from '../../data/siteData.json'
+import stores from '../../../assets/data/stores.json'
+import siteData from '../../../assets/data/siteData.json'
 import combineLocationsProps from './combineLocationsProps'
 
 // To be called in the Layout Comp

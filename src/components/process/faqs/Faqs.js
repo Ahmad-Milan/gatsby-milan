@@ -4,8 +4,8 @@ import { Link } from 'gatsby'
 import { useAccordionButton } from 'react-bootstrap/AccordionButton'
 import AccordionContext from 'react-bootstrap/AccordionContext'
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa'
-import openStoresDisplayed from '../../../functions/general/openStoresDisplayed'
-import { MILAN_IMG_PATH} from '../../../constants/constants'
+import openStoresDisplayed from '../../../utils/helpers/general/openStoresDisplayed'
+import { MILAN_IMG_PATH} from '../../../utils/constants/constants'
 
 function ContextAwareToggle({ children, eventKey, callback }) {
   const { activeEventKey } = useContext(AccordionContext);

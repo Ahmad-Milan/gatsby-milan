@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { MILAN_IMG_PATH } from '../../constants/constants'
+import { MILAN_IMG_PATH } from '../../utils/constants/constants'
 
 function MilanCredit({setShowSignUpModal}) {
   return (

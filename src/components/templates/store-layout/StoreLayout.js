@@ -7,7 +7,7 @@ import LocationsBanner from '../../shared/LocationsBanner'
 import Description from './Description'
 import InteriorPhotos from './InteriorPhotos'
 import StaffPhotos from './StaffPhotos'
-import { MILAN_IMG_PATH } from '../../../constants/constants'
+import { MILAN_IMG_PATH } from '../../../utils/constants/constants'
 import Doctors from './Doctors'
 
 const sharedPath = `${MILAN_IMG_PATH}shared/store_temp/`

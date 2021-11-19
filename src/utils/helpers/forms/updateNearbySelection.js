@@ -1,6 +1,6 @@
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import updateStoreProps from './updateStoreProps'
-import formData from '../../data/formData.json'
+import formData from '../../../assets/data/formData.json'
 
 function updateNearbySelection(store, formState, siteData) {
   const updatedFormState = { ...formState } // Shallow clone of formState

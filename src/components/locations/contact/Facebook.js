@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaFacebookSquare } from 'react-icons/fa'
-import { FACEBOOK_URL_START } from '../../../constants/constants'
+import { FACEBOOK_URL_START } from '../../../utils/constants/constants'
 
 function Facebook({location}) {
   return (

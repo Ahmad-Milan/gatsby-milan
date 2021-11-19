@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Modal from 'react-bootstrap/Modal'
 import MainForm from '../forms/main/MainForm'
 import {siteData} from '../templates/Layout'
-import { FORM_ACTION_LP_LINK } from '../../constants/constants'
+import { FORM_ACTION_LP_LINK } from '../../utils/constants/constants'
 
 // Milan Landing Page Pop Up Modal
 function LpModal() {

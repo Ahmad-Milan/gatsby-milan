@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import { MILAN_PHONE, MILAN_IMG_PATH } from '../../../constants/constants'
+import { MILAN_PHONE, MILAN_IMG_PATH } from '../../../utils/constants/constants'
 
 function Nearby({siteData, store}) {
 

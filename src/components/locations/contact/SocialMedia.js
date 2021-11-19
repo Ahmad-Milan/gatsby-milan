@@ -3,7 +3,7 @@ import Twitter from './Twitter'
 import Facebook from './Facebook'
 import Instagram from './Instagram'
 import { FaFacebookSquare, FaTwitter, FaInstagram } from 'react-icons/fa'
-import { FACEBOOK_URL_START } from '../../../constants/constants'
+import { FACEBOOK_URL_START } from '../../../utils/constants/constants'
 
 function SocialMedia({siteData}) {
   return (

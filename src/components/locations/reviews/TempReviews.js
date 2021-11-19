@@ -1,5 +1,5 @@
 import React from 'react'
-import { MILAN_IMG_PATH } from '../../../constants/constants'
+import { MILAN_IMG_PATH } from '../../../utils/constants/constants'
 
 function TempReviews() {
   const stars = `${MILAN_IMG_PATH}shared/other/stars.png`

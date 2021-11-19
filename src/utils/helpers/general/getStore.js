@@ -1,4 +1,4 @@
-import stores from '../../data/stores.json'
+import stores from '../../../assets/data/stores.json'
 
 // To be called in Single.js & NotOpen.js & updateDropDown.js
 // Accepts the salesforce value as a param

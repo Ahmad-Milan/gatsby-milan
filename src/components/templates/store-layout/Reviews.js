@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import { MILAN_IMG_PATH, GOOGLE_REVIEWS_API_URL } from '../../../constants/constants'
+import { MILAN_IMG_PATH, GOOGLE_REVIEWS_API_URL } from '../../../utils/constants/constants'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"

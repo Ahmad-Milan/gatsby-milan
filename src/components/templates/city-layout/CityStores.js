@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { FaPhone } from 'react-icons/fa'
-import { MILAN_PHONE } from '../../../constants/constants'
+import { MILAN_PHONE } from '../../../utils/constants/constants'
 import { ToWords } from 'to-words';
 
 function CityStores({siteData}) {

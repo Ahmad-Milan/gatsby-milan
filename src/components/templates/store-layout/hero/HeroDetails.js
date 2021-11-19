@@ -1,5 +1,5 @@
 import React from 'react'
-import { MILAN_PHONE } from '../../../../constants/constants'
+import { MILAN_PHONE } from '../../../../utils/constants/constants'
 import { FaPhone } from 'react-icons/fa'
 
 function HeroDetails({siteData, store}) {
