@@ -28,8 +28,7 @@
   min-height: 750px;
   background-position: center;
 }
-#home-hero #logo {margin-top: 90px; }
-#home-hero #logo img{max-width: 200px; }
+#home-hero #logo {margin-top: 90px; max-width: 200px; }
 #home-hero .slogan { font-size: 1.5rem; color: var(--main-blue); font-weight: 600; line-height: 3rem; }
 #home-hero .address > div { color: var(--main-blue); }
 #home-hero .card {
@@ -119,8 +118,7 @@
     background-position: top;
     min-height: 650px;
   }
-  #home-hero #logo { margin-top: 70px; }
-  #home-hero #logo img { max-width: 170px; }
+  #home-hero #logo { margin-top: 70px; max-width: 170px; }
   #home-hero .slogan { font-size: 1rem; line-height: 1.4rem; }
   #home-hero .specials-banner > a { font-size: 14px; }
   #home-hero .specials-banner > a > .bar { margin-left: 0; padding: 6px 15px; }
@@ -129,8 +127,7 @@
   #home-hero .card { width: 100%; line-height: 1.3rem; }
 }
 @media (max-width: 360px) {
-  #home-hero #logo { margin-top: 63px; }
-  #home-hero #logo img { max-width: 150px; }
+  #home-hero #logo { margin-top: 63px; max-width: 150px; }
   #home-hero .slogan { font-size: .8rem; }
 }
 @media (min-width: 1600px) {
