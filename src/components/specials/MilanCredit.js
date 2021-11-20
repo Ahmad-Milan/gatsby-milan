@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { MILAN_IMG_PATH } from '../../utils/constants/constants'
 import { StaticImage } from "gatsby-plugin-image"
 
 function MilanCredit({setShowSignUpModal}) {
