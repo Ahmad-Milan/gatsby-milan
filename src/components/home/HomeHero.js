@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { MILAN_IMG_PATH, HOME_PAGE_COPY } from '../../constants/constants'
+import { HOME_PAGE_COPY } from '../../utils/constants/constants'
+import { StaticImage } from "gatsby-plugin-image"
 import { FaBell } from 'react-icons/fa'
-import useMonth from '../../hooks/useMonth'
+import TopBadge from './TopBadge'
 import './styles.css'
 
+
 function HomeHero({siteData}) {
+
   return (
     <section id="home-hero" className="background position-relative hero overflow-hidden w-100 h-auto">
       <div className="container position-relative overflow-hidden">
@@ -21,15 +24,14 @@ function HomeHero({siteData}) {
             </span>
           </Link>
         </div>
-        <div className="top_badge position-absolute d-none d-md-block">
-          <a href="specials/" className="w-100">
-            <img alt="Milan Exclusive" className="w-100" src={`${MILAN_IMG_PATH}shared/home/badges/${useMonth()}_free_session_badge.png`} />
-          </a>
-        </div>
+        <TopBadge siteData={siteData} />
         
         <div className="col-lg-10 px-0 px-lg-4 pb-md-5 m-auto">
-          <div id="logo" className="mb-3 mb-sm-5 text-center">
-            <img src={`${MILAN_IMG_PATH}shared/other/Milan-Logo-Blue.png`} alt="Milan Laser Hair Removal Logo"/>
+          <div id="logo" className="mb-3 mb-sm-5 text-center mx-auto" style={{maxHeight: '100px'}}>
+            <StaticImage 
+              src="https://milanlaser.com/gatsby/images/shared/other/Milan-Logo-Blue.png"
+              objectFit="contain"
+              alt="Milan Laser Hair Removal Logo"/>
           </div>
           
           <div className="row flex-column mx-0 pb-sm-5 text-center">
@@ -94,3 +96,4 @@ function HomeHero({siteData}) {
 }
 
 export default HomeHero
+
