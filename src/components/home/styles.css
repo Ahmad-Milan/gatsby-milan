@@ -42,7 +42,7 @@
 #home-hero .card:last-child .cta-footer { background: var(--main-blue); }
 #home-hero .card:hover { border-color: var(--main-red); }
 #home-hero .card:hover .cta-footer { background: var(--main-red); }
-#home-hero .top_badge { right: 0px; top: -2px; max-width: 150px;	z-index: 350; }
+#home-hero .top_badge { right: 0px; top: 0; z-index: 350; }
 #home-hero .top_badge img:hover { opacity: .8 }
 #home-hero .card-body .card-text {
   font-size: calc(20px + (24 - 20) * ((100vw - 300px) / (1600 - 300)));
