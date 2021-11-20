@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { MILAN_IMG_PATH } from '../../utils/constants/constants'
+import { StaticImage } from "gatsby-plugin-image"
 
 function MilanCredit({setShowSignUpModal}) {
   return (
@@ -9,7 +10,7 @@ function MilanCredit({setShowSignUpModal}) {
         <h2 className="mb-3 text-center subhead-sm">The cost of laser hair removal won’t break the bank!</h2>
         <div className="row mt-4">
           <div className="col-lg-6 text-center">
-            <img src={`${MILAN_IMG_PATH}shared/other/milan_credit_460x336.png`} alt="Milan Credit" style={{width: '90%', maxWidth: '460px'}} />
+            <StaticImage src="https://milanlaser.com/gatsby/images/shared/other/milan_credit_460x336.png" alt="Milan Credit"  />
           </div>
 
           <div className="col-lg-6 mt-4 mt-lg-0">
