@@ -3,6 +3,12 @@
   "pathname": "phoenix",
   "stateShort": "AZ",
   "grandOpening": true,
+  "award_badge": [
+    {
+      "imgPath": "https://milanlaserdenver.com/images/Expertise_Denver.png",
+      "linksTo": "https://www.expertise.com/co/denver/laser-hair-removal?template=classic-v10#MilanLaserHairRemovalEnglewood"
+    }
+  ],
   "locations": [
     {
       "location": "Chandler",
